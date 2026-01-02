@@ -123,33 +123,33 @@ async function connectAppleHealth(): Promise<boolean> {
 
   try {
     // Define the permissions we need to read and write
-    const readPermissions = [
-      'HKQuantityTypeIdentifierStepCount',
-      'HKQuantityTypeIdentifierDistanceWalkingRunning',
-      'HKQuantityTypeIdentifierActiveEnergyBurned',
-      'HKQuantityTypeIdentifierHeartRate',
-      'HKQuantityTypeIdentifierBodyMass',
-      'HKQuantityTypeIdentifierHeight',
-      'HKCategoryTypeIdentifierSleepAnalysis',
-    ];
-
-    const writePermissions = [
-      'HKQuantityTypeIdentifierBodyMass',
-    ];
+    // Using the correct API format: { toRead: [...], toShare: [...] }
+    const permissions = {
+      toRead: [
+        'HKQuantityTypeIdentifierStepCount',
+        'HKQuantityTypeIdentifierDistanceWalkingRunning',
+        'HKQuantityTypeIdentifierActiveEnergyBurned',
+        'HKQuantityTypeIdentifierHeartRate',
+        'HKQuantityTypeIdentifierBodyMass',
+        'HKQuantityTypeIdentifierHeight',
+        'HKCategoryTypeIdentifierSleepAnalysis',
+      ],
+      toShare: [
+        'HKQuantityTypeIdentifierBodyMass',
+      ],
+    };
 
     console.log('Requesting HealthKit authorization...');
 
-    // Request authorization using the new library
-    const authorized = await HealthKit.requestAuthorization(readPermissions, writePermissions);
+    // Request authorization using the new library API
+    await HealthKit.requestAuthorization(permissions);
 
-    console.log('HealthKit authorization result:', authorized);
+    console.log('HealthKit authorization completed');
 
-    if (authorized) {
-      await AsyncStorage.setItem(HEALTH_CONNECT_STATUS_KEY, 'connected');
-      return true;
-    }
-
-    return false;
+    // If we get here without error, authorization was shown to user
+    // Note: iOS doesn't tell us if user actually granted permissions
+    await AsyncStorage.setItem(HEALTH_CONNECT_STATUS_KEY, 'connected');
+    return true;
   } catch (error) {
     console.warn('HealthKit authorization error:', error);
     return false;
@@ -273,15 +273,19 @@ async function getAppleHealthData(): Promise<HealthData> {
 // Apple HealthKit helper functions using @kingstinct/react-native-healthkit
 async function getAppleSteps(startDate: Date, endDate: Date): Promise<number | null> {
   try {
+    // API: queryStatisticsForQuantity(identifier, statistics[], options?)
+    // options: { filter?: { date: { startDate, endDate } }, unit?: string }
     const stats = await HealthKit.queryStatisticsForQuantity(
       'HKQuantityTypeIdentifierStepCount',
+      ['cumulativeSum'],
       {
-        from: startDate,
-        to: endDate,
-      },
-      {
-        mostRecentQuantityDateInterval: undefined,
-        statisticsOptions: ['cumulativeSum'],
+        filter: {
+          date: {
+            startDate: startDate,
+            endDate: endDate
+          }
+        },
+        unit: 'count'
       }
     );
 
@@ -299,18 +303,20 @@ async function getAppleDistance(startDate: Date, endDate: Date): Promise<number 
   try {
     const stats = await HealthKit.queryStatisticsForQuantity(
       'HKQuantityTypeIdentifierDistanceWalkingRunning',
+      ['cumulativeSum'],
       {
-        from: startDate,
-        to: endDate,
-      },
-      {
-        mostRecentQuantityDateInterval: undefined,
-        statisticsOptions: ['cumulativeSum'],
+        filter: {
+          date: {
+            startDate: startDate,
+            endDate: endDate
+          }
+        },
+        unit: 'm'  // meters
       }
     );
 
     if (stats?.sumQuantity?.quantity) {
-      // Already in meters
+      // Distance is in meters
       return Math.round(stats.sumQuantity.quantity);
     }
     return null;
@@ -324,13 +330,15 @@ async function getAppleCalories(startDate: Date, endDate: Date): Promise<number 
   try {
     const stats = await HealthKit.queryStatisticsForQuantity(
       'HKQuantityTypeIdentifierActiveEnergyBurned',
+      ['cumulativeSum'],
       {
-        from: startDate,
-        to: endDate,
-      },
-      {
-        mostRecentQuantityDateInterval: undefined,
-        statisticsOptions: ['cumulativeSum'],
+        filter: {
+          date: {
+            startDate: startDate,
+            endDate: endDate
+          }
+        },
+        unit: 'kcal'
       }
     );
 
@@ -346,11 +354,18 @@ async function getAppleCalories(startDate: Date, endDate: Date): Promise<number 
 
 async function getAppleSleep(startDate: Date, endDate: Date): Promise<number | null> {
   try {
+    // API: queryCategorySamples(identifier, options)
+    // options requires: { limit: number, filter?: { date: { startDate, endDate } } }
     const samples = await HealthKit.queryCategorySamples(
       'HKCategoryTypeIdentifierSleepAnalysis',
       {
-        from: startDate,
-        to: endDate,
+        limit: -1,  // Get all samples
+        filter: {
+          date: {
+            startDate: startDate,
+            endDate: endDate
+          }
+        }
       }
     );
 
@@ -359,8 +374,9 @@ async function getAppleSleep(startDate: Date, endDate: Date): Promise<number | n
     // Calculate total sleep time in hours
     let totalMinutes = 0;
     samples.forEach((sample: any) => {
-      // Filter for actual sleep (not just in bed)
-      if (sample.value === 1 || sample.value === 'asleep') {
+      // Filter for actual sleep (asleepCore, asleepDeep, asleepREM, or legacy asleep)
+      const sleepValues = ['asleepCore', 'asleepDeep', 'asleepREM', 'asleep', 1, 2, 3, 4];
+      if (sleepValues.includes(sample.value)) {
         const start = new Date(sample.startDate);
         const end = new Date(sample.endDate);
         totalMinutes += (end.getTime() - start.getTime()) / (1000 * 60);
@@ -378,13 +394,15 @@ async function getAppleHeartRate(startDate: Date, endDate: Date): Promise<number
   try {
     const stats = await HealthKit.queryStatisticsForQuantity(
       'HKQuantityTypeIdentifierHeartRate',
+      ['discreteAverage'],
       {
-        from: startDate,
-        to: endDate,
-      },
-      {
-        mostRecentQuantityDateInterval: undefined,
-        statisticsOptions: ['discreteAverage'],
+        filter: {
+          date: {
+            startDate: startDate,
+            endDate: endDate
+          }
+        },
+        unit: 'count/min'  // beats per minute
       }
     );
 
@@ -400,11 +418,13 @@ async function getAppleHeartRate(startDate: Date, endDate: Date): Promise<number
 
 async function getAppleWeight(): Promise<number | null> {
   try {
-    // Get most recent weight sample
-    const sample = await HealthKit.getMostRecentQuantitySample('HKQuantityTypeIdentifierBodyMass');
+    // API: getMostRecentQuantitySample(identifier, unit?)
+    const sample = await HealthKit.getMostRecentQuantitySample(
+      'HKQuantityTypeIdentifierBodyMass',
+      'kg'
+    );
 
     if (sample?.quantity) {
-      // Weight is in kg
       return Math.round(sample.quantity * 10) / 10;
     }
     return null;
