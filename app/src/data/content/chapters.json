@@ -1,0 +1,113 @@
+{
+  "phases": [
+    {
+      "id": "phase_1",
+      "number": 1,
+      "title": "Foundation",
+      "subtitle": "Building Your Wellness Base",
+      "description": "In this phase, you'll establish the core habits and mindset for your wellness journey.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_1",
+          "phaseId": "phase_1",
+          "number": 1,
+          "title": "Awakening Your Wellness Path",
+          "subtitle": "Setting intentions and establishing daily rhythms",
+          "description": "Discover your 'why' and create a foundation for lasting change.",
+          "daysRange": { "start": 1, "end": 5 },
+          "color": "#0ABAB5",
+          "icon": "sunny",
+          "quizId": "quiz_chapter_1"
+        },
+        {
+          "id": "chapter_2",
+          "phaseId": "phase_1",
+          "number": 2,
+          "title": "Nourishment Fundamentals",
+          "subtitle": "Understanding food as fuel and healing",
+          "description": "Learn the basics of nutrition and how to nourish your body properly.",
+          "daysRange": { "start": 6, "end": 10 },
+          "color": "#2ECC71",
+          "icon": "leaf",
+          "quizId": "quiz_chapter_2"
+        },
+        {
+          "id": "chapter_3",
+          "phaseId": "phase_1",
+          "number": 3,
+          "title": "Mindful Eating Rituals",
+          "subtitle": "How we eat matters as much as what we eat",
+          "description": "Transform your relationship with food through mindful eating practices.",
+          "daysRange": { "start": 11, "end": 15 },
+          "color": "#3498DB",
+          "icon": "restaurant",
+          "quizId": "quiz_chapter_3"
+        },
+        {
+          "id": "chapter_4",
+          "phaseId": "phase_1",
+          "number": 4,
+          "title": "Meal Architecture",
+          "subtitle": "Building balanced meals throughout the day",
+          "description": "Create a sustainable meal structure that supports your wellness goals.",
+          "daysRange": { "start": 16, "end": 20 },
+          "color": "#9B59B6",
+          "icon": "grid",
+          "quizId": "quiz_chapter_4"
+        },
+        {
+          "id": "chapter_5",
+          "phaseId": "phase_1",
+          "number": 5,
+          "title": "Gentle Movement Foundations",
+          "subtitle": "Movement as self-care, not punishment",
+          "description": "Embrace joyful movement that nurtures your body and spirit.",
+          "daysRange": { "start": 21, "end": 25 },
+          "color": "#E67E22",
+          "icon": "walk",
+          "quizId": "quiz_chapter_5"
+        },
+        {
+          "id": "chapter_6",
+          "phaseId": "phase_1",
+          "number": 6,
+          "title": "Mindset & Self-Compassion",
+          "subtitle": "The inner work that sustains the outer changes",
+          "description": "Cultivate a mindset that supports lifelong wellness.",
+          "daysRange": { "start": 26, "end": 30 },
+          "color": "#E74C3C",
+          "icon": "heart",
+          "quizId": "quiz_chapter_6"
+        }
+      ]
+    },
+    {
+      "id": "phase_2",
+      "number": 2,
+      "title": "Momentum",
+      "subtitle": "Deepening Your Practice",
+      "description": "Build on your foundation with advanced strategies and deeper insights.",
+      "durationDays": 60,
+      "chapters": []
+    },
+    {
+      "id": "phase_3",
+      "number": 3,
+      "title": "Mastery",
+      "subtitle": "Becoming Your Own Guide",
+      "description": "Develop mastery and create your personal wellness protocol.",
+      "durationDays": 90,
+      "chapters": []
+    },
+    {
+      "id": "phase_4",
+      "number": 4,
+      "title": "Evolution",
+      "subtitle": "Lifelong Wellness Integration",
+      "description": "Integrate wellness as a permanent lifestyle and inspire others.",
+      "durationDays": 180,
+      "chapters": []
+    }
+  ]
+}

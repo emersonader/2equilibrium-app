@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Equilibrium - Content Review</title>
+    <style>
+        :root {
+            --orange: #E67E22;
+            --tiffany: #0ABAB5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --bg-primary: #fff;
+            --bg-secondary: #f8f9fa;
+            --border: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 300px;
+            background: var(--bg-primary);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .sidebar h1 {
+            color: var(--orange);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h2 {
+            color: var(--tiffany);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 0 10px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .nav-chapter {
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 8px 0;
+            cursor: pointer;
+        }
+
+        .nav-chapter:hover {
+            color: var(--orange);
+        }
+
+        .nav-lessons {
+            padding-left: 15px;
+        }
+
+        .nav-lesson {
+            display: block;
+            padding: 4px 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-lesson:hover {
+            color: var(--orange);
+        }
+
+        .nav-quiz {
+            display: block;
+            padding: 6px 0;
+            color: var(--tiffany);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-quiz:hover {
+            color: var(--orange);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .chapter-section {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .chapter-header {
+            border-bottom: 2px solid var(--tiffany);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .chapter-title {
+            color: var(--tiffany);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .chapter-subtitle {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .chapter-description {
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        .lesson-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--orange);
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-badge {
+            background: var(--orange);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .lesson-title {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+        }
+
+        .lesson-intro {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-section h4 {
+            color: var(--tiffany);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .main-content-text {
+            white-space: pre-line;
+            line-height: 1.8;
+        }
+
+        .takeaways-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .takeaways-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+
+        .takeaways-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--tiffany);
+            font-weight: bold;
+        }
+
+        .action-box {
+            background: linear-gradient(135deg, #fff5eb 0%, #fff 100%);
+            border: 1px solid var(--orange);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .action-box h4 {
+            color: var(--orange);
+        }
+
+        .journal-section {
+            background: #f0fafa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .journal-section h4 {
+            color: var(--tiffany);
+        }
+
+        .prompt {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .prompt-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .movement-section {
+            background: #fff5eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .affirmation-box {
+            background: linear-gradient(135deg, #e8f8f8 0%, #fff 100%);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin: 15px 0;
+        }
+
+        .tip-box {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid var(--tiffany);
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 2px solid var(--tiffany);
+        }
+
+        .quiz-header {
+            border-bottom: 2px solid var(--tiffany);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-title {
+            color: var(--tiffany);
+            font-size: 1.5rem;
+        }
+
+        .question-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .question-number {
+            background: var(--tiffany);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .question-type {
+            background: #e0e0e0;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            padding: 8px 12px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .options-list li.correct {
+            background: #e8f8e8;
+            border-color: #4caf50;
+        }
+
+        .correct-badge {
+            background: #4caf50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: 10px;
+        }
+
+        .explanation-box {
+            background: #fff9e6;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .explanation-box strong {
+            color: var(--orange);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--orange);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            background: #d35400;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h1>2Equilibrium</h1>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">Content Review</p>
+
+            <h2>Phase 1: Foundation</h2>
+
+            <div class="nav-section">
+                <div class="nav-chapter">Chapter 1: Awakening Your Wellness Path</div>
+                <div class="nav-lessons">
+                    <a href="#lesson-1" class="nav-lesson">Day 1: Setting Your Wellness Intention</a>
+                    <a href="#lesson-2" class="nav-lesson">Day 2: The Hydration Ritual</a>
+                    <a href="#lesson-3" class="nav-lesson">Day 3: Understanding Your Body's Signals</a>
+                    <a href="#lesson-4" class="nav-lesson">Day 4: Creating Your Sanctuary</a>
+                    <a href="#lesson-5" class="nav-lesson">Day 5: Your Support Circle</a>
+                    <a href="#quiz-1" class="nav-quiz">Quiz: Chapter 1</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-chapter">Chapter 2: Nourishment Fundamentals</div>
+                <div class="nav-lessons">
+                    <a href="#lesson-6" class="nav-lesson">Day 6: The 70/30 Harmony</a>
+                    <a href="#lesson-7" class="nav-lesson">Day 7: Fiber: Your Digestive Ally</a>
+                    <a href="#lesson-8" class="nav-lesson">Day 8: The Power of Protein</a>
+                    <a href="#lesson-9" class="nav-lesson">Day 9: Carbohydrates Decoded</a>
+                    <a href="#lesson-10" class="nav-lesson">Day 10: Understanding Fats</a>
+                    <a href="#quiz-2" class="nav-quiz">Quiz: Chapter 2</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-chapter">Chapter 3: Mindful Eating Rituals</div>
+                <div class="nav-lessons">
+                    <a href="#lesson-11" class="nav-lesson">Day 11: The Art of Chewing</a>
+                    <a href="#lesson-12" class="nav-lesson">Day 12: Portion Awareness</a>
+                    <a href="#lesson-13" class="nav-lesson">Day 13: Calorie Density Wisdom</a>
+                    <a href="#lesson-14" class="nav-lesson">Day 14: Empty vs. Nutrient-Rich</a>
+                    <a href="#lesson-15" class="nav-lesson">Day 15: Your Eating Environment</a>
+                    <a href="#quiz-3" class="nav-quiz">Quiz: Chapter 3</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-chapter">Chapter 4: Meal Architecture</div>
+                <div class="nav-lessons">
+                    <a href="#lesson-16" class="nav-lesson">Day 16: Morning Nourishment</a>
+                    <a href="#lesson-17" class="nav-lesson">Day 17: Midday Fuel</a>
+                    <a href="#lesson-18" class="nav-lesson">Day 18: Evening Restoration</a>
+                    <a href="#lesson-19" class="nav-lesson">Day 19: Beverage Wisdom</a>
+                    <a href="#lesson-20" class="nav-lesson">Day 20: Replacement Strategies</a>
+                    <a href="#quiz-4" class="nav-quiz">Quiz: Chapter 4</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-chapter">Chapter 5: Gentle Movement Foundations</div>
+                <div class="nav-lessons">
+                    <a href="#lesson-21" class="nav-lesson">Day 21: The Joy of Walking</a>
+                    <a href="#lesson-22" class="nav-lesson">Day 22: Post-Meal Movement</a>
+                    <a href="#lesson-23" class="nav-lesson">Day 23: Building Your Practice</a>
+                    <a href="#lesson-24" class="nav-lesson">Day 24: Movement Variety</a>
+                    <a href="#lesson-25" class="nav-lesson">Day 25: Body Flow Basics</a>
+                    <a href="#quiz-5" class="nav-quiz">Quiz: Chapter 5</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-chapter">Chapter 6: Mindset & Self-Compassion</div>
+                <div class="nav-lessons">
+                    <a href="#lesson-26" class="nav-lesson">Day 26: The Language of Change</a>
+                    <a href="#lesson-27" class="nav-lesson">Day 27: Discipline as Self-Love</a>
+                    <a href="#lesson-28" class="nav-lesson">Day 28: Releasing Excuses</a>
+                    <a href="#lesson-29" class="nav-lesson">Day 29: Befriending Your Inner Critic</a>
+                    <a href="#lesson-30" class="nav-lesson">Day 30: Your Wellness Declaration</a>
+                    <a href="#quiz-6" class="nav-quiz">Quiz: Chapter 6</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div id="top" style="text-align: center; margin-bottom: 40px;">
+                <h1 style="color: var(--orange); font-size: 2.5rem;">2Equilibrium</h1>
+                <h2 style="color: var(--tiffany); font-weight: normal;">Holistic Wellness Journey</h2>
+                <p style="color: var(--text-secondary); margin-top: 10px;">Phase 1: Foundation - 30 Day Program</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">By Graziella Cialone de Souza</p>
+            </div>
+
+            <!-- CHAPTER 1 -->
+            <section class="chapter-section" id="chapter-1">
+                <div class="chapter-header">
+                    <h2 class="chapter-title">Chapter 1: Awakening Your Wellness Path</h2>
+                    <p class="chapter-subtitle">Setting intentions and establishing daily rhythms</p>
+                    <p class="chapter-description">Discover your 'why' and create a foundation for lasting change. Days 1-5.</p>
+                </div>
+
+                <!-- Day 1 -->
+                <div class="lesson-card" id="lesson-1">
+                    <div class="lesson-header">
+                        <span class="day-badge">Day 1</span>
+                        <h3 class="lesson-title">Setting Your Wellness Intention</h3>
+                    </div>
+
+                    <div class="lesson-intro">
+                        Welcome to Day 1 of your wellness journey. Today marks the beginning of a beautiful transformation that starts from within.
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Main Content</h4>
+                        <div class="main-content-text">Your wellness journey begins with understanding your 'why.' This isn't about quick fixes or temporary changes—it's about creating a life filled with energy, balance, and joy.
+
+<strong>The Power of Intention</strong>
+
+An intention is more than a goal. While goals are external targets, intentions are internal commitments. When you set a wellness intention, you're declaring how you want to feel and who you want to become.
+
+<strong>Why Your 'Why' Matters</strong>
+
+Research shows that people who connect their health goals to deeper values—like being present for their children, having energy for their passions, or feeling confident in their bodies—are significantly more likely to maintain lasting change.
+
+Your 'why' becomes your anchor when challenges arise. It transforms 'I have to' into 'I choose to.'</div>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Key Takeaways</h4>
+                        <ul class="takeaways-list">
+                            <li>Intentions are internal commitments, not just external goals</li>
+                            <li>Connecting to your deeper 'why' increases lasting success</li>
+                            <li>Your wellness journey is unique to you</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-box">
+                        <h4>Today's Action</h4>
+                        <p>Take 10 minutes today to write down your wellness intention. Include both what you want to achieve and, more importantly, how you want to feel. Post it somewhere you'll see daily.</p>
+                    </div>
+
+                    <div class="journal-section">
+                        <h4>Journal Prompts</h4>
+                        <div class="prompt">
+                            <p class="prompt-label">Today's Reflection</p>
+                            <p>What brings you to this wellness journey? What impact will reaching your goals have on your life and loved ones?</p>
+                        </div>
+                        <div class="prompt">
+                            <p class="prompt-label">Deeper Reflection</p>
+                            <p>Imagine yourself six months from now, having achieved your wellness goals. How do you feel? What does your daily life look like?</p>
+                        </div>
+                        <div class="prompt">
+                            <p class="prompt-label">Gratitude</p>
+                            <p>What aspect of your body or health are you grateful for right now, exactly as it is?</p>
+                        </div>
+                    </div>
+
+                    <div class="movement-section">
+                        <h4>Movement Suggestion</h4>
+                        <p><strong>Basic:</strong> Take a gentle 10-minute walk today, focusing on your breathing and surroundings.</p>
+                        <p><strong>Personalized:</strong> Begin with a 5-minute gentle stretch, followed by a peaceful walk. Notice how your body feels with each step.</p>
+                    </div>
+
+                    <div class="affirmation-box">
+                        "I am worthy of taking care of myself and creating a life filled with wellness and joy."
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Nourishment Tip</h4>
+                        <p>Start your day with a glass of water before anything else. Your body has been fasting all night and needs hydration.</p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="lesson-card" id="lesson-2">
+                    <div class="lesson-header">
+                        <span class="day-badge">Day 2</span>
+                        <h3 class="lesson-title">The Hydration Ritual</h3>
+                    </div>
+
+                    <div class="lesson-intro">
+                        Water is the foundation of wellness. Today, we explore how proper hydration transforms every aspect of your health.
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Main Content</h4>
+                        <div class="main-content-text"><strong>Why Water Matters</strong>
+
+Your body is approximately 60% water. Every cell, tissue, and organ depends on adequate hydration to function optimally.
+
+<strong>Benefits of Proper Hydration</strong>
+
+- <strong>Metabolism Support</strong>: Water helps your body convert food into energy efficiently
+- <strong>Appetite Regulation</strong>: Often, what feels like hunger is actually thirst
+- <strong>Energy Boost</strong>: Even mild dehydration can cause fatigue and brain fog
+- <strong>Skin Health</strong>: Proper hydration supports clear, glowing skin
+- <strong>Digestion</strong>: Water aids in nutrient absorption and waste elimination
+
+<strong>How Much Water?</strong>
+
+Aim for about 8 glasses (64 ounces) per day as a baseline. Increase this if you're active, in warm weather, or consuming caffeine.
+
+<strong>The Hydration Ritual</strong>
+
+Transform water drinking from a chore into a ritual:
+- Start each morning with a glass of water
+- Drink a glass before each meal (this also aids digestion)
+- Keep water visible and accessible throughout the day
+- Listen to your body's thirst signals</div>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Key Takeaways</h4>
+                        <ul class="takeaways-list">
+                            <li>Water supports metabolism, energy, and appetite regulation</li>
+                            <li>Aim for 8 glasses (64 ounces) daily as a baseline</li>
+                            <li>Drink water before meals to aid digestion and satisfaction</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-box">
+                        <h4>Today's Action</h4>
+                        <p>Today, track your water intake. Set a reminder to drink a glass of water before each meal and upon waking.</p>
+                    </div>
+
+                    <div class="journal-section">
+                        <h4>Journal Prompts</h4>
+                        <div class="prompt">
+                            <p class="prompt-label">Today's Reflection</p>
+                            <p>How does your energy level change when you're well-hydrated versus when you've forgotten to drink water?</p>
+                        </div>
+                        <div class="prompt">
+                            <p class="prompt-label">Deeper Reflection</p>
+                            <p>What obstacles prevent you from drinking enough water? How might you overcome them?</p>
+                        </div>
+                    </div>
+
+                    <div class="movement-section">
+                        <h4>Movement Suggestion</h4>
+                        <p><strong>Basic:</strong> Take a refreshing 10-minute walk with a water bottle in hand.</p>
+                        <p><strong>Personalized:</strong> Combine hydration with gentle movement. Walk for 15 minutes, stopping to sip water every 5 minutes.</p>
+                    </div>
+
+                    <div class="affirmation-box">
+                        "I nourish my body with pure, life-giving water throughout the day."
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Nourishment Tip</h4>
+                        <p>Add a slice of lemon, cucumber, or fresh mint to your water for natural flavor that makes hydration more enjoyable.</p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="lesson-card" id="lesson-3">
+                    <div class="lesson-header">
+                        <span class="day-badge">Day 3</span>
+                        <h3 class="lesson-title">Understanding Your Body's Signals</h3>
+                    </div>
+
+                    <div class="lesson-intro">
+                        Your body communicates with you constantly. Today, we learn to listen with honesty and compassion.
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Main Content</h4>
+                        <div class="main-content-text"><strong>The Art of Body Awareness</strong>
+
+Before we can change, we must first understand where we are. This requires honest self-assessment—not judgment, but gentle observation.
+
+<strong>Physical Signals to Notice</strong>
+
+- When do you feel most energetic?
+- What foods make you feel vibrant versus sluggish?
+- How does your body feel when you've moved versus when you've been sedentary?
+- What does true hunger feel like versus emotional eating?
+
+<strong>Emotional Connections</strong>
+
+Our eating patterns often connect to emotions:
+- Stress eating for comfort
+- Reward eating to celebrate
+- Boredom eating to fill time
+- Restrictive eating from anxiety
+
+<strong>Practicing Honest Awareness</strong>
+
+Honesty doesn't mean harsh self-criticism. It means observing without judgment:
+- "I notice I reach for sweets when stressed"
+- "I observe that I feel tired after lunch"
+- "I see that I skip breakfast when rushed"
+
+This awareness is the foundation for meaningful change.</div>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Key Takeaways</h4>
+                        <ul class="takeaways-list">
+                            <li>Body awareness starts with honest, non-judgmental observation</li>
+                            <li>Physical signals reveal what truly nourishes you</li>
+                            <li>Emotional patterns often drive eating behaviors</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-box">
+                        <h4>Today's Action</h4>
+                        <p>Today, before eating anything, pause for 30 seconds. Ask yourself: Am I truly hungry? What is my body actually asking for? Note your observations.</p>
+                    </div>
+
+                    <div class="journal-section">
+                        <h4>Journal Prompts</h4>
+                        <div class="prompt">
+                            <p class="prompt-label">Today's Reflection</p>
+                            <p>What patterns have you noticed in your eating or movement habits? What emotions often accompany these patterns?</p>
+                        </div>
+                        <div class="prompt">
+                            <p class="prompt-label">Deeper Reflection</p>
+                            <p>If you could speak to your body as a trusted friend, what would you want to understand about its needs?</p>
+                        </div>
+                    </div>
+
+                    <div class="movement-section">
+                        <h4>Movement Suggestion</h4>
+                        <p><strong>Basic:</strong> Practice a 5-minute body scan meditation, noticing how each part of your body feels.</p>
+                        <p><strong>Personalized:</strong> Combine gentle stretching with body awareness. As you move, notice which areas feel tight or open.</p>
+                    </div>
+
+                    <div class="affirmation-box">
+                        "I listen to my body's wisdom with compassion and curiosity."
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Nourishment Tip</h4>
+                        <p>Before each meal today, take three deep breaths. This activates your parasympathetic nervous system, improving digestion.</p>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="lesson-card" id="lesson-4">
+                    <div class="lesson-header">
+                        <span class="day-badge">Day 4</span>
+                        <h3 class="lesson-title">Creating Your Sanctuary</h3>
+                    </div>
+
+                    <div class="lesson-intro">
+                        Your environment shapes your choices. Today, we transform your surroundings to support your wellness journey.
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Main Content</h4>
+                        <div class="main-content-text"><strong>Environment Design</strong>
+
+Research shows that our environment has a powerful influence on our behaviors. By designing our spaces thoughtfully, we can make healthy choices the natural choice.
+
+<strong>The Kitchen Sanctuary</strong>
+
+- <strong>Make healthy foods visible</strong>: Place fruits and vegetables at eye level in your refrigerator
+- <strong>Remove temptations</strong>: If it's not in the house, you can't eat it impulsively
+- <strong>Create a water station</strong>: Keep a beautiful pitcher of water on the counter
+- <strong>Organize for success</strong>: Place your blender, cutting boards, and healthy cookware within easy reach
+
+<strong>The Bedroom Sanctuary</strong>
+
+- Keep devices out of the bedroom for better sleep
+- Create a calming environment with soft lighting
+- Prepare your movement clothes the night before
+
+<strong>Environmental Triggers</strong>
+
+Identify what triggers unwanted behaviors:
+- Do you snack while watching TV?
+- Do you eat standing in the kitchen?
+- Do stressful areas lead to comfort eating?
+
+Once identified, you can redesign these spaces to support better choices.</div>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Key Takeaways</h4>
+                        <ul class="takeaways-list">
+                            <li>Your environment powerfully influences your behavior</li>
+                            <li>Make healthy choices visible and accessible</li>
+                            <li>Remove or minimize temptations from your space</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-box">
+                        <h4>Today's Action</h4>
+                        <p>Choose one area of your home to redesign today. Remove one temptation and add one wellness-supportive element.</p>
+                    </div>
+
+                    <div class="journal-section">
+                        <h4>Journal Prompts</h4>
+                        <div class="prompt">
+                            <p class="prompt-label">Today's Reflection</p>
+                            <p>Walk through your home with fresh eyes. What environmental changes would make your wellness journey easier?</p>
+                        </div>
+                        <div class="prompt">
+                            <p class="prompt-label">Deeper Reflection</p>
+                            <p>What 'trigger zones' in your environment lead to choices that don't serve you? How might you redesign them?</p>
+                        </div>
+                    </div>
+
+                    <div class="movement-section">
+                        <h4>Movement Suggestion</h4>
+                        <p><strong>Basic:</strong> Do 10 minutes of light activity while reorganizing one wellness-focused area of your home.</p>
+                        <p><strong>Personalized:</strong> Create your movement space today—clear a corner for stretching, yoga, or exercise.</p>
+                    </div>
+
+                    <div class="affirmation-box">
+                        "My environment supports my wellness journey every day."
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Nourishment Tip</h4>
+                        <p>Prepare a bowl of pre-washed fruits and vegetables today. When you open the fridge, make healthy choices effortless.</p>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="lesson-card" id="lesson-5">
+                    <div class="lesson-header">
+                        <span class="day-badge">Day 5</span>
+                        <h3 class="lesson-title">Your Support Circle</h3>
+                    </div>
+
+                    <div class="lesson-intro">
+                        No one succeeds alone. Today, we explore how to build and nurture a support system for your wellness journey.
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Main Content</h4>
+                        <div class="main-content-text"><strong>The Power of Community</strong>
+
+Studies consistently show that people with strong support systems are more successful in maintaining lifestyle changes. Your support circle becomes your safety net and your cheerleading squad.
+
+<strong>Types of Support</strong>
+
+1. <strong>Emotional Support</strong>: People who listen, encourage, and understand
+2. <strong>Practical Support</strong>: Those who help with logistics—meal prep buddies, walking partners
+3. <strong>Accountability Partners</strong>: People who check in and help you stay on track
+4. <strong>Role Models</strong>: Those who inspire you with their own wellness journeys
+
+<strong>Building Your Circle</strong>
+
+- Share your goals with 2-3 trusted people
+- Find a wellness buddy with similar goals
+- Join communities (in-person or online) focused on wellness
+- Consider working with a coach or mentor
+
+<strong>Navigating Unsupportive Environments</strong>
+
+Not everyone will understand your journey. Some may even feel threatened by your changes. Remember:
+- You don't need everyone's approval
+- Lead by example, not by preaching
+- Seek support from those who celebrate your growth</div>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Key Takeaways</h4>
+                        <ul class="takeaways-list">
+                            <li>Support systems significantly increase success in lifestyle change</li>
+                            <li>Different types of support serve different needs</li>
+                            <li>You don't need everyone's approval—find your tribe</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-box">
+                        <h4>Today's Action</h4>
+                        <p>Today, reach out to one person who might support your wellness journey. Share your goals and ask if they'd like to check in with you regularly.</p>
+                    </div>
+
+                    <div class="journal-section">
+                        <h4>Journal Prompts</h4>
+                        <div class="prompt">
+                            <p class="prompt-label">Today's Reflection</p>
+                            <p>Who in your life could support your wellness journey? What kind of support would be most helpful from each person?</p>
+                        </div>
+                        <div class="prompt">
+                            <p class="prompt-label">Deeper Reflection</p>
+                            <p>How can you be a source of support for others on their own journeys?</p>
+                        </div>
+                    </div>
+
+                    <div class="movement-section">
+                        <h4>Movement Suggestion</h4>
+                        <p><strong>Basic:</strong> Invite someone to join you for a 15-minute walk today.</p>
+                        <p><strong>Personalized:</strong> Plan a weekly walking date with a friend or family member. Connection plus movement!</p>
+                    </div>
+
+                    <div class="affirmation-box">
+                        "I am surrounded by love and support as I grow into my healthiest self."
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Nourishment Tip</h4>
+                        <p>Share a healthy meal with someone today. Food tastes better when we eat together.</p>
+                    </div>
+                </div>
+
+                <!-- Chapter 1 Quiz -->
+                <div class="quiz-section" id="quiz-1">
+                    <div class="quiz-header">
+                        <h3 class="quiz-title">Quiz: Awakening Your Wellness Path</h3>
+                        <p style="color: var(--text-secondary);">Passing Score: 70%</p>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">1</span>
+                            <span class="question-type">Multiple Choice</span>
+                        </div>
+                        <p class="question-text">What is the main difference between a goal and an intention?</p>
+                        <ul class="options-list">
+                            <li>Goals are easier to achieve than intentions</li>
+                            <li class="correct">Intentions are internal commitments about who you want to become, while goals are external targets <span class="correct-badge">Correct</span></li>
+                            <li>Goals are short-term and intentions are long-term</li>
+                            <li>There is no meaningful difference between them</li>
+                        </ul>
+                        <div class="explanation-box">
+                            <strong>Explanation:</strong> An intention is an internal commitment about how you want to feel and who you want to become, while a goal is an external target to achieve.
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">2</span>
+                            <span class="question-type">True/False</span>
+                        </div>
+                        <p class="question-text">Drinking a glass of water before meals can help with appetite regulation and digestion.</p>
+                        <ul class="options-list">
+                            <li class="correct">True <span class="correct-badge">Correct</span></li>
+                            <li>False</li>
+                        </ul>
+                        <div class="explanation-box">
+                            <strong>Explanation:</strong> Water before meals aids digestion and can help you feel fuller, supporting natural portion control.
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">3</span>
+                            <span class="question-type">Multiple Choice</span>
+                        </div>
+                        <p class="question-text">What is the recommended approach to body awareness?</p>
+                        <ul class="options-list">
+                            <li>Be harshly critical to motivate change</li>
+                            <li>Ignore body signals and follow strict rules</li>
+                            <li class="correct">Observe without judgment and with gentle curiosity <span class="correct-badge">Correct</span></li>
+                            <li>Only pay attention when something feels wrong</li>
+                        </ul>
+                        <div class="explanation-box">
+                            <strong>Explanation:</strong> Body awareness means observing your signals without judgment, with gentle curiosity and compassion.
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">4</span>
+                            <span class="question-type">Multiple Choice</span>
+                        </div>
+                        <p class="question-text">According to environment design principles, how should you arrange healthy foods in your kitchen?</p>
+                        <ul class="options-list">
+                            <li>Hide them so you don't eat them too fast</li>
+                            <li class="correct">Place them at eye level and in visible locations <span class="correct-badge">Correct</span></li>
+                            <li>Store them only in the pantry</li>
+                            <li>Keep them frozen for freshness</li>
+                        </ul>
+                        <div class="explanation-box">
+                            <strong>Explanation:</strong> Making healthy foods visible and accessible—at eye level in the refrigerator, for example—makes healthy choices easier.
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">5</span>
+                            <span class="question-type">True/False</span>
+                        </div>
+                        <p class="question-text">You need everyone in your life to approve of and support your wellness journey for it to succeed.</p>
+                        <ul class="options-list">
+                            <li>True</li>
+                            <li class="correct">False <span class="correct-badge">Correct</span></li>
+                        </ul>
+                        <div class="explanation-box">
+                            <strong>Explanation:</strong> You don't need everyone's approval. Find your tribe—the people who support and celebrate your growth.
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">6</span>
+                            <span class="question-type">Multiple Choice</span>
+                        </div>
+                        <p class="question-text">What is the general baseline recommendation for daily water intake?</p>
+                        <ul class="options-list">
+                            <li>4 glasses (32 ounces)</li>
+                            <li>6 glasses (48 ounces)</li>
+                            <li class="correct">8 glasses (64 ounces) <span class="correct-badge">Correct</span></li>
+                            <li>12 glasses (96 ounces)</li>
+                        </ul>
+                        <div class="explanation-box">
+                            <strong>Explanation:</strong> The general baseline is about 8 glasses (64 ounces) per day, with adjustments for activity level and climate.
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-number">7</span>
+                            <span class="question-type">Reflection</span>
+                        </div>
+                        <p class="question-text">Reflect on your personal 'why' for this wellness journey. What deeper meaning drives your commitment?</p>
+                        <div class="explanation-box">
+                            <strong>Note:</strong> Reflection questions help deepen your personal connection to the material.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Note: Due to file length, I'm including a placeholder for remaining chapters -->
+            <!-- The full content continues with Chapters 2-6 following the same format -->
+
+            <div style="text-align: center; padding: 40px; background: var(--bg-primary); border-radius: 12px; margin-top: 30px;">
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">Content continues with Chapters 2-6...</p>
+                <p style="color: var(--text-secondary); margin-top: 10px;">See CONTENT_PRINT.html for the complete printable version with all 30 lessons and 6 quizzes.</p>
+            </div>
+
+            <a href="#top" class="back-to-top">Back to Top</a>
+        </main>
+    </div>
+</body>
+</html>

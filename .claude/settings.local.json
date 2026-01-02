@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-expo-app@latest app --template tabs)",
+      "Bash(node --version:*)",
+      "Bash(npm:*)",
+      "Bash(command -v nvm:*)",
+      "Bash(brew install:*)",
+      "Bash(npx expo start)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node -e:*)",
+      "Bash(curl:*)",
+      "Bash(command -v supabase:*)",
+      "Bash(supabase --version:*)",
+      "Bash(supabase gen:*)",
+      "Bash(git init:*)",
+      "Bash(PGPASSWORD='Florader@1sup' /opt/homebrew/opt/libpq/bin/psql:*)",
+      "Bash(ping:*)",
+      "Bash(nslookup:*)",
+      "Bash(PGPASSWORD='Florader@1sup' /opt/homebrew/opt/libpq/bin/psql \"postgresql://postgres.ymwubsgiomxwyqfifbsm:Florader%401sup@aws-0-us-east-1.pooler.supabase.com:6543/postgres\" -f /Volumes/ExternalHome/Grumpy/2Equilibrium/app/supabase/migrations/003_health_profiles.sql)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(npx expo start:*)",
+      "Bash(ipconfig getifaddr:*)",
+      "Bash(npx expo install react-native-health react-native-health-connect)",
+      "Bash(npx expo prebuild --clean)",
+      "Bash(npx expo run:ios:*)",
+      "Bash(xcrun xctrace:*)",
+      "Bash(xcrun devicectl:*)",
+      "Bash(pod install)",
+      "Bash(pod install:*)",
+      "WebSearch",
+      "Bash(xcrun simctl:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

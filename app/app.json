@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "2Equilibrium Wellness and Weight Loss Programme",
+    "slug": "2equilibrium-wellness",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "wellness",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.2equilibrium.wellness",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan food barcodes for nutrition tracking.",
+        "NSHealthShareUsageDescription": "This app reads your health data to track steps, sleep, and other wellness metrics to provide personalized insights.",
+        "NSHealthUpdateUsageDescription": "This app saves your weight and health metrics to Apple Health for easy tracking."
+      },
+      "entitlements": {
+        "com.apple.developer.healthkit": true,
+        "com.apple.developer.healthkit.background-delivery": true
+      }
+    },
+    "android": {
+      "package": "com.twoequilibrium.wellness",
+      "permissions": [
+        "CAMERA",
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.READ_SLEEP",
+        "android.permission.health.READ_WEIGHT",
+        "android.permission.health.READ_HEIGHT",
+        "android.permission.health.READ_HEART_RATE",
+        "android.permission.health.READ_ACTIVE_CALORIES_BURNED",
+        "android.permission.health.READ_TOTAL_CALORIES_BURNED",
+        "android.permission.health.READ_DISTANCE",
+        "android.permission.health.WRITE_WEIGHT"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-secure-store",
+      "expo-sqlite",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to scan food barcodes."
+        }
+      ],
+      [
+        "react-native-health-connect",
+        {
+          "requestPermissionsRationale": "This app uses Health Connect to sync your steps, sleep, and other health data for better wellness tracking."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,842 @@
+{
+  "quizzes": [
+    {
+      "id": "quiz_chapter_1",
+      "chapterId": "chapter_1",
+      "title": "Awakening Your Wellness Path",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q1_1",
+          "type": "multiple_choice",
+          "topicTag": "goal_setting",
+          "lessonDayRef": 1,
+          "question": "What is the main difference between a goal and an intention?",
+          "options": [
+            "Goals are easier to achieve than intentions",
+            "Intentions are internal commitments about who you want to become, while goals are external targets",
+            "Goals are short-term and intentions are long-term",
+            "There is no meaningful difference between them"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An intention is an internal commitment about how you want to feel and who you want to become, while a goal is an external target to achieve.",
+          "reviewContent": "Intentions focus on your inner transformation and values, creating a deeper foundation for lasting change than goals alone."
+        },
+        {
+          "id": "q1_2",
+          "type": "true_false",
+          "topicTag": "hydration_benefits",
+          "lessonDayRef": 2,
+          "question": "Drinking a glass of water before meals can help with appetite regulation and digestion.",
+          "correctAnswer": true,
+          "explanation": "Water before meals aids digestion and can help you feel fuller, supporting natural portion control.",
+          "reviewContent": "Water supports metabolism, appetite regulation, and digestion. Drinking before meals is especially beneficial."
+        },
+        {
+          "id": "q1_3",
+          "type": "multiple_choice",
+          "topicTag": "body_awareness",
+          "lessonDayRef": 3,
+          "question": "What is the recommended approach to body awareness?",
+          "options": [
+            "Be harshly critical to motivate change",
+            "Ignore body signals and follow strict rules",
+            "Observe without judgment and with gentle curiosity",
+            "Only pay attention when something feels wrong"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Body awareness means observing your signals without judgment, with gentle curiosity and compassion.",
+          "reviewContent": "Honest self-assessment doesn't mean harsh criticism. It means gentle, non-judgmental observation of your patterns."
+        },
+        {
+          "id": "q1_4",
+          "type": "multiple_choice",
+          "topicTag": "environment_design",
+          "lessonDayRef": 4,
+          "question": "According to environment design principles, how should you arrange healthy foods in your kitchen?",
+          "options": [
+            "Hide them so you don't eat them too fast",
+            "Place them at eye level and in visible locations",
+            "Store them only in the pantry",
+            "Keep them frozen for freshness"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Making healthy foods visible and accessible—at eye level in the refrigerator, for example—makes healthy choices easier.",
+          "reviewContent": "Environment design means making healthy choices visible and accessible while removing or hiding temptations."
+        },
+        {
+          "id": "q1_5",
+          "type": "true_false",
+          "topicTag": "support_system",
+          "lessonDayRef": 5,
+          "question": "You need everyone in your life to approve of and support your wellness journey for it to succeed.",
+          "correctAnswer": false,
+          "explanation": "You don't need everyone's approval. Find your tribe—the people who support and celebrate your growth.",
+          "reviewContent": "Not everyone will understand your journey. Focus on finding supportive people rather than seeking universal approval."
+        },
+        {
+          "id": "q1_6",
+          "type": "multiple_choice",
+          "topicTag": "hydration_amount",
+          "lessonDayRef": 2,
+          "question": "What is the general baseline recommendation for daily water intake?",
+          "options": [
+            "4 glasses (32 ounces)",
+            "6 glasses (48 ounces)",
+            "8 glasses (64 ounces)",
+            "12 glasses (96 ounces)"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The general baseline is about 8 glasses (64 ounces) per day, with adjustments for activity level and climate.",
+          "reviewContent": "Aim for 8 glasses daily as a baseline. Increase when active, in warm weather, or consuming caffeine."
+        },
+        {
+          "id": "q1_7",
+          "type": "reflection",
+          "topicTag": "personal_intention",
+          "lessonDayRef": 1,
+          "question": "Reflect on your personal 'why' for this wellness journey. What deeper meaning drives your commitment?",
+          "correctAnswer": null,
+          "explanation": "Reflection questions help deepen your personal connection to the material.",
+          "reviewContent": null
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_2",
+      "chapterId": "chapter_2",
+      "title": "Nourishment Fundamentals",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q2_1",
+          "type": "multiple_choice",
+          "topicTag": "70_30_rule",
+          "lessonDayRef": 6,
+          "question": "The 70/30 harmony principle suggests that wellness results come from:",
+          "options": [
+            "70% movement, 30% nourishment",
+            "70% nourishment, 30% movement",
+            "70% mindset, 30% action",
+            "70% rest, 30% activity"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The 70/30 principle indicates that approximately 70% of wellness results come from nutrition, while 30% comes from physical activity.",
+          "reviewContent": "While both matter, what you eat has a greater impact on body composition. You can't out-exercise a poor diet."
+        },
+        {
+          "id": "q2_2",
+          "type": "true_false",
+          "topicTag": "fiber_types",
+          "lessonDayRef": 7,
+          "question": "Soluble fiber dissolves in water and helps regulate blood sugar levels.",
+          "correctAnswer": true,
+          "explanation": "Soluble fiber dissolves in water, forming a gel-like substance that helps regulate blood sugar and lower cholesterol.",
+          "reviewContent": "Soluble fiber (in oats, beans, apples) helps blood sugar and cholesterol. Insoluble fiber (in vegetables, whole grains) aids digestion."
+        },
+        {
+          "id": "q2_3",
+          "type": "multiple_choice",
+          "topicTag": "protein_sources",
+          "lessonDayRef": 8,
+          "question": "Which of the following is a complete plant-based protein source?",
+          "options": [
+            "Brown rice alone",
+            "Quinoa",
+            "Almonds alone",
+            "Broccoli"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Quinoa is one of the few plant sources that contains all essential amino acids, making it a complete protein.",
+          "reviewContent": "Protein is essential at every meal. Both animal (eggs, fish, chicken) and plant sources (legumes, quinoa, tofu) are valuable."
+        },
+        {
+          "id": "q2_4",
+          "type": "multiple_choice",
+          "topicTag": "glycemic_index",
+          "lessonDayRef": 9,
+          "question": "Which of these foods has a LOW glycemic index?",
+          "options": [
+            "White bread",
+            "Instant oatmeal",
+            "Steel-cut oats",
+            "Rice cakes"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Steel-cut oats have a low glycemic index, meaning they raise blood sugar slowly and steadily.",
+          "reviewContent": "Low GI foods (most vegetables, beans, apples, steel-cut oats) provide sustained energy. High GI foods spike blood sugar."
+        },
+        {
+          "id": "q2_5",
+          "type": "true_false",
+          "topicTag": "healthy_fats",
+          "lessonDayRef": 10,
+          "question": "All dietary fats are harmful and should be avoided for optimal health.",
+          "correctAnswer": false,
+          "explanation": "Healthy fats (from olive oil, avocados, nuts, fatty fish) are essential for brain function, hormone production, and nutrient absorption.",
+          "reviewContent": "Your body needs healthy fats for hormones, brain function, and absorbing vitamins. Choose unsaturated fats over saturated ones."
+        },
+        {
+          "id": "q2_6",
+          "type": "multiple_choice",
+          "topicTag": "fat_categories",
+          "lessonDayRef": 10,
+          "question": "Which type of fat should be completely avoided?",
+          "options": [
+            "Monounsaturated fats",
+            "Polyunsaturated fats (Omega-3s)",
+            "Trans fats",
+            "All fats from animal sources"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Trans fats (partially hydrogenated oils) should be avoided entirely as they have no health benefits and increase disease risk.",
+          "reviewContent": "Trans fats are the only fats to avoid entirely. Saturated fats should be limited, while unsaturated fats are beneficial."
+        },
+        {
+          "id": "q2_7",
+          "type": "multiple_choice",
+          "topicTag": "fiber_amount",
+          "lessonDayRef": 7,
+          "question": "What is the recommended daily fiber intake?",
+          "options": [
+            "10-15 grams",
+            "15-20 grams",
+            "25-30 grams",
+            "40-50 grams"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The recommended daily fiber intake is 25-30 grams, though most people only consume about 15 grams.",
+          "reviewContent": "Aim for 25-30 grams of fiber daily. Increase gradually and drink more water as you add fiber to your diet."
+        },
+        {
+          "id": "q2_8",
+          "type": "reflection",
+          "topicTag": "protein_planning",
+          "lessonDayRef": 8,
+          "question": "Name three protein sources (animal or plant-based) that you would like to include more often in your meals.",
+          "correctAnswer": null,
+          "explanation": "Reflection prompts help you connect the material to your personal life.",
+          "reviewContent": null
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_3",
+      "chapterId": "chapter_3",
+      "title": "Mindful Eating Rituals",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q3_1",
+          "type": "multiple_choice",
+          "topicTag": "chewing_benefits",
+          "lessonDayRef": 11,
+          "question": "How many times should you aim to chew each bite of food?",
+          "options": [
+            "5-10 times",
+            "15-20 times",
+            "About 30 times",
+            "50+ times"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Chewing each bite approximately 30 times allows food to break down properly and triggers satiety signals.",
+          "reviewContent": "Chewing 30 times per bite releases digestive enzymes, improves nutrient absorption, and helps you feel satisfied sooner."
+        },
+        {
+          "id": "q3_2",
+          "type": "true_false",
+          "topicTag": "digestion_start",
+          "lessonDayRef": 11,
+          "question": "Digestion begins in the stomach, not the mouth.",
+          "correctAnswer": false,
+          "explanation": "Digestion actually begins in the mouth, where saliva contains enzymes that start breaking down food.",
+          "reviewContent": "Digestion begins in the mouth with saliva enzymes. Proper chewing is the first step of good digestion."
+        },
+        {
+          "id": "q3_3",
+          "type": "multiple_choice",
+          "topicTag": "portion_guides",
+          "lessonDayRef": 12,
+          "question": "Using your hand as a portion guide, what represents an appropriate protein serving?",
+          "options": [
+            "Your entire hand spread out",
+            "Your fist",
+            "Your palm (thickness and size)",
+            "Your thumb"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Your palm (thickness and size) represents an appropriate protein portion for one meal.",
+          "reviewContent": "Hand guides: Palm = protein, cupped handful = carbs, thumb = fats, two cupped handfuls = vegetables."
+        },
+        {
+          "id": "q3_4",
+          "type": "multiple_choice",
+          "topicTag": "calorie_density",
+          "lessonDayRef": 13,
+          "question": "Which food allows you to eat the MOST volume for the same number of calories?",
+          "options": [
+            "Potato chips",
+            "Brown rice",
+            "Broccoli",
+            "Chicken breast"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Broccoli has very low calorie density—you can eat 1000g for 536 calories, compared to only 100g of chips.",
+          "reviewContent": "Low-calorie-density foods (vegetables, fruits) fill your stomach with fewer calories and more nutrients."
+        },
+        {
+          "id": "q3_5",
+          "type": "true_false",
+          "topicTag": "nutrient_density",
+          "lessonDayRef": 14,
+          "question": "Empty calories provide energy but little to no nutritional value.",
+          "correctAnswer": true,
+          "explanation": "Empty calories (from sodas, candy, refined foods) provide energy without beneficial nutrients like vitamins and minerals.",
+          "reviewContent": "Focus on nutrient-dense foods (vegetables, fruits, whole grains, lean proteins) rather than empty calories."
+        },
+        {
+          "id": "q3_6",
+          "type": "multiple_choice",
+          "topicTag": "eating_environment",
+          "lessonDayRef": 15,
+          "question": "Which of these eating environment changes supports mindful eating?",
+          "options": [
+            "Eating while watching TV to relax",
+            "Standing while eating for efficiency",
+            "Eliminating screens and sitting at a table",
+            "Eating directly from packages to save dishes"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Eliminating distractions and sitting at a table helps you eat mindfully and recognize satiety signals.",
+          "reviewContent": "Create a mindful eating space: sit at a table, use real plates, eliminate screens, and take at least 15 minutes per meal."
+        },
+        {
+          "id": "q3_7",
+          "type": "multiple_choice",
+          "topicTag": "plate_method",
+          "lessonDayRef": 12,
+          "question": "According to the plate method, how much of your plate should be filled with non-starchy vegetables?",
+          "options": [
+            "One quarter",
+            "One third",
+            "One half",
+            "Two thirds"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The plate method suggests filling half your plate with non-starchy vegetables.",
+          "reviewContent": "Plate method: half vegetables, quarter protein, quarter carbs, plus a small amount of healthy fat."
+        },
+        {
+          "id": "q3_8",
+          "type": "reflection",
+          "topicTag": "mindful_eating",
+          "lessonDayRef": 15,
+          "question": "Describe what a mindful meal looks and feels like for you. What changes would make your eating experience more nourishing?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you envision and commit to positive changes.",
+          "reviewContent": null
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_4",
+      "chapterId": "chapter_4",
+      "title": "Meal Architecture",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q4_1",
+          "type": "multiple_choice",
+          "topicTag": "breakfast_balance",
+          "lessonDayRef": 16,
+          "question": "A balanced breakfast should include which three components?",
+          "options": [
+            "Sugar, caffeine, and quick energy",
+            "Protein, complex carbohydrates, and healthy fat",
+            "Fruit juice, toast, and jam",
+            "Only protein to avoid carbs"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A balanced breakfast includes protein (for satiety), complex carbohydrates (for energy), and healthy fat (for satisfaction).",
+          "reviewContent": "The balanced breakfast formula: protein (eggs, yogurt) + complex carbs (oats, whole grain) + healthy fat (avocado, nuts)."
+        },
+        {
+          "id": "q4_2",
+          "type": "true_false",
+          "topicTag": "lunch_energy",
+          "lessonDayRef": 17,
+          "question": "The afternoon energy slump is often caused by eating too much protein at lunch.",
+          "correctAnswer": false,
+          "explanation": "The afternoon slump is usually caused by too many simple carbohydrates, not protein. Protein helps prevent energy crashes.",
+          "reviewContent": "A protein-rich lunch with vegetables prevents afternoon crashes. Avoid simple carbs that spike and crash blood sugar."
+        },
+        {
+          "id": "q4_3",
+          "type": "multiple_choice",
+          "topicTag": "dinner_timing",
+          "lessonDayRef": 18,
+          "question": "How long before bedtime should you ideally finish eating dinner?",
+          "options": [
+            "30 minutes",
+            "1 hour",
+            "2-3 hours",
+            "5 hours"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Eating 2-3 hours before bed allows time for digestion and promotes better sleep quality.",
+          "reviewContent": "Finish dinner at least 2-3 hours before bed. Keep portions moderate and avoid heavy, rich foods at night."
+        },
+        {
+          "id": "q4_4",
+          "type": "multiple_choice",
+          "topicTag": "beverage_calories",
+          "lessonDayRef": 19,
+          "question": "Drinking one regular soda daily for a year can result in approximately how much weight gain?",
+          "options": [
+            "5 pounds",
+            "10 pounds",
+            "15 pounds",
+            "25 pounds"
+          ],
+          "correctAnswer": 2,
+          "explanation": "One regular soda daily adds approximately 140-170 calories, which can result in about 15 pounds of weight gain per year.",
+          "reviewContent": "Liquid calories add up quickly without satisfying hunger. Swap sweetened beverages for water, tea, or sparkling water."
+        },
+        {
+          "id": "q4_5",
+          "type": "true_false",
+          "topicTag": "tea_benefits",
+          "lessonDayRef": 19,
+          "question": "Green tea contains catechins that may help boost metabolism.",
+          "correctAnswer": true,
+          "explanation": "Green tea contains catechins, compounds that research suggests may help boost metabolism.",
+          "reviewContent": "Teas offer benefits without calories. Green tea has catechins for metabolism, while herbal teas support various health goals."
+        },
+        {
+          "id": "q4_6",
+          "type": "multiple_choice",
+          "topicTag": "swap_strategy",
+          "lessonDayRef": 20,
+          "question": "What is the recommended approach to changing unhealthy eating habits?",
+          "options": [
+            "Eliminate all 'bad' foods immediately",
+            "Focus on swapping unhealthy choices for healthier alternatives",
+            "Count every calorie precisely",
+            "Only eat foods you dislike"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The swap strategy focuses on replacing unhealthy choices with satisfying healthy alternatives rather than just eliminating foods.",
+          "reviewContent": "Swap rather than eliminate: chips → roasted chickpeas, soda → sparkling water, candy → fresh fruit with dark chocolate."
+        },
+        {
+          "id": "q4_7",
+          "type": "multiple_choice",
+          "topicTag": "80_20_balance",
+          "lessonDayRef": 20,
+          "question": "The 80/20 approach means:",
+          "options": [
+            "Exercise 80% of the time, rest 20%",
+            "Make nourishing choices 80% of the time, allow flexibility 20%",
+            "Eat 80% carbs and 20% protein",
+            "Drink 80% water and 20% other beverages"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The 80/20 approach means making nourishing choices 80% of the time while allowing 20% flexibility for special occasions and treats.",
+          "reviewContent": "The 80/20 approach creates sustainable balance. Perfection isn't required—consistent good choices are what matter."
+        },
+        {
+          "id": "q4_8",
+          "type": "reflection",
+          "topicTag": "meal_planning",
+          "lessonDayRef": 17,
+          "question": "What are three practical changes you could make to improve your lunch choices this week?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you apply concepts to your specific situation.",
+          "reviewContent": null
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_5",
+      "chapterId": "chapter_5",
+      "title": "Gentle Movement Foundations",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q5_1",
+          "type": "multiple_choice",
+          "topicTag": "walking_benefits",
+          "lessonDayRef": 21,
+          "question": "Approximately how many calories does moderate-paced walking burn per hour?",
+          "options": [
+            "100 calories",
+            "200 calories",
+            "290 calories",
+            "400 calories"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Walking at a moderate pace burns approximately 290 calories per hour while providing numerous other benefits.",
+          "reviewContent": "Walking is accessible, free, and burns about 290 calories per hour. Start with 5 minutes and build gradually."
+        },
+        {
+          "id": "q5_2",
+          "type": "true_false",
+          "topicTag": "post_meal_movement",
+          "lessonDayRef": 22,
+          "question": "Intense exercise immediately after eating is the best way to aid digestion.",
+          "correctAnswer": false,
+          "explanation": "Gentle movement (like a casual walk) aids digestion, but intense exercise can actually disrupt the digestive process.",
+          "reviewContent": "Post-meal movement should be gentle: a casual walk, light stretching, or standing activities. Avoid intense exercise."
+        },
+        {
+          "id": "q5_3",
+          "type": "multiple_choice",
+          "topicTag": "blood_sugar_walking",
+          "lessonDayRef": 22,
+          "question": "Research shows that walking after a meal helps:",
+          "options": [
+            "Increase blood sugar spikes",
+            "Reduce blood sugar spikes significantly",
+            "Has no effect on blood sugar",
+            "Only affects cholesterol, not blood sugar"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Studies show that a 15-minute walk after a meal can significantly reduce blood sugar spikes compared to remaining sedentary.",
+          "reviewContent": "A 15-minute walk after meals significantly reduces blood sugar spikes. This is especially important after carb-rich meals."
+        },
+        {
+          "id": "q5_4",
+          "type": "multiple_choice",
+          "topicTag": "progressive_approach",
+          "lessonDayRef": 23,
+          "question": "The 5-5-5 approach to building movement means:",
+          "options": [
+            "Exercise 5 times per week for 5 weeks, then 5 months",
+            "Do 5 exercises, 5 times each, for 5 minutes",
+            "Start with 5 minutes, add 5 minutes each week",
+            "Exercise at 5am, 5pm, and 5 days per week"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The 5-5-5 approach means starting with just 5 minutes of movement and adding 5 minutes each week until you reach your goal.",
+          "reviewContent": "Start with 5 minutes (so easy you can't say no), add 5 minutes each week. Build gradually for sustainable habits."
+        },
+        {
+          "id": "q5_5",
+          "type": "true_false",
+          "topicTag": "movement_variety",
+          "lessonDayRef": 24,
+          "question": "The best form of movement is the one you enjoy and will actually do consistently.",
+          "correctAnswer": true,
+          "explanation": "Sustainability comes from enjoyment. Any movement you'll do consistently is better than 'perfect' exercise you'll skip.",
+          "reviewContent": "The best movement is what you enjoy. Variety prevents boredom and works different muscles. Find your joy."
+        },
+        {
+          "id": "q5_6",
+          "type": "multiple_choice",
+          "topicTag": "strength_training",
+          "lessonDayRef": 25,
+          "question": "After age 30, how much muscle mass can we lose per decade without strength training?",
+          "options": [
+            "0-1%",
+            "1-2%",
+            "3-8%",
+            "10-15%"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Without strength training, we can lose 3-8% of muscle mass per decade after age 30, affecting metabolism and function.",
+          "reviewContent": "Strength training (body flow) maintains muscle mass (we lose 3-8% per decade after 30) and boosts metabolism."
+        },
+        {
+          "id": "q5_7",
+          "type": "true_false",
+          "topicTag": "rest_days",
+          "lessonDayRef": 23,
+          "question": "Rest days should be completely avoided to maximize fitness results.",
+          "correctAnswer": false,
+          "explanation": "Rest days (1-2 per week) are essential for recovery. Your body builds strength during rest, not just during exercise.",
+          "reviewContent": "Include 1-2 rest days weekly for recovery. Rest days can still include gentle walking or stretching."
+        },
+        {
+          "id": "q5_8",
+          "type": "reflection",
+          "topicTag": "movement_joy",
+          "lessonDayRef": 24,
+          "question": "What types of movement bring you joy? What new activities would you like to try?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you connect movement to personal enjoyment.",
+          "reviewContent": null
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_6",
+      "chapterId": "chapter_6",
+      "title": "Mindset & Self-Compassion",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q6_1",
+          "type": "multiple_choice",
+          "topicTag": "empowering_language",
+          "lessonDayRef": 26,
+          "question": "Which phrase is an example of empowering language?",
+          "options": [
+            "'I have to exercise today'",
+            "'I can't eat that'",
+            "'I choose to nourish my body with movement'",
+            "'I should probably try harder'"
+          ],
+          "correctAnswer": 2,
+          "explanation": "'I choose to' is empowering language that reflects personal agency, rather than obligation or restriction.",
+          "reviewContent": "Transform: 'I have to' → 'I choose to', 'I can't' → 'I'm choosing not to', 'I should' → 'I want to'"
+        },
+        {
+          "id": "q6_2",
+          "type": "true_false",
+          "topicTag": "discipline_mindset",
+          "lessonDayRef": 27,
+          "question": "Discipline is best understood as punishment for past failures.",
+          "correctAnswer": false,
+          "explanation": "Discipline is not punishment—it's an act of self-love and keeping promises to yourself.",
+          "reviewContent": "Discipline is self-love in action: keeping promises to yourself and choosing long-term joy over short-term pleasure."
+        },
+        {
+          "id": "q6_3",
+          "type": "multiple_choice",
+          "topicTag": "excuse_patterns",
+          "lessonDayRef": 28,
+          "question": "What is the key difference between an excuse and an explanation?",
+          "options": [
+            "Excuses are longer than explanations",
+            "An excuse prevents action, while an explanation leads to problem-solving",
+            "They are essentially the same thing",
+            "Explanations are always valid, excuses never are"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An excuse stops action ('I can't because...'), while an explanation leads to solutions ('This is challenging, so I'll...').",
+          "reviewContent": "Transform excuses into explanations with solutions. 'I don't have time' becomes 'My schedule is busy, so I'll find two 10-minute windows.'"
+        },
+        {
+          "id": "q6_4",
+          "type": "multiple_choice",
+          "topicTag": "inner_critic",
+          "lessonDayRef": 29,
+          "question": "What is the recommended way to respond to your inner critic?",
+          "options": [
+            "Ignore it completely",
+            "Argue with it aggressively",
+            "Acknowledge it, thank it, and update it with compassion",
+            "Believe everything it says"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The inner critic means well but uses outdated strategies. Acknowledge it, thank it for trying to protect you, and update it with new information.",
+          "reviewContent": "Work with your inner critic: 'I hear you, thank you for trying to protect me, but I've grown and can handle this now.'"
+        },
+        {
+          "id": "q6_5",
+          "type": "true_false",
+          "topicTag": "self_compassion",
+          "lessonDayRef": 29,
+          "question": "Failure should be viewed as information and a stepping stone, not as a permanent roadblock.",
+          "correctAnswer": true,
+          "explanation": "Every 'failure' provides information about what doesn't work, proof that you're trying, and an opportunity to grow.",
+          "reviewContent": "Failure is part of success, not the opposite of it. It provides information, proves you're trying, and creates opportunity for adjustment."
+        },
+        {
+          "id": "q6_6",
+          "type": "multiple_choice",
+          "topicTag": "identity_statements",
+          "lessonDayRef": 26,
+          "question": "Why should you be careful with 'I am' statements?",
+          "options": [
+            "They are grammatically incorrect",
+            "They are too long",
+            "What follows 'I am' shapes your identity",
+            "They show weakness"
+          ],
+          "correctAnswer": 2,
+          "explanation": "'I am' statements shape your identity. 'I am building my fitness' is much more empowering than 'I am bad at exercise.'",
+          "reviewContent": "'I am' statements are powerful: 'I am bad at exercise' reinforces limitation. 'I am building my fitness' creates possibility."
+        },
+        {
+          "id": "q6_7",
+          "type": "multiple_choice",
+          "topicTag": "consistency_discipline",
+          "lessonDayRef": 27,
+          "question": "How do discipline and consistency differ?",
+          "options": [
+            "They are exactly the same",
+            "Discipline is doing what needs to be done; consistency is showing up regularly allowing for imperfection",
+            "Consistency is stricter than discipline",
+            "Discipline is for beginners; consistency is advanced"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Discipline gets you through tough moments; consistency means showing up regularly while allowing for human imperfection.",
+          "reviewContent": "Discipline: doing what's needed even when you don't feel like it. Consistency: showing up regularly, allowing for imperfection."
+        },
+        {
+          "id": "q6_8",
+          "type": "reflection",
+          "topicTag": "wellness_declaration",
+          "lessonDayRef": 30,
+          "question": "Write a brief personal wellness declaration—a statement of who you are becoming and how you choose to live.",
+          "correctAnswer": null,
+          "explanation": "Your wellness declaration is your personal commitment to your journey.",
+          "reviewContent": null
+        }
+      ]
+    }
+  ],
+  "topicReviewMapping": {
+    "goal_setting": {
+      "lessonDay": 1,
+      "reviewTitle": "Setting Your Wellness Intention",
+      "keyPoints": ["Intentions are internal commitments", "Connect to your 'why'", "Deeper meaning drives lasting change"]
+    },
+    "hydration_benefits": {
+      "lessonDay": 2,
+      "reviewTitle": "The Hydration Ritual",
+      "keyPoints": ["Supports metabolism and energy", "Aids appetite regulation", "Drink before meals"]
+    },
+    "body_awareness": {
+      "lessonDay": 3,
+      "reviewTitle": "Understanding Your Body's Signals",
+      "keyPoints": ["Observe without judgment", "Notice physical signals", "Recognize emotional patterns"]
+    },
+    "environment_design": {
+      "lessonDay": 4,
+      "reviewTitle": "Creating Your Sanctuary",
+      "keyPoints": ["Make healthy choices visible", "Remove temptations", "Design spaces for success"]
+    },
+    "support_system": {
+      "lessonDay": 5,
+      "reviewTitle": "Your Support Circle",
+      "keyPoints": ["Find supportive people", "Build accountability", "You don't need everyone's approval"]
+    },
+    "70_30_rule": {
+      "lessonDay": 6,
+      "reviewTitle": "The 70/30 Harmony",
+      "keyPoints": ["70% nourishment, 30% movement", "Can't out-exercise poor diet", "Both matter for balance"]
+    },
+    "fiber_types": {
+      "lessonDay": 7,
+      "reviewTitle": "Fiber: Your Digestive Ally",
+      "keyPoints": ["Soluble fiber regulates blood sugar", "Insoluble fiber aids digestion", "Aim for 25-30 grams daily"]
+    },
+    "protein_sources": {
+      "lessonDay": 8,
+      "reviewTitle": "The Power of Protein",
+      "keyPoints": ["Most satiating macronutrient", "Include at every meal", "Animal and plant sources both valuable"]
+    },
+    "glycemic_index": {
+      "lessonDay": 9,
+      "reviewTitle": "Carbohydrates Decoded",
+      "keyPoints": ["Low GI foods provide sustained energy", "Complex carbs over simple", "Fiber slows absorption"]
+    },
+    "healthy_fats": {
+      "lessonDay": 10,
+      "reviewTitle": "Understanding Fats",
+      "keyPoints": ["Essential for brain and hormones", "Choose unsaturated fats", "Avoid trans fats entirely"]
+    },
+    "chewing_benefits": {
+      "lessonDay": 11,
+      "reviewTitle": "The Art of Chewing",
+      "keyPoints": ["Chew 30 times per bite", "Digestion starts in mouth", "Improves satisfaction"]
+    },
+    "portion_guides": {
+      "lessonDay": 12,
+      "reviewTitle": "Portion Awareness",
+      "keyPoints": ["Palm = protein", "Half plate = vegetables", "Aim for satisfied, not stuffed"]
+    },
+    "calorie_density": {
+      "lessonDay": 13,
+      "reviewTitle": "Calorie Density Wisdom",
+      "keyPoints": ["Vegetables are low density", "Start meals with low-density foods", "Volume matters"]
+    },
+    "nutrient_density": {
+      "lessonDay": 14,
+      "reviewTitle": "Empty vs. Nutrient-Rich",
+      "keyPoints": ["Choose nutrient-dense foods", "Swap rather than eliminate", "Quality over quantity"]
+    },
+    "eating_environment": {
+      "lessonDay": 15,
+      "reviewTitle": "Your Eating Environment",
+      "keyPoints": ["Eliminate screens during meals", "Sit at a table", "Create meal rituals"]
+    },
+    "breakfast_balance": {
+      "lessonDay": 16,
+      "reviewTitle": "Morning Nourishment",
+      "keyPoints": ["Protein + carbs + fat", "Stabilizes blood sugar", "Sets tone for day"]
+    },
+    "lunch_energy": {
+      "lessonDay": 17,
+      "reviewTitle": "Midday Fuel",
+      "keyPoints": ["Protein prevents crashes", "Half plate vegetables", "Meal prep for success"]
+    },
+    "dinner_timing": {
+      "lessonDay": 18,
+      "reviewTitle": "Evening Restoration",
+      "keyPoints": ["Finish 2-3 hours before bed", "Keep portions moderate", "Lean protein + vegetables"]
+    },
+    "beverage_calories": {
+      "lessonDay": 19,
+      "reviewTitle": "Beverage Wisdom",
+      "keyPoints": ["Liquid calories add up", "One soda daily = 15 lbs/year", "Choose water and tea"]
+    },
+    "swap_strategy": {
+      "lessonDay": 20,
+      "reviewTitle": "Replacement Strategies",
+      "keyPoints": ["Swap rather than eliminate", "80/20 approach", "Prepare swaps in advance"]
+    },
+    "walking_benefits": {
+      "lessonDay": 21,
+      "reviewTitle": "The Joy of Walking",
+      "keyPoints": ["~290 calories per hour", "Accessible and free", "Start with 5 minutes"]
+    },
+    "post_meal_movement": {
+      "lessonDay": 22,
+      "reviewTitle": "Post-Meal Movement",
+      "keyPoints": ["Gentle movement aids digestion", "15-minute walks reduce blood sugar spikes", "Avoid intense exercise after eating"]
+    },
+    "progressive_approach": {
+      "lessonDay": 23,
+      "reviewTitle": "Building Your Practice",
+      "keyPoints": ["Start with 5 minutes", "Add 5 minutes weekly", "Include rest days"]
+    },
+    "movement_variety": {
+      "lessonDay": 24,
+      "reviewTitle": "Movement Variety",
+      "keyPoints": ["Best movement is what you enjoy", "Variety prevents boredom", "Find your joy"]
+    },
+    "strength_training": {
+      "lessonDay": 25,
+      "reviewTitle": "Body Flow Basics",
+      "keyPoints": ["Maintains muscle mass", "Boosts metabolism", "Bodyweight exercises work"]
+    },
+    "empowering_language": {
+      "lessonDay": 26,
+      "reviewTitle": "The Language of Change",
+      "keyPoints": ["'I choose to' over 'I have to'", "'I am' statements shape identity", "Words affect actions"]
+    },
+    "discipline_mindset": {
+      "lessonDay": 27,
+      "reviewTitle": "Discipline as Self-Love",
+      "keyPoints": ["Discipline is self-love", "Start smaller than needed", "Consistency allows imperfection"]
+    },
+    "excuse_patterns": {
+      "lessonDay": 28,
+      "reviewTitle": "Releasing Excuses",
+      "keyPoints": ["Transform excuses to problem-solving", "Find the fear beneath", "Take small action"]
+    },
+    "inner_critic": {
+      "lessonDay": 29,
+      "reviewTitle": "Befriending Your Inner Critic",
+      "keyPoints": ["Acknowledge and thank it", "Update with compassion", "Failure is information"]
+    },
+    "self_compassion": {
+      "lessonDay": 29,
+      "reviewTitle": "Self-Compassion Practice",
+      "keyPoints": ["Treat yourself like a friend", "Failure is a stepping stone", "Gentle correction over harsh criticism"]
+    }
+  }
+}

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Equilibrium App - Feature Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fff5eb 0%, #e8f7f7 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #E67E22;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .brand-colors {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .color-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .orange { background: #E67E22; }
+        .tiffany { background: #0ABAB5; }
+        .white { background: #FFFFFF; border-color: #ddd; }
+
+        section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #E67E22;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0ABAB5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 .number {
+            background: #E67E22;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        h3 {
+            color: #0ABAB5;
+            font-size: 1.1rem;
+            margin: 20px 0 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0ABAB5;
+            font-weight: bold;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #E67E22;
+        }
+
+        .feature-card h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tab {
+            background: #E67E22;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tab.secondary {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .chapter-list {
+            counter-reset: chapter;
+        }
+
+        .chapter-list li {
+            padding-left: 35px;
+        }
+
+        .chapter-list li::before {
+            content: counter(chapter);
+            counter-increment: chapter;
+            background: #0ABAB5;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #E67E22, #d35400);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tech-badge.alt {
+            background: linear-gradient(135deg, #0ABAB5, #099);
+        }
+
+        .core-concept {
+            background: linear-gradient(135deg, #E67E22, #d35400);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .core-concept p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .highlight-box {
+            background: #fff5eb;
+            border: 2px solid #E67E22;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .highlight-box.teal {
+            background: #e8f7f7;
+            border-color: #0ABAB5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+
+        footer a {
+            color: #E67E22;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>2Equilibrium</h1>
+            <p class="subtitle">Holistic Wellness Journey App</p>
+            <div class="brand-colors">
+                <div class="color-dot orange" title="Luxury Orange #E67E22"></div>
+                <div class="color-dot tiffany" title="Tiffany Blue #0ABAB5"></div>
+                <div class="color-dot white" title="Clean White #FFFFFF"></div>
+            </div>
+        </header>
+
+        <div class="core-concept">
+            <p><strong>Core Concept:</strong> A 30-day wellness journey app that guides users through daily lessons, journaling, and gentle movement. Content unlocks one day at a time based on when the user created their account.</p>
+        </div>
+
+        <!-- Section 1: Authentication -->
+        <section>
+            <h2><span class="number">1</span> Authentication</h2>
+            <ul>
+                <li><strong>Sign Up / Sign In</strong> - Email and password authentication via Supabase</li>
+                <li><strong>Profile Creation</strong> - Automatically creates user profile on signup</li>
+                <li><strong>Session Persistence</strong> - Stays logged in between app sessions</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Today Screen -->
+        <section>
+            <h2><span class="number">2</span> Today Screen (Home Tab)</h2>
+            <ul>
+                <li><strong>Day Counter</strong> - Shows current day (e.g., "Day 2") based on account creation date</li>
+                <li><strong>Progress Ring</strong> - Visual progress through the 30-day journey</li>
+                <li><strong>Current Streak</strong> - Tracks consecutive days of lesson completion</li>
+                <li><strong>Today's Lesson Card</strong> - Shows the lesson for today with "Begin" button</li>
+                <li><strong>Completed State</strong> - After completing the lesson, shows "Great work today!" with option to review</li>
+                <li><strong>Daily Affirmation</strong> - Inspirational quote that changes with each day's lesson</li>
+                <li><strong>Quick Actions</strong> - Shortcuts to Journal, Journey Map, and Water tracking</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Lesson Screen -->
+        <section>
+            <h2><span class="number">3</span> Lesson Screen</h2>
+
+            <div class="tabs">
+                <span class="tab">Content</span>
+                <span class="tab secondary">Journal</span>
+                <span class="tab secondary">Movement</span>
+            </div>
+
+            <h3>Content Tab</h3>
+            <ul>
+                <li>Lesson title and introduction</li>
+                <li>Main educational content</li>
+                <li>Key takeaways (bullet points with checkmarks)</li>
+                <li>Today's Action step (highlighted card)</li>
+                <li>Daily Affirmation</li>
+                <li>Nourishment Tip</li>
+            </ul>
+
+            <h3>Journal Tab</h3>
+            <ul>
+                <li>Three prompts with direct input fields:
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Today's Reflection (sun icon)</li>
+                        <li>Deeper Reflection (lightbulb icon)</li>
+                        <li>Gratitude (heart icon)</li>
+                    </ul>
+                </li>
+                <li>Save Journal Entry button</li>
+                <li>Read-only view after saving (one entry per lesson)</li>
+                <li>Shows "Journal entry completed" banner when done</li>
+            </ul>
+
+            <h3>Movement Tab</h3>
+            <ul>
+                <li>Basic movement suggestion</li>
+                <li>Personalized movement suggestion</li>
+                <li>"Mark Complete" button for tracking</li>
+                <li>Shows "Completed" state after marking done</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Complete Lesson Button:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Disabled until journal prompts are answered</li>
+                    <li>Shows "Complete Journal First" if journal not done</li>
+                    <li>Marks lesson complete and returns to home</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: Journey Screen -->
+        <section>
+            <h2><span class="number">4</span> Journey Screen (Journey Tab)</h2>
+            <ul>
+                <li><strong>Phase Progress</strong> - Shows "Phase 1: Foundation" with progress ring</li>
+                <li><strong>Chapter List</strong> - 6 chapters, each with 5 daily lessons</li>
+                <li><strong>Chapter Cards</strong> - Show progress, lesson count, and completion status</li>
+                <li><strong>Continue Button</strong> - Opens chapter detail</li>
+            </ul>
+
+            <h3>The 6 Chapters</h3>
+            <ol class="chapter-list">
+                <li><strong>Awakening Your Wellness Path</strong> (Days 1-5)</li>
+                <li><strong>Nourishment Fundamentals</strong> (Days 6-10)</li>
+                <li><strong>Mindful Eating Rituals</strong> (Days 11-15)</li>
+                <li><strong>Meal Architecture</strong> (Days 16-20)</li>
+                <li><strong>Gentle Movement Foundations</strong> (Days 21-25)</li>
+                <li><strong>Mindset & Self-Compassion</strong> (Days 26-30)</li>
+            </ol>
+        </section>
+
+        <!-- Section 5: Chapter Detail Screen -->
+        <section>
+            <h2><span class="number">5</span> Chapter Detail Screen</h2>
+            <ul>
+                <li><strong>Chapter Header</strong> - Color-coded with chapter badge, title, subtitle</li>
+                <li><strong>Progress Ring</strong> - Shows lessons completed out of total</li>
+                <li><strong>Lesson List</strong> - All 5 lessons with:
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Day number indicator</li>
+                        <li>Completed checkmark (green) for finished lessons</li>
+                        <li>Lock icon for future lessons</li>
+                        <li>Tap to open accessible lessons</li>
+                    </ul>
+                </li>
+                <li><strong>Chapter Quiz Section</strong> - Locked until all 5 lessons complete</li>
+                <li><strong>Next Chapter Card</strong> - Appears after quiz passed</li>
+            </ul>
+        </section>
+
+        <!-- Section 6: Quiz System -->
+        <section>
+            <h2><span class="number">6</span> Quiz System</h2>
+            <ul>
+                <li><strong>7-8 questions per chapter</strong> - Mix of multiple choice, true/false, reflection</li>
+                <li><strong>70% passing threshold</strong> - Must score 70%+ to pass</li>
+            </ul>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Pass Result</h4>
+                    <p>Celebration modal with confetti animation, unlocks next chapter</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Fail Result</h4>
+                    <p>Shows missed topics, 24-hour wait to retry</p>
+                </div>
+            </div>
+
+            <ul style="margin-top: 15px;">
+                <li><strong>Review missed topics</strong> - Can review content for failed questions</li>
+            </ul>
+        </section>
+
+        <!-- Section 7: Journal Screen -->
+        <section>
+            <h2><span class="number">7</span> Journal Screen (Journal Tab)</h2>
+            <ul>
+                <li><strong>Daily Wellness Check:</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Mood selector (5 emoji options)</li>
+                        <li>Energy level selector (5 levels)</li>
+                        <li>Water intake tracker (glasses)</li>
+                        <li>Free-form notes field</li>
+                    </ul>
+                </li>
+                <li><strong>One entry per day</strong> - Form becomes read-only after saving</li>
+                <li><strong>Today's date display</strong> - Shows current date at top</li>
+            </ul>
+        </section>
+
+        <!-- Section 8: Profile Screen -->
+        <section>
+            <h2><span class="number">8</span> Profile Screen (Profile Tab)</h2>
+
+            <h3>User Information</h3>
+            <ul>
+                <li><strong>User Card</strong> - Avatar initial, name, email, subscription badge</li>
+                <li><strong>Stats Grid</strong> - Day Streak, Lessons completed, Journal entries, Chapters completed</li>
+            </ul>
+
+            <h3>Subscription Section</h3>
+            <ul>
+                <li>Current plan display (Transformation)</li>
+                <li>Price display</li>
+                <li>"Manage Subscription" button → Opens device subscription settings</li>
+            </ul>
+
+            <h3>Settings</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Notifications</h4>
+                    <p>Opens device notification settings</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Appearance</h4>
+                    <p>Shows "Dark mode coming soon"</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Offline Content</h4>
+                    <p>Download lessons (coming soon)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Export Journal</h4>
+                    <p>CSV export (coming soon)</p>
+                </div>
+            </div>
+
+            <h3>Support & Legal</h3>
+            <ul>
+                <li>Help & FAQ → Opens website help page</li>
+                <li>Contact Support → Opens email to support</li>
+                <li>Rate the App → Opens App Store/Play Store</li>
+                <li>Terms of Service → Opens website</li>
+                <li>Privacy Policy → Opens website</li>
+                <li>Sign Out - Confirmation dialog, clears session</li>
+            </ul>
+        </section>
+
+        <!-- Section 9: Day Unlock System -->
+        <section>
+            <h2><span class="number">9</span> Day Unlock System</h2>
+            <div class="highlight-box teal">
+                <ul>
+                    <li><strong>Calendar-based unlocking</strong> - New day unlocks at midnight local time</li>
+                    <li><strong>Based on account creation</strong> - Day 1 = signup date, Day 2 = next calendar day</li>
+                    <li><strong>Maximum Day 30</strong> - Phase 1 caps at 30 days</li>
+                    <li><strong>Future lessons locked</strong> - Shows lock icon, not tappable</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 10: Progress Tracking -->
+        <section>
+            <h2><span class="number">10</span> Progress Tracking (Supabase)</h2>
+            <ul>
+                <li><strong>completed_lessons</strong> - Array of lesson IDs marked complete</li>
+                <li><strong>current_day</strong> - Highest unlocked day</li>
+                <li><strong>current_streak</strong> - Consecutive completion days</li>
+                <li><strong>longest_streak</strong> - Best streak achieved</li>
+                <li><strong>subscription_start_date</strong> - Used for day calculations</li>
+                <li><strong>badges</strong> - Achievement badges earned</li>
+            </ul>
+        </section>
+
+        <!-- Section 11: Data Persistence -->
+        <section>
+            <h2><span class="number">11</span> Data Persistence</h2>
+            <ul>
+                <li><strong>Supabase Database</strong> - All progress synced to cloud</li>
+                <li><strong>Zustand Stores</strong> - Local state management:
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>userStore - Auth, profile, subscription</li>
+                        <li>progressStore - Lessons, streaks, quizzes</li>
+                        <li>journalStore - Journal entries</li>
+                    </ul>
+                </li>
+                <li><strong>AsyncStorage</strong> - Caches auth state locally</li>
+            </ul>
+        </section>
+
+        <!-- Content Structure -->
+        <section>
+            <h2>Content Structure</h2>
+            <ul>
+                <li><strong>30 daily lessons</strong> with unique content</li>
+                <li><strong>6 chapters</strong> grouping lessons by theme</li>
+            </ul>
+
+            <h3>Each Lesson Includes:</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Educational Content</h4>
+                    <p>Introduction, main content, key takeaways</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Action Step</h4>
+                    <p>Practical daily action to implement</p>
+                </div>
+                <div class="feature-card">
+                    <h4>3 Journal Prompts</h4>
+                    <p>Reflection, deeper thinking, gratitude</p>
+                </div>
+                <div class="feature-card">
+                    <h4>2 Movement Suggestions</h4>
+                    <p>Basic + personalized options</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Daily Affirmation</h4>
+                    <p>Inspirational statement for the day</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Nourishment Tip</h4>
+                    <p>Nutrition guidance aligned with lesson</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section>
+            <h2>Tech Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">React Native</span>
+                <span class="tech-badge">Expo SDK 54</span>
+                <span class="tech-badge alt">Expo Router</span>
+                <span class="tech-badge alt">Supabase</span>
+                <span class="tech-badge">Zustand</span>
+                <span class="tech-badge">TypeScript</span>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>2Equilibrium</strong> - Holistic Wellness Journey</p>
+            <p>By Graziella Cialone de Souza</p>
+            <p><a href="https://www.2equilibrium.com">www.2equilibrium.com</a></p>
+        </footer>
+    </div>
+</body>
+</html>

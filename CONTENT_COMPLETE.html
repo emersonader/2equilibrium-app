@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Equilibrium - Complete Phase 1 Content</title>
+    <style>
+        @media print {
+            .page-break { page-break-before: always; }
+            body { font-size: 10pt; }
+            .lesson-card { page-break-inside: avoid; }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+        }
+        h1 { font-size: 2rem; color: #E67E22; margin-bottom: 10px; }
+        h2 { font-size: 1.5rem; color: #0ABAB5; margin: 25px 0 12px; border-bottom: 2px solid #0ABAB5; padding-bottom: 8px; }
+        h3 { font-size: 1.2rem; color: #1a1a1a; margin: 15px 0 8px; }
+        h4 { font-size: 1rem; color: #0ABAB5; margin: 12px 0 6px; }
+        .header { text-align: center; margin-bottom: 40px; border-bottom: 3px solid #E67E22; padding-bottom: 25px; }
+        .header p { color: #666; }
+        .chapter-header { background: #f8f9fa; padding: 15px; margin: 30px 0 20px; border-left: 5px solid #0ABAB5; }
+        .chapter-header h2 { margin: 0 0 5px; border: none; padding: 0; }
+        .lesson-card { margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid #e0e0e0; }
+        .day-badge { display: inline-block; background: #E67E22; color: white; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; margin-right: 8px; }
+        .lesson-title { font-size: 1.25rem; color: #1a1a1a; margin-bottom: 12px; }
+        .intro { font-style: italic; color: #666; margin-bottom: 15px; padding: 12px; background: #f8f9fa; border-radius: 5px; font-size: 0.95rem; }
+        .content-text { margin-bottom: 15px; white-space: pre-line; font-size: 0.95rem; }
+        .takeaways { list-style: none; padding: 0; margin: 12px 0; }
+        .takeaways li { padding: 5px 0 5px 20px; position: relative; font-size: 0.95rem; }
+        .takeaways li::before { content: "✓"; position: absolute; left: 0; color: #0ABAB5; font-weight: bold; }
+        .action-box { background: #fff5eb; border: 1px solid #E67E22; border-radius: 5px; padding: 12px; margin: 12px 0; }
+        .action-box h4 { color: #E67E22; margin-top: 0; }
+        .journal-box { background: #f0fafa; border-radius: 5px; padding: 12px; margin: 12px 0; }
+        .prompt { margin: 8px 0; padding: 8px; background: white; border-radius: 4px; font-size: 0.9rem; }
+        .prompt-label { font-weight: bold; color: #666; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 3px; }
+        .movement-box { background: #fff5eb; border-radius: 5px; padding: 12px; margin: 12px 0; font-size: 0.9rem; }
+        .affirmation { text-align: center; font-style: italic; font-size: 1rem; padding: 15px; background: linear-gradient(135deg, #e8f8f8 0%, #fff 100%); border-radius: 5px; margin: 12px 0; }
+        .tip-box { background: #f8f8f8; border-left: 3px solid #0ABAB5; padding: 12px; margin: 12px 0; font-size: 0.9rem; }
+        .quiz-section { margin: 30px 0; padding: 15px; border: 2px solid #0ABAB5; border-radius: 6px; }
+        .quiz-section h3 { color: #0ABAB5; }
+        .question { margin: 15px 0; padding: 12px; background: #f8f9fa; border-radius: 5px; }
+        .question-num { display: inline-block; background: #0ABAB5; color: white; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-size: 0.8rem; margin-right: 8px; }
+        .question-type { display: inline-block; background: #e0e0e0; padding: 2px 6px; border-radius: 8px; font-size: 0.7rem; text-transform: uppercase; }
+        .question-text { font-weight: 500; margin: 8px 0; font-size: 0.95rem; }
+        .options { list-style: none; padding: 0; }
+        .options li { padding: 6px 10px; margin: 4px 0; background: white; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 0.9rem; }
+        .options li.correct { background: #e8f8e8; border-color: #4caf50; }
+        .correct-mark { background: #4caf50; color: white; padding: 1px 6px; border-radius: 8px; font-size: 0.7rem; margin-left: 8px; }
+        .explanation { background: #fff9e6; padding: 8px; margin-top: 8px; border-radius: 4px; font-size: 0.85rem; }
+        .toc { background: #f8f9fa; padding: 20px; margin-bottom: 30px; border-radius: 6px; }
+        .toc h2 { margin-top: 0; font-size: 1.2rem; }
+        .toc ul { list-style: none; padding-left: 15px; }
+        .toc li { padding: 2px 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2Equilibrium</h1>
+        <p style="font-size: 1.2rem; color: #0ABAB5; font-style: normal;">Holistic Wellness Journey</p>
+        <p style="margin-top: 8px;">Phase 1: Foundation - Complete 30 Day Program</p>
+        <p>By Graziella Cialone de Souza</p>
+        <p style="font-size: 0.85rem; margin-top: 15px;">www.2equilibrium.com</p>
+    </div>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><strong>Chapter 1: Awakening Your Wellness Path</strong> (Days 1-5)</li>
+            <li><strong>Chapter 2: Nourishment Fundamentals</strong> (Days 6-10)</li>
+            <li><strong>Chapter 3: Mindful Eating Rituals</strong> (Days 11-15)</li>
+            <li><strong>Chapter 4: Meal Architecture</strong> (Days 16-20)</li>
+            <li><strong>Chapter 5: Gentle Movement Foundations</strong> (Days 21-25)</li>
+            <li><strong>Chapter 6: Mindset & Self-Compassion</strong> (Days 26-30)</li>
+        </ul>
+    </div>
+
+    <div class="chapter-header page-break">
+        <h2>Chapter 1: Awakening Your Wellness Path</h2>
+        <p><em>Setting intentions and establishing daily rhythms</em></p>
+        <p>Days 1-5 | Discover your 'why' and create a foundation for lasting change.</p>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 1</span>
+        <h3 class="lesson-title">Setting Your Wellness Intention</h3>
+        
+        <div class="intro">Welcome to Day 1 of your wellness journey. Today marks the beginning of a beautiful transformation that starts from within.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text">Your wellness journey begins with understanding your 'why.' This isn't about quick fixes or temporary changes—it's about creating a life filled with energy, balance, and joy.
+
+<strong>The Power of Intention</strong>
+
+An intention is more than a goal. While goals are external targets, intentions are internal commitments. When you set a wellness intention, you're declaring how you want to feel and who you want to become.
+
+<strong>Why Your 'Why' Matters</strong>
+
+Research shows that people who connect their health goals to deeper values—like being present for their children, having energy for their passions, or feeling confident in their bodies—are significantly more likely to maintain lasting change.
+
+Your 'why' becomes your anchor when challenges arise. It transforms 'I have to' into 'I choose to.'</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Intentions are internal commitments, not just external goals</li>
+            <li>Connecting to your deeper 'why' increases lasting success</li>
+            <li>Your wellness journey is unique to you</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Take 10 minutes today to write down your wellness intention. Include both what you want to achieve and, more importantly, how you want to feel. Post it somewhere you'll see daily.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What brings you to this wellness journey? What impact will reaching your goals have on your life and loved ones?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Imagine yourself six months from now, having achieved your wellness goals. How do you feel? What does your daily life look like?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Gratitude</span>
+                What aspect of your body or health are you grateful for right now, exactly as it is?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a gentle 10-minute walk today, focusing on your breathing and surroundings.</p>
+            <p><strong>Personalized:</strong> Begin with a 5-minute gentle stretch, followed by a peaceful walk. Notice how your body feels with each step.</p>
+        </div>
+        
+        <div class="affirmation">"I am worthy of taking care of myself and creating a life filled with wellness and joy."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Start your day with a glass of water before anything else. Your body has been fasting all night and needs hydration.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 2</span>
+        <h3 class="lesson-title">The Hydration Ritual</h3>
+        
+        <div class="intro">Water is the foundation of wellness. Today, we explore how proper hydration transforms every aspect of your health.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Why Water Matters</strong>
+
+Your body is approximately 60% water. Every cell, tissue, and organ depends on adequate hydration to function optimally.
+
+<strong>Benefits of Proper Hydration</strong>
+
+- <strong>Metabolism Support</strong>: Water helps your body convert food into energy efficiently
+- <strong>Appetite Regulation</strong>: Often, what feels like hunger is actually thirst
+- <strong>Energy Boost</strong>: Even mild dehydration can cause fatigue and brain fog
+- <strong>Skin Health</strong>: Proper hydration supports clear, glowing skin
+- <strong>Digestion</strong>: Water aids in nutrient absorption and waste elimination
+
+<strong>How Much Water?</strong>
+
+Aim for about 8 glasses (64 ounces) per day as a baseline. Increase this if you're active, in warm weather, or consuming caffeine.
+
+<strong>The Hydration Ritual</strong>
+
+Transform water drinking from a chore into a ritual:
+- Start each morning with a glass of water
+- Drink a glass before each meal (this also aids digestion)
+- Keep water visible and accessible throughout the day
+- Listen to your body's thirst signals</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Water supports metabolism, energy, and appetite regulation</li>
+            <li>Aim for 8 glasses (64 ounces) daily as a baseline</li>
+            <li>Drink water before meals to aid digestion and satisfaction</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Today, track your water intake. Set a reminder to drink a glass of water before each meal and upon waking.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How does your energy level change when you're well-hydrated versus when you've forgotten to drink water?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What obstacles prevent you from drinking enough water? How might you overcome them?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a refreshing 10-minute walk with a water bottle in hand.</p>
+            <p><strong>Personalized:</strong> Combine hydration with gentle movement. Walk for 15 minutes, stopping to sip water every 5 minutes.</p>
+        </div>
+        
+        <div class="affirmation">"I nourish my body with pure, life-giving water throughout the day."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Add a slice of lemon, cucumber, or fresh mint to your water for natural flavor that makes hydration more enjoyable.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 3</span>
+        <h3 class="lesson-title">Understanding Your Body's Signals</h3>
+        
+        <div class="intro">Your body communicates with you constantly. Today, we learn to listen with honesty and compassion.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Art of Body Awareness</strong>
+
+Before we can change, we must first understand where we are. This requires honest self-assessment—not judgment, but gentle observation.
+
+<strong>Physical Signals to Notice</strong>
+
+- When do you feel most energetic?
+- What foods make you feel vibrant versus sluggish?
+- How does your body feel when you've moved versus when you've been sedentary?
+- What does true hunger feel like versus emotional eating?
+
+<strong>Emotional Connections</strong>
+
+Our eating patterns often connect to emotions:
+- Stress eating for comfort
+- Reward eating to celebrate
+- Boredom eating to fill time
+- Restrictive eating from anxiety
+
+<strong>Practicing Honest Awareness</strong>
+
+Honesty doesn't mean harsh self-criticism. It means observing without judgment:
+- "I notice I reach for sweets when stressed"
+- "I observe that I feel tired after lunch"
+- "I see that I skip breakfast when rushed"
+
+This awareness is the foundation for meaningful change.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Body awareness starts with honest, non-judgmental observation</li>
+            <li>Physical signals reveal what truly nourishes you</li>
+            <li>Emotional patterns often drive eating behaviors</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Today, before eating anything, pause for 30 seconds. Ask yourself: Am I truly hungry? What is my body actually asking for? Note your observations.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What patterns have you noticed in your eating or movement habits? What emotions often accompany these patterns?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                If you could speak to your body as a trusted friend, what would you want to understand about its needs?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Practice a 5-minute body scan meditation, noticing how each part of your body feels.</p>
+            <p><strong>Personalized:</strong> Combine gentle stretching with body awareness. As you move, notice which areas feel tight or open.</p>
+        </div>
+        
+        <div class="affirmation">"I listen to my body's wisdom with compassion and curiosity."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Before each meal today, take three deep breaths. This activates your parasympathetic nervous system, improving digestion.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 4</span>
+        <h3 class="lesson-title">Creating Your Sanctuary</h3>
+        
+        <div class="intro">Your environment shapes your choices. Today, we transform your surroundings to support your wellness journey.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Environment Design</strong>
+
+Research shows that our environment has a powerful influence on our behaviors. By designing our spaces thoughtfully, we can make healthy choices the natural choice.
+
+<strong>The Kitchen Sanctuary</strong>
+
+- <strong>Make healthy foods visible</strong>: Place fruits and vegetables at eye level in your refrigerator
+- <strong>Remove temptations</strong>: If it's not in the house, you can't eat it impulsively
+- <strong>Create a water station</strong>: Keep a beautiful pitcher of water on the counter
+- <strong>Organize for success</strong>: Place your blender, cutting boards, and healthy cookware within easy reach
+
+<strong>The Bedroom Sanctuary</strong>
+
+- Keep devices out of the bedroom for better sleep
+- Create a calming environment with soft lighting
+- Prepare your movement clothes the night before
+
+<strong>Environmental Triggers</strong>
+
+Identify what triggers unwanted behaviors:
+- Do you snack while watching TV?
+- Do you eat standing in the kitchen?
+- Do stressful areas lead to comfort eating?
+
+Once identified, you can redesign these spaces to support better choices.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Your environment powerfully influences your behavior</li>
+            <li>Make healthy choices visible and accessible</li>
+            <li>Remove or minimize temptations from your space</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Choose one area of your home to redesign today. Remove one temptation and add one wellness-supportive element.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                Walk through your home with fresh eyes. What environmental changes would make your wellness journey easier?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What 'trigger zones' in your environment lead to choices that don't serve you? How might you redesign them?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Do 10 minutes of light activity while reorganizing one wellness-focused area of your home.</p>
+            <p><strong>Personalized:</strong> Create your movement space today—clear a corner for stretching, yoga, or exercise.</p>
+        </div>
+        
+        <div class="affirmation">"My environment supports my wellness journey every day."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Prepare a bowl of pre-washed fruits and vegetables today. When you open the fridge, make healthy choices effortless.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 5</span>
+        <h3 class="lesson-title">Your Support Circle</h3>
+        
+        <div class="intro">No one succeeds alone. Today, we explore how to build and nurture a support system for your wellness journey.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Power of Community</strong>
+
+Studies consistently show that people with strong support systems are more successful in maintaining lifestyle changes. Your support circle becomes your safety net and your cheerleading squad.
+
+<strong>Types of Support</strong>
+
+1. <strong>Emotional Support</strong>: People who listen, encourage, and understand
+2. <strong>Practical Support</strong>: Those who help with logistics—meal prep buddies, walking partners
+3. <strong>Accountability Partners</strong>: People who check in and help you stay on track
+4. <strong>Role Models</strong>: Those who inspire you with their own wellness journeys
+
+<strong>Building Your Circle</strong>
+
+- Share your goals with 2-3 trusted people
+- Find a wellness buddy with similar goals
+- Join communities (in-person or online) focused on wellness
+- Consider working with a coach or mentor
+
+<strong>Navigating Unsupportive Environments</strong>
+
+Not everyone will understand your journey. Some may even feel threatened by your changes. Remember:
+- You don't need everyone's approval
+- Lead by example, not by preaching
+- Seek support from those who celebrate your growth</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Support systems significantly increase success in lifestyle change</li>
+            <li>Different types of support serve different needs</li>
+            <li>You don't need everyone's approval—find your tribe</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Today, reach out to one person who might support your wellness journey. Share your goals and ask if they'd like to check in with you regularly.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                Who in your life could support your wellness journey? What kind of support would be most helpful from each person?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How can you be a source of support for others on their own journeys?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Invite someone to join you for a 15-minute walk today.</p>
+            <p><strong>Personalized:</strong> Plan a weekly walking date with a friend or family member. Connection plus movement!</p>
+        </div>
+        
+        <div class="affirmation">"I am surrounded by love and support as I grow into my healthiest self."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Share a healthy meal with someone today. Food tastes better when we eat together.</p>
+        </div>
+    </div>
+
+    <div class="quiz-section page-break">
+        <h3>Quiz: Awakening Your Wellness Path</h3>
+        <p><em>Passing Score: 70%</em></p>
+
+        <div class="question">
+            <span class="question-num">1</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the main difference between a goal and an intention?</p>
+            <ul class="options">
+                <li>Goals are easier to achieve than intentions</li>
+                <li class="correct">Intentions are internal commitments about who you want to become, while goals are external targets <span class="correct-mark">Correct</span></li>
+                <li>Goals are short-term and intentions are long-term</li>
+                <li>There is no meaningful difference between them</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> An intention is an internal commitment about how you want to feel and who you want to become, while a goal is an external target to achieve.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">2</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Drinking a glass of water before meals can help with appetite regulation and digestion.</p>
+            <ul class="options">
+                <li class="correct">True <span class="correct-mark">Correct</span></li>
+                <li>False</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Water before meals aids digestion and can help you feel fuller, supporting natural portion control.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">3</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the recommended approach to body awareness?</p>
+            <ul class="options">
+                <li>Be harshly critical to motivate change</li>
+                <li>Ignore body signals and follow strict rules</li>
+                <li class="correct">Observe without judgment and with gentle curiosity <span class="correct-mark">Correct</span></li>
+                <li>Only pay attention when something feels wrong</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Body awareness means observing your signals without judgment, with gentle curiosity and compassion.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">4</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">According to environment design principles, how should you arrange healthy foods in your kitchen?</p>
+            <ul class="options">
+                <li>Hide them so you don't eat them too fast</li>
+                <li class="correct">Place them at eye level and in visible locations <span class="correct-mark">Correct</span></li>
+                <li>Store them only in the pantry</li>
+                <li>Keep them frozen for freshness</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Making healthy foods visible and accessible—at eye level in the refrigerator, for example—makes healthy choices easier.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">5</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">You need everyone in your life to approve of and support your wellness journey for it to succeed.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> You don't need everyone's approval. Find your tribe—the people who support and celebrate your growth.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">6</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the general baseline recommendation for daily water intake?</p>
+            <ul class="options">
+                <li>4 glasses (32 ounces)</li>
+                <li>6 glasses (48 ounces)</li>
+                <li class="correct">8 glasses (64 ounces) <span class="correct-mark">Correct</span></li>
+                <li>12 glasses (96 ounces)</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The general baseline is about 8 glasses (64 ounces) per day, with adjustments for activity level and climate.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">7</span>
+            <span class="question-type">Reflection</span>
+            <p class="question-text">Reflect on your personal 'why' for this wellness journey. What deeper meaning drives your commitment?</p>
+            <div class="explanation"><strong>Explanation:</strong> Reflection questions help deepen your personal connection to the material.</div>
+        </div>
+    </div>
+
+    <div class="chapter-header page-break">
+        <h2>Chapter 2: Nourishment Fundamentals</h2>
+        <p><em>Understanding food as fuel and healing</em></p>
+        <p>Days 6-10 | Learn the basics of nutrition and how to nourish your body properly.</p>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 6</span>
+        <h3 class="lesson-title">The 70/30 Harmony</h3>
+        
+        <div class="intro">Today, we discover the fundamental balance of wellness: nourishment and movement working together.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Understanding the 70/30 Principle</strong>
+
+When it comes to body composition and wellness, research suggests that approximately 70% of results come from what you eat, while 30% comes from physical activity.
+
+This doesn't mean movement isn't important—it absolutely is! But it reminds us that we cannot out-exercise a poor diet.
+
+<strong>What This Means for You</strong>
+
+- <strong>Focus on nourishment first</strong>: Building healthy eating habits creates the foundation
+- <strong>Movement enhances results</strong>: Exercise builds strength, improves mood, and boosts metabolism
+- <strong>Both matter</strong>: They work synergistically for optimal wellness
+
+<strong>Why This Balance Matters</strong>
+
+Many people exercise intensely but eat poorly, wondering why they don't see results. Others diet strictly but remain sedentary, missing the mental and physical benefits of movement.
+
+The 70/30 harmony means:
+- You can't eat whatever you want just because you exercised
+- You shouldn't skip movement just because you ate well
+- Balance creates sustainable, long-term results</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Approximately 70% of wellness results come from nourishment</li>
+            <li>Movement accounts for about 30% and is still essential</li>
+            <li>Balance between the two creates sustainable wellness</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Reflect on your current balance. Are you overemphasizing one area? Today, commit to giving equal attention to both nourishment and movement.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                Where have you been placing most of your wellness effort—nourishment or movement? How might you create better balance?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What would it look like to honor both aspects equally in your daily routine?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a 15-minute walk after your largest meal today.</p>
+            <p><strong>Personalized:</strong> Practice the 70/30 harmony: focus on a nourishing meal, then enjoy gentle movement afterward.</p>
+        </div>
+        
+        <div class="affirmation">"I honor my body with both nourishing food and joyful movement."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>For today's meals, focus on whole, unprocessed foods. Let quality nourishment be your foundation.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 7</span>
+        <h3 class="lesson-title">Fiber: Your Digestive Ally</h3>
+        
+        <div class="intro">Fiber is one of the most underappreciated nutrients. Today, we discover how this powerful ally supports your wellness.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Two Types of Fiber</strong>
+
+<strong>Soluble Fiber</strong>
+- Dissolves in water to form a gel-like substance
+- Helps lower cholesterol and regulate blood sugar
+- Found in: oats, beans, apples, citrus fruits, carrots
+
+<strong>Insoluble Fiber</strong>
+- Does not dissolve; adds bulk to stool
+- Promotes regular digestion and gut health
+- Found in: whole grains, nuts, vegetables, wheat bran
+
+<strong>Benefits of Adequate Fiber</strong>
+
+- <strong>Satiety</strong>: Fiber-rich foods keep you feeling full longer
+- <strong>Blood sugar stability</strong>: Slows the absorption of sugar
+- <strong>Digestive health</strong>: Promotes regular, healthy elimination
+- <strong>Heart health</strong>: Helps reduce cholesterol levels
+- <strong>Gut microbiome</strong>: Feeds beneficial gut bacteria
+
+<strong>How Much Fiber?</strong>
+
+Aim for 25-30 grams per day. Most people get only about 15 grams.
+
+<strong>Increasing Fiber Gradually</strong>
+
+Add fiber slowly to avoid digestive discomfort. Increase water intake as you add fiber to help your digestive system adjust.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Soluble fiber (oats, beans) helps blood sugar and cholesterol</li>
+            <li>Insoluble fiber (vegetables, whole grains) supports digestion</li>
+            <li>Aim for 25-30 grams daily, increasing gradually</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Add one high-fiber food to each meal today. Choose from: vegetables, fruits with skin, beans, oats, or whole grains.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How does your digestion typically feel? What fiber-rich foods do you enjoy, and which would you like to try?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Notice how you feel after meals with more fiber versus meals without. What differences do you observe?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> A 20-minute walk supports digestion and fiber's benefits.</p>
+            <p><strong>Personalized:</strong> Combine movement with fiber awareness—walk to a farmer's market or grocery store to pick up fresh vegetables.</p>
+        </div>
+        
+        <div class="affirmation">"I nourish my body with fiber-rich foods that support my health."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Try adding ground flaxseed or chia seeds to your breakfast. They're packed with fiber and easy to include.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 8</span>
+        <h3 class="lesson-title">The Power of Protein</h3>
+        
+        <div class="intro">Protein is the building block of your body. Today, we explore how adequate protein supports your wellness journey.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Why Protein Matters</strong>
+
+- <strong>Satiety</strong>: Protein is the most filling macronutrient
+- <strong>Metabolism</strong>: Your body burns more calories digesting protein
+- <strong>Muscle maintenance</strong>: Essential for maintaining lean body mass
+- <strong>Blood sugar</strong>: Helps stabilize blood sugar when paired with carbs
+
+<strong>Protein Sources</strong>
+
+<strong>Animal-Based:</strong>
+- Chicken and turkey (lean, versatile)
+- Fish (omega-3 rich options like salmon)
+- Eggs (complete protein, affordable)
+- Greek yogurt (protein plus probiotics)
+
+<strong>Plant-Based:</strong>
+- Legumes (beans, lentils, chickpeas)
+- Tofu and tempeh
+- Nuts and seeds
+- Quinoa (complete protein grain)
+
+<strong>How Much Protein?</strong>
+
+Aim for protein at each meal. A general guideline is 0.8-1 gram per pound of ideal body weight, spread throughout the day.
+
+<strong>The Protein Priority</strong>
+
+When building your plate, start with protein. This ensures you get adequate amounts and helps naturally control overall portions.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Protein is the most satiating macronutrient</li>
+            <li>Include protein at every meal for balanced energy</li>
+            <li>Both animal and plant sources provide excellent protein</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Include a protein source at every meal today. Note how your hunger and energy levels compare to typical days.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What are your favorite protein sources? Are there new ones you'd like to incorporate?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How does your energy and satiety change when you include adequate protein at meals?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Try some gentle bodyweight exercises today—protein supports muscle health!</p>
+            <p><strong>Personalized:</strong> Do a short strength routine: 10 squats, 10 wall push-ups, 10 lunges. Protein helps your muscles recover.</p>
+        </div>
+        
+        <div class="affirmation">"I give my body the protein it needs to thrive and grow stronger."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Hard-boil a batch of eggs at the beginning of the week for easy, grab-and-go protein snacks.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 9</span>
+        <h3 class="lesson-title">Carbohydrates Decoded</h3>
+        
+        <div class="intro">Carbohydrates have been unfairly demonized. Today, we learn to choose carbs wisely for sustained energy.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Understanding Carbohydrates</strong>
+
+Carbohydrates are your body's preferred energy source. The key is choosing the right types.
+
+<strong>Simple vs. Complex Carbohydrates</strong>
+
+<strong>Simple Carbs</strong> (quick energy, quick crash):
+- White bread, pasta, rice
+- Sugary foods and drinks
+- Most processed snacks
+
+<strong>Complex Carbs</strong> (sustained energy):
+- Whole grains (oats, quinoa, brown rice)
+- Vegetables
+- Legumes
+- Fruits with fiber
+
+<strong>The Glycemic Index (GI)</strong>
+
+The GI measures how quickly foods raise blood sugar:
+
+<strong>Low GI (55 or less)</strong> - Choose these:
+- Most vegetables
+- Beans and lentils
+- Apples, berries, oranges
+- Sweet potatoes
+- Steel-cut oats
+
+<strong>High GI (70+)</strong> - Limit these:
+- White bread and bagels
+- Instant oatmeal
+- White potatoes
+- Watermelon
+- Rice cakes
+
+<strong>The Fiber Factor</strong>
+
+Fiber slows down carbohydrate absorption, which is why whole fruits are better than juice, and whole grains beat refined grains.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Complex carbohydrates provide sustained energy</li>
+            <li>Choose low glycemic index foods when possible</li>
+            <li>Fiber helps moderate blood sugar response</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Replace one refined carbohydrate in your day with a whole grain or vegetable alternative.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How do you feel after eating simple carbs versus complex carbs? What patterns do you notice?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Which carbohydrate swaps would be easiest to make in your current eating pattern?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a 15-minute walk after a carbohydrate-containing meal to help regulate blood sugar.</p>
+            <p><strong>Personalized:</strong> Use movement to help process carbohydrates—a post-meal walk is one of the best things you can do for blood sugar.</p>
+        </div>
+        
+        <div class="affirmation">"I choose carbohydrates that give my body sustained, vibrant energy."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>When eating bread, choose whole grain varieties where you can see seeds and grains. The more texture, the more fiber.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 10</span>
+        <h3 class="lesson-title">Understanding Fats</h3>
+        
+        <div class="intro">Fat doesn't make you fat—the right fats are essential for health. Today, we learn to embrace beneficial fats.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Fats Are Essential</strong>
+
+Your body needs fat for:
+- Hormone production
+- Brain function (your brain is 60% fat!)
+- Nutrient absorption (vitamins A, D, E, K)
+- Satiety and satisfaction
+
+<strong>Good Fats to Embrace</strong>
+
+<strong>Monounsaturated Fats:</strong>
+- Olive oil
+- Avocados
+- Almonds and most nuts
+
+<strong>Polyunsaturated Fats (Omega-3s):</strong>
+- Fatty fish (salmon, sardines, mackerel)
+- Walnuts
+- Flaxseeds and chia seeds
+
+<strong>Fats to Minimize</strong>
+
+<strong>Saturated Fats</strong> (limit, don't eliminate):
+- Fatty cuts of meat
+- Full-fat dairy
+- Coconut oil (in moderation)
+
+<strong>Trans Fats</strong> (avoid entirely):
+- Partially hydrogenated oils
+- Many fried foods
+- Some processed baked goods
+
+<strong>The Right Balance</strong>
+
+Fat should comprise about 25-35% of your calories. Focus on replacing saturated fats with unsaturated fats rather than adding more fat overall.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Healthy fats are essential for hormones, brain, and nutrient absorption</li>
+            <li>Embrace olive oil, avocados, nuts, and fatty fish</li>
+            <li>Avoid trans fats entirely; moderate saturated fats</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Include a source of healthy fat at each meal today: avocado, olive oil, nuts, or fatty fish.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What healthy fats do you currently enjoy? Which would you like to add to your routine?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How has your understanding of dietary fat changed over the years? What beliefs might need updating?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Enjoy a 20-minute walk—movement helps your body use fats for energy.</p>
+            <p><strong>Personalized:</strong> Low-intensity movement like walking is perfect for fat metabolism. Take a peaceful 25-minute stroll.</p>
+        </div>
+        
+        <div class="affirmation">"I nourish my brain and body with healthy, beneficial fats."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Make a simple vinaigrette with olive oil and lemon for salads. It's delicious and full of healthy fats.</p>
+        </div>
+    </div>
+
+    <div class="quiz-section page-break">
+        <h3>Quiz: Nourishment Fundamentals</h3>
+        <p><em>Passing Score: 70%</em></p>
+
+        <div class="question">
+            <span class="question-num">1</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">The 70/30 harmony principle suggests that wellness results come from:</p>
+            <ul class="options">
+                <li>70% movement, 30% nourishment</li>
+                <li class="correct">70% nourishment, 30% movement <span class="correct-mark">Correct</span></li>
+                <li>70% mindset, 30% action</li>
+                <li>70% rest, 30% activity</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The 70/30 principle indicates that approximately 70% of wellness results come from nutrition, while 30% comes from physical activity.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">2</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Soluble fiber dissolves in water and helps regulate blood sugar levels.</p>
+            <ul class="options">
+                <li class="correct">True <span class="correct-mark">Correct</span></li>
+                <li>False</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Soluble fiber dissolves in water, forming a gel-like substance that helps regulate blood sugar and lower cholesterol.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">3</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Which of the following is a complete plant-based protein source?</p>
+            <ul class="options">
+                <li>Brown rice alone</li>
+                <li class="correct">Quinoa <span class="correct-mark">Correct</span></li>
+                <li>Almonds alone</li>
+                <li>Broccoli</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Quinoa is one of the few plant sources that contains all essential amino acids, making it a complete protein.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">4</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Which of these foods has a LOW glycemic index?</p>
+            <ul class="options">
+                <li>White bread</li>
+                <li>Instant oatmeal</li>
+                <li class="correct">Steel-cut oats <span class="correct-mark">Correct</span></li>
+                <li>Rice cakes</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Steel-cut oats have a low glycemic index, meaning they raise blood sugar slowly and steadily.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">5</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">All dietary fats are harmful and should be avoided for optimal health.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Healthy fats (from olive oil, avocados, nuts, fatty fish) are essential for brain function, hormone production, and nutrient absorption.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">6</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Which type of fat should be completely avoided?</p>
+            <ul class="options">
+                <li>Monounsaturated fats</li>
+                <li>Polyunsaturated fats (Omega-3s)</li>
+                <li class="correct">Trans fats <span class="correct-mark">Correct</span></li>
+                <li>All fats from animal sources</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Trans fats (partially hydrogenated oils) should be avoided entirely as they have no health benefits and increase disease risk.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">7</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the recommended daily fiber intake?</p>
+            <ul class="options">
+                <li>10-15 grams</li>
+                <li>15-20 grams</li>
+                <li class="correct">25-30 grams <span class="correct-mark">Correct</span></li>
+                <li>40-50 grams</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The recommended daily fiber intake is 25-30 grams, though most people only consume about 15 grams.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">8</span>
+            <span class="question-type">Reflection</span>
+            <p class="question-text">Name three protein sources (animal or plant-based) that you would like to include more often in your meals.</p>
+            <div class="explanation"><strong>Explanation:</strong> Reflection prompts help you connect the material to your personal life.</div>
+        </div>
+    </div>
+
+    <div class="chapter-header page-break">
+        <h2>Chapter 3: Mindful Eating Rituals</h2>
+        <p><em>How we eat matters as much as what we eat</em></p>
+        <p>Days 11-15 | Transform your relationship with food through mindful eating practices.</p>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 11</span>
+        <h3 class="lesson-title">The Art of Chewing</h3>
+        
+        <div class="intro">Something as simple as how we chew can transform our relationship with food and improve digestion.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Why Chewing Matters</strong>
+
+Digestion begins in the mouth, not the stomach. Proper chewing:
+- Releases digestive enzymes in saliva
+- Breaks down food for better nutrient absorption
+- Sends satiety signals to the brain
+- Reduces digestive discomfort
+
+<strong>The 30-Chew Practice</strong>
+
+Aim to chew each bite approximately 30 times. This may seem excessive at first, but notice:
+- Food becomes liquid before you swallow
+- You taste more flavors
+- You feel satisfied sooner
+- Bloating and discomfort decrease
+
+<strong>Benefits of Mindful Chewing</strong>
+
+- <strong>Better digestion</strong>: Less work for your stomach
+- <strong>Increased satisfaction</strong>: You taste your food fully
+- <strong>Natural portion control</strong>: You eat more slowly, giving fullness signals time to reach your brain
+- <strong>Reduced cravings</strong>: Fully experiencing food satisfies cravings
+
+<strong>Making It a Habit</strong>
+
+- Put your fork down between bites
+- Take smaller bites
+- Focus on the textures and flavors
+- Turn off distractions during meals</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Chewing 30 times per bite improves digestion and satisfaction</li>
+            <li>Digestion begins in the mouth with saliva enzymes</li>
+            <li>Slower eating naturally reduces portion sizes</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>At your next meal, count your chews for the first five bites. Aim for 30 chews per bite and notice the difference.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How quickly do you typically eat? What do you notice when you slow down and chew thoroughly?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What obstacles make it hard to eat slowly? How might you overcome them?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Practice mindful walking today—slow, deliberate steps, just like mindful chewing.</p>
+            <p><strong>Personalized:</strong> Take a 10-minute walk before your meal. Arriving at the table calm supports mindful eating.</p>
+        </div>
+        
+        <div class="affirmation">"I savor each bite, allowing my body to fully receive nourishment."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Try eating one meal without any screens today. Notice how the food tastes and how satisfied you feel.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 12</span>
+        <h3 class="lesson-title">Portion Awareness</h3>
+        
+        <div class="intro">Portion awareness isn't about restriction—it's about tuning into what your body actually needs.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Portion Problem</strong>
+
+Over the past 50 years, portion sizes have dramatically increased. What we consider 'normal' is often 2-3 times larger than our bodies need.
+
+<strong>Visual Portion Guides</strong>
+
+Use your hand as a guide:
+- <strong>Protein</strong>: Palm of your hand (thickness and size)
+- <strong>Vegetables</strong>: Two cupped handfuls
+- <strong>Carbohydrates</strong>: One cupped handful
+- <strong>Fats</strong>: Your thumb (oils, butter, nut butters)
+
+<strong>The Plate Method</strong>
+
+Fill your plate:
+- <strong>Half</strong>: Non-starchy vegetables
+- <strong>Quarter</strong>: Lean protein
+- <strong>Quarter</strong>: Complex carbohydrates
+- <strong>Plus</strong>: A small amount of healthy fat
+
+<strong>Mindful Portioning Tips</strong>
+
+- Use smaller plates (10-inch instead of 12-inch)
+- Serve food in the kitchen, not family-style at the table
+- Wait 15-20 minutes before second helpings
+- Listen for the 'satisfied but not stuffed' signal
+
+<strong>It's Not About Perfection</strong>
+
+Some meals will be larger, some smaller. The goal is awareness, not restriction.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Your hand provides natural portion guides</li>
+            <li>The plate method: half vegetables, quarter protein, quarter carbs</li>
+            <li>Aim for 'satisfied but not stuffed'</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Use the plate method for one meal today. Notice how you feel after eating—aim for comfortable satisfaction.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How do you typically decide how much to eat? What signals tell you you've had enough?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What would change if you consistently stopped eating at 'satisfied but not stuffed'?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a walk after a properly portioned meal—notice your energy level.</p>
+            <p><strong>Personalized:</strong> After using the plate method, go for a 15-minute walk. Notice how you feel energized rather than sluggish.</p>
+        </div>
+        
+        <div class="affirmation">"I trust my body's signals to tell me when I've had enough."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Try eating from a salad plate instead of a dinner plate. Research shows we eat less without feeling deprived.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 13</span>
+        <h3 class="lesson-title">Calorie Density Wisdom</h3>
+        
+        <div class="intro">Understanding calorie density helps you eat satisfying portions while supporting your wellness goals.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>What Is Calorie Density?</strong>
+
+Calorie density measures how many calories are packed into a given weight or volume of food.
+
+<strong>The Comparison</strong>
+
+For the same 536 calories, you could eat:
+- 100g of potato chips, OR
+- 224g of chicken breast, OR
+- 438g of brown rice, OR
+- 1000g of broccoli, OR
+- 1624g of strawberries
+
+<strong>Why This Matters</strong>
+
+Low-calorie-density foods:
+- Fill your stomach with fewer calories
+- Provide more nutrients
+- Allow larger portions
+- Support natural satiety
+
+<strong>Low Calorie Density Foods</strong>
+- Most vegetables
+- Most fruits
+- Broth-based soups
+- Lean proteins
+- Whole grains
+
+<strong>High Calorie Density Foods</strong>
+- Chips and crackers
+- Fried foods
+- Sweets and desserts
+- Oils and butter
+- Nuts (healthy but dense)
+
+<strong>Practical Application</strong>
+
+Start meals with low-density foods (salad, soup, vegetables). This naturally fills you up before the denser foods arrive.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Low-calorie-density foods fill you up with fewer calories</li>
+            <li>Start meals with vegetables or broth-based soup</li>
+            <li>Volume matters—you can eat MORE of the right foods</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Start today's largest meal with a large salad or bowl of vegetable soup before the main course.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What low-calorie-density foods do you enjoy? How could you incorporate more of them?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How does starting a meal with vegetables change your overall eating experience?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> A 15-minute walk is low 'energy density' for high benefit!</p>
+            <p><strong>Personalized:</strong> Just as you're choosing low-calorie-density foods, choose sustainable movement—a pleasant walk that you'll enjoy repeating.</p>
+        </div>
+        
+        <div class="affirmation">"I fill my body with nourishing foods that satisfy and sustain me."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Keep cut vegetables ready in your fridge. When you're hungry, grab these first—they'll fill you up with nutrients.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 14</span>
+        <h3 class="lesson-title">Empty vs. Nutrient-Rich</h3>
+        
+        <div class="intro">Not all calories are created equal. Today, we learn to choose foods that truly nourish.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Empty Calories</strong>
+
+Empty calories provide energy but little to no nutritional value:
+- Sodas and sweetened beverages
+- Candy and most desserts
+- White bread and refined grains
+- Fried foods
+- Alcohol
+
+<strong>Nutrient-Dense Foods</strong>
+
+Nutrient-dense foods pack vitamins, minerals, and other beneficial compounds per calorie:
+
+<strong>Vegetables:</strong>
+- Kale, spinach, broccoli
+- Bell peppers, carrots
+- Tomatoes, onions, garlic
+
+<strong>Fruits:</strong>
+- Berries (blueberries, strawberries)
+- Citrus fruits
+- Apples and pears
+
+<strong>Proteins:</strong>
+- Wild salmon
+- Eggs
+- Legumes
+
+<strong>Whole Grains:</strong>
+- Quinoa
+- Oats
+- Brown rice
+
+<strong>The Swap Strategy</strong>
+
+Instead of eliminating foods, focus on swapping:
+- Soda → Sparkling water with lemon
+- Chips → Vegetables with hummus
+- White bread → Whole grain bread
+- Candy → Fresh fruit
+
+Small swaps add up to big changes over time.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Empty calories provide energy without nutrition</li>
+            <li>Nutrient-dense foods nourish every cell of your body</li>
+            <li>Focus on swapping rather than eliminating</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Identify one empty-calorie food you consume regularly. Find a nutrient-dense swap and try it today.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What empty-calorie foods are hardest for you to give up? What nutrient-dense alternatives might satisfy the same craving?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How do you feel after eating nutrient-dense foods versus empty calories?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a 20-minute walk in nature—fresh air is 'nutrient-dense' for your mind!</p>
+            <p><strong>Personalized:</strong> Plan a walk to a local market where you can pick up fresh, nutrient-dense produce.</p>
+        </div>
+        
+        <div class="affirmation">"I choose foods that nourish my body at the cellular level."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Aim to eat something green at every meal. Leafy greens are among the most nutrient-dense foods on earth.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 15</span>
+        <h3 class="lesson-title">Your Eating Environment</h3>
+        
+        <div class="intro">Where and how you eat profoundly affects how much you eat and how satisfied you feel.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Environment Effect</strong>
+
+Research shows we eat more when:
+- Distracted by screens
+- Standing or rushing
+- Eating from large plates or packages
+- In bright, loud environments
+- Surrounded by others who are eating more
+
+<strong>Creating a Mindful Eating Space</strong>
+
+<strong>The Ideal Setting:</strong>
+- Sit at a table
+- Use real plates and utensils
+- Eliminate screens
+- Soft lighting and calm atmosphere
+- Pleasant company (or peaceful solitude)
+
+<strong>Practical Tips:</strong>
+- Designate one eating space at home
+- Set the table, even for simple meals
+- Take at least 15 minutes for each meal
+- Put your phone in another room
+- Light a candle to signal 'mealtime'
+
+<strong>The Social Element</strong>
+
+Eating with others can be wonderful, but be aware:
+- We tend to mirror others' eating pace
+- Large group meals often mean larger portions
+- Choose dining companions who support your goals
+
+<strong>Making Meals a Ritual</strong>
+
+When we elevate eating from 'fueling' to 'ritual,' we naturally eat more mindfully and with more satisfaction.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Your eating environment influences portion sizes and satisfaction</li>
+            <li>Eliminate distractions—especially screens—during meals</li>
+            <li>Create rituals around mealtime for more mindful eating</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Transform one meal today into a mindful ritual: set the table, eliminate screens, and eat slowly with awareness.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                Where do you typically eat? How does your environment affect your eating experience?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What small changes could make your meals feel more like nourishing rituals?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> After your mindful meal, take a gentle 10-minute walk to extend the peaceful feeling.</p>
+            <p><strong>Personalized:</strong> Create a post-meal ritual: clear the table mindfully, then take a short walk to aid digestion and maintain calm.</p>
+        </div>
+        
+        <div class="affirmation">"I create peaceful, nourishing environments for my meals."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Try eating your next meal in complete silence—no phone, no TV, no reading. Notice how the food tastes and how satisfied you feel.</p>
+        </div>
+    </div>
+
+    <div class="quiz-section page-break">
+        <h3>Quiz: Mindful Eating Rituals</h3>
+        <p><em>Passing Score: 70%</em></p>
+
+        <div class="question">
+            <span class="question-num">1</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">How many times should you aim to chew each bite of food?</p>
+            <ul class="options">
+                <li>5-10 times</li>
+                <li>15-20 times</li>
+                <li class="correct">About 30 times <span class="correct-mark">Correct</span></li>
+                <li>50+ times</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Chewing each bite approximately 30 times allows food to break down properly and triggers satiety signals.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">2</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Digestion begins in the stomach, not the mouth.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Digestion actually begins in the mouth, where saliva contains enzymes that start breaking down food.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">3</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Using your hand as a portion guide, what represents an appropriate protein serving?</p>
+            <ul class="options">
+                <li>Your entire hand spread out</li>
+                <li>Your fist</li>
+                <li class="correct">Your palm (thickness and size) <span class="correct-mark">Correct</span></li>
+                <li>Your thumb</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Your palm (thickness and size) represents an appropriate protein portion for one meal.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">4</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Which food allows you to eat the MOST volume for the same number of calories?</p>
+            <ul class="options">
+                <li>Potato chips</li>
+                <li>Brown rice</li>
+                <li class="correct">Broccoli <span class="correct-mark">Correct</span></li>
+                <li>Chicken breast</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Broccoli has very low calorie density—you can eat 1000g for 536 calories, compared to only 100g of chips.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">5</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Empty calories provide energy but little to no nutritional value.</p>
+            <ul class="options">
+                <li class="correct">True <span class="correct-mark">Correct</span></li>
+                <li>False</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Empty calories (from sodas, candy, refined foods) provide energy without beneficial nutrients like vitamins and minerals.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">6</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Which of these eating environment changes supports mindful eating?</p>
+            <ul class="options">
+                <li>Eating while watching TV to relax</li>
+                <li>Standing while eating for efficiency</li>
+                <li class="correct">Eliminating screens and sitting at a table <span class="correct-mark">Correct</span></li>
+                <li>Eating directly from packages to save dishes</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Eliminating distractions and sitting at a table helps you eat mindfully and recognize satiety signals.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">7</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">According to the plate method, how much of your plate should be filled with non-starchy vegetables?</p>
+            <ul class="options">
+                <li>One quarter</li>
+                <li>One third</li>
+                <li class="correct">One half <span class="correct-mark">Correct</span></li>
+                <li>Two thirds</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The plate method suggests filling half your plate with non-starchy vegetables.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">8</span>
+            <span class="question-type">Reflection</span>
+            <p class="question-text">Describe what a mindful meal looks and feels like for you. What changes would make your eating experience more nourishing?</p>
+            <div class="explanation"><strong>Explanation:</strong> Reflection helps you envision and commit to positive changes.</div>
+        </div>
+    </div>
+
+    <div class="chapter-header page-break">
+        <h2>Chapter 4: Meal Architecture</h2>
+        <p><em>Building balanced meals throughout the day</em></p>
+        <p>Days 16-20 | Create a sustainable meal structure that supports your wellness goals.</p>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 16</span>
+        <h3 class="lesson-title">Morning Nourishment</h3>
+        
+        <div class="intro">How you begin your day sets the tone for everything that follows. Today, we design the ideal morning nourishment.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Importance of Breakfast</strong>
+
+Breaking your overnight fast thoughtfully:
+- Kickstarts your metabolism
+- Stabilizes blood sugar
+- Prevents mid-morning energy crashes
+- Reduces likelihood of overeating later
+
+<strong>The Balanced Breakfast Formula</strong>
+
+<strong>Protein (Essential):</strong>
+- Eggs (any style)
+- Greek yogurt
+- Cottage cheese
+- Nut butter
+
+<strong>Complex Carbs:</strong>
+- Oatmeal
+- Whole grain toast
+- Fresh fruit
+
+<strong>Healthy Fats:</strong>
+- Avocado
+- Nuts and seeds
+- Olive oil
+
+<strong>Breakfast Ideas</strong>
+
+1. Oatmeal with berries, nuts, and a drizzle of honey
+2. Greek yogurt parfait with fruit and granola
+3. Eggs with avocado on whole grain toast
+4. Smoothie with spinach, banana, protein powder, and almond butter
+
+<strong>If You're Not Hungry in the Morning</strong>
+
+Start small:
+- A handful of nuts
+- A piece of fruit with nut butter
+- A small smoothie
+
+Your hunger in the morning often reflects how you ate the night before.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>A balanced breakfast includes protein, complex carbs, and healthy fat</li>
+            <li>Protein is essential for sustained morning energy</li>
+            <li>Not hungry? Start small and adjust your evening eating</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Plan and prepare a balanced breakfast for tomorrow with all three components: protein, carbs, and fat.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What does your typical morning look like? How might a nourishing breakfast change your day?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What obstacles prevent you from eating a good breakfast? How might you overcome them?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Try a 5-minute morning stretch routine before breakfast.</p>
+            <p><strong>Personalized:</strong> Start your day with gentle movement: 5 minutes of stretching, followed by a balanced breakfast.</p>
+        </div>
+        
+        <div class="affirmation">"I start each day by nourishing my body with a balanced breakfast."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Prep breakfast the night before—overnight oats or pre-portioned smoothie ingredients make mornings easier.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 17</span>
+        <h3 class="lesson-title">Midday Fuel</h3>
+        
+        <div class="intro">Lunch is your midday refueling stop. Today, we design meals that power you through the afternoon.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Afternoon Slump</strong>
+
+Many people experience the 2-3pm energy crash. Often, this is due to:
+- Lunch that was too high in simple carbs
+- Lunch that was too small or skipped
+- Poor hydration
+
+<strong>Building a Better Lunch</strong>
+
+<strong>Protein Base:</strong>
+- Grilled chicken or fish
+- Hard-boiled eggs
+- Beans or lentils
+- Tofu or tempeh
+
+<strong>Vegetable Volume:</strong>
+- Leafy greens base
+- Colorful vegetables
+- Raw or roasted options
+
+<strong>Legumes &amp; Grains:</strong>
+- Chickpeas
+- Quinoa
+- Brown rice
+- Lentils
+
+<strong>Lunch Ideas</strong>
+
+1. Large salad with grilled chicken, chickpeas, vegetables, and olive oil dressing
+2. Buddha bowl with quinoa, roasted vegetables, and tahini
+3. Vegetable soup with a side of whole grain bread and cheese
+4. Lettuce wraps with ground turkey and vegetables
+
+<strong>Practical Tips</strong>
+
+- Prep lunch containers on Sunday
+- Make extra dinner to become next-day lunch
+- Keep healthy frozen options for emergencies
+- Eat away from your desk when possible</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>A protein-rich lunch prevents afternoon energy crashes</li>
+            <li>Fill half your lunch plate with vegetables</li>
+            <li>Meal prep makes healthy lunches sustainable</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Prepare a lunch for tomorrow that includes protein, vegetables, and a whole grain or legume.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What do you typically eat for lunch? How does it affect your afternoon energy?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What would make preparing healthy lunches easier for you?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a 15-minute walk after lunch to aid digestion and boost afternoon energy.</p>
+            <p><strong>Personalized:</strong> Make a post-lunch walk a daily habit—even 10 minutes helps regulate blood sugar and improves afternoon focus.</p>
+        </div>
+        
+        <div class="affirmation">"I nourish my body at midday with food that fuels my afternoon."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Keep a stash of nuts at your workplace for emergency protein when lunch is delayed.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 18</span>
+        <h3 class="lesson-title">Evening Restoration</h3>
+        
+        <div class="intro">Dinner is a time for restoration and connection. Today, we create evening meals that nourish body and soul.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Role of Dinner</strong>
+
+Dinner should:
+- Restore nutrients used during the day
+- Be satisfying without being heavy
+- Allow time for digestion before sleep
+- Provide opportunity for connection
+
+<strong>Building a Restorative Dinner</strong>
+
+<strong>Lean Protein:</strong>
+- Fish (especially fatty fish like salmon)
+- Chicken or turkey breast
+- Lean cuts of meat
+- Plant-based protein options
+
+<strong>Abundant Vegetables:</strong>
+- Roasted vegetables
+- Steamed greens
+- Large salads
+- Vegetable soups
+
+<strong>Light Carbohydrates:</strong>
+- Sweet potatoes
+- Quinoa
+- Vegetable-based sides
+
+<strong>Dinner Ideas</strong>
+
+1. Grilled salmon with roasted vegetables and quinoa
+2. Vegetable stir-fry with tofu over cauliflower rice
+3. Large salad with grilled chicken and avocado
+4. Homemade vegetable soup with a side salad
+
+<strong>Evening Eating Tips</strong>
+
+- Eat dinner at least 2-3 hours before bed
+- Keep evening portions moderate
+- Avoid heavy, rich foods that disrupt sleep
+- Make dinner the lightest meal if possible</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Dinner should restore without overwhelming</li>
+            <li>Include lean protein and abundant vegetables</li>
+            <li>Eat at least 2-3 hours before bedtime</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Plan a dinner this week featuring fish or lean protein with at least two different vegetables.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How do different dinners affect your sleep and how you feel the next morning?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What does your ideal evening meal look and feel like?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> An evening walk after dinner aids digestion and promotes better sleep.</p>
+            <p><strong>Personalized:</strong> Create an evening ritual: dinner, then a 15-20 minute walk as the sun sets.</p>
+        </div>
+        
+        <div class="affirmation">"I end each day with nourishing food that prepares my body for rest."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Try making soup—it's easy, nutritious, and can be made in batches for the week ahead.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 19</span>
+        <h3 class="lesson-title">Beverage Wisdom</h3>
+        
+        <div class="intro">What we drink matters as much as what we eat. Today, we explore the hidden world of beverage calories.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Hidden Calorie Problem</strong>
+
+Many people consume hundreds of calories daily from beverages without realizing it.
+
+<strong>Common Beverage Calories:</strong>
+- Regular soda (12 oz): 140-170 calories
+- Sweetened coffee drink: 200-500 calories
+- Fruit juice (12 oz): 150-200 calories
+- Piña colada (8 oz): 312 calories
+- Beer (12 oz): 150 calories
+- Wine (5 oz): 105-125 calories
+
+<strong>One soda daily = approximately 15 pounds weight gain per year</strong>
+
+<strong>The Tea Advantage</strong>
+
+Teas offer benefits without calories:
+
+- <strong>Green Tea</strong>: Contains catechins that may boost metabolism
+- <strong>Black Tea</strong>: Provides steady energy without coffee jitters
+- <strong>Oolong Tea</strong>: May support fat metabolism
+- <strong>Hibiscus Tea</strong>: May help with blood pressure
+- <strong>White Tea</strong>: Highest in antioxidants
+
+Aim for 3-5 cups of unsweetened tea daily.
+
+<strong>Better Beverage Choices</strong>
+
+- Water (plain or infused)
+- Unsweetened tea
+- Black coffee (in moderation)
+- Sparkling water
+- Herbal tea
+
+<strong>Alcohol Awareness</strong>
+
+Alcohol provides calories without nutrition and can trigger overeating. If you drink, do so mindfully and in moderation.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Liquid calories add up quickly and don't satisfy hunger</li>
+            <li>Tea offers health benefits without the calorie cost</li>
+            <li>Swap sweetened beverages for water, tea, or sparkling water</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Track every beverage you consume today, including calories. Identify one swap you can make.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How many calories do you typically drink in a day? What beverages could you swap for healthier options?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What role do beverages play in your daily rituals? How can you make them healthier?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a walk with a bottle of water or thermos of tea.</p>
+            <p><strong>Personalized:</strong> Combine hydration with movement—prepare a tea to enjoy after a 20-minute walk.</p>
+        </div>
+        
+        <div class="affirmation">"I choose beverages that hydrate and nourish my body."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Invest in a beautiful water bottle or tea thermos. When your drink vessel is appealing, you'll use it more.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 20</span>
+        <h3 class="lesson-title">Replacement Strategies</h3>
+        
+        <div class="intro">Change doesn't require deprivation. Today, we master the art of healthy swaps that satisfy.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The Swap Mindset</strong>
+
+Instead of thinking 'I can't have this,' think 'I get to have that instead.' This subtle shift transforms restriction into choice.
+
+<strong>Satisfying Swaps</strong>
+
+<strong>Cravings for Crunch:</strong>
+- Chips → Roasted chickpeas, vegetable chips, or air-popped popcorn
+- Crackers → Rice cakes with nut butter, or vegetables with hummus
+
+<strong>Cravings for Sweet:</strong>
+- Candy → Fresh fruit, dark chocolate (small piece), or frozen grapes
+- Ice cream → Frozen banana 'nice cream' or Greek yogurt with berries
+- Cookies → Dates with nut butter, or oatmeal energy balls
+
+<strong>Cravings for Comfort:</strong>
+- Pasta → Zucchini noodles, spaghetti squash, or cauliflower rice
+- White bread → Whole grain alternatives or lettuce wraps
+- Mashed potatoes → Mashed cauliflower or sweet potato
+
+<strong>Cravings for Salt:</strong>
+- Processed snacks → Olives, pickles, or salted nuts
+- Fast food → Homemade versions with quality ingredients
+
+<strong>The 80/20 Approach</strong>
+
+Aim for nourishing choices 80% of the time. The remaining 20% allows for flexibility, special occasions, and simply being human.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Healthy swaps satisfy cravings without derailing progress</li>
+            <li>Think 'I get to' instead of 'I can't'</li>
+            <li>The 80/20 approach creates sustainable balance</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Identify your most common craving. Find and try a healthy swap for it today.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What foods do you find hardest to give up? What healthy alternatives might satisfy the same craving?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How does the 80/20 approach feel compared to 'all or nothing' thinking?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> When a craving hits, take a 10-minute walk first—it often passes.</p>
+            <p><strong>Personalized:</strong> Create a 'craving protocol': When you want something unhealthy, first drink water, then walk for 10 minutes. If you still want it, enjoy a healthy swap.</p>
+        </div>
+        
+        <div class="affirmation">"I satisfy my cravings with choices that honor my wellness journey."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Prepare your swap foods in advance. When cravings hit, the healthy option should be as easy to grab as the old choice.</p>
+        </div>
+    </div>
+
+    <div class="quiz-section page-break">
+        <h3>Quiz: Meal Architecture</h3>
+        <p><em>Passing Score: 70%</em></p>
+
+        <div class="question">
+            <span class="question-num">1</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">A balanced breakfast should include which three components?</p>
+            <ul class="options">
+                <li>Sugar, caffeine, and quick energy</li>
+                <li class="correct">Protein, complex carbohydrates, and healthy fat <span class="correct-mark">Correct</span></li>
+                <li>Fruit juice, toast, and jam</li>
+                <li>Only protein to avoid carbs</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> A balanced breakfast includes protein (for satiety), complex carbohydrates (for energy), and healthy fat (for satisfaction).</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">2</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">The afternoon energy slump is often caused by eating too much protein at lunch.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The afternoon slump is usually caused by too many simple carbohydrates, not protein. Protein helps prevent energy crashes.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">3</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">How long before bedtime should you ideally finish eating dinner?</p>
+            <ul class="options">
+                <li>30 minutes</li>
+                <li>1 hour</li>
+                <li class="correct">2-3 hours <span class="correct-mark">Correct</span></li>
+                <li>5 hours</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Eating 2-3 hours before bed allows time for digestion and promotes better sleep quality.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">4</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Drinking one regular soda daily for a year can result in approximately how much weight gain?</p>
+            <ul class="options">
+                <li>5 pounds</li>
+                <li>10 pounds</li>
+                <li class="correct">15 pounds <span class="correct-mark">Correct</span></li>
+                <li>25 pounds</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> One regular soda daily adds approximately 140-170 calories, which can result in about 15 pounds of weight gain per year.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">5</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Green tea contains catechins that may help boost metabolism.</p>
+            <ul class="options">
+                <li class="correct">True <span class="correct-mark">Correct</span></li>
+                <li>False</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Green tea contains catechins, compounds that research suggests may help boost metabolism.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">6</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the recommended approach to changing unhealthy eating habits?</p>
+            <ul class="options">
+                <li>Eliminate all 'bad' foods immediately</li>
+                <li class="correct">Focus on swapping unhealthy choices for healthier alternatives <span class="correct-mark">Correct</span></li>
+                <li>Count every calorie precisely</li>
+                <li>Only eat foods you dislike</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The swap strategy focuses on replacing unhealthy choices with satisfying healthy alternatives rather than just eliminating foods.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">7</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">The 80/20 approach means:</p>
+            <ul class="options">
+                <li>Exercise 80% of the time, rest 20%</li>
+                <li class="correct">Make nourishing choices 80% of the time, allow flexibility 20% <span class="correct-mark">Correct</span></li>
+                <li>Eat 80% carbs and 20% protein</li>
+                <li>Drink 80% water and 20% other beverages</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The 80/20 approach means making nourishing choices 80% of the time while allowing 20% flexibility for special occasions and treats.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">8</span>
+            <span class="question-type">Reflection</span>
+            <p class="question-text">What are three practical changes you could make to improve your lunch choices this week?</p>
+            <div class="explanation"><strong>Explanation:</strong> Reflection helps you apply concepts to your specific situation.</div>
+        </div>
+    </div>
+
+    <div class="chapter-header page-break">
+        <h2>Chapter 5: Gentle Movement Foundations</h2>
+        <p><em>Movement as self-care, not punishment</em></p>
+        <p>Days 21-25 | Embrace joyful movement that nurtures your body and spirit.</p>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 21</span>
+        <h3 class="lesson-title">The Joy of Walking</h3>
+        
+        <div class="intro">Walking is the most underrated form of movement. Today, we discover its profound benefits.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Walking: The Perfect Exercise</strong>
+
+Walking is:
+- Accessible to almost everyone
+- Free and requires no equipment
+- Low-impact and gentle on joints
+- Sustainable for a lifetime
+- Social or solitary, as you prefer
+
+<strong>The Benefits</strong>
+
+<strong>Physical:</strong>
+- Burns approximately 290 calories per hour (moderate pace)
+- Strengthens the heart
+- Supports bone density
+- Aids digestion
+- Improves balance and coordination
+
+<strong>Mental:</strong>
+- Reduces stress and anxiety
+- Boosts mood through endorphin release
+- Improves cognitive function
+- Supports creativity
+- Better sleep quality
+
+<strong>Getting Started</strong>
+
+If you're not currently walking regularly:
+- Start with just 5 minutes daily
+- Add 5 minutes each week
+- Aim eventually for 30+ minutes most days
+- Any walking counts—you don't need special time
+
+<strong>Making It Enjoyable</strong>
+
+- Walk in nature when possible
+- Listen to music, podcasts, or audiobooks
+- Walk with friends or family
+- Explore new routes
+- Practice walking meditation</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Walking is accessible, free, and sustainable for life</li>
+            <li>It burns about 290 calories per hour with countless other benefits</li>
+            <li>Start with 5 minutes and build gradually</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Take a 20-minute walk today. Notice how you feel before, during, and after.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What is your relationship with walking? How could you incorporate more walking into your daily life?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Where are your favorite places to walk? What makes walking enjoyable for you?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Walk for 20 minutes at a comfortable pace. Focus on enjoyment, not speed.</p>
+            <p><strong>Personalized:</strong> Find a beautiful walking route you can return to regularly—a 'wellness walk' that becomes a cherished habit.</p>
+        </div>
+        
+        <div class="affirmation">"I embrace walking as a joyful, healing practice in my life."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>After your walk, enjoy a refreshing glass of water and a healthy snack. Your body will thank you.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 22</span>
+        <h3 class="lesson-title">Post-Meal Movement</h3>
+        
+        <div class="intro">The simple practice of moving after meals can transform your digestion and energy levels.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Why Post-Meal Movement Matters</strong>
+
+Gentle movement after eating:
+- Aids digestion and reduces bloating
+- Helps regulate blood sugar levels
+- Prevents the post-meal energy crash
+- Burns calories that might otherwise be stored
+- Supports healthy gut motility
+
+<strong>The Science</strong>
+
+Studies show that a 15-minute walk after a meal can significantly reduce blood sugar spikes compared to remaining sedentary. This is especially important after carbohydrate-rich meals.
+
+<strong>What Kind of Movement?</strong>
+
+Post-meal movement should be gentle:
+- A casual walk (not power walking)
+- Light household chores
+- Gentle stretching
+- Standing and moving rather than sitting
+
+<strong>Avoid intense exercise immediately after eating, which can disrupt digestion.</strong>
+
+<strong>Practical Application</strong>
+
+- Walk around the block after dinner
+- Take the stairs back to your desk after lunch
+- Do gentle stretches after breakfast
+- Clean up the kitchen slowly after meals
+
+<strong>Making It a Habit</strong>
+
+Link post-meal movement to your eating ritual. Just as you automatically clear your plate, add a brief movement session.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Gentle movement after meals aids digestion and blood sugar</li>
+            <li>A 15-minute walk after meals can significantly reduce blood sugar spikes</li>
+            <li>Post-meal movement should be gentle, not intense</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>After each meal today, take a 10-15 minute gentle walk or do light movement.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                How do you typically feel after meals? How might post-meal movement change that experience?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What barriers might prevent you from walking after meals? How can you overcome them?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Walk gently for 10-15 minutes after your largest meal today.</p>
+            <p><strong>Personalized:</strong> Create a post-dinner walking ritual—this becomes a beautiful transition from day to evening.</p>
+        </div>
+        
+        <div class="affirmation">"I support my digestion with gentle movement after meals."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>A cup of peppermint or ginger tea after a meal also supports digestion.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 23</span>
+        <h3 class="lesson-title">Building Your Practice</h3>
+        
+        <div class="intro">Sustainable movement isn't about intensity—it's about consistency. Today, we build a practice that lasts.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>The 5-5-5 Approach</strong>
+
+Start small, build gradually:
+- Start with just 5 minutes of movement
+- Add 5 minutes each week
+- Continue until you reach your goal (30-45 minutes is ideal for most people)
+
+<strong>Why This Works</strong>
+
+- 5 minutes is so easy, you have no excuse to skip it
+- Gradual building prevents burnout and injury
+- Success builds on success—each day proves you can do it
+- The habit becomes ingrained before it becomes challenging
+
+<strong>Movement Scheduling</strong>
+
+The best time to exercise is whenever you'll actually do it. Consider:
+- <strong>Morning</strong>: Gets it done before excuses arise
+- <strong>Lunch</strong>: Breaks up the workday
+- <strong>Evening</strong>: Decompresses after work
+
+<strong>Overcoming 'I Don't Have Time'</strong>
+
+- 5 minutes is 0.3% of your day
+- Movement improves energy and productivity
+- Schedule it like an important meeting
+- Remember: some movement beats no movement
+
+<strong>Rest Days Matter</strong>
+
+Include 1-2 rest days per week. Your body needs recovery. Rest days can still include very gentle movement like walking.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Start with 5 minutes, add 5 minutes each week</li>
+            <li>Consistency matters more than intensity</li>
+            <li>Include rest days for recovery</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Schedule your movement for the week ahead. Start with realistic time blocks you know you can keep.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What time of day works best for your movement practice? What might get in the way, and how will you handle it?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How would you feel after a month of consistent, gradually building movement practice?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Whatever your current level, add 5 minutes to it today. If you're at zero, start with 5 minutes.</p>
+            <p><strong>Personalized:</strong> Create your weekly movement schedule. Block the time in your calendar as you would any important appointment.</p>
+        </div>
+        
+        <div class="affirmation">"I build my movement practice one step at a time, with patience and persistence."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Fuel your movement with a small snack 30-60 minutes before if needed—a banana or handful of nuts works well.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 24</span>
+        <h3 class="lesson-title">Movement Variety</h3>
+        
+        <div class="intro">The best movement is the kind you enjoy. Today, we explore the wonderful variety of ways to move your body.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Why Variety Matters</strong>
+
+- Prevents boredom
+- Works different muscle groups
+- Reduces injury from repetitive motion
+- Keeps things interesting
+- Helps you discover what you love
+
+<strong>Movement Options</strong>
+
+<strong>Gentle:</strong>
+- Walking
+- Swimming
+- Yoga
+- Tai Chi
+- Stretching
+
+<strong>Moderate:</strong>
+- Dancing
+- Hiking
+- Cycling
+- Gardening
+- Playing with children/pets
+
+<strong>Incorporating Movement:</strong>
+- Take the stairs instead of elevator
+- Park farther from entrances
+- Walk during phone calls
+- Set a timer to move every hour
+- Do calf raises while waiting
+
+<strong>Finding Your Joy</strong>
+
+Ask yourself:
+- What did you love doing as a child?
+- What sounds fun, not punishing?
+- What could you see yourself doing long-term?
+- What might you try that's completely new?
+
+<strong>The Social Element</strong>
+
+Movement with others:
+- Makes time pass quickly
+- Adds accountability
+- Creates community
+- Makes it more fun</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>The best movement is movement you enjoy</li>
+            <li>Variety prevents boredom and works different muscles</li>
+            <li>Look for ways to add movement throughout your day</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Try a new form of movement today—something you've been curious about but haven't tried.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What types of movement bring you joy? What new activities would you like to explore?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How can you add more movement throughout your day, beyond dedicated exercise time?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Explore something new: put on music and dance, try gentle yoga stretches, or walk a different route.</p>
+            <p><strong>Personalized:</strong> Sign up for or try something you've been curious about—a dance class, hiking group, or swimming session.</p>
+        </div>
+        
+        <div class="affirmation">"I explore joyful ways to move my body and discover what I love."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Different activities require different fuel—experiment with pre and post-movement snacks to find what feels best.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 25</span>
+        <h3 class="lesson-title">Body Flow Basics</h3>
+        
+        <div class="intro">Building strength isn't about heavy weights—it's about teaching your body to support you through life.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Why Strength Matters</strong>
+
+'Strength training' sounds intimidating. Let's call it 'body flow'—teaching your body to move with power and grace.
+
+Benefits:
+- Maintains muscle mass (we lose 3-8% per decade after 30!)
+- Increases metabolism (muscle burns more calories than fat)
+- Improves bone density
+- Enhances daily functional movements
+- Boosts confidence
+
+<strong>No Equipment Needed</strong>
+
+Your body provides all the resistance you need:
+
+- <strong>Squats</strong>: Sit back as if into an invisible chair
+- <strong>Wall push-ups</strong>: Push-ups against a wall
+- <strong>Lunges</strong>: Step forward and lower
+- <strong>Planks</strong>: Hold a straight-arm position
+- <strong>Standing on one leg</strong>: Balance work
+
+<strong>Getting Started</strong>
+
+Start with 10 repetitions of each movement, 2-3 times per week:
+1. 10 squats
+2. 10 wall push-ups
+3. 10 lunges (each leg)
+4. 20-second plank
+5. 20 seconds balancing on each leg
+
+<strong>The Gentle Approach</strong>
+
+This isn't about 'no pain, no gain.' Move mindfully, stop if anything hurts, and progress gradually.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Strength training (body flow) maintains muscle and boosts metabolism</li>
+            <li>Bodyweight exercises require no equipment</li>
+            <li>Start with 10 repetitions, 2-3 times per week</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Try the simple body flow routine today: 10 squats, 10 wall push-ups, 10 lunges each leg, 20-second plank.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What is your relationship with strength training? How does reframing it as 'body flow' change your perspective?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Imagine feeling stronger and more capable in daily activities. What would that mean for your life?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Complete the body flow routine once through, modifying as needed.</p>
+            <p><strong>Personalized:</strong> After your body flow routine, take a gentle walk to cool down.</p>
+        </div>
+        
+        <div class="affirmation">"I build strength gently, teaching my body to support me through life."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Include protein within 30 minutes of strength work to support muscle recovery.</p>
+        </div>
+    </div>
+
+    <div class="quiz-section page-break">
+        <h3>Quiz: Gentle Movement Foundations</h3>
+        <p><em>Passing Score: 70%</em></p>
+
+        <div class="question">
+            <span class="question-num">1</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Approximately how many calories does moderate-paced walking burn per hour?</p>
+            <ul class="options">
+                <li>100 calories</li>
+                <li>200 calories</li>
+                <li class="correct">290 calories <span class="correct-mark">Correct</span></li>
+                <li>400 calories</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Walking at a moderate pace burns approximately 290 calories per hour while providing numerous other benefits.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">2</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Intense exercise immediately after eating is the best way to aid digestion.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Gentle movement (like a casual walk) aids digestion, but intense exercise can actually disrupt the digestive process.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">3</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Research shows that walking after a meal helps:</p>
+            <ul class="options">
+                <li>Increase blood sugar spikes</li>
+                <li class="correct">Reduce blood sugar spikes significantly <span class="correct-mark">Correct</span></li>
+                <li>Has no effect on blood sugar</li>
+                <li>Only affects cholesterol, not blood sugar</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Studies show that a 15-minute walk after a meal can significantly reduce blood sugar spikes compared to remaining sedentary.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">4</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">The 5-5-5 approach to building movement means:</p>
+            <ul class="options">
+                <li>Exercise 5 times per week for 5 weeks, then 5 months</li>
+                <li>Do 5 exercises, 5 times each, for 5 minutes</li>
+                <li class="correct">Start with 5 minutes, add 5 minutes each week <span class="correct-mark">Correct</span></li>
+                <li>Exercise at 5am, 5pm, and 5 days per week</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The 5-5-5 approach means starting with just 5 minutes of movement and adding 5 minutes each week until you reach your goal.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">5</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">The best form of movement is the one you enjoy and will actually do consistently.</p>
+            <ul class="options">
+                <li class="correct">True <span class="correct-mark">Correct</span></li>
+                <li>False</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Sustainability comes from enjoyment. Any movement you'll do consistently is better than 'perfect' exercise you'll skip.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">6</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">After age 30, how much muscle mass can we lose per decade without strength training?</p>
+            <ul class="options">
+                <li>0-1%</li>
+                <li>1-2%</li>
+                <li class="correct">3-8% <span class="correct-mark">Correct</span></li>
+                <li>10-15%</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Without strength training, we can lose 3-8% of muscle mass per decade after age 30, affecting metabolism and function.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">7</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Rest days should be completely avoided to maximize fitness results.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Rest days (1-2 per week) are essential for recovery. Your body builds strength during rest, not just during exercise.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">8</span>
+            <span class="question-type">Reflection</span>
+            <p class="question-text">What types of movement bring you joy? What new activities would you like to try?</p>
+            <div class="explanation"><strong>Explanation:</strong> Reflection helps you connect movement to personal enjoyment.</div>
+        </div>
+    </div>
+
+    <div class="chapter-header page-break">
+        <h2>Chapter 6: Mindset & Self-Compassion</h2>
+        <p><em>The inner work that sustains the outer changes</em></p>
+        <p>Days 26-30 | Cultivate a mindset that supports lifelong wellness.</p>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 26</span>
+        <h3 class="lesson-title">The Language of Change</h3>
+        
+        <div class="intro">The words you use shape your reality. Today, we transform limiting language into empowering speech.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Words Have Power</strong>
+
+The language we use—both out loud and in our heads—profoundly affects our actions and results.
+
+<strong>Limiting vs. Empowering Language</strong>
+
+| Limiting | Empowering |
+|----------|------------|
+| 'I have to' | 'I choose to' |
+| 'I can't' | 'I'm learning to' |
+| 'I should' | 'I want to' |
+| 'I'll try' | 'I will' |
+| 'I'm failing' | 'I'm growing' |
+| 'This is hard' | 'This is challenging me' |
+| 'I'm depriving myself' | 'I'm nourishing myself' |
+
+<strong>Examples in Action</strong>
+
+❌ 'I have to exercise'
+✅ 'I get to move my body'
+
+❌ 'I can't eat that'
+✅ 'I'm choosing not to eat that right now'
+
+❌ 'I'm so bad for eating that'
+✅ 'That was one choice; my next choice can be different'
+
+<strong>The 'I Am' Power</strong>
+
+Be careful with 'I am' statements. What follows shapes your identity:
+
+❌ 'I am bad at exercise'
+✅ 'I am building my fitness'
+
+❌ 'I am addicted to sugar'
+✅ 'I am learning to enjoy other flavors'</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Language shapes thoughts, actions, and results</li>
+            <li>'I choose to' is more empowering than 'I have to'</li>
+            <li>'I am' statements shape your identity—use them wisely</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Catch yourself using limiting language today. Write down three instances and reframe them using empowering alternatives.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What limiting phrases do you commonly use about yourself and your wellness journey? How can you reframe them?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                How would you talk about your wellness journey if you knew you would succeed?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> During today's walk, practice empowering self-talk: 'I am capable. I am growing. I choose health.'</p>
+            <p><strong>Personalized:</strong> Use movement time for positive affirmations. With each step, repeat an empowering phrase.</p>
+        </div>
+        
+        <div class="affirmation">"I choose words that empower my journey and shape my success."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>When you catch yourself thinking 'I can't have that,' reframe: 'I'm choosing to nourish myself with something else.'</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 27</span>
+        <h3 class="lesson-title">Discipline as Self-Love</h3>
+        
+        <div class="intro">Discipline isn't punishment—it's the ultimate act of self-love. Today, we reframe how we view commitment.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Discipline vs. Punishment</strong>
+
+Discipline isn't:
+- White-knuckling through pain
+- Forcing yourself to suffer
+- Punishing yourself for past mistakes
+
+Discipline is:
+- Keeping promises to yourself
+- Choosing long-term joy over short-term pleasure
+- An act of deep self-respect
+
+<strong>Discipline vs. Consistency</strong>
+
+<strong>Discipline</strong>: Doing what needs to be done, even when you don't feel like it.
+
+<strong>Consistency</strong>: Showing up regularly, allowing for human imperfection.
+
+Both matter. Discipline gets you through tough moments; consistency builds lasting change.
+
+<strong>Why We Struggle</strong>
+
+- We make too many changes at once
+- We set unrealistic standards
+- We lack compelling reasons ('why')
+- We rely on motivation instead of habits
+- We punish ourselves for slip-ups
+
+<strong>Building Self-Discipline</strong>
+
+1. Start smaller than you think necessary
+2. Connect actions to your deeper 'why'
+3. Create environment that supports your goals
+4. Use implementation intentions: 'When X happens, I will do Y'
+5. Practice self-compassion when you falter</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Discipline is self-love in action</li>
+            <li>Start smaller than you think necessary</li>
+            <li>Consistency allows for human imperfection</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Identify one area where you struggle with discipline. Make it smaller and easier. Connect it to your 'why.'</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                Where have you been too hard on yourself? How might you view discipline as an act of self-love instead?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                What becomes possible in your life when you keep promises to yourself?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Complete your movement practice today as an act of self-love, not punishment.</p>
+            <p><strong>Personalized:</strong> Before moving, tell yourself: 'This is how I take care of myself. This is self-love in action.'</p>
+        </div>
+        
+        <div class="affirmation">"Discipline is how I love myself. Every healthy choice is a promise kept."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Before eating, pause and ask: 'Is this choice an act of self-love?' Let the answer guide you.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 28</span>
+        <h3 class="lesson-title">Releasing Excuses</h3>
+        
+        <div class="intro">Excuses protect us from failure, but they also prevent our success. Today, we learn to let them go.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Common Excuses</strong>
+
+- 'I don't have time'
+- 'I'm too tired'
+- 'It's too hard'
+- 'I'll start Monday'
+- 'I've tried before and failed'
+- 'I have bad genetics'
+- 'Healthy food is too expensive'
+- 'I don't know how'
+
+<strong>The Truth About Excuses</strong>
+
+Excuses are our mind's way of protecting us from:
+- Fear of failure
+- Fear of success
+- Discomfort of change
+- Challenge to our identity
+
+<strong>Excuse vs. Explanation</strong>
+
+An excuse prevents action. An explanation precedes problem-solving.
+
+❌ Excuse: 'I can't exercise because I don't have time.'
+✅ Explanation + Solution: 'My schedule is busy, so I'll find two 10-minute windows for movement.'
+
+<strong>Releasing Excuses</strong>
+
+1. <strong>Acknowledge the excuse</strong> without judgment
+2. <strong>Examine it honestly</strong>: Is it really true?
+3. <strong>Find the fear beneath it</strong>: What are you afraid of?
+4. <strong>Reframe as a problem to solve</strong>: How might I work around this?
+5. <strong>Take one small action</strong>: Prove the excuse wrong
+
+<strong>Remember</strong>: Every excuse you release is a step toward freedom.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Excuses protect us but also prevent growth</li>
+            <li>Transform excuses into problems to solve</li>
+            <li>Every released excuse is a step toward freedom</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Write down your three most common excuses. For each one, write a solution or workaround.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What excuses do you most commonly tell yourself? What fears might be hiding beneath them?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Imagine living without these excuses. What becomes possible?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Whatever excuse comes up about movement today, do 5 minutes anyway. Prove it wrong.</p>
+            <p><strong>Personalized:</strong> When you hear an excuse in your mind, say 'Thank you for trying to protect me' and then take the healthy action anyway.</p>
+        </div>
+        
+        <div class="affirmation">"I release my excuses and embrace solutions. I am capable of change."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>When you catch yourself making food excuses ('I don't have time to cook'), find one small solution (pre-cut vegetables, a simple recipe).</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 29</span>
+        <h3 class="lesson-title">Befriending Your Inner Critic</h3>
+        
+        <div class="intro">That harsh voice in your head isn't your enemy—it's a protector that needs updating. Today, we learn to work with it.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Understanding the Inner Critic</strong>
+
+Your inner critic developed to protect you from:
+- Social rejection
+- Disappointment
+- Failure
+- Ridicule
+
+It means well but often uses outdated, harmful strategies.
+
+<strong>Common Inner Critic Messages</strong>
+
+- 'You'll never change'
+- 'You always fail at this'
+- 'Who do you think you are?'
+- 'You don't deserve to feel good'
+- 'Other people can do it, but not you'
+
+<strong>Reframing Failure</strong>
+
+Failure isn't the opposite of success—it's part of success.
+
+Every 'failure' is:
+- Information about what doesn't work
+- Proof that you're trying
+- An opportunity to adjust and grow
+- A stepping stone, not a roadblock
+
+<strong>Working with Your Inner Critic</strong>
+
+1. <strong>Acknowledge it</strong>: 'I hear you'
+2. <strong>Thank it</strong>: 'Thank you for trying to protect me'
+3. <strong>Update it</strong>: 'But I've grown, and I can handle this now'
+4. <strong>Redirect it</strong>: 'What if this could work? What would that look like?'
+
+<strong>The Self-Compassion Alternative</strong>
+
+Speak to yourself as you would to a dear friend who was struggling. Would you criticize them harshly, or offer gentle encouragement?</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>Your inner critic means well but uses outdated strategies</li>
+            <li>Failure is information and a stepping stone, not a roadblock</li>
+            <li>Treat yourself with the compassion you'd offer a friend</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>The next time your inner critic speaks harshly, pause and respond with compassion. Write down both the criticism and your compassionate response.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What does your inner critic most often say to you? If you were its compassionate advisor, what would you say back?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Think of a time you 'failed' but learned something valuable. How did that 'failure' serve your growth?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> During movement today, if critical thoughts arise, practice responding with compassion.</p>
+            <p><strong>Personalized:</strong> Use movement as self-compassion practice. With each step, say 'I am doing my best, and that is enough.'</p>
+        </div>
+        
+        <div class="affirmation">"I treat myself with the same kindness I would offer a dear friend."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>If you slip up on your eating, respond with 'That happened. The next choice can be different.' No harsh self-talk.</p>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <span class="day-badge">Day 30</span>
+        <h3 class="lesson-title">Your Wellness Declaration</h3>
+        
+        <div class="intro">Congratulations—you've completed 30 days of your wellness foundation. Today, we celebrate and declare your commitment going forward.</div>
+        
+        <h4>Main Content</h4>
+        <div class="content-text"><strong>Reflecting on Your Journey</strong>
+
+Over the past 30 days, you've explored:
+- Setting powerful intentions
+- Hydration and body awareness
+- Environment design and support systems
+- Nourishment fundamentals
+- Mindful eating practices
+- Meal architecture
+- Joyful movement
+- Mindset transformation
+
+This isn't the end—it's the foundation.
+
+<strong>Your Personal Protocol</strong>
+
+From everything you've learned, create your personal wellness protocol. What practices will you carry forward?
+
+Consider:
+- Morning rituals
+- Eating practices
+- Movement habits
+- Mindset tools
+- Support systems
+
+<strong>The Wellness Declaration</strong>
+
+Write your personal wellness declaration—a statement of who you are becoming and how you choose to live.
+
+Example: 'I am a person who nourishes my body with whole foods, moves with joy, and speaks to myself with compassion. I choose wellness not as a destination, but as a daily practice of self-love.'
+
+<strong>What's Next</strong>
+
+Phase 2: Momentum awaits you. But take time to celebrate Phase 1. You've built something remarkable.</div>
+        
+        <h4>Key Takeaways</h4>
+        <ul class="takeaways">
+            <li>30 days of foundation prepares you for lasting change</li>
+            <li>Create your personal wellness protocol from what resonates most</li>
+            <li>Your wellness journey continues—this is just the beginning</li>
+        </ul>
+        
+        <div class="action-box">
+            <h4>Today's Action</h4>
+            <p>Write your personal wellness declaration. Read it aloud. Post it where you'll see it daily.</p>
+        </div>
+        
+        <div class="journal-box">
+            <h4>Journal Prompts</h4>
+            <div class="prompt">
+                <span class="prompt-label">Today's Reflection</span>
+                What are the three most impactful lessons from these 30 days? How will you carry them forward?
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Deeper Reflection</span>
+                Who are you becoming through this journey? Write a letter to yourself describing the person you're growing into.
+            </div>
+            <div class="prompt">
+                <span class="prompt-label">Gratitude</span>
+                What aspects of this journey are you most grateful for?
+            </div>
+        </div>
+        
+        <div class="movement-box">
+            <h4>Movement Suggestion</h4>
+            <p><strong>Basic:</strong> Take a celebratory walk—reflect on how far you've come and where you're going.</p>
+            <p><strong>Personalized:</strong> Go to a meaningful place for your walk today. Let it be a pilgrimage of gratitude for your journey so far.</p>
+        </div>
+        
+        <div class="affirmation">"I am committed to my wellness journey. Each day, I choose to nourish my body, move with joy, and grow with compassion."</div>
+        
+        <div class="tip-box">
+            <h4>Nourishment Tip</h4>
+            <p>Prepare a special, nourishing meal to celebrate completing Phase 1. Make it beautiful. You deserve it.</p>
+        </div>
+    </div>
+
+    <div class="quiz-section page-break">
+        <h3>Quiz: Mindset & Self-Compassion</h3>
+        <p><em>Passing Score: 70%</em></p>
+
+        <div class="question">
+            <span class="question-num">1</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Which phrase is an example of empowering language?</p>
+            <ul class="options">
+                <li>'I have to exercise today'</li>
+                <li>'I can't eat that'</li>
+                <li class="correct">'I choose to nourish my body with movement' <span class="correct-mark">Correct</span></li>
+                <li>'I should probably try harder'</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> 'I choose to' is empowering language that reflects personal agency, rather than obligation or restriction.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">2</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Discipline is best understood as punishment for past failures.</p>
+            <ul class="options">
+                <li>True</li>
+                <li class="correct">False <span class="correct-mark">Correct</span></li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Discipline is not punishment—it's an act of self-love and keeping promises to yourself.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">3</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the key difference between an excuse and an explanation?</p>
+            <ul class="options">
+                <li>Excuses are longer than explanations</li>
+                <li class="correct">An excuse prevents action, while an explanation leads to problem-solving <span class="correct-mark">Correct</span></li>
+                <li>They are essentially the same thing</li>
+                <li>Explanations are always valid, excuses never are</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> An excuse stops action ('I can't because...'), while an explanation leads to solutions ('This is challenging, so I'll...').</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">4</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">What is the recommended way to respond to your inner critic?</p>
+            <ul class="options">
+                <li>Ignore it completely</li>
+                <li>Argue with it aggressively</li>
+                <li class="correct">Acknowledge it, thank it, and update it with compassion <span class="correct-mark">Correct</span></li>
+                <li>Believe everything it says</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> The inner critic means well but uses outdated strategies. Acknowledge it, thank it for trying to protect you, and update it with new information.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">5</span>
+            <span class="question-type">True False</span>
+            <p class="question-text">Failure should be viewed as information and a stepping stone, not as a permanent roadblock.</p>
+            <ul class="options">
+                <li class="correct">True <span class="correct-mark">Correct</span></li>
+                <li>False</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Every 'failure' provides information about what doesn't work, proof that you're trying, and an opportunity to grow.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">6</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">Why should you be careful with 'I am' statements?</p>
+            <ul class="options">
+                <li>They are grammatically incorrect</li>
+                <li>They are too long</li>
+                <li class="correct">What follows 'I am' shapes your identity <span class="correct-mark">Correct</span></li>
+                <li>They show weakness</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> 'I am' statements shape your identity. 'I am building my fitness' is much more empowering than 'I am bad at exercise.'</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">7</span>
+            <span class="question-type">Multiple Choice</span>
+            <p class="question-text">How do discipline and consistency differ?</p>
+            <ul class="options">
+                <li>They are exactly the same</li>
+                <li class="correct">Discipline is doing what needs to be done; consistency is showing up regularly allowing for imperfection <span class="correct-mark">Correct</span></li>
+                <li>Consistency is stricter than discipline</li>
+                <li>Discipline is for beginners; consistency is advanced</li>
+            </ul>
+            <div class="explanation"><strong>Explanation:</strong> Discipline gets you through tough moments; consistency means showing up regularly while allowing for human imperfection.</div>
+        </div>
+
+        <div class="question">
+            <span class="question-num">8</span>
+            <span class="question-type">Reflection</span>
+            <p class="question-text">Write a brief personal wellness declaration—a statement of who you are becoming and how you choose to live.</p>
+            <div class="explanation"><strong>Explanation:</strong> Your wellness declaration is your personal commitment to your journey.</div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; padding-top: 25px; border-top: 2px solid #E67E22;">
+        <p style="color: #E67E22; font-size: 1.2rem; font-weight: bold;">2Equilibrium</p>
+        <p style="color: #666;">www.2equilibrium.com</p>
+        <p style="color: #666; font-size: 0.85rem; margin-top: 8px;">Copyright 2025 by 2Equilibrium.com. All rights reserved.</p>
+        <p style="color: #666; font-size: 0.85rem;">By Graziella Cialone de Souza, Nutrition and Lifestyle Coach</p>
+    </div>
+</body>
+</html>

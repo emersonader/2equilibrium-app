@@ -1,0 +1,844 @@
+{
+  "lessons": [
+    {
+      "id": "lesson_day_1",
+      "chapterId": "chapter_1",
+      "dayNumber": 1,
+      "title": "Setting Your Wellness Intention",
+      "content": {
+        "introduction": "Welcome to Day 1 of your wellness journey. Today marks the beginning of a beautiful transformation that starts from within.",
+        "mainContent": "Your wellness journey begins with understanding your 'why.' This isn't about quick fixes or temporary changes—it's about creating a life filled with energy, balance, and joy.\n\n**The Power of Intention**\n\nAn intention is more than a goal. While goals are external targets, intentions are internal commitments. When you set a wellness intention, you're declaring how you want to feel and who you want to become.\n\n**Why Your 'Why' Matters**\n\nResearch shows that people who connect their health goals to deeper values—like being present for their children, having energy for their passions, or feeling confident in their bodies—are significantly more likely to maintain lasting change.\n\nYour 'why' becomes your anchor when challenges arise. It transforms 'I have to' into 'I choose to.'",
+        "keyTakeaways": [
+          "Intentions are internal commitments, not just external goals",
+          "Connecting to your deeper 'why' increases lasting success",
+          "Your wellness journey is unique to you"
+        ],
+        "actionStep": "Take 10 minutes today to write down your wellness intention. Include both what you want to achieve and, more importantly, how you want to feel. Post it somewhere you'll see daily."
+      },
+      "journalPrompt": {
+        "primary": "What brings you to this wellness journey? What impact will reaching your goals have on your life and loved ones?",
+        "reflection": "Imagine yourself six months from now, having achieved your wellness goals. How do you feel? What does your daily life look like?",
+        "gratitude": "What aspect of your body or health are you grateful for right now, exactly as it is?"
+      },
+      "movementSuggestion": {
+        "basic": "Take a gentle 10-minute walk today, focusing on your breathing and surroundings.",
+        "personalized": "Begin with a 5-minute gentle stretch, followed by a peaceful walk. Notice how your body feels with each step.",
+        "videoUrl": null
+      },
+      "affirmation": "I am worthy of taking care of myself and creating a life filled with wellness and joy.",
+      "nourishmentTip": "Start your day with a glass of water before anything else. Your body has been fasting all night and needs hydration."
+    },
+    {
+      "id": "lesson_day_2",
+      "chapterId": "chapter_1",
+      "dayNumber": 2,
+      "title": "The Hydration Ritual",
+      "content": {
+        "introduction": "Water is the foundation of wellness. Today, we explore how proper hydration transforms every aspect of your health.",
+        "mainContent": "**Why Water Matters**\n\nYour body is approximately 60% water. Every cell, tissue, and organ depends on adequate hydration to function optimally.\n\n**Benefits of Proper Hydration**\n\n- **Metabolism Support**: Water helps your body convert food into energy efficiently\n- **Appetite Regulation**: Often, what feels like hunger is actually thirst\n- **Energy Boost**: Even mild dehydration can cause fatigue and brain fog\n- **Skin Health**: Proper hydration supports clear, glowing skin\n- **Digestion**: Water aids in nutrient absorption and waste elimination\n\n**How Much Water?**\n\nAim for about 8 glasses (64 ounces) per day as a baseline. Increase this if you're active, in warm weather, or consuming caffeine.\n\n**The Hydration Ritual**\n\nTransform water drinking from a chore into a ritual:\n- Start each morning with a glass of water\n- Drink a glass before each meal (this also aids digestion)\n- Keep water visible and accessible throughout the day\n- Listen to your body's thirst signals",
+        "keyTakeaways": [
+          "Water supports metabolism, energy, and appetite regulation",
+          "Aim for 8 glasses (64 ounces) daily as a baseline",
+          "Drink water before meals to aid digestion and satisfaction"
+        ],
+        "actionStep": "Today, track your water intake. Set a reminder to drink a glass of water before each meal and upon waking."
+      },
+      "journalPrompt": {
+        "primary": "How does your energy level change when you're well-hydrated versus when you've forgotten to drink water?",
+        "reflection": "What obstacles prevent you from drinking enough water? How might you overcome them?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a refreshing 10-minute walk with a water bottle in hand.",
+        "personalized": "Combine hydration with gentle movement. Walk for 15 minutes, stopping to sip water every 5 minutes.",
+        "videoUrl": null
+      },
+      "affirmation": "I nourish my body with pure, life-giving water throughout the day.",
+      "nourishmentTip": "Add a slice of lemon, cucumber, or fresh mint to your water for natural flavor that makes hydration more enjoyable."
+    },
+    {
+      "id": "lesson_day_3",
+      "chapterId": "chapter_1",
+      "dayNumber": 3,
+      "title": "Understanding Your Body's Signals",
+      "content": {
+        "introduction": "Your body communicates with you constantly. Today, we learn to listen with honesty and compassion.",
+        "mainContent": "**The Art of Body Awareness**\n\nBefore we can change, we must first understand where we are. This requires honest self-assessment—not judgment, but gentle observation.\n\n**Physical Signals to Notice**\n\n- When do you feel most energetic?\n- What foods make you feel vibrant versus sluggish?\n- How does your body feel when you've moved versus when you've been sedentary?\n- What does true hunger feel like versus emotional eating?\n\n**Emotional Connections**\n\nOur eating patterns often connect to emotions:\n- Stress eating for comfort\n- Reward eating to celebrate\n- Boredom eating to fill time\n- Restrictive eating from anxiety\n\n**Practicing Honest Awareness**\n\nHonesty doesn't mean harsh self-criticism. It means observing without judgment:\n- \"I notice I reach for sweets when stressed\"\n- \"I observe that I feel tired after lunch\"\n- \"I see that I skip breakfast when rushed\"\n\nThis awareness is the foundation for meaningful change.",
+        "keyTakeaways": [
+          "Body awareness starts with honest, non-judgmental observation",
+          "Physical signals reveal what truly nourishes you",
+          "Emotional patterns often drive eating behaviors"
+        ],
+        "actionStep": "Today, before eating anything, pause for 30 seconds. Ask yourself: Am I truly hungry? What is my body actually asking for? Note your observations."
+      },
+      "journalPrompt": {
+        "primary": "What patterns have you noticed in your eating or movement habits? What emotions often accompany these patterns?",
+        "reflection": "If you could speak to your body as a trusted friend, what would you want to understand about its needs?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Practice a 5-minute body scan meditation, noticing how each part of your body feels.",
+        "personalized": "Combine gentle stretching with body awareness. As you move, notice which areas feel tight or open.",
+        "videoUrl": null
+      },
+      "affirmation": "I listen to my body's wisdom with compassion and curiosity.",
+      "nourishmentTip": "Before each meal today, take three deep breaths. This activates your parasympathetic nervous system, improving digestion."
+    },
+    {
+      "id": "lesson_day_4",
+      "chapterId": "chapter_1",
+      "dayNumber": 4,
+      "title": "Creating Your Sanctuary",
+      "content": {
+        "introduction": "Your environment shapes your choices. Today, we transform your surroundings to support your wellness journey.",
+        "mainContent": "**Environment Design**\n\nResearch shows that our environment has a powerful influence on our behaviors. By designing our spaces thoughtfully, we can make healthy choices the natural choice.\n\n**The Kitchen Sanctuary**\n\n- **Make healthy foods visible**: Place fruits and vegetables at eye level in your refrigerator\n- **Remove temptations**: If it's not in the house, you can't eat it impulsively\n- **Create a water station**: Keep a beautiful pitcher of water on the counter\n- **Organize for success**: Place your blender, cutting boards, and healthy cookware within easy reach\n\n**The Bedroom Sanctuary**\n\n- Keep devices out of the bedroom for better sleep\n- Create a calming environment with soft lighting\n- Prepare your movement clothes the night before\n\n**Environmental Triggers**\n\nIdentify what triggers unwanted behaviors:\n- Do you snack while watching TV?\n- Do you eat standing in the kitchen?\n- Do stressful areas lead to comfort eating?\n\nOnce identified, you can redesign these spaces to support better choices.",
+        "keyTakeaways": [
+          "Your environment powerfully influences your behavior",
+          "Make healthy choices visible and accessible",
+          "Remove or minimize temptations from your space"
+        ],
+        "actionStep": "Choose one area of your home to redesign today. Remove one temptation and add one wellness-supportive element."
+      },
+      "journalPrompt": {
+        "primary": "Walk through your home with fresh eyes. What environmental changes would make your wellness journey easier?",
+        "reflection": "What 'trigger zones' in your environment lead to choices that don't serve you? How might you redesign them?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Do 10 minutes of light activity while reorganizing one wellness-focused area of your home.",
+        "personalized": "Create your movement space today—clear a corner for stretching, yoga, or exercise.",
+        "videoUrl": null
+      },
+      "affirmation": "My environment supports my wellness journey every day.",
+      "nourishmentTip": "Prepare a bowl of pre-washed fruits and vegetables today. When you open the fridge, make healthy choices effortless."
+    },
+    {
+      "id": "lesson_day_5",
+      "chapterId": "chapter_1",
+      "dayNumber": 5,
+      "title": "Your Support Circle",
+      "content": {
+        "introduction": "No one succeeds alone. Today, we explore how to build and nurture a support system for your wellness journey.",
+        "mainContent": "**The Power of Community**\n\nStudies consistently show that people with strong support systems are more successful in maintaining lifestyle changes. Your support circle becomes your safety net and your cheerleading squad.\n\n**Types of Support**\n\n1. **Emotional Support**: People who listen, encourage, and understand\n2. **Practical Support**: Those who help with logistics—meal prep buddies, walking partners\n3. **Accountability Partners**: People who check in and help you stay on track\n4. **Role Models**: Those who inspire you with their own wellness journeys\n\n**Building Your Circle**\n\n- Share your goals with 2-3 trusted people\n- Find a wellness buddy with similar goals\n- Join communities (in-person or online) focused on wellness\n- Consider working with a coach or mentor\n\n**Navigating Unsupportive Environments**\n\nNot everyone will understand your journey. Some may even feel threatened by your changes. Remember:\n- You don't need everyone's approval\n- Lead by example, not by preaching\n- Seek support from those who celebrate your growth",
+        "keyTakeaways": [
+          "Support systems significantly increase success in lifestyle change",
+          "Different types of support serve different needs",
+          "You don't need everyone's approval—find your tribe"
+        ],
+        "actionStep": "Today, reach out to one person who might support your wellness journey. Share your goals and ask if they'd like to check in with you regularly."
+      },
+      "journalPrompt": {
+        "primary": "Who in your life could support your wellness journey? What kind of support would be most helpful from each person?",
+        "reflection": "How can you be a source of support for others on their own journeys?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Invite someone to join you for a 15-minute walk today.",
+        "personalized": "Plan a weekly walking date with a friend or family member. Connection plus movement!",
+        "videoUrl": null
+      },
+      "affirmation": "I am surrounded by love and support as I grow into my healthiest self.",
+      "nourishmentTip": "Share a healthy meal with someone today. Food tastes better when we eat together."
+    },
+    {
+      "id": "lesson_day_6",
+      "chapterId": "chapter_2",
+      "dayNumber": 6,
+      "title": "The 70/30 Harmony",
+      "content": {
+        "introduction": "Today, we discover the fundamental balance of wellness: nourishment and movement working together.",
+        "mainContent": "**Understanding the 70/30 Principle**\n\nWhen it comes to body composition and wellness, research suggests that approximately 70% of results come from what you eat, while 30% comes from physical activity.\n\nThis doesn't mean movement isn't important—it absolutely is! But it reminds us that we cannot out-exercise a poor diet.\n\n**What This Means for You**\n\n- **Focus on nourishment first**: Building healthy eating habits creates the foundation\n- **Movement enhances results**: Exercise builds strength, improves mood, and boosts metabolism\n- **Both matter**: They work synergistically for optimal wellness\n\n**Why This Balance Matters**\n\nMany people exercise intensely but eat poorly, wondering why they don't see results. Others diet strictly but remain sedentary, missing the mental and physical benefits of movement.\n\nThe 70/30 harmony means:\n- You can't eat whatever you want just because you exercised\n- You shouldn't skip movement just because you ate well\n- Balance creates sustainable, long-term results",
+        "keyTakeaways": [
+          "Approximately 70% of wellness results come from nourishment",
+          "Movement accounts for about 30% and is still essential",
+          "Balance between the two creates sustainable wellness"
+        ],
+        "actionStep": "Reflect on your current balance. Are you overemphasizing one area? Today, commit to giving equal attention to both nourishment and movement."
+      },
+      "journalPrompt": {
+        "primary": "Where have you been placing most of your wellness effort—nourishment or movement? How might you create better balance?",
+        "reflection": "What would it look like to honor both aspects equally in your daily routine?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a 15-minute walk after your largest meal today.",
+        "personalized": "Practice the 70/30 harmony: focus on a nourishing meal, then enjoy gentle movement afterward.",
+        "videoUrl": null
+      },
+      "affirmation": "I honor my body with both nourishing food and joyful movement.",
+      "nourishmentTip": "For today's meals, focus on whole, unprocessed foods. Let quality nourishment be your foundation."
+    },
+    {
+      "id": "lesson_day_7",
+      "chapterId": "chapter_2",
+      "dayNumber": 7,
+      "title": "Fiber: Your Digestive Ally",
+      "content": {
+        "introduction": "Fiber is one of the most underappreciated nutrients. Today, we discover how this powerful ally supports your wellness.",
+        "mainContent": "**Two Types of Fiber**\n\n**Soluble Fiber**\n- Dissolves in water to form a gel-like substance\n- Helps lower cholesterol and regulate blood sugar\n- Found in: oats, beans, apples, citrus fruits, carrots\n\n**Insoluble Fiber**\n- Does not dissolve; adds bulk to stool\n- Promotes regular digestion and gut health\n- Found in: whole grains, nuts, vegetables, wheat bran\n\n**Benefits of Adequate Fiber**\n\n- **Satiety**: Fiber-rich foods keep you feeling full longer\n- **Blood sugar stability**: Slows the absorption of sugar\n- **Digestive health**: Promotes regular, healthy elimination\n- **Heart health**: Helps reduce cholesterol levels\n- **Gut microbiome**: Feeds beneficial gut bacteria\n\n**How Much Fiber?**\n\nAim for 25-30 grams per day. Most people get only about 15 grams.\n\n**Increasing Fiber Gradually**\n\nAdd fiber slowly to avoid digestive discomfort. Increase water intake as you add fiber to help your digestive system adjust.",
+        "keyTakeaways": [
+          "Soluble fiber (oats, beans) helps blood sugar and cholesterol",
+          "Insoluble fiber (vegetables, whole grains) supports digestion",
+          "Aim for 25-30 grams daily, increasing gradually"
+        ],
+        "actionStep": "Add one high-fiber food to each meal today. Choose from: vegetables, fruits with skin, beans, oats, or whole grains."
+      },
+      "journalPrompt": {
+        "primary": "How does your digestion typically feel? What fiber-rich foods do you enjoy, and which would you like to try?",
+        "reflection": "Notice how you feel after meals with more fiber versus meals without. What differences do you observe?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "A 20-minute walk supports digestion and fiber's benefits.",
+        "personalized": "Combine movement with fiber awareness—walk to a farmer's market or grocery store to pick up fresh vegetables.",
+        "videoUrl": null
+      },
+      "affirmation": "I nourish my body with fiber-rich foods that support my health.",
+      "nourishmentTip": "Try adding ground flaxseed or chia seeds to your breakfast. They're packed with fiber and easy to include."
+    },
+    {
+      "id": "lesson_day_8",
+      "chapterId": "chapter_2",
+      "dayNumber": 8,
+      "title": "The Power of Protein",
+      "content": {
+        "introduction": "Protein is the building block of your body. Today, we explore how adequate protein supports your wellness journey.",
+        "mainContent": "**Why Protein Matters**\n\n- **Satiety**: Protein is the most filling macronutrient\n- **Metabolism**: Your body burns more calories digesting protein\n- **Muscle maintenance**: Essential for maintaining lean body mass\n- **Blood sugar**: Helps stabilize blood sugar when paired with carbs\n\n**Protein Sources**\n\n**Animal-Based:**\n- Chicken and turkey (lean, versatile)\n- Fish (omega-3 rich options like salmon)\n- Eggs (complete protein, affordable)\n- Greek yogurt (protein plus probiotics)\n\n**Plant-Based:**\n- Legumes (beans, lentils, chickpeas)\n- Tofu and tempeh\n- Nuts and seeds\n- Quinoa (complete protein grain)\n\n**How Much Protein?**\n\nAim for protein at each meal. A general guideline is 0.8-1 gram per pound of ideal body weight, spread throughout the day.\n\n**The Protein Priority**\n\nWhen building your plate, start with protein. This ensures you get adequate amounts and helps naturally control overall portions.",
+        "keyTakeaways": [
+          "Protein is the most satiating macronutrient",
+          "Include protein at every meal for balanced energy",
+          "Both animal and plant sources provide excellent protein"
+        ],
+        "actionStep": "Include a protein source at every meal today. Note how your hunger and energy levels compare to typical days."
+      },
+      "journalPrompt": {
+        "primary": "What are your favorite protein sources? Are there new ones you'd like to incorporate?",
+        "reflection": "How does your energy and satiety change when you include adequate protein at meals?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Try some gentle bodyweight exercises today—protein supports muscle health!",
+        "personalized": "Do a short strength routine: 10 squats, 10 wall push-ups, 10 lunges. Protein helps your muscles recover.",
+        "videoUrl": null
+      },
+      "affirmation": "I give my body the protein it needs to thrive and grow stronger.",
+      "nourishmentTip": "Hard-boil a batch of eggs at the beginning of the week for easy, grab-and-go protein snacks."
+    },
+    {
+      "id": "lesson_day_9",
+      "chapterId": "chapter_2",
+      "dayNumber": 9,
+      "title": "Carbohydrates Decoded",
+      "content": {
+        "introduction": "Carbohydrates have been unfairly demonized. Today, we learn to choose carbs wisely for sustained energy.",
+        "mainContent": "**Understanding Carbohydrates**\n\nCarbohydrates are your body's preferred energy source. The key is choosing the right types.\n\n**Simple vs. Complex Carbohydrates**\n\n**Simple Carbs** (quick energy, quick crash):\n- White bread, pasta, rice\n- Sugary foods and drinks\n- Most processed snacks\n\n**Complex Carbs** (sustained energy):\n- Whole grains (oats, quinoa, brown rice)\n- Vegetables\n- Legumes\n- Fruits with fiber\n\n**The Glycemic Index (GI)**\n\nThe GI measures how quickly foods raise blood sugar:\n\n**Low GI (55 or less)** - Choose these:\n- Most vegetables\n- Beans and lentils\n- Apples, berries, oranges\n- Sweet potatoes\n- Steel-cut oats\n\n**High GI (70+)** - Limit these:\n- White bread and bagels\n- Instant oatmeal\n- White potatoes\n- Watermelon\n- Rice cakes\n\n**The Fiber Factor**\n\nFiber slows down carbohydrate absorption, which is why whole fruits are better than juice, and whole grains beat refined grains.",
+        "keyTakeaways": [
+          "Complex carbohydrates provide sustained energy",
+          "Choose low glycemic index foods when possible",
+          "Fiber helps moderate blood sugar response"
+        ],
+        "actionStep": "Replace one refined carbohydrate in your day with a whole grain or vegetable alternative."
+      },
+      "journalPrompt": {
+        "primary": "How do you feel after eating simple carbs versus complex carbs? What patterns do you notice?",
+        "reflection": "Which carbohydrate swaps would be easiest to make in your current eating pattern?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a 15-minute walk after a carbohydrate-containing meal to help regulate blood sugar.",
+        "personalized": "Use movement to help process carbohydrates—a post-meal walk is one of the best things you can do for blood sugar.",
+        "videoUrl": null
+      },
+      "affirmation": "I choose carbohydrates that give my body sustained, vibrant energy.",
+      "nourishmentTip": "When eating bread, choose whole grain varieties where you can see seeds and grains. The more texture, the more fiber."
+    },
+    {
+      "id": "lesson_day_10",
+      "chapterId": "chapter_2",
+      "dayNumber": 10,
+      "title": "Understanding Fats",
+      "content": {
+        "introduction": "Fat doesn't make you fat—the right fats are essential for health. Today, we learn to embrace beneficial fats.",
+        "mainContent": "**Fats Are Essential**\n\nYour body needs fat for:\n- Hormone production\n- Brain function (your brain is 60% fat!)\n- Nutrient absorption (vitamins A, D, E, K)\n- Satiety and satisfaction\n\n**Good Fats to Embrace**\n\n**Monounsaturated Fats:**\n- Olive oil\n- Avocados\n- Almonds and most nuts\n\n**Polyunsaturated Fats (Omega-3s):**\n- Fatty fish (salmon, sardines, mackerel)\n- Walnuts\n- Flaxseeds and chia seeds\n\n**Fats to Minimize**\n\n**Saturated Fats** (limit, don't eliminate):\n- Fatty cuts of meat\n- Full-fat dairy\n- Coconut oil (in moderation)\n\n**Trans Fats** (avoid entirely):\n- Partially hydrogenated oils\n- Many fried foods\n- Some processed baked goods\n\n**The Right Balance**\n\nFat should comprise about 25-35% of your calories. Focus on replacing saturated fats with unsaturated fats rather than adding more fat overall.",
+        "keyTakeaways": [
+          "Healthy fats are essential for hormones, brain, and nutrient absorption",
+          "Embrace olive oil, avocados, nuts, and fatty fish",
+          "Avoid trans fats entirely; moderate saturated fats"
+        ],
+        "actionStep": "Include a source of healthy fat at each meal today: avocado, olive oil, nuts, or fatty fish."
+      },
+      "journalPrompt": {
+        "primary": "What healthy fats do you currently enjoy? Which would you like to add to your routine?",
+        "reflection": "How has your understanding of dietary fat changed over the years? What beliefs might need updating?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Enjoy a 20-minute walk—movement helps your body use fats for energy.",
+        "personalized": "Low-intensity movement like walking is perfect for fat metabolism. Take a peaceful 25-minute stroll.",
+        "videoUrl": null
+      },
+      "affirmation": "I nourish my brain and body with healthy, beneficial fats.",
+      "nourishmentTip": "Make a simple vinaigrette with olive oil and lemon for salads. It's delicious and full of healthy fats."
+    },
+    {
+      "id": "lesson_day_11",
+      "chapterId": "chapter_3",
+      "dayNumber": 11,
+      "title": "The Art of Chewing",
+      "content": {
+        "introduction": "Something as simple as how we chew can transform our relationship with food and improve digestion.",
+        "mainContent": "**Why Chewing Matters**\n\nDigestion begins in the mouth, not the stomach. Proper chewing:\n- Releases digestive enzymes in saliva\n- Breaks down food for better nutrient absorption\n- Sends satiety signals to the brain\n- Reduces digestive discomfort\n\n**The 30-Chew Practice**\n\nAim to chew each bite approximately 30 times. This may seem excessive at first, but notice:\n- Food becomes liquid before you swallow\n- You taste more flavors\n- You feel satisfied sooner\n- Bloating and discomfort decrease\n\n**Benefits of Mindful Chewing**\n\n- **Better digestion**: Less work for your stomach\n- **Increased satisfaction**: You taste your food fully\n- **Natural portion control**: You eat more slowly, giving fullness signals time to reach your brain\n- **Reduced cravings**: Fully experiencing food satisfies cravings\n\n**Making It a Habit**\n\n- Put your fork down between bites\n- Take smaller bites\n- Focus on the textures and flavors\n- Turn off distractions during meals",
+        "keyTakeaways": [
+          "Chewing 30 times per bite improves digestion and satisfaction",
+          "Digestion begins in the mouth with saliva enzymes",
+          "Slower eating naturally reduces portion sizes"
+        ],
+        "actionStep": "At your next meal, count your chews for the first five bites. Aim for 30 chews per bite and notice the difference."
+      },
+      "journalPrompt": {
+        "primary": "How quickly do you typically eat? What do you notice when you slow down and chew thoroughly?",
+        "reflection": "What obstacles make it hard to eat slowly? How might you overcome them?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Practice mindful walking today—slow, deliberate steps, just like mindful chewing.",
+        "personalized": "Take a 10-minute walk before your meal. Arriving at the table calm supports mindful eating.",
+        "videoUrl": null
+      },
+      "affirmation": "I savor each bite, allowing my body to fully receive nourishment.",
+      "nourishmentTip": "Try eating one meal without any screens today. Notice how the food tastes and how satisfied you feel."
+    },
+    {
+      "id": "lesson_day_12",
+      "chapterId": "chapter_3",
+      "dayNumber": 12,
+      "title": "Portion Awareness",
+      "content": {
+        "introduction": "Portion awareness isn't about restriction—it's about tuning into what your body actually needs.",
+        "mainContent": "**The Portion Problem**\n\nOver the past 50 years, portion sizes have dramatically increased. What we consider 'normal' is often 2-3 times larger than our bodies need.\n\n**Visual Portion Guides**\n\nUse your hand as a guide:\n- **Protein**: Palm of your hand (thickness and size)\n- **Vegetables**: Two cupped handfuls\n- **Carbohydrates**: One cupped handful\n- **Fats**: Your thumb (oils, butter, nut butters)\n\n**The Plate Method**\n\nFill your plate:\n- **Half**: Non-starchy vegetables\n- **Quarter**: Lean protein\n- **Quarter**: Complex carbohydrates\n- **Plus**: A small amount of healthy fat\n\n**Mindful Portioning Tips**\n\n- Use smaller plates (10-inch instead of 12-inch)\n- Serve food in the kitchen, not family-style at the table\n- Wait 15-20 minutes before second helpings\n- Listen for the 'satisfied but not stuffed' signal\n\n**It's Not About Perfection**\n\nSome meals will be larger, some smaller. The goal is awareness, not restriction.",
+        "keyTakeaways": [
+          "Your hand provides natural portion guides",
+          "The plate method: half vegetables, quarter protein, quarter carbs",
+          "Aim for 'satisfied but not stuffed'"
+        ],
+        "actionStep": "Use the plate method for one meal today. Notice how you feel after eating—aim for comfortable satisfaction."
+      },
+      "journalPrompt": {
+        "primary": "How do you typically decide how much to eat? What signals tell you you've had enough?",
+        "reflection": "What would change if you consistently stopped eating at 'satisfied but not stuffed'?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a walk after a properly portioned meal—notice your energy level.",
+        "personalized": "After using the plate method, go for a 15-minute walk. Notice how you feel energized rather than sluggish.",
+        "videoUrl": null
+      },
+      "affirmation": "I trust my body's signals to tell me when I've had enough.",
+      "nourishmentTip": "Try eating from a salad plate instead of a dinner plate. Research shows we eat less without feeling deprived."
+    },
+    {
+      "id": "lesson_day_13",
+      "chapterId": "chapter_3",
+      "dayNumber": 13,
+      "title": "Calorie Density Wisdom",
+      "content": {
+        "introduction": "Understanding calorie density helps you eat satisfying portions while supporting your wellness goals.",
+        "mainContent": "**What Is Calorie Density?**\n\nCalorie density measures how many calories are packed into a given weight or volume of food.\n\n**The Comparison**\n\nFor the same 536 calories, you could eat:\n- 100g of potato chips, OR\n- 224g of chicken breast, OR\n- 438g of brown rice, OR\n- 1000g of broccoli, OR\n- 1624g of strawberries\n\n**Why This Matters**\n\nLow-calorie-density foods:\n- Fill your stomach with fewer calories\n- Provide more nutrients\n- Allow larger portions\n- Support natural satiety\n\n**Low Calorie Density Foods**\n- Most vegetables\n- Most fruits\n- Broth-based soups\n- Lean proteins\n- Whole grains\n\n**High Calorie Density Foods**\n- Chips and crackers\n- Fried foods\n- Sweets and desserts\n- Oils and butter\n- Nuts (healthy but dense)\n\n**Practical Application**\n\nStart meals with low-density foods (salad, soup, vegetables). This naturally fills you up before the denser foods arrive.",
+        "keyTakeaways": [
+          "Low-calorie-density foods fill you up with fewer calories",
+          "Start meals with vegetables or broth-based soup",
+          "Volume matters—you can eat MORE of the right foods"
+        ],
+        "actionStep": "Start today's largest meal with a large salad or bowl of vegetable soup before the main course."
+      },
+      "journalPrompt": {
+        "primary": "What low-calorie-density foods do you enjoy? How could you incorporate more of them?",
+        "reflection": "How does starting a meal with vegetables change your overall eating experience?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "A 15-minute walk is low 'energy density' for high benefit!",
+        "personalized": "Just as you're choosing low-calorie-density foods, choose sustainable movement—a pleasant walk that you'll enjoy repeating.",
+        "videoUrl": null
+      },
+      "affirmation": "I fill my body with nourishing foods that satisfy and sustain me.",
+      "nourishmentTip": "Keep cut vegetables ready in your fridge. When you're hungry, grab these first—they'll fill you up with nutrients."
+    },
+    {
+      "id": "lesson_day_14",
+      "chapterId": "chapter_3",
+      "dayNumber": 14,
+      "title": "Empty vs. Nutrient-Rich",
+      "content": {
+        "introduction": "Not all calories are created equal. Today, we learn to choose foods that truly nourish.",
+        "mainContent": "**Empty Calories**\n\nEmpty calories provide energy but little to no nutritional value:\n- Sodas and sweetened beverages\n- Candy and most desserts\n- White bread and refined grains\n- Fried foods\n- Alcohol\n\n**Nutrient-Dense Foods**\n\nNutrient-dense foods pack vitamins, minerals, and other beneficial compounds per calorie:\n\n**Vegetables:**\n- Kale, spinach, broccoli\n- Bell peppers, carrots\n- Tomatoes, onions, garlic\n\n**Fruits:**\n- Berries (blueberries, strawberries)\n- Citrus fruits\n- Apples and pears\n\n**Proteins:**\n- Wild salmon\n- Eggs\n- Legumes\n\n**Whole Grains:**\n- Quinoa\n- Oats\n- Brown rice\n\n**The Swap Strategy**\n\nInstead of eliminating foods, focus on swapping:\n- Soda → Sparkling water with lemon\n- Chips → Vegetables with hummus\n- White bread → Whole grain bread\n- Candy → Fresh fruit\n\nSmall swaps add up to big changes over time.",
+        "keyTakeaways": [
+          "Empty calories provide energy without nutrition",
+          "Nutrient-dense foods nourish every cell of your body",
+          "Focus on swapping rather than eliminating"
+        ],
+        "actionStep": "Identify one empty-calorie food you consume regularly. Find a nutrient-dense swap and try it today."
+      },
+      "journalPrompt": {
+        "primary": "What empty-calorie foods are hardest for you to give up? What nutrient-dense alternatives might satisfy the same craving?",
+        "reflection": "How do you feel after eating nutrient-dense foods versus empty calories?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a 20-minute walk in nature—fresh air is 'nutrient-dense' for your mind!",
+        "personalized": "Plan a walk to a local market where you can pick up fresh, nutrient-dense produce.",
+        "videoUrl": null
+      },
+      "affirmation": "I choose foods that nourish my body at the cellular level.",
+      "nourishmentTip": "Aim to eat something green at every meal. Leafy greens are among the most nutrient-dense foods on earth."
+    },
+    {
+      "id": "lesson_day_15",
+      "chapterId": "chapter_3",
+      "dayNumber": 15,
+      "title": "Your Eating Environment",
+      "content": {
+        "introduction": "Where and how you eat profoundly affects how much you eat and how satisfied you feel.",
+        "mainContent": "**The Environment Effect**\n\nResearch shows we eat more when:\n- Distracted by screens\n- Standing or rushing\n- Eating from large plates or packages\n- In bright, loud environments\n- Surrounded by others who are eating more\n\n**Creating a Mindful Eating Space**\n\n**The Ideal Setting:**\n- Sit at a table\n- Use real plates and utensils\n- Eliminate screens\n- Soft lighting and calm atmosphere\n- Pleasant company (or peaceful solitude)\n\n**Practical Tips:**\n- Designate one eating space at home\n- Set the table, even for simple meals\n- Take at least 15 minutes for each meal\n- Put your phone in another room\n- Light a candle to signal 'mealtime'\n\n**The Social Element**\n\nEating with others can be wonderful, but be aware:\n- We tend to mirror others' eating pace\n- Large group meals often mean larger portions\n- Choose dining companions who support your goals\n\n**Making Meals a Ritual**\n\nWhen we elevate eating from 'fueling' to 'ritual,' we naturally eat more mindfully and with more satisfaction.",
+        "keyTakeaways": [
+          "Your eating environment influences portion sizes and satisfaction",
+          "Eliminate distractions—especially screens—during meals",
+          "Create rituals around mealtime for more mindful eating"
+        ],
+        "actionStep": "Transform one meal today into a mindful ritual: set the table, eliminate screens, and eat slowly with awareness."
+      },
+      "journalPrompt": {
+        "primary": "Where do you typically eat? How does your environment affect your eating experience?",
+        "reflection": "What small changes could make your meals feel more like nourishing rituals?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "After your mindful meal, take a gentle 10-minute walk to extend the peaceful feeling.",
+        "personalized": "Create a post-meal ritual: clear the table mindfully, then take a short walk to aid digestion and maintain calm.",
+        "videoUrl": null
+      },
+      "affirmation": "I create peaceful, nourishing environments for my meals.",
+      "nourishmentTip": "Try eating your next meal in complete silence—no phone, no TV, no reading. Notice how the food tastes and how satisfied you feel."
+    },
+    {
+      "id": "lesson_day_16",
+      "chapterId": "chapter_4",
+      "dayNumber": 16,
+      "title": "Morning Nourishment",
+      "content": {
+        "introduction": "How you begin your day sets the tone for everything that follows. Today, we design the ideal morning nourishment.",
+        "mainContent": "**The Importance of Breakfast**\n\nBreaking your overnight fast thoughtfully:\n- Kickstarts your metabolism\n- Stabilizes blood sugar\n- Prevents mid-morning energy crashes\n- Reduces likelihood of overeating later\n\n**The Balanced Breakfast Formula**\n\n**Protein (Essential):**\n- Eggs (any style)\n- Greek yogurt\n- Cottage cheese\n- Nut butter\n\n**Complex Carbs:**\n- Oatmeal\n- Whole grain toast\n- Fresh fruit\n\n**Healthy Fats:**\n- Avocado\n- Nuts and seeds\n- Olive oil\n\n**Breakfast Ideas**\n\n1. Oatmeal with berries, nuts, and a drizzle of honey\n2. Greek yogurt parfait with fruit and granola\n3. Eggs with avocado on whole grain toast\n4. Smoothie with spinach, banana, protein powder, and almond butter\n\n**If You're Not Hungry in the Morning**\n\nStart small:\n- A handful of nuts\n- A piece of fruit with nut butter\n- A small smoothie\n\nYour hunger in the morning often reflects how you ate the night before.",
+        "keyTakeaways": [
+          "A balanced breakfast includes protein, complex carbs, and healthy fat",
+          "Protein is essential for sustained morning energy",
+          "Not hungry? Start small and adjust your evening eating"
+        ],
+        "actionStep": "Plan and prepare a balanced breakfast for tomorrow with all three components: protein, carbs, and fat."
+      },
+      "journalPrompt": {
+        "primary": "What does your typical morning look like? How might a nourishing breakfast change your day?",
+        "reflection": "What obstacles prevent you from eating a good breakfast? How might you overcome them?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Try a 5-minute morning stretch routine before breakfast.",
+        "personalized": "Start your day with gentle movement: 5 minutes of stretching, followed by a balanced breakfast.",
+        "videoUrl": null
+      },
+      "affirmation": "I start each day by nourishing my body with a balanced breakfast.",
+      "nourishmentTip": "Prep breakfast the night before—overnight oats or pre-portioned smoothie ingredients make mornings easier."
+    },
+    {
+      "id": "lesson_day_17",
+      "chapterId": "chapter_4",
+      "dayNumber": 17,
+      "title": "Midday Fuel",
+      "content": {
+        "introduction": "Lunch is your midday refueling stop. Today, we design meals that power you through the afternoon.",
+        "mainContent": "**The Afternoon Slump**\n\nMany people experience the 2-3pm energy crash. Often, this is due to:\n- Lunch that was too high in simple carbs\n- Lunch that was too small or skipped\n- Poor hydration\n\n**Building a Better Lunch**\n\n**Protein Base:**\n- Grilled chicken or fish\n- Hard-boiled eggs\n- Beans or lentils\n- Tofu or tempeh\n\n**Vegetable Volume:**\n- Leafy greens base\n- Colorful vegetables\n- Raw or roasted options\n\n**Legumes & Grains:**\n- Chickpeas\n- Quinoa\n- Brown rice\n- Lentils\n\n**Lunch Ideas**\n\n1. Large salad with grilled chicken, chickpeas, vegetables, and olive oil dressing\n2. Buddha bowl with quinoa, roasted vegetables, and tahini\n3. Vegetable soup with a side of whole grain bread and cheese\n4. Lettuce wraps with ground turkey and vegetables\n\n**Practical Tips**\n\n- Prep lunch containers on Sunday\n- Make extra dinner to become next-day lunch\n- Keep healthy frozen options for emergencies\n- Eat away from your desk when possible",
+        "keyTakeaways": [
+          "A protein-rich lunch prevents afternoon energy crashes",
+          "Fill half your lunch plate with vegetables",
+          "Meal prep makes healthy lunches sustainable"
+        ],
+        "actionStep": "Prepare a lunch for tomorrow that includes protein, vegetables, and a whole grain or legume."
+      },
+      "journalPrompt": {
+        "primary": "What do you typically eat for lunch? How does it affect your afternoon energy?",
+        "reflection": "What would make preparing healthy lunches easier for you?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a 15-minute walk after lunch to aid digestion and boost afternoon energy.",
+        "personalized": "Make a post-lunch walk a daily habit—even 10 minutes helps regulate blood sugar and improves afternoon focus.",
+        "videoUrl": null
+      },
+      "affirmation": "I nourish my body at midday with food that fuels my afternoon.",
+      "nourishmentTip": "Keep a stash of nuts at your workplace for emergency protein when lunch is delayed."
+    },
+    {
+      "id": "lesson_day_18",
+      "chapterId": "chapter_4",
+      "dayNumber": 18,
+      "title": "Evening Restoration",
+      "content": {
+        "introduction": "Dinner is a time for restoration and connection. Today, we create evening meals that nourish body and soul.",
+        "mainContent": "**The Role of Dinner**\n\nDinner should:\n- Restore nutrients used during the day\n- Be satisfying without being heavy\n- Allow time for digestion before sleep\n- Provide opportunity for connection\n\n**Building a Restorative Dinner**\n\n**Lean Protein:**\n- Fish (especially fatty fish like salmon)\n- Chicken or turkey breast\n- Lean cuts of meat\n- Plant-based protein options\n\n**Abundant Vegetables:**\n- Roasted vegetables\n- Steamed greens\n- Large salads\n- Vegetable soups\n\n**Light Carbohydrates:**\n- Sweet potatoes\n- Quinoa\n- Vegetable-based sides\n\n**Dinner Ideas**\n\n1. Grilled salmon with roasted vegetables and quinoa\n2. Vegetable stir-fry with tofu over cauliflower rice\n3. Large salad with grilled chicken and avocado\n4. Homemade vegetable soup with a side salad\n\n**Evening Eating Tips**\n\n- Eat dinner at least 2-3 hours before bed\n- Keep evening portions moderate\n- Avoid heavy, rich foods that disrupt sleep\n- Make dinner the lightest meal if possible",
+        "keyTakeaways": [
+          "Dinner should restore without overwhelming",
+          "Include lean protein and abundant vegetables",
+          "Eat at least 2-3 hours before bedtime"
+        ],
+        "actionStep": "Plan a dinner this week featuring fish or lean protein with at least two different vegetables."
+      },
+      "journalPrompt": {
+        "primary": "How do different dinners affect your sleep and how you feel the next morning?",
+        "reflection": "What does your ideal evening meal look and feel like?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "An evening walk after dinner aids digestion and promotes better sleep.",
+        "personalized": "Create an evening ritual: dinner, then a 15-20 minute walk as the sun sets.",
+        "videoUrl": null
+      },
+      "affirmation": "I end each day with nourishing food that prepares my body for rest.",
+      "nourishmentTip": "Try making soup—it's easy, nutritious, and can be made in batches for the week ahead."
+    },
+    {
+      "id": "lesson_day_19",
+      "chapterId": "chapter_4",
+      "dayNumber": 19,
+      "title": "Beverage Wisdom",
+      "content": {
+        "introduction": "What we drink matters as much as what we eat. Today, we explore the hidden world of beverage calories.",
+        "mainContent": "**The Hidden Calorie Problem**\n\nMany people consume hundreds of calories daily from beverages without realizing it.\n\n**Common Beverage Calories:**\n- Regular soda (12 oz): 140-170 calories\n- Sweetened coffee drink: 200-500 calories\n- Fruit juice (12 oz): 150-200 calories\n- Piña colada (8 oz): 312 calories\n- Beer (12 oz): 150 calories\n- Wine (5 oz): 105-125 calories\n\n**One soda daily = approximately 15 pounds weight gain per year**\n\n**The Tea Advantage**\n\nTeas offer benefits without calories:\n\n- **Green Tea**: Contains catechins that may boost metabolism\n- **Black Tea**: Provides steady energy without coffee jitters\n- **Oolong Tea**: May support fat metabolism\n- **Hibiscus Tea**: May help with blood pressure\n- **White Tea**: Highest in antioxidants\n\nAim for 3-5 cups of unsweetened tea daily.\n\n**Better Beverage Choices**\n\n- Water (plain or infused)\n- Unsweetened tea\n- Black coffee (in moderation)\n- Sparkling water\n- Herbal tea\n\n**Alcohol Awareness**\n\nAlcohol provides calories without nutrition and can trigger overeating. If you drink, do so mindfully and in moderation.",
+        "keyTakeaways": [
+          "Liquid calories add up quickly and don't satisfy hunger",
+          "Tea offers health benefits without the calorie cost",
+          "Swap sweetened beverages for water, tea, or sparkling water"
+        ],
+        "actionStep": "Track every beverage you consume today, including calories. Identify one swap you can make."
+      },
+      "journalPrompt": {
+        "primary": "How many calories do you typically drink in a day? What beverages could you swap for healthier options?",
+        "reflection": "What role do beverages play in your daily rituals? How can you make them healthier?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Take a walk with a bottle of water or thermos of tea.",
+        "personalized": "Combine hydration with movement—prepare a tea to enjoy after a 20-minute walk.",
+        "videoUrl": null
+      },
+      "affirmation": "I choose beverages that hydrate and nourish my body.",
+      "nourishmentTip": "Invest in a beautiful water bottle or tea thermos. When your drink vessel is appealing, you'll use it more."
+    },
+    {
+      "id": "lesson_day_20",
+      "chapterId": "chapter_4",
+      "dayNumber": 20,
+      "title": "Replacement Strategies",
+      "content": {
+        "introduction": "Change doesn't require deprivation. Today, we master the art of healthy swaps that satisfy.",
+        "mainContent": "**The Swap Mindset**\n\nInstead of thinking 'I can't have this,' think 'I get to have that instead.' This subtle shift transforms restriction into choice.\n\n**Satisfying Swaps**\n\n**Cravings for Crunch:**\n- Chips → Roasted chickpeas, vegetable chips, or air-popped popcorn\n- Crackers → Rice cakes with nut butter, or vegetables with hummus\n\n**Cravings for Sweet:**\n- Candy → Fresh fruit, dark chocolate (small piece), or frozen grapes\n- Ice cream → Frozen banana 'nice cream' or Greek yogurt with berries\n- Cookies → Dates with nut butter, or oatmeal energy balls\n\n**Cravings for Comfort:**\n- Pasta → Zucchini noodles, spaghetti squash, or cauliflower rice\n- White bread → Whole grain alternatives or lettuce wraps\n- Mashed potatoes → Mashed cauliflower or sweet potato\n\n**Cravings for Salt:**\n- Processed snacks → Olives, pickles, or salted nuts\n- Fast food → Homemade versions with quality ingredients\n\n**The 80/20 Approach**\n\nAim for nourishing choices 80% of the time. The remaining 20% allows for flexibility, special occasions, and simply being human.",
+        "keyTakeaways": [
+          "Healthy swaps satisfy cravings without derailing progress",
+          "Think 'I get to' instead of 'I can't'",
+          "The 80/20 approach creates sustainable balance"
+        ],
+        "actionStep": "Identify your most common craving. Find and try a healthy swap for it today."
+      },
+      "journalPrompt": {
+        "primary": "What foods do you find hardest to give up? What healthy alternatives might satisfy the same craving?",
+        "reflection": "How does the 80/20 approach feel compared to 'all or nothing' thinking?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "When a craving hits, take a 10-minute walk first—it often passes.",
+        "personalized": "Create a 'craving protocol': When you want something unhealthy, first drink water, then walk for 10 minutes. If you still want it, enjoy a healthy swap.",
+        "videoUrl": null
+      },
+      "affirmation": "I satisfy my cravings with choices that honor my wellness journey.",
+      "nourishmentTip": "Prepare your swap foods in advance. When cravings hit, the healthy option should be as easy to grab as the old choice."
+    },
+    {
+      "id": "lesson_day_21",
+      "chapterId": "chapter_5",
+      "dayNumber": 21,
+      "title": "The Joy of Walking",
+      "content": {
+        "introduction": "Walking is the most underrated form of movement. Today, we discover its profound benefits.",
+        "mainContent": "**Walking: The Perfect Exercise**\n\nWalking is:\n- Accessible to almost everyone\n- Free and requires no equipment\n- Low-impact and gentle on joints\n- Sustainable for a lifetime\n- Social or solitary, as you prefer\n\n**The Benefits**\n\n**Physical:**\n- Burns approximately 290 calories per hour (moderate pace)\n- Strengthens the heart\n- Supports bone density\n- Aids digestion\n- Improves balance and coordination\n\n**Mental:**\n- Reduces stress and anxiety\n- Boosts mood through endorphin release\n- Improves cognitive function\n- Supports creativity\n- Better sleep quality\n\n**Getting Started**\n\nIf you're not currently walking regularly:\n- Start with just 5 minutes daily\n- Add 5 minutes each week\n- Aim eventually for 30+ minutes most days\n- Any walking counts—you don't need special time\n\n**Making It Enjoyable**\n\n- Walk in nature when possible\n- Listen to music, podcasts, or audiobooks\n- Walk with friends or family\n- Explore new routes\n- Practice walking meditation",
+        "keyTakeaways": [
+          "Walking is accessible, free, and sustainable for life",
+          "It burns about 290 calories per hour with countless other benefits",
+          "Start with 5 minutes and build gradually"
+        ],
+        "actionStep": "Take a 20-minute walk today. Notice how you feel before, during, and after."
+      },
+      "journalPrompt": {
+        "primary": "What is your relationship with walking? How could you incorporate more walking into your daily life?",
+        "reflection": "Where are your favorite places to walk? What makes walking enjoyable for you?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Walk for 20 minutes at a comfortable pace. Focus on enjoyment, not speed.",
+        "personalized": "Find a beautiful walking route you can return to regularly—a 'wellness walk' that becomes a cherished habit.",
+        "videoUrl": null
+      },
+      "affirmation": "I embrace walking as a joyful, healing practice in my life.",
+      "nourishmentTip": "After your walk, enjoy a refreshing glass of water and a healthy snack. Your body will thank you."
+    },
+    {
+      "id": "lesson_day_22",
+      "chapterId": "chapter_5",
+      "dayNumber": 22,
+      "title": "Post-Meal Movement",
+      "content": {
+        "introduction": "The simple practice of moving after meals can transform your digestion and energy levels.",
+        "mainContent": "**Why Post-Meal Movement Matters**\n\nGentle movement after eating:\n- Aids digestion and reduces bloating\n- Helps regulate blood sugar levels\n- Prevents the post-meal energy crash\n- Burns calories that might otherwise be stored\n- Supports healthy gut motility\n\n**The Science**\n\nStudies show that a 15-minute walk after a meal can significantly reduce blood sugar spikes compared to remaining sedentary. This is especially important after carbohydrate-rich meals.\n\n**What Kind of Movement?**\n\nPost-meal movement should be gentle:\n- A casual walk (not power walking)\n- Light household chores\n- Gentle stretching\n- Standing and moving rather than sitting\n\n**Avoid intense exercise immediately after eating, which can disrupt digestion.**\n\n**Practical Application**\n\n- Walk around the block after dinner\n- Take the stairs back to your desk after lunch\n- Do gentle stretches after breakfast\n- Clean up the kitchen slowly after meals\n\n**Making It a Habit**\n\nLink post-meal movement to your eating ritual. Just as you automatically clear your plate, add a brief movement session.",
+        "keyTakeaways": [
+          "Gentle movement after meals aids digestion and blood sugar",
+          "A 15-minute walk after meals can significantly reduce blood sugar spikes",
+          "Post-meal movement should be gentle, not intense"
+        ],
+        "actionStep": "After each meal today, take a 10-15 minute gentle walk or do light movement."
+      },
+      "journalPrompt": {
+        "primary": "How do you typically feel after meals? How might post-meal movement change that experience?",
+        "reflection": "What barriers might prevent you from walking after meals? How can you overcome them?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Walk gently for 10-15 minutes after your largest meal today.",
+        "personalized": "Create a post-dinner walking ritual—this becomes a beautiful transition from day to evening.",
+        "videoUrl": null
+      },
+      "affirmation": "I support my digestion with gentle movement after meals.",
+      "nourishmentTip": "A cup of peppermint or ginger tea after a meal also supports digestion."
+    },
+    {
+      "id": "lesson_day_23",
+      "chapterId": "chapter_5",
+      "dayNumber": 23,
+      "title": "Building Your Practice",
+      "content": {
+        "introduction": "Sustainable movement isn't about intensity—it's about consistency. Today, we build a practice that lasts.",
+        "mainContent": "**The 5-5-5 Approach**\n\nStart small, build gradually:\n- Start with just 5 minutes of movement\n- Add 5 minutes each week\n- Continue until you reach your goal (30-45 minutes is ideal for most people)\n\n**Why This Works**\n\n- 5 minutes is so easy, you have no excuse to skip it\n- Gradual building prevents burnout and injury\n- Success builds on success—each day proves you can do it\n- The habit becomes ingrained before it becomes challenging\n\n**Movement Scheduling**\n\nThe best time to exercise is whenever you'll actually do it. Consider:\n- **Morning**: Gets it done before excuses arise\n- **Lunch**: Breaks up the workday\n- **Evening**: Decompresses after work\n\n**Overcoming 'I Don't Have Time'**\n\n- 5 minutes is 0.3% of your day\n- Movement improves energy and productivity\n- Schedule it like an important meeting\n- Remember: some movement beats no movement\n\n**Rest Days Matter**\n\nInclude 1-2 rest days per week. Your body needs recovery. Rest days can still include very gentle movement like walking.",
+        "keyTakeaways": [
+          "Start with 5 minutes, add 5 minutes each week",
+          "Consistency matters more than intensity",
+          "Include rest days for recovery"
+        ],
+        "actionStep": "Schedule your movement for the week ahead. Start with realistic time blocks you know you can keep."
+      },
+      "journalPrompt": {
+        "primary": "What time of day works best for your movement practice? What might get in the way, and how will you handle it?",
+        "reflection": "How would you feel after a month of consistent, gradually building movement practice?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Whatever your current level, add 5 minutes to it today. If you're at zero, start with 5 minutes.",
+        "personalized": "Create your weekly movement schedule. Block the time in your calendar as you would any important appointment.",
+        "videoUrl": null
+      },
+      "affirmation": "I build my movement practice one step at a time, with patience and persistence.",
+      "nourishmentTip": "Fuel your movement with a small snack 30-60 minutes before if needed—a banana or handful of nuts works well."
+    },
+    {
+      "id": "lesson_day_24",
+      "chapterId": "chapter_5",
+      "dayNumber": 24,
+      "title": "Movement Variety",
+      "content": {
+        "introduction": "The best movement is the kind you enjoy. Today, we explore the wonderful variety of ways to move your body.",
+        "mainContent": "**Why Variety Matters**\n\n- Prevents boredom\n- Works different muscle groups\n- Reduces injury from repetitive motion\n- Keeps things interesting\n- Helps you discover what you love\n\n**Movement Options**\n\n**Gentle:**\n- Walking\n- Swimming\n- Yoga\n- Tai Chi\n- Stretching\n\n**Moderate:**\n- Dancing\n- Hiking\n- Cycling\n- Gardening\n- Playing with children/pets\n\n**Incorporating Movement:**\n- Take the stairs instead of elevator\n- Park farther from entrances\n- Walk during phone calls\n- Set a timer to move every hour\n- Do calf raises while waiting\n\n**Finding Your Joy**\n\nAsk yourself:\n- What did you love doing as a child?\n- What sounds fun, not punishing?\n- What could you see yourself doing long-term?\n- What might you try that's completely new?\n\n**The Social Element**\n\nMovement with others:\n- Makes time pass quickly\n- Adds accountability\n- Creates community\n- Makes it more fun",
+        "keyTakeaways": [
+          "The best movement is movement you enjoy",
+          "Variety prevents boredom and works different muscles",
+          "Look for ways to add movement throughout your day"
+        ],
+        "actionStep": "Try a new form of movement today—something you've been curious about but haven't tried."
+      },
+      "journalPrompt": {
+        "primary": "What types of movement bring you joy? What new activities would you like to explore?",
+        "reflection": "How can you add more movement throughout your day, beyond dedicated exercise time?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Explore something new: put on music and dance, try gentle yoga stretches, or walk a different route.",
+        "personalized": "Sign up for or try something you've been curious about—a dance class, hiking group, or swimming session.",
+        "videoUrl": null
+      },
+      "affirmation": "I explore joyful ways to move my body and discover what I love.",
+      "nourishmentTip": "Different activities require different fuel—experiment with pre and post-movement snacks to find what feels best."
+    },
+    {
+      "id": "lesson_day_25",
+      "chapterId": "chapter_5",
+      "dayNumber": 25,
+      "title": "Body Flow Basics",
+      "content": {
+        "introduction": "Building strength isn't about heavy weights—it's about teaching your body to support you through life.",
+        "mainContent": "**Why Strength Matters**\n\n'Strength training' sounds intimidating. Let's call it 'body flow'—teaching your body to move with power and grace.\n\nBenefits:\n- Maintains muscle mass (we lose 3-8% per decade after 30!)\n- Increases metabolism (muscle burns more calories than fat)\n- Improves bone density\n- Enhances daily functional movements\n- Boosts confidence\n\n**No Equipment Needed**\n\nYour body provides all the resistance you need:\n\n- **Squats**: Sit back as if into an invisible chair\n- **Wall push-ups**: Push-ups against a wall\n- **Lunges**: Step forward and lower\n- **Planks**: Hold a straight-arm position\n- **Standing on one leg**: Balance work\n\n**Getting Started**\n\nStart with 10 repetitions of each movement, 2-3 times per week:\n1. 10 squats\n2. 10 wall push-ups\n3. 10 lunges (each leg)\n4. 20-second plank\n5. 20 seconds balancing on each leg\n\n**The Gentle Approach**\n\nThis isn't about 'no pain, no gain.' Move mindfully, stop if anything hurts, and progress gradually.",
+        "keyTakeaways": [
+          "Strength training (body flow) maintains muscle and boosts metabolism",
+          "Bodyweight exercises require no equipment",
+          "Start with 10 repetitions, 2-3 times per week"
+        ],
+        "actionStep": "Try the simple body flow routine today: 10 squats, 10 wall push-ups, 10 lunges each leg, 20-second plank."
+      },
+      "journalPrompt": {
+        "primary": "What is your relationship with strength training? How does reframing it as 'body flow' change your perspective?",
+        "reflection": "Imagine feeling stronger and more capable in daily activities. What would that mean for your life?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Complete the body flow routine once through, modifying as needed.",
+        "personalized": "After your body flow routine, take a gentle walk to cool down.",
+        "videoUrl": null
+      },
+      "affirmation": "I build strength gently, teaching my body to support me through life.",
+      "nourishmentTip": "Include protein within 30 minutes of strength work to support muscle recovery."
+    },
+    {
+      "id": "lesson_day_26",
+      "chapterId": "chapter_6",
+      "dayNumber": 26,
+      "title": "The Language of Change",
+      "content": {
+        "introduction": "The words you use shape your reality. Today, we transform limiting language into empowering speech.",
+        "mainContent": "**Words Have Power**\n\nThe language we use—both out loud and in our heads—profoundly affects our actions and results.\n\n**Limiting vs. Empowering Language**\n\n| Limiting | Empowering |\n|----------|------------|\n| 'I have to' | 'I choose to' |\n| 'I can't' | 'I'm learning to' |\n| 'I should' | 'I want to' |\n| 'I'll try' | 'I will' |\n| 'I'm failing' | 'I'm growing' |\n| 'This is hard' | 'This is challenging me' |\n| 'I'm depriving myself' | 'I'm nourishing myself' |\n\n**Examples in Action**\n\n❌ 'I have to exercise'\n✅ 'I get to move my body'\n\n❌ 'I can't eat that'\n✅ 'I'm choosing not to eat that right now'\n\n❌ 'I'm so bad for eating that'\n✅ 'That was one choice; my next choice can be different'\n\n**The 'I Am' Power**\n\nBe careful with 'I am' statements. What follows shapes your identity:\n\n❌ 'I am bad at exercise'\n✅ 'I am building my fitness'\n\n❌ 'I am addicted to sugar'\n✅ 'I am learning to enjoy other flavors'",
+        "keyTakeaways": [
+          "Language shapes thoughts, actions, and results",
+          "'I choose to' is more empowering than 'I have to'",
+          "'I am' statements shape your identity—use them wisely"
+        ],
+        "actionStep": "Catch yourself using limiting language today. Write down three instances and reframe them using empowering alternatives."
+      },
+      "journalPrompt": {
+        "primary": "What limiting phrases do you commonly use about yourself and your wellness journey? How can you reframe them?",
+        "reflection": "How would you talk about your wellness journey if you knew you would succeed?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "During today's walk, practice empowering self-talk: 'I am capable. I am growing. I choose health.'",
+        "personalized": "Use movement time for positive affirmations. With each step, repeat an empowering phrase.",
+        "videoUrl": null
+      },
+      "affirmation": "I choose words that empower my journey and shape my success.",
+      "nourishmentTip": "When you catch yourself thinking 'I can't have that,' reframe: 'I'm choosing to nourish myself with something else.'"
+    },
+    {
+      "id": "lesson_day_27",
+      "chapterId": "chapter_6",
+      "dayNumber": 27,
+      "title": "Discipline as Self-Love",
+      "content": {
+        "introduction": "Discipline isn't punishment—it's the ultimate act of self-love. Today, we reframe how we view commitment.",
+        "mainContent": "**Discipline vs. Punishment**\n\nDiscipline isn't:\n- White-knuckling through pain\n- Forcing yourself to suffer\n- Punishing yourself for past mistakes\n\nDiscipline is:\n- Keeping promises to yourself\n- Choosing long-term joy over short-term pleasure\n- An act of deep self-respect\n\n**Discipline vs. Consistency**\n\n**Discipline**: Doing what needs to be done, even when you don't feel like it.\n\n**Consistency**: Showing up regularly, allowing for human imperfection.\n\nBoth matter. Discipline gets you through tough moments; consistency builds lasting change.\n\n**Why We Struggle**\n\n- We make too many changes at once\n- We set unrealistic standards\n- We lack compelling reasons ('why')\n- We rely on motivation instead of habits\n- We punish ourselves for slip-ups\n\n**Building Self-Discipline**\n\n1. Start smaller than you think necessary\n2. Connect actions to your deeper 'why'\n3. Create environment that supports your goals\n4. Use implementation intentions: 'When X happens, I will do Y'\n5. Practice self-compassion when you falter",
+        "keyTakeaways": [
+          "Discipline is self-love in action",
+          "Start smaller than you think necessary",
+          "Consistency allows for human imperfection"
+        ],
+        "actionStep": "Identify one area where you struggle with discipline. Make it smaller and easier. Connect it to your 'why.'"
+      },
+      "journalPrompt": {
+        "primary": "Where have you been too hard on yourself? How might you view discipline as an act of self-love instead?",
+        "reflection": "What becomes possible in your life when you keep promises to yourself?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Complete your movement practice today as an act of self-love, not punishment.",
+        "personalized": "Before moving, tell yourself: 'This is how I take care of myself. This is self-love in action.'",
+        "videoUrl": null
+      },
+      "affirmation": "Discipline is how I love myself. Every healthy choice is a promise kept.",
+      "nourishmentTip": "Before eating, pause and ask: 'Is this choice an act of self-love?' Let the answer guide you."
+    },
+    {
+      "id": "lesson_day_28",
+      "chapterId": "chapter_6",
+      "dayNumber": 28,
+      "title": "Releasing Excuses",
+      "content": {
+        "introduction": "Excuses protect us from failure, but they also prevent our success. Today, we learn to let them go.",
+        "mainContent": "**Common Excuses**\n\n- 'I don't have time'\n- 'I'm too tired'\n- 'It's too hard'\n- 'I'll start Monday'\n- 'I've tried before and failed'\n- 'I have bad genetics'\n- 'Healthy food is too expensive'\n- 'I don't know how'\n\n**The Truth About Excuses**\n\nExcuses are our mind's way of protecting us from:\n- Fear of failure\n- Fear of success\n- Discomfort of change\n- Challenge to our identity\n\n**Excuse vs. Explanation**\n\nAn excuse prevents action. An explanation precedes problem-solving.\n\n❌ Excuse: 'I can't exercise because I don't have time.'\n✅ Explanation + Solution: 'My schedule is busy, so I'll find two 10-minute windows for movement.'\n\n**Releasing Excuses**\n\n1. **Acknowledge the excuse** without judgment\n2. **Examine it honestly**: Is it really true?\n3. **Find the fear beneath it**: What are you afraid of?\n4. **Reframe as a problem to solve**: How might I work around this?\n5. **Take one small action**: Prove the excuse wrong\n\n**Remember**: Every excuse you release is a step toward freedom.",
+        "keyTakeaways": [
+          "Excuses protect us but also prevent growth",
+          "Transform excuses into problems to solve",
+          "Every released excuse is a step toward freedom"
+        ],
+        "actionStep": "Write down your three most common excuses. For each one, write a solution or workaround."
+      },
+      "journalPrompt": {
+        "primary": "What excuses do you most commonly tell yourself? What fears might be hiding beneath them?",
+        "reflection": "Imagine living without these excuses. What becomes possible?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "Whatever excuse comes up about movement today, do 5 minutes anyway. Prove it wrong.",
+        "personalized": "When you hear an excuse in your mind, say 'Thank you for trying to protect me' and then take the healthy action anyway.",
+        "videoUrl": null
+      },
+      "affirmation": "I release my excuses and embrace solutions. I am capable of change.",
+      "nourishmentTip": "When you catch yourself making food excuses ('I don't have time to cook'), find one small solution (pre-cut vegetables, a simple recipe)."
+    },
+    {
+      "id": "lesson_day_29",
+      "chapterId": "chapter_6",
+      "dayNumber": 29,
+      "title": "Befriending Your Inner Critic",
+      "content": {
+        "introduction": "That harsh voice in your head isn't your enemy—it's a protector that needs updating. Today, we learn to work with it.",
+        "mainContent": "**Understanding the Inner Critic**\n\nYour inner critic developed to protect you from:\n- Social rejection\n- Disappointment\n- Failure\n- Ridicule\n\nIt means well but often uses outdated, harmful strategies.\n\n**Common Inner Critic Messages**\n\n- 'You'll never change'\n- 'You always fail at this'\n- 'Who do you think you are?'\n- 'You don't deserve to feel good'\n- 'Other people can do it, but not you'\n\n**Reframing Failure**\n\nFailure isn't the opposite of success—it's part of success.\n\nEvery 'failure' is:\n- Information about what doesn't work\n- Proof that you're trying\n- An opportunity to adjust and grow\n- A stepping stone, not a roadblock\n\n**Working with Your Inner Critic**\n\n1. **Acknowledge it**: 'I hear you'\n2. **Thank it**: 'Thank you for trying to protect me'\n3. **Update it**: 'But I've grown, and I can handle this now'\n4. **Redirect it**: 'What if this could work? What would that look like?'\n\n**The Self-Compassion Alternative**\n\nSpeak to yourself as you would to a dear friend who was struggling. Would you criticize them harshly, or offer gentle encouragement?",
+        "keyTakeaways": [
+          "Your inner critic means well but uses outdated strategies",
+          "Failure is information and a stepping stone, not a roadblock",
+          "Treat yourself with the compassion you'd offer a friend"
+        ],
+        "actionStep": "The next time your inner critic speaks harshly, pause and respond with compassion. Write down both the criticism and your compassionate response."
+      },
+      "journalPrompt": {
+        "primary": "What does your inner critic most often say to you? If you were its compassionate advisor, what would you say back?",
+        "reflection": "Think of a time you 'failed' but learned something valuable. How did that 'failure' serve your growth?",
+        "gratitude": null
+      },
+      "movementSuggestion": {
+        "basic": "During movement today, if critical thoughts arise, practice responding with compassion.",
+        "personalized": "Use movement as self-compassion practice. With each step, say 'I am doing my best, and that is enough.'",
+        "videoUrl": null
+      },
+      "affirmation": "I treat myself with the same kindness I would offer a dear friend.",
+      "nourishmentTip": "If you slip up on your eating, respond with 'That happened. The next choice can be different.' No harsh self-talk."
+    },
+    {
+      "id": "lesson_day_30",
+      "chapterId": "chapter_6",
+      "dayNumber": 30,
+      "title": "Your Wellness Declaration",
+      "content": {
+        "introduction": "Congratulations—you've completed 30 days of your wellness foundation. Today, we celebrate and declare your commitment going forward.",
+        "mainContent": "**Reflecting on Your Journey**\n\nOver the past 30 days, you've explored:\n- Setting powerful intentions\n- Hydration and body awareness\n- Environment design and support systems\n- Nourishment fundamentals\n- Mindful eating practices\n- Meal architecture\n- Joyful movement\n- Mindset transformation\n\nThis isn't the end—it's the foundation.\n\n**Your Personal Protocol**\n\nFrom everything you've learned, create your personal wellness protocol. What practices will you carry forward?\n\nConsider:\n- Morning rituals\n- Eating practices\n- Movement habits\n- Mindset tools\n- Support systems\n\n**The Wellness Declaration**\n\nWrite your personal wellness declaration—a statement of who you are becoming and how you choose to live.\n\nExample: 'I am a person who nourishes my body with whole foods, moves with joy, and speaks to myself with compassion. I choose wellness not as a destination, but as a daily practice of self-love.'\n\n**What's Next**\n\nPhase 2: Momentum awaits you. But take time to celebrate Phase 1. You've built something remarkable.",
+        "keyTakeaways": [
+          "30 days of foundation prepares you for lasting change",
+          "Create your personal wellness protocol from what resonates most",
+          "Your wellness journey continues—this is just the beginning"
+        ],
+        "actionStep": "Write your personal wellness declaration. Read it aloud. Post it where you'll see it daily."
+      },
+      "journalPrompt": {
+        "primary": "What are the three most impactful lessons from these 30 days? How will you carry them forward?",
+        "reflection": "Who are you becoming through this journey? Write a letter to yourself describing the person you're growing into.",
+        "gratitude": "What aspects of this journey are you most grateful for?"
+      },
+      "movementSuggestion": {
+        "basic": "Take a celebratory walk—reflect on how far you've come and where you're going.",
+        "personalized": "Go to a meaningful place for your walk today. Let it be a pilgrimage of gratitude for your journey so far.",
+        "videoUrl": null
+      },
+      "affirmation": "I am committed to my wellness journey. Each day, I choose to nourish my body, move with joy, and grow with compassion.",
+      "nourishmentTip": "Prepare a special, nourishing meal to celebrate completing Phase 1. Make it beautiful. You deserve it."
+    }
+  ]
+}
