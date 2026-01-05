@@ -89,12 +89,19 @@ export const useUserStore = create<UserState>()(
       signUp: async (email: string, password: string, fullName?: string) => {
         set({ isLoading: true });
         try {
-          const { user } = await authService.signUp({ email, password, fullName });
+          const { user, session } = await authService.signUp({ email, password, fullName });
 
-          if (user) {
+          // Only set authenticated if we have a session (email confirmation not required)
+          if (user && session) {
             set({ isAuthenticated: true, userId: user.id, isLoading: false });
             // Refresh data in background - don't wait for it
             get().refreshAll().catch(console.error);
+          } else if (user && !session) {
+            // Email confirmation required - don't authenticate yet
+            set({ isLoading: false });
+            throw new Error('Please check your email to confirm your account.');
+          } else {
+            set({ isLoading: false });
           }
         } catch (error) {
           set({ isLoading: false });

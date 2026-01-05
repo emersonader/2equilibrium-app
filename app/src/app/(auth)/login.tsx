@@ -14,62 +14,50 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Colors, Typography, Spacing, BorderRadius, Layout } from '@/constants';
 import { Button } from '@/components/ui';
-import { supabase } from '@/services/supabase';
+import { useUserStore } from '@/stores/userStore';
 import { ensureProfileExists } from '@/services/authService';
 
 export default function LoginScreen() {
   const router = useRouter();
+  const { signIn } = useUserStore();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleLogin = async () => {
-    if (!email.trim() || !password.trim()) {
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail || !password.trim()) {
       Alert.alert('Missing Information', 'Please enter both email and password.');
       return;
     }
 
-    if (!supabase) {
-      Alert.alert('Error', 'Supabase is not configured');
+    if (!isValidEmail(trimmedEmail)) {
+      Alert.alert('Invalid Email', 'Please enter a valid email address.');
       return;
     }
 
     setIsLoading(true);
-    console.log('Starting login...');
     try {
-      // First test if we can reach Supabase at all
-      console.log('Testing network connection...');
-      const testResponse = await fetch('https://ymwubsgiomxwyqfifbsm.supabase.co/rest/v1/', {
-        method: 'GET',
-        headers: {
-          'apikey': process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '',
-        },
-      });
-      console.log('Network test response:', testResponse.status);
-
-      console.log('Calling signInWithPassword...');
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
-        password,
-      });
-      console.log('Login response:', { data, error });
-
-      if (error) throw error;
+      await signIn(trimmedEmail, password);
 
       // Ensure profile exists after login
       await ensureProfileExists();
 
       router.replace('/(tabs)');
     } catch (error: any) {
-      console.log('Login error:', error);
       Alert.alert(
         'Login Failed',
         error.message || 'Please check your credentials and try again.'
       );
     } finally {
-      console.log('Login finished');
       setIsLoading(false);
     }
   };

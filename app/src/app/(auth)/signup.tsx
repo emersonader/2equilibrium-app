@@ -15,10 +15,12 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Typography, Spacing, BorderRadius, Layout } from '@/constants';
 import { Button } from '@/components/ui';
-import { supabase } from '@/services/supabase';
+import { useUserStore } from '@/stores/userStore';
+import { ensureProfileExists } from '@/services/authService';
 
 export default function SignupScreen() {
   const router = useRouter();
+  const { signUp } = useUserStore();
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -27,6 +29,11 @@ export default function SignupScreen() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const validateForm = () => {
     if (!fullName.trim()) {
       Alert.alert('Missing Information', 'Please enter your name.');
@@ -34,6 +41,10 @@ export default function SignupScreen() {
     }
     if (!email.trim()) {
       Alert.alert('Missing Information', 'Please enter your email.');
+      return false;
+    }
+    if (!isValidEmail(email.trim())) {
+      Alert.alert('Invalid Email', 'Please enter a valid email address.');
       return false;
     }
     if (!password.trim()) {
@@ -54,50 +65,29 @@ export default function SignupScreen() {
   const handleSignup = async () => {
     if (!validateForm()) return;
 
-    if (!supabase) {
-      Alert.alert('Error', 'Supabase is not configured');
-      return;
-    }
-
     setIsLoading(true);
-    console.log('Starting signup...');
     try {
-      console.log('Calling signUp...');
-      const { data, error } = await supabase.auth.signUp({
-        email: email.trim(),
-        password,
-        options: {
-          data: {
-            full_name: fullName.trim(),
-          },
-        },
-      });
-      console.log('Signup response:', JSON.stringify({ data, error }, null, 2));
+      await signUp(email.trim(), password, fullName.trim());
 
-      if (error) throw error;
+      // Ensure profile exists after signup
+      await ensureProfileExists();
 
-      // Check if email confirmation is required
-      if (data.user && !data.session) {
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      // Check if this is an email confirmation required scenario
+      if (error.message?.includes('confirm') || error.message?.includes('verification')) {
         Alert.alert(
           'Check Your Email',
           'Please check your email and click the confirmation link to complete signup.',
-          [{ text: 'OK' }]
+          [{ text: 'OK', onPress: () => router.replace('/(auth)/login') }]
         );
       } else {
         Alert.alert(
-          'Welcome!',
-          'Your account has been created.',
-          [{ text: 'OK', onPress: () => router.replace('/(tabs)') }]
+          'Signup Failed',
+          error.message || 'Please try again with different credentials.'
         );
       }
-    } catch (error: any) {
-      console.log('Signup error:', error);
-      Alert.alert(
-        'Signup Failed',
-        error.message || 'Please try again with different credentials.'
-      );
     } finally {
-      console.log('Signup finished');
       setIsLoading(false);
     }
   };
