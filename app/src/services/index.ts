@@ -84,3 +84,44 @@ export {
   PRODUCT_IDS,
   ENTITLEMENTS,
 } from './revenueCatService';
+
+// Badge service
+export {
+  getAllBadges,
+  getBadgesByCategory,
+  getUserBadges,
+  getBadgesWithStatus,
+  awardBadge as awardNewBadge,
+  hasBadge,
+  getBadgeStats,
+  checkAndAwardBadges,
+  getRecentBadges,
+  getBadgeById,
+} from './badgeService';
+
+// Community service
+export {
+  getOrCreatePublicProfile,
+  getPublicProfile,
+  updatePublicProfile,
+  searchProfiles,
+  followUser,
+  unfollowUser,
+  isFollowing,
+  getFollowers,
+  getFollowing,
+  getFollowCounts,
+  createPost,
+  deletePost,
+  getActivityFeed,
+  getPublicFeed,
+  getUserPosts,
+  encouragePost,
+  removeEncouragement,
+  toggleEncouragement,
+  getPostEncouragements,
+  autoShareBadge,
+  autoShareMilestone,
+  autoShareStreak,
+  getUserCommunityStats,
+} from './communityService';

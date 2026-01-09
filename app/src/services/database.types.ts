@@ -17,6 +17,10 @@ export type JournalEntryType = 'daily' | 'weekly_review' | 'freeform';
 export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
 export type Gender = 'male' | 'female' | 'other' | 'prefer_not_to_say';
 export type UnitSystem = 'metric' | 'imperial';
+export type BadgeCategory = 'streak' | 'chapter' | 'milestone' | 'special';
+export type BadgeRarity = 'common' | 'rare' | 'epic' | 'legendary';
+export type PostType = 'milestone' | 'badge' | 'streak' | 'chapter' | 'custom';
+export type PostVisibility = 'public' | 'followers' | 'private';
 
 export interface Database {
   public: {
@@ -417,6 +421,219 @@ export interface Database {
           }
         ];
       };
+      badges: {
+        Row: {
+          id: string;
+          name: string;
+          description: string;
+          icon_name: string;
+          category: BadgeCategory;
+          rarity: BadgeRarity;
+          tier_required: string | null;
+          sort_order: number;
+          created_at: string;
+        };
+        Insert: {
+          id: string;
+          name: string;
+          description: string;
+          icon_name: string;
+          category: BadgeCategory;
+          rarity?: BadgeRarity;
+          tier_required?: string | null;
+          sort_order?: number;
+          created_at?: string;
+        };
+        Update: {
+          name?: string;
+          description?: string;
+          icon_name?: string;
+          category?: BadgeCategory;
+          rarity?: BadgeRarity;
+          tier_required?: string | null;
+          sort_order?: number;
+        };
+        Relationships: [];
+      };
+      user_badges: {
+        Row: {
+          id: string;
+          user_id: string;
+          badge_id: string;
+          earned_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          badge_id: string;
+          earned_at?: string;
+        };
+        Update: {
+          earned_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "user_badges_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "user_badges_badge_id_fkey";
+            columns: ["badge_id"];
+            referencedRelation: "badges";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      public_profiles: {
+        Row: {
+          user_id: string;
+          display_name: string;
+          bio: string | null;
+          avatar_url: string | null;
+          is_public: boolean;
+          show_streak: boolean;
+          show_badges: boolean;
+          show_progress: boolean;
+          auto_share_badges: boolean;
+          auto_share_milestones: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          user_id: string;
+          display_name: string;
+          bio?: string | null;
+          avatar_url?: string | null;
+          is_public?: boolean;
+          show_streak?: boolean;
+          show_badges?: boolean;
+          show_progress?: boolean;
+          auto_share_badges?: boolean;
+          auto_share_milestones?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          display_name?: string;
+          bio?: string | null;
+          avatar_url?: string | null;
+          is_public?: boolean;
+          show_streak?: boolean;
+          show_badges?: boolean;
+          show_progress?: boolean;
+          auto_share_badges?: boolean;
+          auto_share_milestones?: boolean;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "public_profiles_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      follows: {
+        Row: {
+          id: string;
+          follower_id: string;
+          following_id: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          follower_id: string;
+          following_id: string;
+          created_at?: string;
+        };
+        Update: {
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "follows_follower_id_fkey";
+            columns: ["follower_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "follows_following_id_fkey";
+            columns: ["following_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      activity_posts: {
+        Row: {
+          id: string;
+          user_id: string;
+          post_type: PostType;
+          content: string | null;
+          metadata: Record<string, any>;
+          visibility: PostVisibility;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          post_type: PostType;
+          content?: string | null;
+          metadata?: Record<string, any>;
+          visibility?: PostVisibility;
+          created_at?: string;
+        };
+        Update: {
+          post_type?: PostType;
+          content?: string | null;
+          metadata?: Record<string, any>;
+          visibility?: PostVisibility;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "activity_posts_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
+      post_encouragements: {
+        Row: {
+          id: string;
+          post_id: string;
+          user_id: string;
+          emoji: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          post_id: string;
+          user_id: string;
+          emoji?: string;
+          created_at?: string;
+        };
+        Update: {
+          emoji?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "post_encouragements_post_id_fkey";
+            columns: ["post_id"];
+            referencedRelation: "activity_posts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "post_encouragements_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ];
+      };
     };
     Views: {};
     Functions: {};
@@ -424,6 +641,10 @@ export interface Database {
       subscription_plan: SubscriptionPlan;
       subscription_status: SubscriptionStatus;
       journal_entry_type: JournalEntryType;
+      badge_category: BadgeCategory;
+      badge_rarity: BadgeRarity;
+      post_type: PostType;
+      post_visibility: PostVisibility;
     };
   };
 }
@@ -458,6 +679,52 @@ export type HealthProfileUpdate = Database['public']['Tables']['health_profiles'
 export type WeightHistory = Database['public']['Tables']['weight_history']['Row'];
 export type WeightHistoryInsert = Database['public']['Tables']['weight_history']['Insert'];
 export type WeightHistoryUpdate = Database['public']['Tables']['weight_history']['Update'];
+export type Badge = Database['public']['Tables']['badges']['Row'];
+export type BadgeInsert = Database['public']['Tables']['badges']['Insert'];
+export type BadgeUpdate = Database['public']['Tables']['badges']['Update'];
+export type UserBadge = Database['public']['Tables']['user_badges']['Row'] & {
+  badge?: Badge;
+};
+export type UserBadgeInsert = Database['public']['Tables']['user_badges']['Insert'];
+export type UserBadgeUpdate = Database['public']['Tables']['user_badges']['Update'];
+
+// Badge with earned status for UI
+export interface BadgeWithEarnedStatus extends Badge {
+  earned: boolean;
+  earnedAt: string | null;
+}
+
+// Community types
+export type PublicProfile = Database['public']['Tables']['public_profiles']['Row'];
+export type PublicProfileInsert = Database['public']['Tables']['public_profiles']['Insert'];
+export type PublicProfileUpdate = Database['public']['Tables']['public_profiles']['Update'];
+export type Follow = Database['public']['Tables']['follows']['Row'];
+export type FollowInsert = Database['public']['Tables']['follows']['Insert'];
+export type ActivityPost = Database['public']['Tables']['activity_posts']['Row'];
+export type ActivityPostInsert = Database['public']['Tables']['activity_posts']['Insert'];
+export type ActivityPostUpdate = Database['public']['Tables']['activity_posts']['Update'];
+export type PostEncouragement = Database['public']['Tables']['post_encouragements']['Row'];
+export type PostEncouragementInsert = Database['public']['Tables']['post_encouragements']['Insert'];
+
+// Activity feed item with user info and counts
+export interface ActivityFeedItem extends ActivityPost {
+  display_name: string;
+  avatar_url: string | null;
+  is_public: boolean;
+  encouragement_count: number;
+  has_encouraged: boolean;
+}
+
+// User community stats
+export interface UserCommunityStats {
+  user_id: string;
+  display_name: string;
+  avatar_url: string | null;
+  is_public: boolean;
+  follower_count: number;
+  following_count: number;
+  post_count: number;
+}
 
 // Nutrition-related types for API responses
 export interface NutritionInfo {

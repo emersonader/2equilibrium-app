@@ -13,5 +13,11 @@ export { useSubscriptionStore, default as subscriptionStore } from './subscripti
 // Health store - BMI and weight tracking
 export { useHealthStore, default as healthStore } from './healthStore';
 
+// Badge store - gamification badges
+export { useBadgeStore, useBadges, useEarnedBadges, useBadgeStats, useNewlyEarnedBadge } from './badgeStore';
+
+// Community store - social features
+export { useCommunityStore, useFeed, useMyProfile, useViewedProfile } from './communityStore';
+
 // Re-export types for convenience
-export type { Profile, Subscription, UserProgress, JournalEntry, HealthProfile, WeightHistory } from '@/services/database.types';
+export type { Profile, Subscription, UserProgress, JournalEntry, HealthProfile, WeightHistory, Badge, UserBadge, BadgeWithEarnedStatus, PublicProfile, ActivityFeedItem, UserCommunityStats } from '@/services/database.types';

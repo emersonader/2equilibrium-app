@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import * as journalService from '@/services/journalService';
+import { useBadgeStore } from './badgeStore';
 import type { JournalEntry } from '@/services/database.types';
 import type { JournalEntryData } from '@/services/journalService';
 
@@ -80,6 +81,13 @@ export const useJournalStore = create<JournalState>((set, get) => ({
 
       // Refresh recent entries
       await get().loadRecentEntries();
+
+      // Check and award journal badges
+      const allEntries = await journalService.getAllEntries();
+      const badgeStore = useBadgeStore.getState();
+      await badgeStore.checkAndAwardBadges({
+        journalCount: allEntries.length,
+      });
 
       return entry;
     } catch (error) {

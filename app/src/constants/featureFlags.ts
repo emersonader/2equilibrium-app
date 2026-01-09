@@ -29,6 +29,11 @@ export interface TierFeatures {
   recipeLibrary: 'limited' | 'full' | 'full_exclusive';
   movementVideoLibrary: boolean | 'with_live';
 
+  // Community features
+  communityFeed: boolean;
+  communityPosting: boolean;
+  communityFollowingLimit: number; // 0 = no access, -1 = unlimited
+
   // Offline & Export
   offlineMode: 'current_lesson' | 'current_chapter' | 'full_phase';
   journalExport: boolean | 'pdf' | 'pdf_csv';
@@ -51,6 +56,9 @@ export const TIER_FEATURES: Record<SubscriptionTier, TierFeatures> = {
     communityCircle: false,
     recipeLibrary: 'limited',
     movementVideoLibrary: false,
+    communityFeed: false,
+    communityPosting: false,
+    communityFollowingLimit: 0,
     offlineMode: 'current_lesson',
     journalExport: false,
     milestoneCelebrations: 'basic',
@@ -68,6 +76,9 @@ export const TIER_FEATURES: Record<SubscriptionTier, TierFeatures> = {
     communityCircle: false,
     recipeLibrary: 'limited',
     movementVideoLibrary: false,
+    communityFeed: false,
+    communityPosting: false,
+    communityFollowingLimit: 0,
     offlineMode: 'current_lesson',
     journalExport: false,
     milestoneCelebrations: 'basic',
@@ -85,6 +96,9 @@ export const TIER_FEATURES: Record<SubscriptionTier, TierFeatures> = {
     communityCircle: true,
     recipeLibrary: 'full',
     movementVideoLibrary: true,
+    communityFeed: true,
+    communityPosting: true,
+    communityFollowingLimit: 50,
     offlineMode: 'current_chapter',
     journalExport: 'pdf',
     milestoneCelebrations: 'full',
@@ -102,6 +116,9 @@ export const TIER_FEATURES: Record<SubscriptionTier, TierFeatures> = {
     communityCircle: 'priority',
     recipeLibrary: 'full_exclusive',
     movementVideoLibrary: 'with_live',
+    communityFeed: true,
+    communityPosting: true,
+    communityFollowingLimit: -1, // Unlimited
     offlineMode: 'full_phase',
     journalExport: 'pdf_csv',
     milestoneCelebrations: 'full_personal',

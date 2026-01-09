@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import * as progressService from '@/services/progressService';
+import { useBadgeStore } from './badgeStore';
 import type { QuizAttempt, Milestone } from '@/services/database.types';
 
 interface ProgressState {
@@ -53,6 +54,15 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
 
       // Check for milestones after completing lesson
       await get().checkMilestones();
+
+      // Check and award badges
+      const badgeStore = useBadgeStore.getState();
+      await badgeStore.checkAndAwardBadges({
+        lessonCompleted: lessonId,
+        completedLessonsCount: progress.completed_lessons.length,
+        currentStreak: progress.current_streak,
+        completionTime: new Date(),
+      });
     } catch (error) {
       console.error('Failed to mark lesson complete:', error);
       throw error;
@@ -94,6 +104,13 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
 
       // Check for milestones
       await get().checkMilestones();
+
+      // Check and award badges for quiz
+      const badgeStore = useBadgeStore.getState();
+      await badgeStore.checkAndAwardBadges({
+        quizScore: score,
+        chapterCompleted: passed ? parseInt(chapterId.replace('chapter_', '')) : undefined,
+      });
     } catch (error) {
       console.error('Failed to submit quiz:', error);
       throw error;

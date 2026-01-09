@@ -16,7 +16,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors, Typography, Spacing, Layout, BorderRadius, SUBSCRIPTION_PRICING } from '@/constants';
 import { Card, Button, Badge, ProgressRing } from '@/components/ui';
 import { HealthMetricsSection, HealthConnectSection } from '@/components/health';
-import { useUserStore, useProgressStore } from '@/stores';
+import { BadgeList } from '@/components/badges';
+import { useUserStore, useProgressStore, useBadgeStore } from '@/stores';
 import * as journalService from '@/services/journalService';
 
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
@@ -66,14 +67,20 @@ export default function ProfileScreen() {
   const router = useRouter();
   const { profile, signOut, isLoading } = useUserStore();
   const { currentStreak, longestStreak, completedLessons, refreshFromServer } = useProgressStore();
+  const { badges, stats, loadBadges, loadStats } = useBadgeStore();
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [journalEntriesCount, setJournalEntriesCount] = useState(0);
+
+  // Get earned badges for showcase
+  const earnedBadges = badges.filter(b => b.earned).slice(0, 6);
 
   // Load data when screen comes into focus
   useFocusEffect(
     useCallback(() => {
       refreshFromServer();
       loadJournalCount();
+      loadBadges();
+      loadStats();
     }, [])
   );
 
@@ -270,6 +277,37 @@ export default function ProfileScreen() {
             <Text style={styles.statValue}>{user.stats.chaptersCompleted}</Text>
             <Text style={styles.statLabel}>Chapters</Text>
           </Card>
+        </View>
+
+        {/* Badge Showcase */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Badges</Text>
+            <Pressable onPress={() => router.push('/badges')}>
+              <Text style={styles.sectionLink}>
+                View All ({stats.totalBadges}/{stats.totalAvailable})
+              </Text>
+            </Pressable>
+          </View>
+          {earnedBadges.length > 0 ? (
+            <BadgeList
+              badges={earnedBadges}
+              onBadgePress={(badge) => router.push(`/badges/${badge.id}`)}
+            />
+          ) : (
+            <Card variant="outlined" style={styles.emptyBadgesCard}>
+              <Ionicons name="ribbon-outline" size={32} color={Colors.text.muted} />
+              <Text style={styles.emptyBadgesText}>
+                Complete lessons and journal entries to earn badges!
+              </Text>
+              <Button
+                title="View All Badges"
+                variant="outline"
+                size="sm"
+                onPress={() => router.push('/badges')}
+              />
+            </Card>
+          )}
         </View>
 
         {/* Health Metrics */}
@@ -484,10 +522,32 @@ const styles = StyleSheet.create({
   section: {
     marginBottom: Spacing.xl,
   },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: Spacing.md,
+  },
   sectionTitle: {
     ...Typography.h5,
     color: Colors.text.primary,
-    marginBottom: Spacing.md,
+  },
+  sectionLink: {
+    ...Typography.bodySmall,
+    color: Colors.primary.orange,
+    fontWeight: '600',
+  },
+
+  // Badge showcase
+  emptyBadgesCard: {
+    alignItems: 'center',
+    padding: Spacing.xl,
+    gap: Spacing.md,
+  },
+  emptyBadgesText: {
+    ...Typography.body,
+    color: Colors.text.secondary,
+    textAlign: 'center',
   },
 
   // Subscription
