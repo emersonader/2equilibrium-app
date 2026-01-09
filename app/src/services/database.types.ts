@@ -28,6 +28,14 @@ export interface Database {
       profiles: {
         Row: {
           id: string;
+
+          // Website compatibility fields
+          email: string;
+          name: string | null;
+          tier: string;
+          is_admin: boolean;
+
+          // Mobile app fields
           full_name: string | null;
           avatar_url: string | null;
           onboarding_completed: boolean;
@@ -37,6 +45,14 @@ export interface Database {
         };
         Insert: {
           id: string;
+
+          // Website compatibility fields
+          email: string;
+          name?: string | null;
+          tier?: string;
+          is_admin?: boolean;
+
+          // Mobile app fields
           full_name?: string | null;
           avatar_url?: string | null;
           onboarding_completed?: boolean;
@@ -46,6 +62,14 @@ export interface Database {
         };
         Update: {
           id?: string;
+
+          // Website compatibility fields
+          email?: string;
+          name?: string | null;
+          tier?: string;
+          is_admin?: boolean;
+
+          // Mobile app fields
           full_name?: string | null;
           avatar_url?: string | null;
           onboarding_completed?: boolean;

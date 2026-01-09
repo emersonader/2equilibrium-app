@@ -114,11 +114,32 @@ export async function ensureProfileExists(): Promise<Profile> {
 
   // Profile doesn't exist, create it
   if (fetchError && fetchError.code === 'PGRST116') {
+    const fullName = user.user_metadata?.full_name || null;
+
     const { data: newProfile, error: insertError } = await client
       .from('profiles')
       .insert({
         id: user.id,
-        full_name: user.user_metadata?.full_name || null,
+
+        // Website compatibility fields
+        email: user.email!,
+        name: fullName || user.email!,
+        tier: 'foundation',
+        is_admin: false,
+
+        // Mobile app fields
+        full_name: fullName,
+        avatar_url: null,
+        onboarding_completed: false,
+        notification_preferences: {
+          morningWisdom: true,
+          lessonReminder: true,
+          gentleNudge: true,
+          streakReminder: true,
+          weeklyReview: true,
+          quietHoursStart: '22:00',
+          quietHoursEnd: '07:00',
+        },
       })
       .select()
       .single();
@@ -169,6 +190,7 @@ export async function updateProfile(updates: {
     .from('profiles')
     .update({
       full_name: updates.fullName,
+      name: updates.fullName, // Sync with website field
       avatar_url: updates.avatarUrl,
       onboarding_completed: updates.onboardingCompleted,
       notification_preferences: updates.notificationPreferences as Json | undefined,
