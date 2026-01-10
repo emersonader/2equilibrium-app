@@ -25,6 +25,7 @@
     },
     "android": {
       "package": "com.twoequilibrium.wellness",
+      "minSdkVersion": 26,
       "permissions": [
         "CAMERA",
         "android.permission.health.READ_STEPS",
