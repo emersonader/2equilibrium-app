@@ -154,20 +154,22 @@ export const SUBSCRIPTION_PRICING = {
 
 // Helper function to check feature access
 export function hasFeature(
-  tier: SubscriptionTier,
+  tier: SubscriptionTier | undefined | null,
   feature: keyof TierFeatures
 ): boolean {
-  const features = TIER_FEATURES[tier];
+  const safeTier = tier || 'none';
+  const features = TIER_FEATURES[safeTier];
   const value = features[feature];
   return value !== false && value !== 'limited' && value !== 'basic';
 }
 
 // Helper to get feature value
 export function getFeatureValue<K extends keyof TierFeatures>(
-  tier: SubscriptionTier,
+  tier: SubscriptionTier | undefined | null,
   feature: K
 ): TierFeatures[K] {
-  return TIER_FEATURES[tier][feature];
+  const safeTier = tier || 'none';
+  return TIER_FEATURES[safeTier][feature];
 }
 
 export default TIER_FEATURES;
