@@ -1,11 +1,52 @@
 # 2Equilibrium App - Development Status
 
-**Last Updated:** January 25, 2026
+**Last Updated:** January 26, 2026
 **Current Phase:** MVP Complete - Ready for Testing/Deployment
 
 ---
 
 ## Session Log
+
+### Session: January 26, 2026
+**Focus:** Face ID / Biometric Authentication Implementation
+
+**What Was Done:**
+1. **Fixed remaining PGRST116 bug** - `getEntryByDate()` still used `.single()`
+   - Changed to use `limit(1)` + `order by created_at desc`
+   - Files: `src/services/journalService.ts`
+
+2. **Implemented Face ID / Biometric Authentication**
+   - Installed `expo-local-authentication` package
+   - Created new `biometricService.ts` with full biometric API:
+     - `isBiometricSupported()` - Check device capability
+     - `getBiometricType()` / `getBiometricLabel()` - Get type (Face ID, Fingerprint)
+     - `authenticateWithBiometrics()` - Trigger biometric prompt
+     - `saveBiometricCredentials()` / `getBiometricCredentials()` - Secure credential storage
+     - `clearBiometricCredentials()` - Remove stored credentials
+     - `isBiometricEnabled()` / `isBiometricLoginAvailable()` - Check status
+   - Added biometric toggle to Profile Settings with password confirmation modal
+   - Added "Sign in with Face ID / Fingerprint" button to Login screen
+
+**Files Created:**
+- `src/services/biometricService.ts` - New biometric authentication service
+
+**Files Modified:**
+- `src/services/journalService.ts` - Fixed `getEntryByDate()` PGRST116 bug
+- `src/app/(tabs)/profile.tsx` - Added biometric toggle in Settings section
+- `src/app/(auth)/login.tsx` - Added biometric login button
+- `package.json` - Added expo-local-authentication dependency
+
+**How Biometric Login Works:**
+1. User enables Face ID/Fingerprint in Profile → Settings
+2. User enters password to confirm (stored securely in SecureStore)
+3. On login screen, user taps "Sign in with Face ID" button
+4. Device biometric prompt appears
+5. On success, credentials retrieved and auto-login performed
+
+**Not Yet Committed:**
+- Changes are local only, need to commit and push
+
+---
 
 ### Session: January 25, 2026 (Evening)
 **Focus:** Bug fixes and testing on device
@@ -44,6 +85,10 @@
 **Known Issue:**
 - Database has duplicate journal entries for some lessons (causes PGRST116)
 - App now handles this gracefully, but consider cleaning up Supabase data
+
+**Committed & Pushed:**
+- Commit `0d49e89` pushed to `origin/main`
+- All bug fixes now on GitHub
 
 ---
 
@@ -91,6 +136,7 @@ Evaluated VPS (Vultr) vs current setup. Recommendation: **Stay with current arch
 | Feature | Files | Notes |
 |---------|-------|-------|
 | Authentication | `(auth)/login.tsx`, `signup.tsx`, `forgot-password.tsx` | Email/password with validation |
+| Biometric Auth | `services/biometricService.ts`, `(auth)/login.tsx`, `profile.tsx` | Face ID / Fingerprint login |
 | Today Screen | `(tabs)/index.tsx` | Daily lesson, streak, progress ring |
 | Journey Map | `(tabs)/journey.tsx` | 6 chapters × 5 lessons timeline |
 | Journal | `(tabs)/journal.tsx` | Mood/energy/water tracking |
@@ -131,6 +177,7 @@ Evaluated VPS (Vultr) vs current setup. Recommendation: **Stay with current arch
 
 ### Services Layer
 - `authService` - Authentication
+- `biometricService` - Face ID / Fingerprint authentication
 - `progressService` - Lesson progression
 - `journalService` - Journal CRUD
 - `subscriptionService` - Subscription status
@@ -152,6 +199,7 @@ Evaluated VPS (Vultr) vs current setup. Recommendation: **Stay with current arch
 
 | Date | Commit | Description |
 |------|--------|-------------|
+| Jan 25, 2026 | 0d49e89 | Fix lesson progression and journal bugs |
 | Jan 2026 | a426293 | Fix hasFeature crash when tier is undefined |
 | Jan 2026 | 60b67ed | Fix Android build and add app assets |
 | Jan 2026 | f3434c0 | Add website compatibility to mobile app profiles |
@@ -248,7 +296,7 @@ EMAIL_ENABLED=false    # optional
 - `Complete_Wellness_Guide_30_Days.html` is ready for content review (open in browser, print to PDF)
 
 **From Jan 25 Evening Session:**
-- Multiple bug fixes applied but NOT committed to git yet
+- Bug fixes committed and pushed (commit `0d49e89`)
 - Consider cleaning up duplicate journal entries in Supabase
 - Test the full lesson progression flow: Day 1 → complete journal/movement → Day 2 unlocks
 - Expo server command: `cd app && npx expo start`

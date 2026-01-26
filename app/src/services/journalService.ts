@@ -116,16 +116,18 @@ export async function getEntryByDate(
 
   if (!user) return null;
 
+  // Use limit(1) instead of single() to handle duplicate entries gracefully
   const { data, error } = await sb
     .from('journal_entries')
     .select('*')
     .eq('user_id', user.id)
     .eq('entry_date', date)
     .eq('entry_type', entryType)
-    .single();
+    .order('created_at', { ascending: false })
+    .limit(1);
 
-  if (error && error.code !== 'PGRST116') throw error;
-  return data;
+  if (error) throw error;
+  return data && data.length > 0 ? data[0] : null;
 }
 
 /**

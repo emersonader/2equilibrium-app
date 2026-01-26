@@ -9,6 +9,9 @@ import {
   ActivityIndicator,
   Linking,
   Platform,
+  Switch,
+  TextInput,
+  Modal,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useFocusEffect } from 'expo-router';
@@ -19,6 +22,7 @@ import { HealthMetricsSection, HealthConnectSection } from '@/components/health'
 import { BadgeList } from '@/components/badges';
 import { useUserStore, useProgressStore, useBadgeStore } from '@/stores';
 import * as journalService from '@/services/journalService';
+import * as biometricService from '@/services/biometricService';
 
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
 
@@ -71,6 +75,14 @@ export default function ProfileScreen() {
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [journalEntriesCount, setJournalEntriesCount] = useState(0);
 
+  // Biometric state
+  const [biometricSupported, setBiometricSupported] = useState(false);
+  const [biometricEnabled, setBiometricEnabled] = useState(false);
+  const [biometricLabel, setBiometricLabel] = useState('Biometric');
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [isEnablingBiometric, setIsEnablingBiometric] = useState(false);
+
   // Get earned badges for showcase
   const earnedBadges = badges.filter(b => b.earned).slice(0, 6);
 
@@ -81,8 +93,87 @@ export default function ProfileScreen() {
       loadJournalCount();
       loadBadges();
       loadStats();
+      checkBiometricStatus();
     }, [])
   );
+
+  // Check biometric availability and status
+  const checkBiometricStatus = async () => {
+    const supported = await biometricService.isBiometricSupported();
+    setBiometricSupported(supported);
+
+    if (supported) {
+      const label = await biometricService.getBiometricLabel();
+      setBiometricLabel(label);
+
+      const enabled = await biometricService.isBiometricEnabled();
+      setBiometricEnabled(enabled);
+    }
+  };
+
+  // Handle biometric toggle
+  const handleBiometricToggle = async (value: boolean) => {
+    if (value) {
+      // Enabling - need to verify and save credentials
+      setShowPasswordModal(true);
+    } else {
+      // Disabling - clear credentials
+      Alert.alert(
+        `Disable ${biometricLabel}`,
+        `Are you sure you want to disable ${biometricLabel} login?`,
+        [
+          { text: 'Cancel', style: 'cancel' },
+          {
+            text: 'Disable',
+            style: 'destructive',
+            onPress: async () => {
+              await biometricService.clearBiometricCredentials();
+              setBiometricEnabled(false);
+            },
+          },
+        ]
+      );
+    }
+  };
+
+  // Handle password confirmation for enabling biometrics
+  const handleConfirmPassword = async () => {
+    if (!passwordInput.trim()) {
+      Alert.alert('Error', 'Please enter your password');
+      return;
+    }
+
+    setIsEnablingBiometric(true);
+    try {
+      // First, authenticate with biometrics to confirm device ownership
+      const authResult = await biometricService.authenticateWithBiometrics(
+        `Enable ${biometricLabel} login`
+      );
+
+      if (!authResult.success) {
+        Alert.alert('Authentication Failed', authResult.error || 'Please try again');
+        setIsEnablingBiometric(false);
+        return;
+      }
+
+      // Save credentials securely
+      const email = profile?.id || '';
+      const saved = await biometricService.saveBiometricCredentials(email, passwordInput);
+
+      if (saved) {
+        setBiometricEnabled(true);
+        setShowPasswordModal(false);
+        setPasswordInput('');
+        Alert.alert('Success', `${biometricLabel} login enabled`);
+      } else {
+        Alert.alert('Error', 'Failed to save credentials. Please try again.');
+      }
+    } catch (error) {
+      Alert.alert('Error', 'An error occurred. Please try again.');
+    } finally {
+      setIsEnablingBiometric(false);
+    }
+  };
 
   const loadJournalCount = async () => {
     try {
@@ -358,6 +449,26 @@ export default function ProfileScreen() {
               onPress={handleNotifications}
             />
             <View style={styles.settingsDivider} />
+            {biometricSupported && (
+              <>
+                <SettingsItem
+                  icon={biometricLabel === 'Face ID' ? 'scan-outline' : 'finger-print-outline'}
+                  title={`Use ${biometricLabel}`}
+                  subtitle="Quick login with biometrics"
+                  onPress={() => handleBiometricToggle(!biometricEnabled)}
+                  showChevron={false}
+                  rightElement={
+                    <Switch
+                      value={biometricEnabled}
+                      onValueChange={handleBiometricToggle}
+                      trackColor={{ false: Colors.ui.border, true: Colors.primary.tiffanyBlue }}
+                      thumbColor={biometricEnabled ? Colors.background.primary : Colors.text.muted}
+                    />
+                  }
+                />
+                <View style={styles.settingsDivider} />
+              </>
+            )}
             <SettingsItem
               icon="moon-outline"
               title="Appearance"
@@ -436,6 +547,54 @@ export default function ProfileScreen() {
         {/* Version */}
         <Text style={styles.version}>Version 1.0.0</Text>
       </ScrollView>
+
+      {/* Password Confirmation Modal for Biometric Setup */}
+      <Modal
+        visible={showPasswordModal}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => {
+          setShowPasswordModal(false);
+          setPasswordInput('');
+        }}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Enable {biometricLabel}</Text>
+            <Text style={styles.modalDescription}>
+              Enter your password to enable {biometricLabel} login
+            </Text>
+            <TextInput
+              style={styles.passwordInput}
+              placeholder="Enter your password"
+              placeholderTextColor={Colors.text.muted}
+              secureTextEntry
+              value={passwordInput}
+              onChangeText={setPasswordInput}
+              autoCapitalize="none"
+            />
+            <View style={styles.modalButtons}>
+              <Button
+                title="Cancel"
+                variant="outline"
+                onPress={() => {
+                  setShowPasswordModal(false);
+                  setPasswordInput('');
+                }}
+                style={styles.modalButton}
+              />
+              <Button
+                title="Enable"
+                variant="primary"
+                onPress={handleConfirmPassword}
+                loading={isEnablingBiometric}
+                disabled={isEnablingBiometric}
+                style={styles.modalButton}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -624,5 +783,48 @@ const styles = StyleSheet.create({
     color: Colors.text.muted,
     textAlign: 'center',
     marginTop: Spacing.xl,
+  },
+
+  // Modal styles
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: Spacing.xl,
+  },
+  modalContent: {
+    backgroundColor: Colors.background.primary,
+    borderRadius: BorderRadius.lg,
+    padding: Spacing.xl,
+    width: '100%',
+    maxWidth: 400,
+  },
+  modalTitle: {
+    ...Typography.h4,
+    color: Colors.text.primary,
+    textAlign: 'center',
+    marginBottom: Spacing.sm,
+  },
+  modalDescription: {
+    ...Typography.body,
+    color: Colors.text.secondary,
+    textAlign: 'center',
+    marginBottom: Spacing.xl,
+  },
+  passwordInput: {
+    ...Typography.body,
+    backgroundColor: Colors.background.secondary,
+    borderRadius: BorderRadius.md,
+    padding: Spacing.base,
+    marginBottom: Spacing.xl,
+    color: Colors.text.primary,
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    gap: Spacing.md,
+  },
+  modalButton: {
+    flex: 1,
   },
 });
