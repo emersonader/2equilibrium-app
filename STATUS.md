@@ -1,0 +1,258 @@
+# 2Equilibrium App - Development Status
+
+**Last Updated:** January 25, 2026
+**Current Phase:** MVP Complete - Ready for Testing/Deployment
+
+---
+
+## Session Log
+
+### Session: January 25, 2026 (Evening)
+**Focus:** Bug fixes and testing on device
+
+**Bugs Fixed:**
+1. **Journal editing blocked** - Users couldn't edit saved journal entries
+   - Added "Edit Entry" button to allow re-editing after save
+   - Files: `src/app/lesson/[id].tsx`
+
+2. **Greeting always showed "Good morning"** - Time-based greeting was hardcoded
+   - Now shows morning/afternoon/evening based on current hour
+   - Files: `src/app/(tabs)/index.tsx`
+
+3. **Progress showed calendar days instead of completed lessons**
+   - `currentDay` was based on days since signup (28 days = 93%)
+   - Fixed to show `completedLessons.length + 1` (actual progress)
+   - Files: `src/services/progressService.ts`, `src/app/(tabs)/index.tsx`
+
+4. **Lesson access based on time instead of progress**
+   - Day 2 was locked because access checked `unlockedDay` (time-based)
+   - Fixed to check if previous lesson is completed
+   - Files: `src/hooks/useProgress.ts`
+
+5. **Database error PGRST116** - "Multiple rows returned"
+   - Caused by duplicate journal entries for same lesson
+   - Fixed queries to use `limit(1)` + `order by created_at` instead of `maybeSingle()`
+   - Files: `src/services/journalService.ts`
+
+**Files Modified:**
+- `src/app/lesson/[id].tsx` - Journal editing, status checking
+- `src/app/(tabs)/index.tsx` - Greeting, progress display
+- `src/services/progressService.ts` - currentDay calculation
+- `src/hooks/useProgress.ts` - Lesson access logic
+- `src/services/journalService.ts` - Handle duplicate entries
+
+**Known Issue:**
+- Database has duplicate journal entries for some lessons (causes PGRST116)
+- App now handles this gracefully, but consider cleaning up Supabase data
+
+---
+
+### Session: January 25, 2026 (Afternoon)
+**Focus:** Documentation, content review, and infrastructure planning
+
+**What Was Done:**
+- Created `STATUS.md` file for tracking progress across sessions
+- Added custom commands to `CLAUDE.md`:
+  - `read status` / `status` - Read and summarize current project state
+  - `update status` - Update this file with session progress
+- Created `Complete_Wellness_Guide_30_Days.html` - Full printable/PDF guide with all 30 days of lesson content
+- Reviewed entire codebase to assess current state
+- Confirmed MVP is complete and production-ready
+- Cloned and analyzed website repo (github.com/emersonader/2equilibrium.com)
+- Added website project documentation to STATUS.md and CLAUDE.md
+- Analyzed infrastructure/hosting options (VPS vs managed services)
+
+**Infrastructure Decision:**
+Evaluated VPS (Vultr) vs current setup. Recommendation: **Stay with current architecture**
+- Website: Vercel (free) - React SPA, no server needed
+- Backend: Supabase (free-$25/mo) - shared by website + mobile app
+- App subscriptions: RevenueCat (free until $2.5k revenue)
+- Total cost: $0/month at current scale
+- VPS would add cost + maintenance with no benefit
+
+**Files Created/Modified:**
+- `/STATUS.md` - Development tracking file
+- `/Complete_Wellness_Guide_30_Days.html` - Printable 30-day guide
+- `/website/` - Cloned website repo (read-only, no changes without asking)
+- `/CLAUDE.md` - Added custom commands and website reference
+
+**Current State:**
+- Mobile app: MVP complete, bug fixes applied
+- Website: Fully operational on Vercel
+- Both share same Supabase backend
+- Optimal hosting architecture already in place
+
+---
+
+## App Completion Status
+
+### ✅ Fully Implemented (MVP)
+
+| Feature | Files | Notes |
+|---------|-------|-------|
+| Authentication | `(auth)/login.tsx`, `signup.tsx`, `forgot-password.tsx` | Email/password with validation |
+| Today Screen | `(tabs)/index.tsx` | Daily lesson, streak, progress ring |
+| Journey Map | `(tabs)/journey.tsx` | 6 chapters × 5 lessons timeline |
+| Journal | `(tabs)/journal.tsx` | Mood/energy/water tracking |
+| Nutrition | `(tabs)/nutrition.tsx` | Meal logging, barcode scan, food search |
+| Community | `(tabs)/community.tsx` | Feed, posts, follows, encouragement |
+| Profile | `(tabs)/profile.tsx` | Stats, badges, health metrics, settings |
+| Lesson Detail | `lesson/[id].tsx` | Full content with tabs |
+| Chapter Detail | `chapter/[id].tsx` | Overview with lesson list |
+| Quiz System | `quiz/[chapterId].tsx`, `quiz/review.tsx` | 70% pass threshold, retry logic |
+| Badges | `badges/index.tsx`, `badges/[id].tsx` | 50+ badges with unlock modals |
+| Onboarding | `onboarding/` | 4 screens + subscription selection |
+| Subscriptions | RevenueCat integration | 3 tiers with feature gating |
+| Health Integration | HealthKit (iOS) + Health Connect (Android) | Steps, calories, sleep, weight |
+
+### ⚠️ Pending (Post-MVP / v1.1)
+
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Push Notifications | High | `expo-notifications` installed, needs implementation |
+| Offline Caching | Medium | `expo-sqlite` installed, not active |
+| Voice Notes | Medium | Audio content from Graziella (v1.1) |
+| Recipe Library | Low | Feature-flagged, needs screens |
+| Movement Video Library | Low | Feature-flagged, needs screens |
+
+---
+
+## Technical Architecture
+
+### State Management (Zustand Stores)
+- `userStore` - Auth & profile
+- `progressStore` - Lesson/quiz progress, streaks
+- `journalStore` - Journal entries
+- `subscriptionStore` - RevenueCat integration
+- `healthStore` - BMI & weight tracking
+- `badgeStore` - Gamification badges
+- `communityStore` - Social features
+- `nutritionStore` - Food tracking
+
+### Services Layer
+- `authService` - Authentication
+- `progressService` - Lesson progression
+- `journalService` - Journal CRUD
+- `subscriptionService` - Subscription status
+- `revenueCatService` - RevenueCat API
+- `badgeService` - Badge awards
+- `communityService` - Social features
+- `nutritionService` - Food logging
+- `healthService` - Health metrics
+- `healthConnectService` - Native health APIs
+
+### Content Data
+- `chapters.json` - 6 chapters
+- `lessons.json` - 30 daily lessons
+- `quizzes.json` - 6 chapter quizzes (7-8 questions each)
+
+---
+
+## Recent Changes History
+
+| Date | Commit | Description |
+|------|--------|-------------|
+| Jan 2026 | a426293 | Fix hasFeature crash when tier is undefined |
+| Jan 2026 | 60b67ed | Fix Android build and add app assets |
+| Jan 2026 | f3434c0 | Add website compatibility to mobile app profiles |
+| Jan 2026 | d3baae4 | Add gamification badges and community features |
+| Jan 2026 | 3d65310 | Fix auth screens: use userStore, add validation, fix navigation |
+
+---
+
+## Next Steps (Suggested)
+
+### Immediate (Testing Phase)
+1. [ ] Test full user flow on iOS simulator
+2. [ ] Test full user flow on Android emulator
+3. [ ] Verify Supabase connection and data persistence
+4. [ ] Test RevenueCat subscription purchases (sandbox)
+5. [ ] Test HealthKit/Health Connect permissions and data sync
+
+### Short-term (Pre-Launch)
+1. [ ] Implement push notifications for daily reminders
+2. [ ] Add app store assets (screenshots, descriptions)
+3. [ ] Set up TestFlight (iOS) and Internal Testing (Android)
+4. [ ] Configure production Supabase environment
+5. [ ] Set up RevenueCat production API keys
+
+### Future (v1.1+)
+1. [ ] Add voice notes from Graziella
+2. [ ] Build recipe library
+3. [ ] Add movement video library
+4. [ ] Implement offline content caching
+
+---
+
+## Website Project (www.2equilibrium.com)
+
+**Repo:** https://github.com/emersonader/2equilibrium.com.git
+**Local Path:** `/Volumes/ExternalHome/Grumpy/2Equilibrium/website`
+**Status:** Fully operational
+
+> **IMPORTANT:** Do not make changes to the website without asking first.
+
+### Tech Stack
+- React 19 + TypeScript + Vite
+- Tailwind CSS
+- React Router v6
+- Supabase (same backend as app)
+- Recharts for data visualization
+- Deployed on Vercel
+
+### Key Pages
+| Route | Purpose |
+|-------|---------|
+| `/` | Home - features, pricing, bio |
+| `/about` | Graziella's credentials & philosophy |
+| `/approach` | 3-step coaching process + FAQ |
+| `/blog` | Blog listing |
+| `/dashboard` | User check-ins, progress charts |
+| `/admin` | Member management, analytics |
+
+### Website Commands
+```bash
+cd website
+npm run dev      # Start dev server (port 3000)
+npm run build    # Production build
+```
+
+---
+
+## Environment Setup Checklist
+
+### Mobile App (.env)
+```bash
+EXPO_PUBLIC_SUPABASE_URL=
+EXPO_PUBLIC_SUPABASE_ANON_KEY=
+EXPO_PUBLIC_REVENUECAT_API_KEY_IOS=
+EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID=
+```
+
+### Website (.env.local)
+```bash
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+GEMINI_API_KEY=        # optional
+EMAIL_ENABLED=false    # optional
+```
+
+---
+
+## Notes for Next Session
+
+- Use `read status` or `status` command to get caught up
+- Check git status for any uncommitted changes
+- Review "Next Steps" section for priorities
+- Update this file at the end of each session with `update status` command
+- `Complete_Wellness_Guide_30_Days.html` is ready for content review (open in browser, print to PDF)
+
+**From Jan 25 Evening Session:**
+- Multiple bug fixes applied but NOT committed to git yet
+- Consider cleaning up duplicate journal entries in Supabase
+- Test the full lesson progression flow: Day 1 → complete journal/movement → Day 2 unlocks
+- Expo server command: `cd app && npx expo start`
+
+---
+
+*This file is the source of truth for development progress. Update it after each work session.*

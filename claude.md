@@ -1,5 +1,36 @@
 # Holistic Wellness Journey - Mobile App
 
+## Custom Commands
+
+When the user says these commands, follow the instructions:
+
+### `read status` or `status`
+Read the file `/Volumes/ExternalHome/Grumpy/2Equilibrium/STATUS.md` and summarize:
+1. What was done in the last session
+2. Current app state (what's working, what's pending)
+3. Next steps to work on
+Then ask the user what they'd like to work on.
+
+### `update status`
+Update the file `/Volumes/ExternalHome/Grumpy/2Equilibrium/STATUS.md` with:
+1. Add a new session entry with today's date under "Session Log"
+2. List what was accomplished this session
+3. Update any completion status checkboxes
+4. Update the "Next Steps" section based on current priorities
+5. Add any relevant notes for the next session
+Confirm the update was made and summarize what was recorded.
+
+---
+
+## Website Project
+
+**Repo:** https://github.com/emersonader/2equilibrium.com.git
+**Local Path:** `/Volumes/ExternalHome/Grumpy/2Equilibrium/website`
+
+**IMPORTANT:** Do NOT make any changes to the website without asking the user first. The website is a separate project that runs alongside the mobile app, sharing the same Supabase backend.
+
+---
+
 ## Project Overview
 
 A subscription-based mobile app transforming Graziella Cialone de Souza's 30-day weight loss guide into a lifetime wellness companion. Built with React Native + Expo, Supabase backend, and RevenueCat for subscriptions.

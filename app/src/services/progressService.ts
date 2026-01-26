@@ -66,15 +66,17 @@ export async function getUserProgress(): Promise<UserProgress | null> {
     }
   }
 
-  // Calculate unlocked day based on subscription start
-  const unlockedDay = calculateUnlockedDay(subscriptionStart);
+  // current_day should be based on completed lessons, not calendar days
+  // This ensures users progress through lessons sequentially
+  const completedCount = data.completed_lessons?.length || 0;
+  const correctCurrentDay = Math.min(completedCount + 1, 30); // Next lesson to complete, capped at 30
 
-  // Update current_day if time-based unlock is higher
-  if (unlockedDay > data.current_day) {
+  // Update current_day if it doesn't match actual progress
+  if (data.current_day !== correctCurrentDay) {
     const { data: updatedProgress, error: updateError } = await client
       .from('user_progress')
       .update({
-        current_day: unlockedDay,
+        current_day: correctCurrentDay,
         subscription_start_date: subscriptionStart.toISOString(),
       })
       .eq('user_id', user.id)
@@ -138,9 +140,8 @@ export async function completeLesson(lessonId: string): Promise<UserProgress> {
     completedLessons.push(lessonId);
   }
 
-  // current_day tracks which day is unlocked (time-based, set elsewhere)
-  // Don't change it here - it's based on subscription start date
-  const newCurrentDay = progress.current_day;
+  // current_day = next lesson to complete (based on completed lessons count)
+  const newCurrentDay = Math.min(completedLessons.length + 1, 30);
 
   // Calculate streak - increment if this is a new completion
   const newStreak = isNewCompletion

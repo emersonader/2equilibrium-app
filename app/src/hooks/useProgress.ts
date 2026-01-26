@@ -36,8 +36,16 @@ export function useProgress() {
   // Basic check if a specific lesson is accessible (sync, doesn't check journal/movement)
   const canAccessLessonBasic = useCallback(
     (lessonDayNumber: number): boolean => {
-      // Must be within unlocked days
-      if (lessonDayNumber > unlockedDay) return false;
+      // Day 1 is always accessible
+      if (lessonDayNumber === 1) return true;
+
+      // For other days, check if previous lesson is completed
+      // User can access day N if they've completed day N-1
+      const previousLessonId = `lesson_day_${lessonDayNumber - 1}`;
+      const isPreviousCompleted = completedLessons.includes(previousLessonId);
+
+      // If previous lesson is not completed, this lesson is locked
+      if (!isPreviousCompleted) return false;
 
       // Find which chapter this lesson belongs to
       const lesson = lessonsData.lessons.find((l) => l.dayNumber === lessonDayNumber);
@@ -47,7 +55,7 @@ export function useProgress() {
       const chapter = allChapters.find((c) => c.id === lesson.chapterId);
       if (!chapter) return false;
 
-      // First chapter is always accessible
+      // First chapter is always accessible (already passed previous lesson check)
       if (chapter.number === 1) return true;
 
       // Check if previous chapter's quiz is passed
@@ -61,7 +69,7 @@ export function useProgress() {
 
       return true;
     },
-    [unlockedDay, quizScores]
+    [completedLessons, quizScores]
   );
 
   // Full check if lesson is accessible (async, checks journal/movement completion)

@@ -325,15 +325,17 @@ export async function getJournalEntryForLesson(lessonId: string): Promise<Journa
 
   if (!user) return null;
 
+  // Use limit(1) instead of maybeSingle() to handle duplicate entries gracefully
   const { data, error } = await sb
     .from('journal_entries')
     .select('*')
     .eq('user_id', user.id)
     .eq('lesson_id', lessonId)
-    .maybeSingle();
+    .order('created_at', { ascending: false })
+    .limit(1);
 
   if (error) throw error;
-  return data;
+  return data && data.length > 0 ? data[0] : null;
 }
 
 /**
@@ -345,21 +347,25 @@ export async function isJournalCompleteForLesson(lessonId: string): Promise<bool
 
   if (!user) return false;
 
+  // Use limit(1) instead of maybeSingle() to handle duplicate entries gracefully
   const { data, error } = await sb
     .from('journal_entries')
     .select('prompt_response, reflection_response, gratitude_response')
     .eq('user_id', user.id)
     .eq('lesson_id', lessonId)
-    .maybeSingle();
+    .order('created_at', { ascending: false })
+    .limit(1);
 
   if (error) throw error;
-  if (!data) return false;
+  if (!data || data.length === 0) return false;
+
+  const entry = data[0];
 
   // Check if all three prompts have responses
   return !!(
-    data.prompt_response && data.prompt_response.trim() &&
-    data.reflection_response && data.reflection_response.trim() &&
-    data.gratitude_response && data.gratitude_response.trim()
+    entry.prompt_response && entry.prompt_response.trim() &&
+    entry.reflection_response && entry.reflection_response.trim() &&
+    entry.gratitude_response && entry.gratitude_response.trim()
   );
 }
 
@@ -372,17 +378,19 @@ export async function isMovementCompleteForLesson(lessonId: string): Promise<boo
 
   if (!user) return false;
 
+  // Use limit(1) instead of maybeSingle() to handle duplicate entries gracefully
   const { data, error } = await sb
     .from('journal_entries')
     .select('movement_completed')
     .eq('user_id', user.id)
     .eq('lesson_id', lessonId)
-    .maybeSingle();
+    .order('created_at', { ascending: false })
+    .limit(1);
 
   if (error) throw error;
-  if (!data) return false;
+  if (!data || data.length === 0) return false;
 
-  return data.movement_completed === true;
+  return data[0].movement_completed === true;
 }
 
 /**

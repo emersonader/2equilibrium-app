@@ -411,6 +411,7 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [hasExistingEntry, setHasExistingEntry] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   // Load existing journal entry if it exists
   useEffect(() => {
@@ -454,6 +455,7 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
         gratitudeResponse: gratitudeResponse.trim() || undefined,
       });
       setHasExistingEntry(true);
+      setIsEditing(false);
       onJournalSaved();
       Alert.alert('Saved', 'Your journal entry has been saved.');
     } catch (error: any) {
@@ -476,10 +478,17 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
     <View>
       <Text style={styles.lessonTitle}>Journal Prompts</Text>
 
-      {hasExistingEntry && (
+      {hasExistingEntry && !isEditing && (
         <View style={styles.completedBanner}>
           <Ionicons name="checkmark-circle" size={20} color={Colors.primary.tiffanyBlue} />
           <Text style={styles.completedBannerText}>Journal entry completed</Text>
+        </View>
+      )}
+
+      {hasExistingEntry && isEditing && (
+        <View style={[styles.completedBanner, { backgroundColor: Colors.primary.orange + '20' }]}>
+          <Ionicons name="create-outline" size={20} color={Colors.primary.orange} />
+          <Text style={[styles.completedBannerText, { color: Colors.primary.orange }]}>Editing journal entry</Text>
         </View>
       )}
 
@@ -490,7 +499,7 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
           <Text style={styles.promptLabelWithIcon}>Today's Reflection</Text>
         </View>
         <Text style={styles.promptText}>{lesson.journalPrompt.primary}</Text>
-        {hasExistingEntry ? (
+        {hasExistingEntry && !isEditing ? (
           <Text style={styles.savedResponse}>{primaryResponse || '—'}</Text>
         ) : (
           <TextInput
@@ -513,7 +522,7 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
           <Text style={styles.promptLabelWithIcon}>Deeper Reflection</Text>
         </View>
         <Text style={styles.promptText}>{lesson.journalPrompt.reflection}</Text>
-        {hasExistingEntry ? (
+        {hasExistingEntry && !isEditing ? (
           <Text style={styles.savedResponse}>{reflectionResponse || '—'}</Text>
         ) : (
           <TextInput
@@ -538,7 +547,7 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
         <Text style={styles.promptText}>
           {lesson.journalPrompt.gratitude || "What are you grateful for today on your wellness journey?"}
         </Text>
-        {hasExistingEntry ? (
+        {hasExistingEntry && !isEditing ? (
           <Text style={styles.savedResponse}>{gratitudeResponse || '—'}</Text>
         ) : (
           <TextInput
@@ -554,15 +563,37 @@ function JournalTab({ lesson, onJournalSaved }: JournalTabProps) {
         )}
       </Card>
 
-      {/* Save Button - only show if no existing entry */}
-      {!hasExistingEntry && (
+      {/* Edit Button - show when entry exists and not editing */}
+      {hasExistingEntry && !isEditing && (
         <Button
-          title="Save Journal Entry"
-          onPress={handleSave}
-          loading={isSaving}
+          title="Edit Entry"
+          variant="secondary"
+          onPress={() => setIsEditing(true)}
           fullWidth
           style={styles.saveJournalButton}
         />
+      )}
+
+      {/* Save/Cancel Buttons - show when no entry or editing */}
+      {(!hasExistingEntry || isEditing) && (
+        <View>
+          <Button
+            title={hasExistingEntry ? "Update Journal Entry" : "Save Journal Entry"}
+            onPress={handleSave}
+            loading={isSaving}
+            fullWidth
+            style={styles.saveJournalButton}
+          />
+          {isEditing && (
+            <Button
+              title="Cancel"
+              variant="secondary"
+              onPress={() => setIsEditing(false)}
+              fullWidth
+              style={{ marginTop: 8 }}
+            />
+          )}
+        </View>
       )}
     </View>
   );

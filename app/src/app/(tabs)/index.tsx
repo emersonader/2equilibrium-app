@@ -14,9 +14,18 @@ import { useProgressStore } from '@/stores/progressStore';
 import * as progressService from '@/services/progressService';
 import lessonsData from '@/data/content/lessons.json';
 
+// Get greeting based on time of day
+const getGreeting = (): string => {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 17) return 'Good afternoon';
+  return 'Good evening';
+};
+
 export default function TodayScreen() {
   const router = useRouter();
   const { currentDay, currentStreak, completedLessons, refreshFromServer } = useProgressStore();
+  const [greeting, setGreeting] = useState(getGreeting());
   const [lessonAccess, setLessonAccess] = useState<{
     canAccess: boolean;
     reason?: string;
@@ -26,10 +35,11 @@ export default function TodayScreen() {
     };
   }>({ canAccess: true });
 
-  // Load progress whenever screen comes into focus
+  // Load progress and update greeting whenever screen comes into focus
   useFocusEffect(
     useCallback(() => {
       refreshFromServer();
+      setGreeting(getGreeting());
     }, [])
   );
 
@@ -68,23 +78,23 @@ export default function TodayScreen() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.greeting}>Good morning</Text>
+          <Text style={styles.greeting}>{greeting}</Text>
           <Text style={styles.title}>Day {currentDay}</Text>
         </View>
 
-        {/* Streak Card */}
+        {/* Progress Card */}
         <Card variant="elevated" style={styles.streakCard}>
           <View style={styles.streakContent}>
             <ProgressRing
-              progress={(currentDay / 30) * 100}
+              progress={(completedLessons.length / 30) * 100}
               size={70}
               color={Colors.primary.tiffanyBlue}
             />
             <View style={styles.streakInfo}>
-              <Text style={styles.streakLabel}>Current Streak</Text>
-              <Text style={styles.streakValue}>{currentStreak} days</Text>
+              <Text style={styles.streakLabel}>Phase 1 Progress</Text>
+              <Text style={styles.streakValue}>{completedLessons.length}/30 lessons</Text>
               <Text style={styles.streakSubtext}>
-                Phase 1 Progress: {currentDay}/30 days
+                {currentStreak > 0 ? `${currentStreak} day streak` : 'Start your streak today!'}
               </Text>
             </View>
           </View>
