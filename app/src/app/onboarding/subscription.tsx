@@ -81,8 +81,24 @@ export default function OnboardingSubscription() {
     return 'Subscribe Now';
   };
 
+  const handleSkip = async () => {
+    // Allow skipping subscription during development/testing
+    await updateOnboardingComplete();
+    router.replace('/(tabs)');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
+      {/* Header with Back Button */}
+      <View style={styles.topBar}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+          <Ionicons name="chevron-back" size={24} color={Colors.text.primary} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleSkip} style={styles.skipButton}>
+          <Text style={styles.skipText}>Skip</Text>
+        </TouchableOpacity>
+      </View>
+
       {/* Progress */}
       <View style={styles.progressBar}>
         <View style={[styles.progressFill, { width: '100%' }]} />
@@ -158,6 +174,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background.primary,
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: Spacing.layout.screenPadding,
+    paddingVertical: Spacing.sm,
+  },
+  backButton: {
+    padding: Spacing.xs,
+  },
+  skipButton: {
+    padding: Spacing.xs,
+  },
+  skipText: {
+    ...Typography.textStyles.body,
+    color: Colors.text.secondary,
   },
   progressBar: {
     height: 4,

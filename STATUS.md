@@ -27,13 +27,25 @@
    - Added biometric toggle to Profile Settings with password confirmation modal
    - Added "Sign in with Face ID / Fingerprint" button to Login screen
 
+3. **Fixed Expo Go Compatibility**
+   - `expo-local-authentication` requires native build (not available in Expo Go)
+   - Added `NativeModules.ExpoLocalAuthentication` check before loading biometric module
+   - Biometric features gracefully hidden when native module unavailable
+   - App works normally in Expo Go; Face ID only works in development/production builds
+
+4. **Fixed Onboarding Navigation**
+   - Added back button (←) to subscription screen
+   - Added "Skip" button to bypass subscription during testing
+   - Files: `src/app/onboarding/subscription.tsx`
+
 **Files Created:**
-- `src/services/biometricService.ts` - New biometric authentication service
+- `src/services/biometricService.ts` - Biometric authentication service
 
 **Files Modified:**
 - `src/services/journalService.ts` - Fixed `getEntryByDate()` PGRST116 bug
 - `src/app/(tabs)/profile.tsx` - Added biometric toggle in Settings section
 - `src/app/(auth)/login.tsx` - Added biometric login button
+- `src/app/onboarding/subscription.tsx` - Added back/skip navigation
 - `package.json` - Added expo-local-authentication dependency
 
 **How Biometric Login Works:**
@@ -43,8 +55,14 @@
 4. Device biometric prompt appears
 5. On success, credentials retrieved and auto-login performed
 
-**Not Yet Committed:**
-- Changes are local only, need to commit and push
+**Committed & Pushed:**
+- Commit `3e6d33a` - Add Face ID / biometric authentication
+- Additional fixes for Expo Go compatibility (not yet committed)
+
+**Important Notes:**
+- Face ID/Fingerprint requires a **development build** (`npx expo prebuild && npx expo run:ios`)
+- In Expo Go, biometric options are hidden (app works normally otherwise)
+- RevenueCat shows error in Expo Go (expected - needs production config)
 
 ---
 
@@ -199,6 +217,7 @@ Evaluated VPS (Vultr) vs current setup. Recommendation: **Stay with current arch
 
 | Date | Commit | Description |
 |------|--------|-------------|
+| Jan 26, 2026 | 3e6d33a | Add Face ID / biometric authentication |
 | Jan 25, 2026 | 0d49e89 | Fix lesson progression and journal bugs |
 | Jan 2026 | a426293 | Fix hasFeature crash when tier is undefined |
 | Jan 2026 | 60b67ed | Fix Android build and add app assets |
@@ -295,11 +314,17 @@ EMAIL_ENABLED=false    # optional
 - Update this file at the end of each session with `update status` command
 - `Complete_Wellness_Guide_30_Days.html` is ready for content review (open in browser, print to PDF)
 
-**From Jan 25 Evening Session:**
-- Bug fixes committed and pushed (commit `0d49e89`)
+**From Jan 26 Session:**
+- Face ID implemented but requires **development build** to test (not Expo Go)
+- To create dev build: `cd app && npx expo prebuild && npx expo run:ios`
+- Onboarding subscription screen now has back/skip buttons
+- Expo Go compatibility fixes applied (biometrics gracefully hidden)
+- There are uncommitted local changes for Expo Go fixes - commit if needed
+- Expo server command: `cd app && npx expo start --clear`
+
+**Previous Notes:**
 - Consider cleaning up duplicate journal entries in Supabase
 - Test the full lesson progression flow: Day 1 → complete journal/movement → Day 2 unlocks
-- Expo server command: `cd app && npx expo start`
 
 ---
 

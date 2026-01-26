@@ -1,5 +1,5 @@
-import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
+import { Platform, NativeModules } from 'react-native';
 
 const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
 const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
@@ -7,30 +7,57 @@ const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
 export type BiometricType = 'face' | 'fingerprint' | 'iris' | 'none';
 
 /**
+ * Check if the native biometric module is available (not in Expo Go)
+ */
+function isNativeModuleAvailable(): boolean {
+  // Check if the native module exists before trying to use it
+  return !!NativeModules.ExpoLocalAuthentication;
+}
+
+/**
  * Check if biometric authentication is supported on the device
  */
 export async function isBiometricSupported(): Promise<boolean> {
-  const compatible = await LocalAuthentication.hasHardwareAsync();
-  if (!compatible) return false;
+  if (!isNativeModuleAvailable()) {
+    return false;
+  }
 
-  const enrolled = await LocalAuthentication.isEnrolledAsync();
-  return enrolled;
+  try {
+    const LocalAuthentication = require('expo-local-authentication');
+    const compatible = await LocalAuthentication.hasHardwareAsync();
+    if (!compatible) return false;
+
+    const enrolled = await LocalAuthentication.isEnrolledAsync();
+    return enrolled;
+  } catch (error) {
+    console.log('Biometric check failed:', error);
+    return false;
+  }
 }
 
 /**
  * Get the type of biometric authentication available
  */
 export async function getBiometricType(): Promise<BiometricType> {
-  const types = await LocalAuthentication.supportedAuthenticationTypesAsync();
+  if (!isNativeModuleAvailable()) {
+    return 'none';
+  }
 
-  if (types.includes(LocalAuthentication.AuthenticationType.FACIAL_RECOGNITION)) {
-    return 'face';
-  }
-  if (types.includes(LocalAuthentication.AuthenticationType.FINGERPRINT)) {
-    return 'fingerprint';
-  }
-  if (types.includes(LocalAuthentication.AuthenticationType.IRIS)) {
-    return 'iris';
+  try {
+    const LocalAuthentication = require('expo-local-authentication');
+    const types = await LocalAuthentication.supportedAuthenticationTypesAsync();
+
+    if (types.includes(LocalAuthentication.AuthenticationType.FACIAL_RECOGNITION)) {
+      return 'face';
+    }
+    if (types.includes(LocalAuthentication.AuthenticationType.FINGERPRINT)) {
+      return 'fingerprint';
+    }
+    if (types.includes(LocalAuthentication.AuthenticationType.IRIS)) {
+      return 'iris';
+    }
+  } catch (error) {
+    console.log('Failed to get biometric type:', error);
   }
   return 'none';
 }
@@ -58,7 +85,12 @@ export async function getBiometricLabel(): Promise<string> {
 export async function authenticateWithBiometrics(
   promptMessage?: string
 ): Promise<{ success: boolean; error?: string }> {
+  if (!isNativeModuleAvailable()) {
+    return { success: false, error: 'Biometrics not available' };
+  }
+
   try {
+    const LocalAuthentication = require('expo-local-authentication');
     const result = await LocalAuthentication.authenticateAsync({
       promptMessage: promptMessage || 'Authenticate to continue',
       fallbackLabel: 'Use passcode',
@@ -146,6 +178,10 @@ export async function isBiometricEnabled(): Promise<boolean> {
  * Check if biometric login is available (supported + enabled + has credentials)
  */
 export async function isBiometricLoginAvailable(): Promise<boolean> {
+  if (!isNativeModuleAvailable()) {
+    return false;
+  }
+
   const supported = await isBiometricSupported();
   if (!supported) return false;
 
