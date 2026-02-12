@@ -23,7 +23,7 @@ import type { ActivityFeedItem } from '@/services/database.types';
 export default function CommunityScreen() {
   const router = useRouter();
   const { profile } = useUserStore();
-  const { tier } = useSubscriptionStore();
+  const { currentTier: tier } = useSubscriptionStore();
   const {
     feed,
     feedLoading,

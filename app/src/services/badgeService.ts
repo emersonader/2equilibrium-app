@@ -20,7 +20,7 @@ export async function getAllBadges(): Promise<Badge[]> {
 /**
  * Get badges filtered by category
  */
-export async function getBadgesByCategory(category: string): Promise<Badge[]> {
+export async function getBadgesByCategory(category: NonNullable<Badge['category']>): Promise<Badge[]> {
   if (!isSupabaseConfigured) return [];
 
   const client = getSupabase();

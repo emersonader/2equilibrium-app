@@ -39,10 +39,10 @@ export function FollowButton({
       onPress={handlePress}
       disabled={disabled || isLoading}
       loading={isLoading}
-      style={[
+      style={StyleSheet.flatten([
         styles.button,
         isFollowing && styles.followingButton,
-      ]}
+      ])}
     />
   );
 }

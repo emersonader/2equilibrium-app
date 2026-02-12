@@ -41,7 +41,7 @@ export function useSubscription() {
 
   // Get feature value (for features with levels like 'limited', 'full')
   const getFeatureValue = useCallback(
-    (feature: Feature): boolean | string => {
+    (feature: Feature): boolean | string | number => {
       const features = TIER_FEATURES[tier];
       return features[feature as keyof typeof features];
     },
