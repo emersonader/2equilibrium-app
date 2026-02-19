@@ -19,5 +19,8 @@ export { useBadgeStore, useBadges, useEarnedBadges, useBadgeStats, useNewlyEarne
 // Community store - social features
 export { useCommunityStore, useFeed, useMyProfile, useViewedProfile } from './communityStore';
 
+// Notification store - push notification settings
+export { useNotificationStore, default as notificationStore } from './notificationStore';
+
 // Re-export types for convenience
 export type { Profile, Subscription, UserProgress, JournalEntry, HealthProfile, WeightHistory, Badge, UserBadge, BadgeWithEarnedStatus, PublicProfile, ActivityFeedItem, UserCommunityStats } from '@/services/database.types';

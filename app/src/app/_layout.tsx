@@ -1,10 +1,17 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
 import { BadgeUnlockModal } from '@/components/badges';
-import { useBadgeStore } from '@/stores';
+import { useBadgeStore, useNotificationStore } from '@/stores';
 
 export default function RootLayout() {
   const { newlyEarnedBadge, clearNewlyEarnedBadge } = useBadgeStore();
+  const { initializeNotifications } = useNotificationStore();
+
+  // Initialize notifications when app starts
+  useEffect(() => {
+    initializeNotifications().catch(console.error);
+  }, [initializeNotifications]);
 
   return (
     <>

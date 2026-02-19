@@ -12,6 +12,7 @@ import {
   Switch,
   TextInput,
   Modal,
+  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useFocusEffect } from 'expo-router';
@@ -20,7 +21,7 @@ import { Colors, Typography, Spacing, Layout, BorderRadius, SUBSCRIPTION_PRICING
 import { Card, Button, Badge, ProgressRing } from '@/components/ui';
 import { HealthMetricsSection, HealthConnectSection } from '@/components/health';
 import { BadgeList } from '@/components/badges';
-import { useUserStore, useProgressStore, useBadgeStore } from '@/stores';
+import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore } from '@/stores';
 import * as journalService from '@/services/journalService';
 import * as biometricService from '@/services/biometricService';
 
@@ -72,8 +73,23 @@ export default function ProfileScreen() {
   const { profile, signOut, isLoading } = useUserStore();
   const { currentStreak, longestStreak, completedLessons, refreshFromServer } = useProgressStore();
   const { badges, stats, loadBadges, loadStats } = useBadgeStore();
+  const {
+    reminderEnabled,
+    reminderHour,
+    reminderMinute,
+    permissionGranted,
+    toggleReminder,
+    setReminderTime,
+    refreshPermissionStatus,
+    requestPermissions,
+  } = useNotificationStore();
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [journalEntriesCount, setJournalEntriesCount] = useState(0);
+
+  // Notification time picker state
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [selectedHour, setSelectedHour] = useState(reminderHour);
+  const [selectedMinute, setSelectedMinute] = useState(reminderMinute);
 
   // Biometric state
   const [biometricSupported, setBiometricSupported] = useState(false);
@@ -94,7 +110,8 @@ export default function ProfileScreen() {
       loadBadges();
       loadStats();
       checkBiometricStatus();
-    }, [])
+      refreshPermissionStatus();
+    }, [refreshFromServer, loadBadges, loadStats, refreshPermissionStatus])
   );
 
   // Check biometric availability and status
@@ -175,6 +192,57 @@ export default function ProfileScreen() {
     }
   };
 
+  // Notification handlers
+  const handleNotificationToggle = async () => {
+    if (!reminderEnabled && !permissionGranted) {
+      // Need to request permissions first
+      const granted = await requestPermissions();
+      if (!granted) {
+        Alert.alert(
+          'Notification Permission Required',
+          'Please enable notifications in Settings to receive daily reminders.',
+          [
+            { text: 'Cancel', style: 'cancel' },
+            {
+              text: 'Open Settings',
+              onPress: () => Linking.openSettings(),
+            },
+          ]
+        );
+        return;
+      }
+    }
+    
+    await toggleReminder();
+  };
+
+  const handleTimeChange = () => {
+    setSelectedHour(reminderHour);
+    setSelectedMinute(reminderMinute);
+    setShowTimePicker(true);
+  };
+
+  const handleTimeConfirm = async () => {
+    await setReminderTime(selectedHour, selectedMinute);
+    setShowTimePicker(false);
+  };
+
+  const formatTime = (hour: number, minute: number): string => {
+    const period = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+    const displayMinute = minute.toString().padStart(2, '0');
+    return `${displayHour}:${displayMinute} ${period}`;
+  };
+
+  const getTimeOptions = () => {
+    const times = [];
+    for (let hour = 6; hour <= 22; hour++) {
+      times.push({ hour, minute: 0, label: formatTime(hour, 0) });
+      times.push({ hour, minute: 30, label: formatTime(hour, 30) });
+    }
+    return times;
+  };
+
   const loadJournalCount = async () => {
     try {
       const entries = await journalService.getAllEntries();
@@ -217,20 +285,6 @@ export default function ProfileScreen() {
               Linking.openURL('https://play.google.com/store/account/subscriptions');
             }
           },
-        },
-      ]
-    );
-  };
-
-  const handleNotifications = () => {
-    Alert.alert(
-      'Notifications',
-      'Would you like to open notification settings?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Open Settings',
-          onPress: () => Linking.openSettings(),
         },
       ]
     );
@@ -441,13 +495,45 @@ export default function ProfileScreen() {
         {/* Settings */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Settings</Text>
+          
+          {/* Notifications Section */}
+          <View style={styles.subsectionContainer}>
+            <Text style={styles.subsectionTitle}>Notifications</Text>
+            <Card variant="default" padding="none" style={styles.settingsCard}>
+              <SettingsItem
+                icon="notifications-outline"
+                title="Daily Reminder"
+                subtitle={reminderEnabled ? 
+                  `Reminder at ${formatTime(reminderHour, reminderMinute)}` : 
+                  'Get daily lesson reminders'
+                }
+                onPress={handleNotificationToggle}
+                showChevron={false}
+                rightElement={
+                  <Switch
+                    value={reminderEnabled}
+                    onValueChange={handleNotificationToggle}
+                    trackColor={{ false: Colors.ui.border, true: Colors.primary.tiffanyBlue }}
+                    thumbColor={reminderEnabled ? Colors.background.primary : Colors.text.muted}
+                  />
+                }
+              />
+              {reminderEnabled && (
+                <>
+                  <View style={styles.settingsDivider} />
+                  <SettingsItem
+                    icon="time-outline"
+                    title="Reminder Time"
+                    subtitle={formatTime(reminderHour, reminderMinute)}
+                    onPress={handleTimeChange}
+                  />
+                </>
+              )}
+            </Card>
+          </View>
+
+          {/* Other Settings */}
           <Card variant="default" padding="none" style={styles.settingsCard}>
-            <SettingsItem
-              icon="notifications-outline"
-              title="Notifications"
-              subtitle="Manage your reminders"
-              onPress={handleNotifications}
-            />
             <View style={styles.settingsDivider} />
             {biometricSupported && (
               <>
@@ -547,6 +633,64 @@ export default function ProfileScreen() {
         {/* Version */}
         <Text style={styles.version}>Version 1.0.0</Text>
       </ScrollView>
+
+      {/* Time Picker Modal */}
+      <Modal
+        visible={showTimePicker}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setShowTimePicker(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Set Reminder Time</Text>
+            <Text style={styles.modalDescription}>
+              Choose when you'd like to receive your daily wellness lesson reminder
+            </Text>
+            
+            <ScrollView style={styles.timePickerScrollView} showsVerticalScrollIndicator={false}>
+              {getTimeOptions().map(({ hour, minute, label }) => (
+                <TouchableOpacity
+                  key={`${hour}-${minute}`}
+                  style={[
+                    styles.timePickerOption,
+                    selectedHour === hour && selectedMinute === minute && styles.timePickerOptionSelected
+                  ]}
+                  onPress={() => {
+                    setSelectedHour(hour);
+                    setSelectedMinute(minute);
+                  }}
+                >
+                  <Text style={[
+                    styles.timePickerOptionText,
+                    selectedHour === hour && selectedMinute === minute && styles.timePickerOptionTextSelected
+                  ]}>
+                    {label}
+                  </Text>
+                  {selectedHour === hour && selectedMinute === minute && (
+                    <Ionicons name="checkmark" size={20} color={Colors.primary.orange} />
+                  )}
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+            
+            <View style={styles.modalButtons}>
+              <Button
+                title="Cancel"
+                variant="outline"
+                onPress={() => setShowTimePicker(false)}
+                style={styles.modalButton}
+              />
+              <Button
+                title="Save"
+                variant="primary"
+                onPress={handleTimeConfirm}
+                style={styles.modalButton}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
 
       {/* Password Confirmation Modal for Biometric Setup */}
       <Modal
@@ -826,5 +970,45 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     flex: 1,
+  },
+
+  // Notification settings
+  subsectionContainer: {
+    marginBottom: Spacing.lg,
+  },
+  subsectionTitle: {
+    ...Typography.h5,
+    color: Colors.text.primary,
+    marginBottom: Spacing.sm,
+    fontSize: 16, // Slightly smaller than h5
+  },
+
+  // Time picker modal
+  timePickerScrollView: {
+    maxHeight: 300,
+    marginVertical: Spacing.md,
+  },
+  timePickerOption: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: Spacing.md,
+    paddingHorizontal: Spacing.base,
+    borderRadius: BorderRadius.md,
+    marginBottom: Spacing.xs,
+    backgroundColor: Colors.background.secondary,
+  },
+  timePickerOptionSelected: {
+    backgroundColor: Colors.primary.orangeLight + '20',
+    borderWidth: 1,
+    borderColor: Colors.primary.orange,
+  },
+  timePickerOptionText: {
+    ...Typography.body,
+    color: Colors.text.primary,
+  },
+  timePickerOptionTextSelected: {
+    color: Colors.primary.orange,
+    fontWeight: '600',
   },
 });

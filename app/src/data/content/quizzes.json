@@ -61,7 +61,7 @@
             "Keep them frozen for freshness"
           ],
           "correctAnswer": 1,
-          "explanation": "Making healthy foods visible and accessible—at eye level in the refrigerator, for example—makes healthy choices easier.",
+          "explanation": "Making healthy foods visible and accessible\u2014at eye level in the refrigerator, for example\u2014makes healthy choices easier.",
           "reviewContent": "Environment design means making healthy choices visible and accessible while removing or hiding temptations."
         },
         {
@@ -71,7 +71,7 @@
           "lessonDayRef": 5,
           "question": "You need everyone in your life to approve of and support your wellness journey for it to succeed.",
           "correctAnswer": false,
-          "explanation": "You don't need everyone's approval. Find your tribe—the people who support and celebrate your growth.",
+          "explanation": "You don't need everyone's approval. Find your tribe\u2014the people who support and celebrate your growth.",
           "reviewContent": "Not everyone will understand your journey. Focus on finding supportive people rather than seeking universal approval."
         },
         {
@@ -281,7 +281,7 @@
             "Chicken breast"
           ],
           "correctAnswer": 2,
-          "explanation": "Broccoli has very low calorie density—you can eat 1000g for 536 calories, compared to only 100g of chips.",
+          "explanation": "Broccoli has very low calorie density\u2014you can eat 1000g for 536 calories, compared to only 100g of chips.",
           "reviewContent": "Low-calorie-density foods (vegetables, fruits) fill your stomach with fewer calories and more nutrients."
         },
         {
@@ -426,7 +426,7 @@
           ],
           "correctAnswer": 1,
           "explanation": "The swap strategy focuses on replacing unhealthy choices with satisfying healthy alternatives rather than just eliminating foods.",
-          "reviewContent": "Swap rather than eliminate: chips → roasted chickpeas, soda → sparkling water, candy → fresh fruit with dark chocolate."
+          "reviewContent": "Swap rather than eliminate: chips \u2192 roasted chickpeas, soda \u2192 sparkling water, candy \u2192 fresh fruit with dark chocolate."
         },
         {
           "id": "q4_7",
@@ -442,7 +442,7 @@
           ],
           "correctAnswer": 1,
           "explanation": "The 80/20 approach means making nourishing choices 80% of the time while allowing 20% flexibility for special occasions and treats.",
-          "reviewContent": "The 80/20 approach creates sustainable balance. Perfection isn't required—consistent good choices are what matter."
+          "reviewContent": "The 80/20 approach creates sustainable balance. Perfection isn't required\u2014consistent good choices are what matter."
         },
         {
           "id": "q4_8",
@@ -588,7 +588,7 @@
           ],
           "correctAnswer": 2,
           "explanation": "'I choose to' is empowering language that reflects personal agency, rather than obligation or restriction.",
-          "reviewContent": "Transform: 'I have to' → 'I choose to', 'I can't' → 'I'm choosing not to', 'I should' → 'I want to'"
+          "reviewContent": "Transform: 'I have to' \u2192 'I choose to', 'I can't' \u2192 'I'm choosing not to', 'I should' \u2192 'I want to'"
         },
         {
           "id": "q6_2",
@@ -597,7 +597,7 @@
           "lessonDayRef": 27,
           "question": "Discipline is best understood as punishment for past failures.",
           "correctAnswer": false,
-          "explanation": "Discipline is not punishment—it's an act of self-love and keeping promises to yourself.",
+          "explanation": "Discipline is not punishment\u2014it's an act of self-love and keeping promises to yourself.",
           "reviewContent": "Discipline is self-love in action: keeping promises to yourself and choosing long-term joy over short-term pleasure."
         },
         {
@@ -679,164 +679,3072 @@
           "type": "reflection",
           "topicTag": "wellness_declaration",
           "lessonDayRef": 30,
-          "question": "Write a brief personal wellness declaration—a statement of who you are becoming and how you choose to live.",
+          "question": "Write a brief personal wellness declaration\u2014a statement of who you are becoming and how you choose to live.",
           "correctAnswer": null,
           "explanation": "Your wellness declaration is your personal commitment to your journey.",
           "reviewContent": null
         }
       ]
+    },
+    {
+      "id": "quiz_chapter_7",
+      "chapterId": "chapter_7",
+      "title": "Advanced Nutrition Strategies",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q7_1",
+          "type": "multiple_choice",
+          "topicTag": "meal_prepping",
+          "lessonDayRef": 31,
+          "question": "What is a key principle covered in Advanced Nutrition Strategies?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding meal prepping.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying meal prepping principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q7_2",
+          "type": "true_false",
+          "topicTag": "portion_control",
+          "lessonDayRef": 32,
+          "question": "The concepts in Advanced Nutrition Strategies should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7."
+        },
+        {
+          "id": "q7_3",
+          "type": "multiple_choice",
+          "topicTag": "sleep_weight",
+          "lessonDayRef": 33,
+          "question": "Which approach is most effective for implementing portion control?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q7_4",
+          "type": "reflection",
+          "topicTag": "stress_eating",
+          "lessonDayRef": 34,
+          "question": "How might you apply the principles of advanced nutrition strategies to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7."
+        },
+        {
+          "id": "q7_5",
+          "type": "multiple_choice",
+          "topicTag": "nutrition_labels",
+          "lessonDayRef": 35,
+          "question": "What's most important when facing challenges with sleep weight?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q7_6",
+          "type": "true_false",
+          "topicTag": "meal_prepping",
+          "lessonDayRef": 31,
+          "question": "Success with stress eating requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7."
+        },
+        {
+          "id": "q7_7",
+          "type": "multiple_choice",
+          "topicTag": "portion_control",
+          "lessonDayRef": 32,
+          "question": "The best way to maintain progress with nutrition labels is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 7.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_8",
+      "chapterId": "chapter_8",
+      "title": "Sleep & Stress Mastery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q8_1",
+          "type": "multiple_choice",
+          "topicTag": "hormone_regulation",
+          "lessonDayRef": 36,
+          "question": "What is a key principle covered in Sleep & Stress Mastery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding hormone regulation.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying hormone regulation principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q8_2",
+          "type": "true_false",
+          "topicTag": "cooking_methods",
+          "lessonDayRef": 37,
+          "question": "The concepts in Sleep & Stress Mastery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8."
+        },
+        {
+          "id": "q8_3",
+          "type": "multiple_choice",
+          "topicTag": "artificial_sweeteners",
+          "lessonDayRef": 38,
+          "question": "Which approach is most effective for implementing cooking methods?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q8_4",
+          "type": "reflection",
+          "topicTag": "sleep_quality",
+          "lessonDayRef": 39,
+          "question": "How might you apply the principles of sleep & stress mastery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8."
+        },
+        {
+          "id": "q8_5",
+          "type": "multiple_choice",
+          "topicTag": "bedtime_routine",
+          "lessonDayRef": 40,
+          "question": "What's most important when facing challenges with artificial sweeteners?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q8_6",
+          "type": "true_false",
+          "topicTag": "hormone_regulation",
+          "lessonDayRef": 36,
+          "question": "Success with sleep quality requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8."
+        },
+        {
+          "id": "q8_7",
+          "type": "multiple_choice",
+          "topicTag": "cooking_methods",
+          "lessonDayRef": 37,
+          "question": "The best way to maintain progress with bedtime routine is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 8.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_9",
+      "chapterId": "chapter_9",
+      "title": "Mindful Awareness & Habits",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q9_1",
+          "type": "multiple_choice",
+          "topicTag": "mindful_eating",
+          "lessonDayRef": 41,
+          "question": "What is a key principle covered in Mindful Awareness & Habits?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding mindful eating.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying mindful eating principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q9_2",
+          "type": "true_false",
+          "topicTag": "emotional_eating",
+          "lessonDayRef": 42,
+          "question": "The concepts in Mindful Awareness & Habits should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9."
+        },
+        {
+          "id": "q9_3",
+          "type": "multiple_choice",
+          "topicTag": "habit_formation",
+          "lessonDayRef": 43,
+          "question": "Which approach is most effective for implementing emotional eating?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q9_4",
+          "type": "reflection",
+          "topicTag": "body_awareness",
+          "lessonDayRef": 44,
+          "question": "How might you apply the principles of mindful awareness & habits to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9."
+        },
+        {
+          "id": "q9_5",
+          "type": "multiple_choice",
+          "topicTag": "conscious_choice",
+          "lessonDayRef": 45,
+          "question": "What's most important when facing challenges with habit formation?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q9_6",
+          "type": "true_false",
+          "topicTag": "mindful_eating",
+          "lessonDayRef": 41,
+          "question": "Success with body awareness requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9."
+        },
+        {
+          "id": "q9_7",
+          "type": "multiple_choice",
+          "topicTag": "emotional_eating",
+          "lessonDayRef": 42,
+          "question": "The best way to maintain progress with conscious choice is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 9.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_10",
+      "chapterId": "chapter_10",
+      "title": "Food Relationships",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q10_1",
+          "type": "multiple_choice",
+          "topicTag": "healthy_cooking",
+          "lessonDayRef": 46,
+          "question": "What is a key principle covered in Food Relationships?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding healthy cooking.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying healthy cooking principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q10_2",
+          "type": "true_false",
+          "topicTag": "food_swaps",
+          "lessonDayRef": 47,
+          "question": "The concepts in Food Relationships should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10."
+        },
+        {
+          "id": "q10_3",
+          "type": "multiple_choice",
+          "topicTag": "kitchen_environment",
+          "lessonDayRef": 48,
+          "question": "Which approach is most effective for implementing food swaps?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q10_4",
+          "type": "reflection",
+          "topicTag": "food_psychology",
+          "lessonDayRef": 49,
+          "question": "How might you apply the principles of food relationships to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10."
+        },
+        {
+          "id": "q10_5",
+          "type": "multiple_choice",
+          "topicTag": "meal_timing",
+          "lessonDayRef": 50,
+          "question": "What's most important when facing challenges with kitchen environment?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q10_6",
+          "type": "true_false",
+          "topicTag": "healthy_cooking",
+          "lessonDayRef": 46,
+          "question": "Success with food psychology requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10."
+        },
+        {
+          "id": "q10_7",
+          "type": "multiple_choice",
+          "topicTag": "food_swaps",
+          "lessonDayRef": 47,
+          "question": "The best way to maintain progress with meal timing is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 10.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_11",
+      "chapterId": "chapter_11",
+      "title": "Breaking Patterns",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q11_1",
+          "type": "multiple_choice",
+          "topicTag": "emotional_eating",
+          "lessonDayRef": 51,
+          "question": "What is a key principle covered in Breaking Patterns?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding emotional eating.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying emotional eating principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q11_2",
+          "type": "true_false",
+          "topicTag": "plateau_busting",
+          "lessonDayRef": 52,
+          "question": "The concepts in Breaking Patterns should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11."
+        },
+        {
+          "id": "q11_3",
+          "type": "multiple_choice",
+          "topicTag": "resilience",
+          "lessonDayRef": 53,
+          "question": "Which approach is most effective for implementing plateau busting?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q11_4",
+          "type": "reflection",
+          "topicTag": "motivation",
+          "lessonDayRef": 54,
+          "question": "How might you apply the principles of breaking patterns to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11."
+        },
+        {
+          "id": "q11_5",
+          "type": "multiple_choice",
+          "topicTag": "behavior_change",
+          "lessonDayRef": 55,
+          "question": "What's most important when facing challenges with resilience?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q11_6",
+          "type": "true_false",
+          "topicTag": "emotional_eating",
+          "lessonDayRef": 51,
+          "question": "Success with motivation requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11."
+        },
+        {
+          "id": "q11_7",
+          "type": "multiple_choice",
+          "topicTag": "plateau_busting",
+          "lessonDayRef": 52,
+          "question": "The best way to maintain progress with behavior change is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 11.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_12",
+      "chapterId": "chapter_12",
+      "title": "Movement & Energy",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q12_1",
+          "type": "multiple_choice",
+          "topicTag": "exercise_basics",
+          "lessonDayRef": 56,
+          "question": "What is a key principle covered in Movement & Energy?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding exercise basics.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying exercise basics principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q12_2",
+          "type": "true_false",
+          "topicTag": "recovery",
+          "lessonDayRef": 57,
+          "question": "The concepts in Movement & Energy should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12."
+        },
+        {
+          "id": "q12_3",
+          "type": "multiple_choice",
+          "topicTag": "energy_optimization",
+          "lessonDayRef": 58,
+          "question": "Which approach is most effective for implementing recovery?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q12_4",
+          "type": "reflection",
+          "topicTag": "movement_variety",
+          "lessonDayRef": 59,
+          "question": "How might you apply the principles of movement & energy to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12."
+        },
+        {
+          "id": "q12_5",
+          "type": "multiple_choice",
+          "topicTag": "consistency",
+          "lessonDayRef": 60,
+          "question": "What's most important when facing challenges with energy optimization?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q12_6",
+          "type": "true_false",
+          "topicTag": "exercise_basics",
+          "lessonDayRef": 56,
+          "question": "Success with movement variety requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12."
+        },
+        {
+          "id": "q12_7",
+          "type": "multiple_choice",
+          "topicTag": "recovery",
+          "lessonDayRef": 57,
+          "question": "The best way to maintain progress with consistency is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 12.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_13",
+      "chapterId": "chapter_13",
+      "title": "Lifestyle Design",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q13_1",
+          "type": "multiple_choice",
+          "topicTag": "environment_design",
+          "lessonDayRef": 61,
+          "question": "What is a key principle covered in Lifestyle Design?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding environment design.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying environment design principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q13_2",
+          "type": "true_false",
+          "topicTag": "routine_optimization",
+          "lessonDayRef": 62,
+          "question": "The concepts in Lifestyle Design should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13."
+        },
+        {
+          "id": "q13_3",
+          "type": "multiple_choice",
+          "topicTag": "habit_stacking",
+          "lessonDayRef": 63,
+          "question": "Which approach is most effective for implementing routine optimization?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q13_4",
+          "type": "reflection",
+          "topicTag": "systems_thinking",
+          "lessonDayRef": 64,
+          "question": "How might you apply the principles of lifestyle design to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13."
+        },
+        {
+          "id": "q13_5",
+          "type": "multiple_choice",
+          "topicTag": "automation",
+          "lessonDayRef": 65,
+          "question": "What's most important when facing challenges with habit stacking?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q13_6",
+          "type": "true_false",
+          "topicTag": "environment_design",
+          "lessonDayRef": 61,
+          "question": "Success with systems thinking requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13."
+        },
+        {
+          "id": "q13_7",
+          "type": "multiple_choice",
+          "topicTag": "routine_optimization",
+          "lessonDayRef": 62,
+          "question": "The best way to maintain progress with automation is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 13.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_14",
+      "chapterId": "chapter_14",
+      "title": "Advanced Eating Strategies",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q14_1",
+          "type": "multiple_choice",
+          "topicTag": "intermittent_fasting",
+          "lessonDayRef": 66,
+          "question": "What is a key principle covered in Advanced Eating Strategies?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding intermittent fasting.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying intermittent fasting principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q14_2",
+          "type": "true_false",
+          "topicTag": "social_eating",
+          "lessonDayRef": 67,
+          "question": "The concepts in Advanced Eating Strategies should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14."
+        },
+        {
+          "id": "q14_3",
+          "type": "multiple_choice",
+          "topicTag": "dining_out",
+          "lessonDayRef": 68,
+          "question": "Which approach is most effective for implementing social eating?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q14_4",
+          "type": "reflection",
+          "topicTag": "flexibility",
+          "lessonDayRef": 69,
+          "question": "How might you apply the principles of advanced eating strategies to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14."
+        },
+        {
+          "id": "q14_5",
+          "type": "multiple_choice",
+          "topicTag": "special_occasions",
+          "lessonDayRef": 70,
+          "question": "What's most important when facing challenges with dining out?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q14_6",
+          "type": "true_false",
+          "topicTag": "intermittent_fasting",
+          "lessonDayRef": 66,
+          "question": "Success with flexibility requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14."
+        },
+        {
+          "id": "q14_7",
+          "type": "multiple_choice",
+          "topicTag": "social_eating",
+          "lessonDayRef": 67,
+          "question": "The best way to maintain progress with special occasions is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 14.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_15",
+      "chapterId": "chapter_15",
+      "title": "Metabolic Wisdom",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q15_1",
+          "type": "multiple_choice",
+          "topicTag": "metabolism",
+          "lessonDayRef": 71,
+          "question": "What is a key principle covered in Metabolic Wisdom?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding metabolism.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying metabolism principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q15_2",
+          "type": "true_false",
+          "topicTag": "nutrient_timing",
+          "lessonDayRef": 72,
+          "question": "The concepts in Metabolic Wisdom should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15."
+        },
+        {
+          "id": "q15_3",
+          "type": "multiple_choice",
+          "topicTag": "glycemic_load",
+          "lessonDayRef": 73,
+          "question": "Which approach is most effective for implementing nutrient timing?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q15_4",
+          "type": "reflection",
+          "topicTag": "circadian_rhythms",
+          "lessonDayRef": 74,
+          "question": "How might you apply the principles of metabolic wisdom to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15."
+        },
+        {
+          "id": "q15_5",
+          "type": "multiple_choice",
+          "topicTag": "biorhythms",
+          "lessonDayRef": 75,
+          "question": "What's most important when facing challenges with glycemic load?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q15_6",
+          "type": "true_false",
+          "topicTag": "metabolism",
+          "lessonDayRef": 71,
+          "question": "Success with circadian rhythms requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15."
+        },
+        {
+          "id": "q15_7",
+          "type": "multiple_choice",
+          "topicTag": "nutrient_timing",
+          "lessonDayRef": 72,
+          "question": "The best way to maintain progress with biorhythms is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 15.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_16",
+      "chapterId": "chapter_16",
+      "title": "Mental Mastery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q16_1",
+          "type": "multiple_choice",
+          "topicTag": "motivation",
+          "lessonDayRef": 76,
+          "question": "What is a key principle covered in Mental Mastery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding motivation.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying motivation principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q16_2",
+          "type": "true_false",
+          "topicTag": "mindset",
+          "lessonDayRef": 77,
+          "question": "The concepts in Mental Mastery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16."
+        },
+        {
+          "id": "q16_3",
+          "type": "multiple_choice",
+          "topicTag": "self_talk",
+          "lessonDayRef": 78,
+          "question": "Which approach is most effective for implementing mindset?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q16_4",
+          "type": "reflection",
+          "topicTag": "visualization",
+          "lessonDayRef": 79,
+          "question": "How might you apply the principles of mental mastery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16."
+        },
+        {
+          "id": "q16_5",
+          "type": "multiple_choice",
+          "topicTag": "mental_barriers",
+          "lessonDayRef": 80,
+          "question": "What's most important when facing challenges with self talk?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q16_6",
+          "type": "true_false",
+          "topicTag": "motivation",
+          "lessonDayRef": 76,
+          "question": "Success with visualization requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16."
+        },
+        {
+          "id": "q16_7",
+          "type": "multiple_choice",
+          "topicTag": "mindset",
+          "lessonDayRef": 77,
+          "question": "The best way to maintain progress with mental barriers is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 16.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_17",
+      "chapterId": "chapter_17",
+      "title": "Strength & Movement",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q17_1",
+          "type": "multiple_choice",
+          "topicTag": "strength_training",
+          "lessonDayRef": 81,
+          "question": "What is a key principle covered in Strength & Movement?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding strength training.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying strength training principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q17_2",
+          "type": "true_false",
+          "topicTag": "functional_movement",
+          "lessonDayRef": 82,
+          "question": "The concepts in Strength & Movement should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17."
+        },
+        {
+          "id": "q17_3",
+          "type": "multiple_choice",
+          "topicTag": "injury_prevention",
+          "lessonDayRef": 83,
+          "question": "Which approach is most effective for implementing functional movement?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q17_4",
+          "type": "reflection",
+          "topicTag": "exercise_progression",
+          "lessonDayRef": 84,
+          "question": "How might you apply the principles of strength & movement to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17."
+        },
+        {
+          "id": "q17_5",
+          "type": "multiple_choice",
+          "topicTag": "body_mechanics",
+          "lessonDayRef": 85,
+          "question": "What's most important when facing challenges with injury prevention?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q17_6",
+          "type": "true_false",
+          "topicTag": "strength_training",
+          "lessonDayRef": 81,
+          "question": "Success with exercise progression requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17."
+        },
+        {
+          "id": "q17_7",
+          "type": "multiple_choice",
+          "topicTag": "functional_movement",
+          "lessonDayRef": 82,
+          "question": "The best way to maintain progress with body mechanics is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 17.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_18",
+      "chapterId": "chapter_18",
+      "title": "Body Wisdom",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q18_1",
+          "type": "multiple_choice",
+          "topicTag": "bioindividuality",
+          "lessonDayRef": 86,
+          "question": "What is a key principle covered in Body Wisdom?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding bioindividuality.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying bioindividuality principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q18_2",
+          "type": "true_false",
+          "topicTag": "body_signals",
+          "lessonDayRef": 87,
+          "question": "The concepts in Body Wisdom should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18."
+        },
+        {
+          "id": "q18_3",
+          "type": "multiple_choice",
+          "topicTag": "personalization",
+          "lessonDayRef": 88,
+          "question": "Which approach is most effective for implementing body signals?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q18_4",
+          "type": "reflection",
+          "topicTag": "adaptation",
+          "lessonDayRef": 89,
+          "question": "How might you apply the principles of body wisdom to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18."
+        },
+        {
+          "id": "q18_5",
+          "type": "multiple_choice",
+          "topicTag": "intuitive_eating",
+          "lessonDayRef": 90,
+          "question": "What's most important when facing challenges with personalization?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q18_6",
+          "type": "true_false",
+          "topicTag": "bioindividuality",
+          "lessonDayRef": 86,
+          "question": "Success with adaptation requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18."
+        },
+        {
+          "id": "q18_7",
+          "type": "multiple_choice",
+          "topicTag": "body_signals",
+          "lessonDayRef": 87,
+          "question": "The best way to maintain progress with intuitive eating is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 18.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_19",
+      "chapterId": "chapter_19",
+      "title": "Resilience & Recovery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q19_1",
+          "type": "multiple_choice",
+          "topicTag": "emotional_resilience",
+          "lessonDayRef": 91,
+          "question": "What is a key principle covered in Resilience & Recovery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding emotional resilience.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying emotional resilience principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q19_2",
+          "type": "true_false",
+          "topicTag": "setback_recovery",
+          "lessonDayRef": 92,
+          "question": "The concepts in Resilience & Recovery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19."
+        },
+        {
+          "id": "q19_3",
+          "type": "multiple_choice",
+          "topicTag": "bounce_back",
+          "lessonDayRef": 93,
+          "question": "Which approach is most effective for implementing setback recovery?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q19_4",
+          "type": "reflection",
+          "topicTag": "mental_toughness",
+          "lessonDayRef": 94,
+          "question": "How might you apply the principles of resilience & recovery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19."
+        },
+        {
+          "id": "q19_5",
+          "type": "multiple_choice",
+          "topicTag": "adaptation",
+          "lessonDayRef": 95,
+          "question": "What's most important when facing challenges with bounce back?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q19_6",
+          "type": "true_false",
+          "topicTag": "emotional_resilience",
+          "lessonDayRef": 91,
+          "question": "Success with mental toughness requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19."
+        },
+        {
+          "id": "q19_7",
+          "type": "multiple_choice",
+          "topicTag": "setback_recovery",
+          "lessonDayRef": 92,
+          "question": "The best way to maintain progress with adaptation is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 19.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_20",
+      "chapterId": "chapter_20",
+      "title": "Nutritional Intelligence",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q20_1",
+          "type": "multiple_choice",
+          "topicTag": "superfoods",
+          "lessonDayRef": 96,
+          "question": "What is a key principle covered in Nutritional Intelligence?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding superfoods.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying superfoods principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q20_2",
+          "type": "true_false",
+          "topicTag": "supplements",
+          "lessonDayRef": 97,
+          "question": "The concepts in Nutritional Intelligence should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20."
+        },
+        {
+          "id": "q20_3",
+          "type": "multiple_choice",
+          "topicTag": "nutrient_density",
+          "lessonDayRef": 98,
+          "question": "Which approach is most effective for implementing supplements?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q20_4",
+          "type": "reflection",
+          "topicTag": "food_synergy",
+          "lessonDayRef": 99,
+          "question": "How might you apply the principles of nutritional intelligence to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20."
+        },
+        {
+          "id": "q20_5",
+          "type": "multiple_choice",
+          "topicTag": "advanced_nutrition",
+          "lessonDayRef": 100,
+          "question": "What's most important when facing challenges with nutrient density?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q20_6",
+          "type": "true_false",
+          "topicTag": "superfoods",
+          "lessonDayRef": 96,
+          "question": "Success with food synergy requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20."
+        },
+        {
+          "id": "q20_7",
+          "type": "multiple_choice",
+          "topicTag": "supplements",
+          "lessonDayRef": 97,
+          "question": "The best way to maintain progress with advanced nutrition is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 20.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_21",
+      "chapterId": "chapter_21",
+      "title": "Movement Mastery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q21_1",
+          "type": "multiple_choice",
+          "topicTag": "exercise_variety",
+          "lessonDayRef": 101,
+          "question": "What is a key principle covered in Movement Mastery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding exercise variety.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying exercise variety principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q21_2",
+          "type": "true_false",
+          "topicTag": "training_principles",
+          "lessonDayRef": 102,
+          "question": "The concepts in Movement Mastery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21."
+        },
+        {
+          "id": "q21_3",
+          "type": "multiple_choice",
+          "topicTag": "performance",
+          "lessonDayRef": 103,
+          "question": "Which approach is most effective for implementing training principles?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q21_4",
+          "type": "reflection",
+          "topicTag": "skill_development",
+          "lessonDayRef": 104,
+          "question": "How might you apply the principles of movement mastery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21."
+        },
+        {
+          "id": "q21_5",
+          "type": "multiple_choice",
+          "topicTag": "movement_quality",
+          "lessonDayRef": 105,
+          "question": "What's most important when facing challenges with performance?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q21_6",
+          "type": "true_false",
+          "topicTag": "exercise_variety",
+          "lessonDayRef": 101,
+          "question": "Success with skill development requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21."
+        },
+        {
+          "id": "q21_7",
+          "type": "multiple_choice",
+          "topicTag": "training_principles",
+          "lessonDayRef": 102,
+          "question": "The best way to maintain progress with movement quality is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 21.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_22",
+      "chapterId": "chapter_22",
+      "title": "Energy & Vitality",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q22_1",
+          "type": "multiple_choice",
+          "topicTag": "energy_optimization",
+          "lessonDayRef": 106,
+          "question": "What is a key principle covered in Energy & Vitality?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding energy optimization.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying energy optimization principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q22_2",
+          "type": "true_false",
+          "topicTag": "fatigue_management",
+          "lessonDayRef": 107,
+          "question": "The concepts in Energy & Vitality should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22."
+        },
+        {
+          "id": "q22_3",
+          "type": "multiple_choice",
+          "topicTag": "vitality_practices",
+          "lessonDayRef": 108,
+          "question": "Which approach is most effective for implementing fatigue management?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q22_4",
+          "type": "reflection",
+          "topicTag": "circadian_health",
+          "lessonDayRef": 109,
+          "question": "How might you apply the principles of energy & vitality to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22."
+        },
+        {
+          "id": "q22_5",
+          "type": "multiple_choice",
+          "topicTag": "natural_energy",
+          "lessonDayRef": 110,
+          "question": "What's most important when facing challenges with vitality practices?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q22_6",
+          "type": "true_false",
+          "topicTag": "energy_optimization",
+          "lessonDayRef": 106,
+          "question": "Success with circadian health requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22."
+        },
+        {
+          "id": "q22_7",
+          "type": "multiple_choice",
+          "topicTag": "fatigue_management",
+          "lessonDayRef": 107,
+          "question": "The best way to maintain progress with natural energy is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 22.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_23",
+      "chapterId": "chapter_23",
+      "title": "Hormonal Harmony",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q23_1",
+          "type": "multiple_choice",
+          "topicTag": "hormone_balance",
+          "lessonDayRef": 111,
+          "question": "What is a key principle covered in Hormonal Harmony?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding hormone balance.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying hormone balance principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q23_2",
+          "type": "true_false",
+          "topicTag": "leptin_ghrelin",
+          "lessonDayRef": 112,
+          "question": "The concepts in Hormonal Harmony should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23."
+        },
+        {
+          "id": "q23_3",
+          "type": "multiple_choice",
+          "topicTag": "insulin_sensitivity",
+          "lessonDayRef": 113,
+          "question": "Which approach is most effective for implementing leptin ghrelin?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q23_4",
+          "type": "reflection",
+          "topicTag": "stress_hormones",
+          "lessonDayRef": 114,
+          "question": "How might you apply the principles of hormonal harmony to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23."
+        },
+        {
+          "id": "q23_5",
+          "type": "multiple_choice",
+          "topicTag": "endocrine_health",
+          "lessonDayRef": 115,
+          "question": "What's most important when facing challenges with insulin sensitivity?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q23_6",
+          "type": "true_false",
+          "topicTag": "hormone_balance",
+          "lessonDayRef": 111,
+          "question": "Success with stress hormones requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23."
+        },
+        {
+          "id": "q23_7",
+          "type": "multiple_choice",
+          "topicTag": "leptin_ghrelin",
+          "lessonDayRef": 112,
+          "question": "The best way to maintain progress with endocrine health is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 23.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_24",
+      "chapterId": "chapter_24",
+      "title": "Sustainable Systems",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q24_1",
+          "type": "multiple_choice",
+          "topicTag": "long_term_success",
+          "lessonDayRef": 116,
+          "question": "What is a key principle covered in Sustainable Systems?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding long term success.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying long term success principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q24_2",
+          "type": "true_false",
+          "topicTag": "maintenance",
+          "lessonDayRef": 117,
+          "question": "The concepts in Sustainable Systems should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24."
+        },
+        {
+          "id": "q24_3",
+          "type": "multiple_choice",
+          "topicTag": "problem_solving",
+          "lessonDayRef": 118,
+          "question": "Which approach is most effective for implementing maintenance?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q24_4",
+          "type": "reflection",
+          "topicTag": "systems_approach",
+          "lessonDayRef": 119,
+          "question": "How might you apply the principles of sustainable systems to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24."
+        },
+        {
+          "id": "q24_5",
+          "type": "multiple_choice",
+          "topicTag": "sustainability",
+          "lessonDayRef": 120,
+          "question": "What's most important when facing challenges with problem solving?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q24_6",
+          "type": "true_false",
+          "topicTag": "long_term_success",
+          "lessonDayRef": 116,
+          "question": "Success with systems approach requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24."
+        },
+        {
+          "id": "q24_7",
+          "type": "multiple_choice",
+          "topicTag": "maintenance",
+          "lessonDayRef": 117,
+          "question": "The best way to maintain progress with sustainability is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 24.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_25",
+      "chapterId": "chapter_25",
+      "title": "Metabolic Optimization",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q25_1",
+          "type": "multiple_choice",
+          "topicTag": "metabolism_boost",
+          "lessonDayRef": 121,
+          "question": "What is a key principle covered in Metabolic Optimization?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding metabolism boost.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying metabolism boost principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q25_2",
+          "type": "true_false",
+          "topicTag": "body_composition",
+          "lessonDayRef": 122,
+          "question": "The concepts in Metabolic Optimization should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25."
+        },
+        {
+          "id": "q25_3",
+          "type": "multiple_choice",
+          "topicTag": "nutrient_optimization",
+          "lessonDayRef": 123,
+          "question": "Which approach is most effective for implementing body composition?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q25_4",
+          "type": "reflection",
+          "topicTag": "metabolic_flexibility",
+          "lessonDayRef": 124,
+          "question": "How might you apply the principles of metabolic optimization to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25."
+        },
+        {
+          "id": "q25_5",
+          "type": "multiple_choice",
+          "topicTag": "efficiency",
+          "lessonDayRef": 125,
+          "question": "What's most important when facing challenges with nutrient optimization?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q25_6",
+          "type": "true_false",
+          "topicTag": "metabolism_boost",
+          "lessonDayRef": 121,
+          "question": "Success with metabolic flexibility requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25."
+        },
+        {
+          "id": "q25_7",
+          "type": "multiple_choice",
+          "topicTag": "body_composition",
+          "lessonDayRef": 122,
+          "question": "The best way to maintain progress with efficiency is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 25.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_26",
+      "chapterId": "chapter_26",
+      "title": "Performance & Recovery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q26_1",
+          "type": "multiple_choice",
+          "topicTag": "peak_performance",
+          "lessonDayRef": 126,
+          "question": "What is a key principle covered in Performance & Recovery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding peak performance.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying peak performance principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q26_2",
+          "type": "true_false",
+          "topicTag": "recovery_techniques",
+          "lessonDayRef": 127,
+          "question": "The concepts in Performance & Recovery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26."
+        },
+        {
+          "id": "q26_3",
+          "type": "multiple_choice",
+          "topicTag": "optimization",
+          "lessonDayRef": 128,
+          "question": "Which approach is most effective for implementing recovery techniques?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q26_4",
+          "type": "reflection",
+          "topicTag": "performance_nutrition",
+          "lessonDayRef": 129,
+          "question": "How might you apply the principles of performance & recovery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26."
+        },
+        {
+          "id": "q26_5",
+          "type": "multiple_choice",
+          "topicTag": "rest_protocols",
+          "lessonDayRef": 130,
+          "question": "What's most important when facing challenges with optimization?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q26_6",
+          "type": "true_false",
+          "topicTag": "peak_performance",
+          "lessonDayRef": 126,
+          "question": "Success with performance nutrition requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26."
+        },
+        {
+          "id": "q26_7",
+          "type": "multiple_choice",
+          "topicTag": "recovery_techniques",
+          "lessonDayRef": 127,
+          "question": "The best way to maintain progress with rest protocols is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 26.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_27",
+      "chapterId": "chapter_27",
+      "title": "Lifestyle Medicine",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q27_1",
+          "type": "multiple_choice",
+          "topicTag": "longevity",
+          "lessonDayRef": 131,
+          "question": "What is a key principle covered in Lifestyle Medicine?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding longevity.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying longevity principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q27_2",
+          "type": "true_false",
+          "topicTag": "preventive_health",
+          "lessonDayRef": 132,
+          "question": "The concepts in Lifestyle Medicine should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27."
+        },
+        {
+          "id": "q27_3",
+          "type": "multiple_choice",
+          "topicTag": "lifestyle_factors",
+          "lessonDayRef": 133,
+          "question": "Which approach is most effective for implementing preventive health?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q27_4",
+          "type": "reflection",
+          "topicTag": "holistic_wellness",
+          "lessonDayRef": 134,
+          "question": "How might you apply the principles of lifestyle medicine to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27."
+        },
+        {
+          "id": "q27_5",
+          "type": "multiple_choice",
+          "topicTag": "life_optimization",
+          "lessonDayRef": 135,
+          "question": "What's most important when facing challenges with lifestyle factors?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q27_6",
+          "type": "true_false",
+          "topicTag": "longevity",
+          "lessonDayRef": 131,
+          "question": "Success with holistic wellness requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27."
+        },
+        {
+          "id": "q27_7",
+          "type": "multiple_choice",
+          "topicTag": "preventive_health",
+          "lessonDayRef": 132,
+          "question": "The best way to maintain progress with life optimization is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 27.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_28",
+      "chapterId": "chapter_28",
+      "title": "Environmental Mastery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q28_1",
+          "type": "multiple_choice",
+          "topicTag": "environment_optimization",
+          "lessonDayRef": 136,
+          "question": "What is a key principle covered in Environmental Mastery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding environment optimization.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying environment optimization principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q28_2",
+          "type": "true_false",
+          "topicTag": "social_environment",
+          "lessonDayRef": 137,
+          "question": "The concepts in Environmental Mastery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28."
+        },
+        {
+          "id": "q28_3",
+          "type": "multiple_choice",
+          "topicTag": "physical_space",
+          "lessonDayRef": 138,
+          "question": "Which approach is most effective for implementing social environment?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q28_4",
+          "type": "reflection",
+          "topicTag": "supportive_systems",
+          "lessonDayRef": 139,
+          "question": "How might you apply the principles of environmental mastery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28."
+        },
+        {
+          "id": "q28_5",
+          "type": "multiple_choice",
+          "topicTag": "environmental_cues",
+          "lessonDayRef": 140,
+          "question": "What's most important when facing challenges with physical space?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q28_6",
+          "type": "true_false",
+          "topicTag": "environment_optimization",
+          "lessonDayRef": 136,
+          "question": "Success with supportive systems requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28."
+        },
+        {
+          "id": "q28_7",
+          "type": "multiple_choice",
+          "topicTag": "social_environment",
+          "lessonDayRef": 137,
+          "question": "The best way to maintain progress with environmental cues is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 28.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_29",
+      "chapterId": "chapter_29",
+      "title": "Advanced Psychology",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q29_1",
+          "type": "multiple_choice",
+          "topicTag": "psychology_mastery",
+          "lessonDayRef": 141,
+          "question": "What is a key principle covered in Advanced Psychology?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding psychology mastery.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying psychology mastery principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q29_2",
+          "type": "true_false",
+          "topicTag": "mental_strategies",
+          "lessonDayRef": 142,
+          "question": "The concepts in Advanced Psychology should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29."
+        },
+        {
+          "id": "q29_3",
+          "type": "multiple_choice",
+          "topicTag": "confidence_building",
+          "lessonDayRef": 143,
+          "question": "Which approach is most effective for implementing mental strategies?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q29_4",
+          "type": "reflection",
+          "topicTag": "psychological_tools",
+          "lessonDayRef": 144,
+          "question": "How might you apply the principles of advanced psychology to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29."
+        },
+        {
+          "id": "q29_5",
+          "type": "multiple_choice",
+          "topicTag": "mindset_mastery",
+          "lessonDayRef": 145,
+          "question": "What's most important when facing challenges with confidence building?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q29_6",
+          "type": "true_false",
+          "topicTag": "psychology_mastery",
+          "lessonDayRef": 141,
+          "question": "Success with psychological tools requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29."
+        },
+        {
+          "id": "q29_7",
+          "type": "multiple_choice",
+          "topicTag": "mental_strategies",
+          "lessonDayRef": 142,
+          "question": "The best way to maintain progress with mindset mastery is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 29.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_30",
+      "chapterId": "chapter_30",
+      "title": "Personal Mastery",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q30_1",
+          "type": "multiple_choice",
+          "topicTag": "self_mastery",
+          "lessonDayRef": 146,
+          "question": "What is a key principle covered in Personal Mastery?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding self mastery.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying self mastery principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q30_2",
+          "type": "true_false",
+          "topicTag": "personal_protocol",
+          "lessonDayRef": 147,
+          "question": "The concepts in Personal Mastery should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30."
+        },
+        {
+          "id": "q30_3",
+          "type": "multiple_choice",
+          "topicTag": "individual_approach",
+          "lessonDayRef": 148,
+          "question": "Which approach is most effective for implementing personal protocol?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q30_4",
+          "type": "reflection",
+          "topicTag": "mastery_mindset",
+          "lessonDayRef": 149,
+          "question": "How might you apply the principles of personal mastery to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30."
+        },
+        {
+          "id": "q30_5",
+          "type": "multiple_choice",
+          "topicTag": "expertise_development",
+          "lessonDayRef": 150,
+          "question": "What's most important when facing challenges with individual approach?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q30_6",
+          "type": "true_false",
+          "topicTag": "self_mastery",
+          "lessonDayRef": 146,
+          "question": "Success with mastery mindset requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30."
+        },
+        {
+          "id": "q30_7",
+          "type": "multiple_choice",
+          "topicTag": "personal_protocol",
+          "lessonDayRef": 147,
+          "question": "The best way to maintain progress with expertise development is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 30.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_31",
+      "chapterId": "chapter_31",
+      "title": "Lifestyle Integration",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q31_1",
+          "type": "multiple_choice",
+          "topicTag": "lifestyle_integration",
+          "lessonDayRef": 151,
+          "question": "What is a key principle covered in Lifestyle Integration?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding lifestyle integration.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying lifestyle integration principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q31_2",
+          "type": "true_false",
+          "topicTag": "unconscious_competence",
+          "lessonDayRef": 152,
+          "question": "The concepts in Lifestyle Integration should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31."
+        },
+        {
+          "id": "q31_3",
+          "type": "multiple_choice",
+          "topicTag": "natural_habits",
+          "lessonDayRef": 153,
+          "question": "Which approach is most effective for implementing unconscious competence?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q31_4",
+          "type": "reflection",
+          "topicTag": "seamless_wellness",
+          "lessonDayRef": 154,
+          "question": "How might you apply the principles of lifestyle integration to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31."
+        },
+        {
+          "id": "q31_5",
+          "type": "multiple_choice",
+          "topicTag": "effortless_health",
+          "lessonDayRef": 155,
+          "question": "What's most important when facing challenges with natural habits?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q31_6",
+          "type": "true_false",
+          "topicTag": "lifestyle_integration",
+          "lessonDayRef": 151,
+          "question": "Success with seamless wellness requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31."
+        },
+        {
+          "id": "q31_7",
+          "type": "multiple_choice",
+          "topicTag": "unconscious_competence",
+          "lessonDayRef": 152,
+          "question": "The best way to maintain progress with effortless health is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 31.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_32",
+      "chapterId": "chapter_32",
+      "title": "Social Influence",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q32_1",
+          "type": "multiple_choice",
+          "topicTag": "social_navigation",
+          "lessonDayRef": 156,
+          "question": "What is a key principle covered in Social Influence?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding social navigation.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying social navigation principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q32_2",
+          "type": "true_false",
+          "topicTag": "peer_pressure",
+          "lessonDayRef": 157,
+          "question": "The concepts in Social Influence should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32."
+        },
+        {
+          "id": "q32_3",
+          "type": "multiple_choice",
+          "topicTag": "influence_management",
+          "lessonDayRef": 158,
+          "question": "Which approach is most effective for implementing peer pressure?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q32_4",
+          "type": "reflection",
+          "topicTag": "social_skills",
+          "lessonDayRef": 159,
+          "question": "How might you apply the principles of social influence to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32."
+        },
+        {
+          "id": "q32_5",
+          "type": "multiple_choice",
+          "topicTag": "boundary_setting",
+          "lessonDayRef": 160,
+          "question": "What's most important when facing challenges with influence management?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q32_6",
+          "type": "true_false",
+          "topicTag": "social_navigation",
+          "lessonDayRef": 156,
+          "question": "Success with social skills requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32."
+        },
+        {
+          "id": "q32_7",
+          "type": "multiple_choice",
+          "topicTag": "peer_pressure",
+          "lessonDayRef": 157,
+          "question": "The best way to maintain progress with boundary setting is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 32.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_33",
+      "chapterId": "chapter_33",
+      "title": "Continuous Evolution",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q33_1",
+          "type": "multiple_choice",
+          "topicTag": "adaptation",
+          "lessonDayRef": 161,
+          "question": "What is a key principle covered in Continuous Evolution?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding adaptation.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying adaptation principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q33_2",
+          "type": "true_false",
+          "topicTag": "continuous_learning",
+          "lessonDayRef": 162,
+          "question": "The concepts in Continuous Evolution should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33."
+        },
+        {
+          "id": "q33_3",
+          "type": "multiple_choice",
+          "topicTag": "growth_mindset",
+          "lessonDayRef": 163,
+          "question": "Which approach is most effective for implementing continuous learning?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q33_4",
+          "type": "reflection",
+          "topicTag": "evolution",
+          "lessonDayRef": 164,
+          "question": "How might you apply the principles of continuous evolution to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33."
+        },
+        {
+          "id": "q33_5",
+          "type": "multiple_choice",
+          "topicTag": "lifelong_development",
+          "lessonDayRef": 165,
+          "question": "What's most important when facing challenges with growth mindset?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q33_6",
+          "type": "true_false",
+          "topicTag": "adaptation",
+          "lessonDayRef": 161,
+          "question": "Success with evolution requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33."
+        },
+        {
+          "id": "q33_7",
+          "type": "multiple_choice",
+          "topicTag": "continuous_learning",
+          "lessonDayRef": 162,
+          "question": "The best way to maintain progress with lifelong development is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 33.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_34",
+      "chapterId": "chapter_34",
+      "title": "Leadership & Service",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q34_1",
+          "type": "multiple_choice",
+          "topicTag": "wellness_leadership",
+          "lessonDayRef": 166,
+          "question": "What is a key principle covered in Leadership & Service?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding wellness leadership.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying wellness leadership principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q34_2",
+          "type": "true_false",
+          "topicTag": "inspiring_others",
+          "lessonDayRef": 167,
+          "question": "The concepts in Leadership & Service should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34."
+        },
+        {
+          "id": "q34_3",
+          "type": "multiple_choice",
+          "topicTag": "service",
+          "lessonDayRef": 168,
+          "question": "Which approach is most effective for implementing inspiring others?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q34_4",
+          "type": "reflection",
+          "topicTag": "positive_influence",
+          "lessonDayRef": 169,
+          "question": "How might you apply the principles of leadership & service to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34."
+        },
+        {
+          "id": "q34_5",
+          "type": "multiple_choice",
+          "topicTag": "community_building",
+          "lessonDayRef": 170,
+          "question": "What's most important when facing challenges with service?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q34_6",
+          "type": "true_false",
+          "topicTag": "wellness_leadership",
+          "lessonDayRef": 166,
+          "question": "Success with positive influence requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34."
+        },
+        {
+          "id": "q34_7",
+          "type": "multiple_choice",
+          "topicTag": "inspiring_others",
+          "lessonDayRef": 167,
+          "question": "The best way to maintain progress with community building is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 34.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_35",
+      "chapterId": "chapter_35",
+      "title": "Wisdom & Reflection",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q35_1",
+          "type": "multiple_choice",
+          "topicTag": "reflection",
+          "lessonDayRef": 171,
+          "question": "What is a key principle covered in Wisdom & Reflection?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding reflection.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying reflection principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q35_2",
+          "type": "true_false",
+          "topicTag": "integration",
+          "lessonDayRef": 172,
+          "question": "The concepts in Wisdom & Reflection should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35."
+        },
+        {
+          "id": "q35_3",
+          "type": "multiple_choice",
+          "topicTag": "wisdom",
+          "lessonDayRef": 173,
+          "question": "Which approach is most effective for implementing integration?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q35_4",
+          "type": "reflection",
+          "topicTag": "life_lessons",
+          "lessonDayRef": 174,
+          "question": "How might you apply the principles of wisdom & reflection to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35."
+        },
+        {
+          "id": "q35_5",
+          "type": "multiple_choice",
+          "topicTag": "deep_understanding",
+          "lessonDayRef": 175,
+          "question": "What's most important when facing challenges with wisdom?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q35_6",
+          "type": "true_false",
+          "topicTag": "reflection",
+          "lessonDayRef": 171,
+          "question": "Success with life lessons requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35."
+        },
+        {
+          "id": "q35_7",
+          "type": "multiple_choice",
+          "topicTag": "integration",
+          "lessonDayRef": 172,
+          "question": "The best way to maintain progress with deep understanding is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 35.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiz_chapter_36",
+      "chapterId": "chapter_36",
+      "title": "Your Wellness Legacy",
+      "passingScore": 70,
+      "questions": [
+        {
+          "id": "q36_1",
+          "type": "multiple_choice",
+          "topicTag": "legacy_building",
+          "lessonDayRef": 176,
+          "question": "What is a key principle covered in Your Wellness Legacy?",
+          "correctAnswer": 1,
+          "explanation": "This chapter emphasizes the importance of understanding legacy building.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36.",
+          "options": [
+            "Following rigid rules without adaptation",
+            "Understanding and applying legacy building principles",
+            "Ignoring individual differences",
+            "Focusing only on short-term results"
+          ]
+        },
+        {
+          "id": "q36_2",
+          "type": "true_false",
+          "topicTag": "transformation_celebration",
+          "lessonDayRef": 177,
+          "question": "The concepts in Your Wellness Legacy should be adapted to your individual needs and circumstances.",
+          "correctAnswer": true,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36."
+        },
+        {
+          "id": "q36_3",
+          "type": "multiple_choice",
+          "topicTag": "future_commitment",
+          "lessonDayRef": 178,
+          "question": "Which approach is most effective for implementing transformation celebration?",
+          "correctAnswer": 1,
+          "explanation": "Gradual, consistent implementation leads to more sustainable results.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36.",
+          "options": [
+            "Making dramatic changes all at once",
+            "Starting small and building gradually",
+            "Waiting until you have perfect conditions",
+            "Following someone else's exact plan"
+          ]
+        },
+        {
+          "id": "q36_4",
+          "type": "reflection",
+          "topicTag": "lifelong_wellness",
+          "lessonDayRef": 179,
+          "question": "How might you apply the principles of your wellness legacy to your daily life?",
+          "correctAnswer": null,
+          "explanation": "Reflection helps you personalize and integrate the chapter's teachings.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36."
+        },
+        {
+          "id": "q36_5",
+          "type": "multiple_choice",
+          "topicTag": "inspiring_others",
+          "lessonDayRef": 180,
+          "question": "What's most important when facing challenges with future commitment?",
+          "correctAnswer": 2,
+          "explanation": "Flexibility and persistence are key to overcoming wellness challenges.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36.",
+          "options": [
+            "Giving up immediately",
+            "Blaming yourself for difficulties",
+            "Adapting your approach and staying consistent",
+            "Comparing yourself to others"
+          ]
+        },
+        {
+          "id": "q36_6",
+          "type": "true_false",
+          "topicTag": "legacy_building",
+          "lessonDayRef": 176,
+          "question": "Success with lifelong wellness requires perfection from the start.",
+          "correctAnswer": false,
+          "explanation": "This reinforces key concepts from the lesson.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36."
+        },
+        {
+          "id": "q36_7",
+          "type": "multiple_choice",
+          "topicTag": "transformation_celebration",
+          "lessonDayRef": 177,
+          "question": "The best way to maintain progress with inspiring others is to:",
+          "correctAnswer": 2,
+          "explanation": "Sustainable systems and habits create lasting change better than willpower alone.",
+          "reviewContent": "Understanding this concept is fundamental to the principles covered in Chapter 36.",
+          "options": [
+            "Be extremely strict and never allow flexibility",
+            "Focus only on the scale or external measures",
+            "Build supportive habits and systems",
+            "Compare your progress to others constantly"
+          ]
+        }
+      ]
     }
-  ],
-  "topicReviewMapping": {
-    "goal_setting": {
-      "lessonDay": 1,
-      "reviewTitle": "Setting Your Wellness Intention",
-      "keyPoints": ["Intentions are internal commitments", "Connect to your 'why'", "Deeper meaning drives lasting change"]
-    },
-    "hydration_benefits": {
-      "lessonDay": 2,
-      "reviewTitle": "The Hydration Ritual",
-      "keyPoints": ["Supports metabolism and energy", "Aids appetite regulation", "Drink before meals"]
-    },
-    "body_awareness": {
-      "lessonDay": 3,
-      "reviewTitle": "Understanding Your Body's Signals",
-      "keyPoints": ["Observe without judgment", "Notice physical signals", "Recognize emotional patterns"]
-    },
-    "environment_design": {
-      "lessonDay": 4,
-      "reviewTitle": "Creating Your Sanctuary",
-      "keyPoints": ["Make healthy choices visible", "Remove temptations", "Design spaces for success"]
-    },
-    "support_system": {
-      "lessonDay": 5,
-      "reviewTitle": "Your Support Circle",
-      "keyPoints": ["Find supportive people", "Build accountability", "You don't need everyone's approval"]
-    },
-    "70_30_rule": {
-      "lessonDay": 6,
-      "reviewTitle": "The 70/30 Harmony",
-      "keyPoints": ["70% nourishment, 30% movement", "Can't out-exercise poor diet", "Both matter for balance"]
-    },
-    "fiber_types": {
-      "lessonDay": 7,
-      "reviewTitle": "Fiber: Your Digestive Ally",
-      "keyPoints": ["Soluble fiber regulates blood sugar", "Insoluble fiber aids digestion", "Aim for 25-30 grams daily"]
-    },
-    "protein_sources": {
-      "lessonDay": 8,
-      "reviewTitle": "The Power of Protein",
-      "keyPoints": ["Most satiating macronutrient", "Include at every meal", "Animal and plant sources both valuable"]
-    },
-    "glycemic_index": {
-      "lessonDay": 9,
-      "reviewTitle": "Carbohydrates Decoded",
-      "keyPoints": ["Low GI foods provide sustained energy", "Complex carbs over simple", "Fiber slows absorption"]
-    },
-    "healthy_fats": {
-      "lessonDay": 10,
-      "reviewTitle": "Understanding Fats",
-      "keyPoints": ["Essential for brain and hormones", "Choose unsaturated fats", "Avoid trans fats entirely"]
-    },
-    "chewing_benefits": {
-      "lessonDay": 11,
-      "reviewTitle": "The Art of Chewing",
-      "keyPoints": ["Chew 30 times per bite", "Digestion starts in mouth", "Improves satisfaction"]
-    },
-    "portion_guides": {
-      "lessonDay": 12,
-      "reviewTitle": "Portion Awareness",
-      "keyPoints": ["Palm = protein", "Half plate = vegetables", "Aim for satisfied, not stuffed"]
-    },
-    "calorie_density": {
-      "lessonDay": 13,
-      "reviewTitle": "Calorie Density Wisdom",
-      "keyPoints": ["Vegetables are low density", "Start meals with low-density foods", "Volume matters"]
-    },
-    "nutrient_density": {
-      "lessonDay": 14,
-      "reviewTitle": "Empty vs. Nutrient-Rich",
-      "keyPoints": ["Choose nutrient-dense foods", "Swap rather than eliminate", "Quality over quantity"]
-    },
-    "eating_environment": {
-      "lessonDay": 15,
-      "reviewTitle": "Your Eating Environment",
-      "keyPoints": ["Eliminate screens during meals", "Sit at a table", "Create meal rituals"]
-    },
-    "breakfast_balance": {
-      "lessonDay": 16,
-      "reviewTitle": "Morning Nourishment",
-      "keyPoints": ["Protein + carbs + fat", "Stabilizes blood sugar", "Sets tone for day"]
-    },
-    "lunch_energy": {
-      "lessonDay": 17,
-      "reviewTitle": "Midday Fuel",
-      "keyPoints": ["Protein prevents crashes", "Half plate vegetables", "Meal prep for success"]
-    },
-    "dinner_timing": {
-      "lessonDay": 18,
-      "reviewTitle": "Evening Restoration",
-      "keyPoints": ["Finish 2-3 hours before bed", "Keep portions moderate", "Lean protein + vegetables"]
-    },
-    "beverage_calories": {
-      "lessonDay": 19,
-      "reviewTitle": "Beverage Wisdom",
-      "keyPoints": ["Liquid calories add up", "One soda daily = 15 lbs/year", "Choose water and tea"]
-    },
-    "swap_strategy": {
-      "lessonDay": 20,
-      "reviewTitle": "Replacement Strategies",
-      "keyPoints": ["Swap rather than eliminate", "80/20 approach", "Prepare swaps in advance"]
-    },
-    "walking_benefits": {
-      "lessonDay": 21,
-      "reviewTitle": "The Joy of Walking",
-      "keyPoints": ["~290 calories per hour", "Accessible and free", "Start with 5 minutes"]
-    },
-    "post_meal_movement": {
-      "lessonDay": 22,
-      "reviewTitle": "Post-Meal Movement",
-      "keyPoints": ["Gentle movement aids digestion", "15-minute walks reduce blood sugar spikes", "Avoid intense exercise after eating"]
-    },
-    "progressive_approach": {
-      "lessonDay": 23,
-      "reviewTitle": "Building Your Practice",
-      "keyPoints": ["Start with 5 minutes", "Add 5 minutes weekly", "Include rest days"]
-    },
-    "movement_variety": {
-      "lessonDay": 24,
-      "reviewTitle": "Movement Variety",
-      "keyPoints": ["Best movement is what you enjoy", "Variety prevents boredom", "Find your joy"]
-    },
-    "strength_training": {
-      "lessonDay": 25,
-      "reviewTitle": "Body Flow Basics",
-      "keyPoints": ["Maintains muscle mass", "Boosts metabolism", "Bodyweight exercises work"]
-    },
-    "empowering_language": {
-      "lessonDay": 26,
-      "reviewTitle": "The Language of Change",
-      "keyPoints": ["'I choose to' over 'I have to'", "'I am' statements shape identity", "Words affect actions"]
-    },
-    "discipline_mindset": {
-      "lessonDay": 27,
-      "reviewTitle": "Discipline as Self-Love",
-      "keyPoints": ["Discipline is self-love", "Start smaller than needed", "Consistency allows imperfection"]
-    },
-    "excuse_patterns": {
-      "lessonDay": 28,
-      "reviewTitle": "Releasing Excuses",
-      "keyPoints": ["Transform excuses to problem-solving", "Find the fear beneath", "Take small action"]
-    },
-    "inner_critic": {
-      "lessonDay": 29,
-      "reviewTitle": "Befriending Your Inner Critic",
-      "keyPoints": ["Acknowledge and thank it", "Update with compassion", "Failure is information"]
-    },
-    "self_compassion": {
-      "lessonDay": 29,
-      "reviewTitle": "Self-Compassion Practice",
-      "keyPoints": ["Treat yourself like a friend", "Failure is a stepping stone", "Gentle correction over harsh criticism"]
-    }
-  }
+  ]
 }

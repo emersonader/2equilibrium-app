@@ -125,3 +125,17 @@ export {
   autoShareStreak,
   getUserCommunityStats,
 } from './communityService';
+
+// Notification service
+export {
+  initNotifications,
+  scheduleDailyReminder,
+  cancelDailyReminder,
+  updateReminderTime,
+  getReminderSettings,
+  saveReminderSettings,
+  checkPermissions,
+  getScheduledNotifications,
+  addNotificationReceivedListener,
+  addNotificationResponseReceivedListener,
+} from './notificationService';

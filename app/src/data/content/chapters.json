@@ -15,7 +15,10 @@
           "title": "Awakening Your Wellness Path",
           "subtitle": "Setting intentions and establishing daily rhythms",
           "description": "Discover your 'why' and create a foundation for lasting change.",
-          "daysRange": { "start": 1, "end": 5 },
+          "daysRange": {
+            "start": 1,
+            "end": 5
+          },
           "color": "#0ABAB5",
           "icon": "sunny",
           "quizId": "quiz_chapter_1"
@@ -27,7 +30,10 @@
           "title": "Nourishment Fundamentals",
           "subtitle": "Understanding food as fuel and healing",
           "description": "Learn the basics of nutrition and how to nourish your body properly.",
-          "daysRange": { "start": 6, "end": 10 },
+          "daysRange": {
+            "start": 6,
+            "end": 10
+          },
           "color": "#2ECC71",
           "icon": "leaf",
           "quizId": "quiz_chapter_2"
@@ -39,7 +45,10 @@
           "title": "Mindful Eating Rituals",
           "subtitle": "How we eat matters as much as what we eat",
           "description": "Transform your relationship with food through mindful eating practices.",
-          "daysRange": { "start": 11, "end": 15 },
+          "daysRange": {
+            "start": 11,
+            "end": 15
+          },
           "color": "#3498DB",
           "icon": "restaurant",
           "quizId": "quiz_chapter_3"
@@ -51,7 +60,10 @@
           "title": "Meal Architecture",
           "subtitle": "Building balanced meals throughout the day",
           "description": "Create a sustainable meal structure that supports your wellness goals.",
-          "daysRange": { "start": 16, "end": 20 },
+          "daysRange": {
+            "start": 16,
+            "end": 20
+          },
           "color": "#9B59B6",
           "icon": "grid",
           "quizId": "quiz_chapter_4"
@@ -63,7 +75,10 @@
           "title": "Gentle Movement Foundations",
           "subtitle": "Movement as self-care, not punishment",
           "description": "Embrace joyful movement that nurtures your body and spirit.",
-          "daysRange": { "start": 21, "end": 25 },
+          "daysRange": {
+            "start": 21,
+            "end": 25
+          },
           "color": "#E67E22",
           "icon": "walk",
           "quizId": "quiz_chapter_5"
@@ -75,7 +90,10 @@
           "title": "Mindset & Self-Compassion",
           "subtitle": "The inner work that sustains the outer changes",
           "description": "Cultivate a mindset that supports lifelong wellness.",
-          "daysRange": { "start": 26, "end": 30 },
+          "daysRange": {
+            "start": 26,
+            "end": 30
+          },
           "color": "#E74C3C",
           "icon": "heart",
           "quizId": "quiz_chapter_6"
@@ -87,27 +105,500 @@
       "number": 2,
       "title": "Momentum",
       "subtitle": "Deepening Your Practice",
-      "description": "Build on your foundation with advanced strategies and deeper insights.",
-      "durationDays": 60,
-      "chapters": []
+      "description": "Build on your foundation with advanced strategies and deeper insights into nutrition and lifestyle.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_7",
+          "phaseId": "phase_2",
+          "number": 7,
+          "title": "Advanced Nutrition Strategies",
+          "subtitle": "Meal prep, portions, and food wisdom",
+          "description": "Master meal preparation, portion control, and advanced nutrition concepts for sustained energy.",
+          "daysRange": {
+            "start": 31,
+            "end": 35
+          },
+          "color": "#0ABAB5",
+          "icon": "nutrition",
+          "quizId": "quiz_chapter_7"
+        },
+        {
+          "id": "chapter_8",
+          "phaseId": "phase_2",
+          "number": 8,
+          "title": "Sleep & Stress Mastery",
+          "subtitle": "The power of rest and stress management",
+          "description": "Understand how sleep and stress affect your wellness journey and learn powerful management techniques.",
+          "daysRange": {
+            "start": 36,
+            "end": 40
+          },
+          "color": "#2ECC71",
+          "icon": "moon",
+          "quizId": "quiz_chapter_8"
+        },
+        {
+          "id": "chapter_9",
+          "phaseId": "phase_2",
+          "number": 9,
+          "title": "Mindful Awareness & Habits",
+          "subtitle": "Building sustainable daily practices",
+          "description": "Develop deeper body awareness, mindful eating skills, and understand the psychology of habit formation.",
+          "daysRange": {
+            "start": 41,
+            "end": 45
+          },
+          "color": "#3498DB",
+          "icon": "eye",
+          "quizId": "quiz_chapter_9"
+        },
+        {
+          "id": "chapter_10",
+          "phaseId": "phase_2",
+          "number": 10,
+          "title": "Food Relationships",
+          "subtitle": "Healthy cooking and smart choices",
+          "description": "Learn healthy cooking methods, make smart food swaps, and understand food's role in your life.",
+          "daysRange": {
+            "start": 46,
+            "end": 50
+          },
+          "color": "#9B59B6",
+          "icon": "cafe",
+          "quizId": "quiz_chapter_10"
+        },
+        {
+          "id": "chapter_11",
+          "phaseId": "phase_2",
+          "number": 11,
+          "title": "Breaking Patterns",
+          "subtitle": "Overcoming obstacles and emotional eating",
+          "description": "Address emotional eating, break through plateaus, and develop resilience in your wellness journey.",
+          "daysRange": {
+            "start": 51,
+            "end": 55
+          },
+          "color": "#E67E22",
+          "icon": "shield",
+          "quizId": "quiz_chapter_11"
+        },
+        {
+          "id": "chapter_12",
+          "phaseId": "phase_2",
+          "number": 12,
+          "title": "Movement & Energy",
+          "subtitle": "Exercise basics and energy optimization",
+          "description": "Build a sustainable exercise routine, understand recovery, and optimize your daily energy patterns.",
+          "daysRange": {
+            "start": 56,
+            "end": 60
+          },
+          "color": "#1ABC9C",
+          "icon": "fitness",
+          "quizId": "quiz_chapter_12"
+        }
+      ]
     },
     {
       "id": "phase_3",
       "number": 3,
-      "title": "Mastery",
-      "subtitle": "Becoming Your Own Guide",
-      "description": "Develop mastery and create your personal wellness protocol.",
-      "durationDays": 90,
-      "chapters": []
+      "title": "Integration",
+      "subtitle": "Making Wellness Your Lifestyle",
+      "description": "Integrate wellness practices deeply into your daily life with advanced strategies and personalization.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_13",
+          "phaseId": "phase_3",
+          "number": 13,
+          "title": "Lifestyle Design",
+          "subtitle": "Environment and routine optimization",
+          "description": "Design your environment and routines to naturally support healthy choices without willpower.",
+          "daysRange": {
+            "start": 61,
+            "end": 65
+          },
+          "color": "#E74C3C",
+          "icon": "compass",
+          "quizId": "quiz_chapter_13"
+        },
+        {
+          "id": "chapter_14",
+          "phaseId": "phase_3",
+          "number": 14,
+          "title": "Advanced Eating Strategies",
+          "subtitle": "Timing, social eating, and flexibility",
+          "description": "Navigate social eating, dining out, and develop flexible approaches that fit your real life.",
+          "daysRange": {
+            "start": 66,
+            "end": 70
+          },
+          "color": "#F39C12",
+          "icon": "time",
+          "quizId": "quiz_chapter_14"
+        },
+        {
+          "id": "chapter_15",
+          "phaseId": "phase_3",
+          "number": 15,
+          "title": "Metabolic Wisdom",
+          "subtitle": "Hormones, nutrients, and optimization",
+          "description": "Understand your metabolism, optimize nutrient timing, and work with your body's natural rhythms.",
+          "daysRange": {
+            "start": 71,
+            "end": 75
+          },
+          "color": "#16A085",
+          "icon": "pulse",
+          "quizId": "quiz_chapter_15"
+        },
+        {
+          "id": "chapter_16",
+          "phaseId": "phase_3",
+          "number": 16,
+          "title": "Mental Mastery",
+          "subtitle": "Mindset, motivation, and breakthrough thinking",
+          "description": "Develop unshakeable motivation, overcome mental barriers, and create lasting mindset changes.",
+          "daysRange": {
+            "start": 76,
+            "end": 80
+          },
+          "color": "#8E44AD",
+          "icon": "bulb",
+          "quizId": "quiz_chapter_16"
+        },
+        {
+          "id": "chapter_17",
+          "phaseId": "phase_3",
+          "number": 17,
+          "title": "Strength & Movement",
+          "subtitle": "Building your physical foundation",
+          "description": "Develop strength, improve movement quality, and create an active lifestyle that serves you.",
+          "daysRange": {
+            "start": 81,
+            "end": 85
+          },
+          "color": "#2980B9",
+          "icon": "barbell",
+          "quizId": "quiz_chapter_17"
+        },
+        {
+          "id": "chapter_18",
+          "phaseId": "phase_3",
+          "number": 18,
+          "title": "Body Wisdom",
+          "subtitle": "Understanding your unique needs",
+          "description": "Listen to your body, understand bioindividuality, and personalize your approach for optimal results.",
+          "daysRange": {
+            "start": 86,
+            "end": 90
+          },
+          "color": "#27AE60",
+          "icon": "medical",
+          "quizId": "quiz_chapter_18"
+        }
+      ]
     },
     {
       "id": "phase_4",
       "number": 4,
-      "title": "Evolution",
-      "subtitle": "Lifelong Wellness Integration",
-      "description": "Integrate wellness as a permanent lifestyle and inspire others.",
-      "durationDays": 180,
-      "chapters": []
+      "title": "Mastery",
+      "subtitle": "Becoming Your Own Wellness Expert",
+      "description": "Develop mastery over your wellness journey with advanced knowledge and self-coaching skills.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_19",
+          "phaseId": "phase_4",
+          "number": 19,
+          "title": "Resilience & Recovery",
+          "subtitle": "Bouncing back stronger from challenges",
+          "description": "Build emotional resilience, master recovery strategies, and turn setbacks into comebacks.",
+          "daysRange": {
+            "start": 91,
+            "end": 95
+          },
+          "color": "#D35400",
+          "icon": "refresh",
+          "quizId": "quiz_chapter_19"
+        },
+        {
+          "id": "chapter_20",
+          "phaseId": "phase_4",
+          "number": 20,
+          "title": "Nutritional Intelligence",
+          "subtitle": "Advanced food science and application",
+          "description": "Deepen your nutritional knowledge with superfoods, supplements, and advanced eating strategies.",
+          "daysRange": {
+            "start": 96,
+            "end": 100
+          },
+          "color": "#C0392B",
+          "icon": "analytics",
+          "quizId": "quiz_chapter_20"
+        },
+        {
+          "id": "chapter_21",
+          "phaseId": "phase_4",
+          "number": 21,
+          "title": "Movement Mastery",
+          "subtitle": "Advanced fitness and functional movement",
+          "description": "Master different movement modalities, understand training principles, and optimize performance.",
+          "daysRange": {
+            "start": 101,
+            "end": 105
+          },
+          "color": "#F1C40F",
+          "icon": "flame",
+          "quizId": "quiz_chapter_21"
+        },
+        {
+          "id": "chapter_22",
+          "phaseId": "phase_4",
+          "number": 22,
+          "title": "Energy & Vitality",
+          "subtitle": "Optimizing energy throughout your life",
+          "description": "Maximize your energy, understand fatigue, and create sustainable vitality practices.",
+          "daysRange": {
+            "start": 106,
+            "end": 110
+          },
+          "color": "#0ABAB5",
+          "icon": "battery-half",
+          "quizId": "quiz_chapter_22"
+        },
+        {
+          "id": "chapter_23",
+          "phaseId": "phase_4",
+          "number": 23,
+          "title": "Hormonal Harmony",
+          "subtitle": "Understanding and supporting your hormones",
+          "description": "Master hormonal health, understand leptin and ghrelin, and support your body's natural rhythms.",
+          "daysRange": {
+            "start": 111,
+            "end": 115
+          },
+          "color": "#2ECC71",
+          "icon": "sparkles",
+          "quizId": "quiz_chapter_23"
+        },
+        {
+          "id": "chapter_24",
+          "phaseId": "phase_4",
+          "number": 24,
+          "title": "Sustainable Systems",
+          "subtitle": "Building practices that last a lifetime",
+          "description": "Create systems for long-term success, develop problem-solving skills, and plan for maintenance.",
+          "daysRange": {
+            "start": 116,
+            "end": 120
+          },
+          "color": "#3498DB",
+          "icon": "checkmark-circle",
+          "quizId": "quiz_chapter_24"
+        }
+      ]
+    },
+    {
+      "id": "phase_5",
+      "number": 5,
+      "title": "Excellence",
+      "subtitle": "Optimizing Your Unique Journey",
+      "description": "Fine-tune your approach with advanced optimization strategies and personalized protocols.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_25",
+          "phaseId": "phase_5",
+          "number": 25,
+          "title": "Metabolic Optimization",
+          "subtitle": "Advanced metabolism and body composition",
+          "description": "Optimize your metabolism, understand body composition, and fine-tune your nutritional approach.",
+          "daysRange": {
+            "start": 121,
+            "end": 125
+          },
+          "color": "#9B59B6",
+          "icon": "rocket",
+          "quizId": "quiz_chapter_25"
+        },
+        {
+          "id": "chapter_26",
+          "phaseId": "phase_5",
+          "number": 26,
+          "title": "Performance & Recovery",
+          "subtitle": "Peak performance and advanced recovery",
+          "description": "Achieve peak physical and mental performance while mastering advanced recovery techniques.",
+          "daysRange": {
+            "start": 126,
+            "end": 130
+          },
+          "color": "#E67E22",
+          "icon": "trophy",
+          "quizId": "quiz_chapter_26"
+        },
+        {
+          "id": "chapter_27",
+          "phaseId": "phase_5",
+          "number": 27,
+          "title": "Lifestyle Medicine",
+          "subtitle": "Advanced wellness and longevity practices",
+          "description": "Integrate lifestyle medicine principles, understand longevity, and optimize for lifelong health.",
+          "daysRange": {
+            "start": 131,
+            "end": 135
+          },
+          "color": "#1ABC9C",
+          "icon": "medical",
+          "quizId": "quiz_chapter_27"
+        },
+        {
+          "id": "chapter_28",
+          "phaseId": "phase_5",
+          "number": 28,
+          "title": "Environmental Mastery",
+          "subtitle": "Creating your optimal wellness environment",
+          "description": "Master your physical and social environment to support peak wellness effortlessly.",
+          "daysRange": {
+            "start": 136,
+            "end": 140
+          },
+          "color": "#E74C3C",
+          "icon": "library",
+          "quizId": "quiz_chapter_28"
+        },
+        {
+          "id": "chapter_29",
+          "phaseId": "phase_5",
+          "number": 29,
+          "title": "Advanced Psychology",
+          "subtitle": "Mastering the mental game of wellness",
+          "description": "Master advanced psychological strategies, overcome any remaining barriers, and develop unshakeable confidence.",
+          "daysRange": {
+            "start": 141,
+            "end": 145
+          },
+          "color": "#F39C12",
+          "icon": "prism",
+          "quizId": "quiz_chapter_29"
+        },
+        {
+          "id": "chapter_30",
+          "phaseId": "phase_5",
+          "number": 30,
+          "title": "Personal Mastery",
+          "subtitle": "Becoming your own wellness expert",
+          "description": "Achieve personal mastery, develop your unique protocol, and prepare for long-term success.",
+          "daysRange": {
+            "start": 146,
+            "end": 150
+          },
+          "color": "#16A085",
+          "icon": "star",
+          "quizId": "quiz_chapter_30"
+        }
+      ]
+    },
+    {
+      "id": "phase_6",
+      "number": 6,
+      "title": "Legacy",
+      "subtitle": "Living Your Wellness Legacy",
+      "description": "Integrate wellness as a permanent lifestyle and inspire others while continuing to evolve.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_31",
+          "phaseId": "phase_6",
+          "number": 31,
+          "title": "Lifestyle Integration",
+          "subtitle": "Wellness as your natural way of life",
+          "description": "Fully integrate wellness as your natural lifestyle, moving beyond conscious effort to unconscious competence.",
+          "daysRange": {
+            "start": 151,
+            "end": 155
+          },
+          "color": "#8E44AD",
+          "icon": "checkmark-circle",
+          "quizId": "quiz_chapter_31"
+        },
+        {
+          "id": "chapter_32",
+          "phaseId": "phase_6",
+          "number": 32,
+          "title": "Social Influence",
+          "subtitle": "Managing social pressures and influences",
+          "description": "Navigate social challenges, set boundaries, and maintain your wellness while influencing others positively.",
+          "daysRange": {
+            "start": 156,
+            "end": 160
+          },
+          "color": "#2980B9",
+          "icon": "happy",
+          "quizId": "quiz_chapter_32"
+        },
+        {
+          "id": "chapter_33",
+          "phaseId": "phase_6",
+          "number": 33,
+          "title": "Continuous Evolution",
+          "subtitle": "Adapting and growing throughout life",
+          "description": "Develop skills for lifelong adaptation, continuous learning, and evolving your wellness practice.",
+          "daysRange": {
+            "start": 161,
+            "end": 165
+          },
+          "color": "#27AE60",
+          "icon": "refresh",
+          "quizId": "quiz_chapter_33"
+        },
+        {
+          "id": "chapter_34",
+          "phaseId": "phase_6",
+          "number": 34,
+          "title": "Leadership & Service",
+          "subtitle": "Inspiring wellness in others",
+          "description": "Use your transformation to inspire and support others on their wellness journeys.",
+          "daysRange": {
+            "start": 166,
+            "end": 170
+          },
+          "color": "#D35400",
+          "icon": "sunny",
+          "quizId": "quiz_chapter_34"
+        },
+        {
+          "id": "chapter_35",
+          "phaseId": "phase_6",
+          "number": 35,
+          "title": "Wisdom & Reflection",
+          "subtitle": "Integrating all you've learned",
+          "description": "Reflect on your journey, integrate all your learning, and prepare for continued growth.",
+          "daysRange": {
+            "start": 171,
+            "end": 175
+          },
+          "color": "#C0392B",
+          "icon": "telescope",
+          "quizId": "quiz_chapter_35"
+        },
+        {
+          "id": "chapter_36",
+          "phaseId": "phase_6",
+          "number": 36,
+          "title": "Your Wellness Legacy",
+          "subtitle": "Celebrating your transformation",
+          "description": "Celebrate your complete transformation and commit to your lifelong wellness legacy.",
+          "daysRange": {
+            "start": 176,
+            "end": 180
+          },
+          "color": "#F1C40F",
+          "icon": "diamond",
+          "quizId": "quiz_chapter_36"
+        }
+      ]
     }
   ]
 }
