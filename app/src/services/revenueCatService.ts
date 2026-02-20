@@ -8,10 +8,17 @@ let Purchases: any = null;
 let isRevenueCatAvailable = false;
 
 try {
-  Purchases = require('react-native-purchases').default;
-  isRevenueCatAvailable = true;
+  // Check if the native module exists before loading - the JS package will
+  // always resolve from node_modules, but native methods crash without the binary
+  const { NativeModules } = require('react-native');
+  if (!NativeModules.RNPurchases) {
+    console.warn('RevenueCat native module not found (expected in Expo Go)');
+  } else {
+    Purchases = require('react-native-purchases').default;
+    isRevenueCatAvailable = true;
+  }
 } catch (e) {
-  console.warn('RevenueCat not available (expected in Expo Go)');
+  console.warn('RevenueCat not available:', e);
 }
 
 // Type definitions for when module isn't available
@@ -79,7 +86,8 @@ export async function initializeRevenueCat(userId?: string): Promise<void> {
     console.log('RevenueCat initialized successfully');
   } catch (error) {
     console.error('Failed to initialize RevenueCat:', error);
-    throw error;
+    // Don't throw - allow app to work without subscriptions
+    isRevenueCatAvailable = false;
   }
 }
 
