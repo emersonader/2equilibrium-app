@@ -11,130 +11,88 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Typography, Spacing, Layout, BorderRadius } from '@/constants';
 import { Card, ProgressRing, Badge } from '@/components/ui';
+import { useProgressStore } from '@/stores';
 
-// Phase data structure
-interface Phase {
+// Import chapter/phase data
+import chaptersData from '@/data/content/chapters.json';
+
+interface ChapterData {
+  id: string;
+  phaseId: string;
+  number: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  daysRange: { start: number; end: number };
+  color: string;
+  icon: string;
+  quizId: string;
+}
+
+interface PhaseData {
   id: string;
   number: number;
   title: string;
   subtitle: string;
-  chapters: Chapter[];
-  isLocked: boolean;
+  chapters: ChapterData[];
 }
-
-interface Chapter {
-  id: string;
-  number: number;
-  title: string;
-  theme: string;
-  daysRange: { start: number; end: number };
-  isCompleted: boolean;
-  isLocked: boolean;
-  quizPassed: boolean;
-}
-
-// Mock data - will be replaced with store data
-const PHASES: Phase[] = [
-  {
-    id: 'phase_1',
-    number: 1,
-    title: 'Foundation',
-    subtitle: 'Building Your Wellness Base',
-    isLocked: false,
-    chapters: [
-      {
-        id: 'chapter_1',
-        number: 1,
-        title: 'Awakening Your Wellness Path',
-        theme: 'Setting intentions and establishing daily rhythms',
-        daysRange: { start: 1, end: 5 },
-        isCompleted: false,
-        isLocked: false,
-        quizPassed: false,
-      },
-      {
-        id: 'chapter_2',
-        number: 2,
-        title: 'Nourishment Fundamentals',
-        theme: 'Understanding food as fuel and healing',
-        daysRange: { start: 6, end: 10 },
-        isCompleted: false,
-        isLocked: true,
-        quizPassed: false,
-      },
-      {
-        id: 'chapter_3',
-        number: 3,
-        title: 'Mindful Eating Rituals',
-        theme: 'How we eat matters as much as what we eat',
-        daysRange: { start: 11, end: 15 },
-        isCompleted: false,
-        isLocked: true,
-        quizPassed: false,
-      },
-      {
-        id: 'chapter_4',
-        number: 4,
-        title: 'Meal Architecture',
-        theme: 'Building balanced meals throughout the day',
-        daysRange: { start: 16, end: 20 },
-        isCompleted: false,
-        isLocked: true,
-        quizPassed: false,
-      },
-      {
-        id: 'chapter_5',
-        number: 5,
-        title: 'Gentle Movement Foundations',
-        theme: 'Movement as self-care, not punishment',
-        daysRange: { start: 21, end: 25 },
-        isCompleted: false,
-        isLocked: true,
-        quizPassed: false,
-      },
-      {
-        id: 'chapter_6',
-        number: 6,
-        title: 'Mindset & Self-Compassion',
-        theme: 'The inner work that sustains the outer changes',
-        daysRange: { start: 26, end: 30 },
-        isCompleted: false,
-        isLocked: true,
-        quizPassed: false,
-      },
-    ],
-  },
-  {
-    id: 'phase_2',
-    number: 2,
-    title: 'Momentum',
-    subtitle: 'Deepening Your Practice',
-    isLocked: true,
-    chapters: [],
-  },
-  {
-    id: 'phase_3',
-    number: 3,
-    title: 'Mastery',
-    subtitle: 'Becoming Your Own Guide',
-    isLocked: true,
-    chapters: [],
-  },
-  {
-    id: 'phase_4',
-    number: 4,
-    title: 'Evolution',
-    subtitle: 'Lifelong Wellness Integration',
-    isLocked: true,
-    chapters: [],
-  },
-];
 
 export default function JourneyScreen() {
   const router = useRouter();
-  const currentPhase = PHASES[0];
-  const completedChapters = 0;
-  const totalChapters = currentPhase.chapters.length;
+  const { completedLessons, currentDay } = useProgressStore();
+
+  const phases = chaptersData.phases as PhaseData[];
+
+  // Determine which chapters/phases are unlocked based on progress
+  const isChapterUnlocked = (chapter: ChapterData, phaseIndex: number, chapterIndex: number): boolean => {
+    // First chapter of first phase is always unlocked
+    if (phaseIndex === 0 && chapterIndex === 0) return true;
+
+    // A chapter is unlocked if all lessons from the previous chapter are completed
+    if (chapterIndex > 0) {
+      const prevChapter = phases[phaseIndex].chapters[chapterIndex - 1];
+      return areAllLessonsComplete(prevChapter);
+    }
+
+    // First chapter of a new phase: previous phase's last chapter must be complete
+    if (phaseIndex > 0) {
+      const prevPhase = phases[phaseIndex - 1];
+      const lastChapter = prevPhase.chapters[prevPhase.chapters.length - 1];
+      return areAllLessonsComplete(lastChapter);
+    }
+
+    return false;
+  };
+
+  const areAllLessonsComplete = (chapter: ChapterData): boolean => {
+    for (let day = chapter.daysRange.start; day <= chapter.daysRange.end; day++) {
+      if (!completedLessons.includes(`lesson_day_${day}`)) return false;
+    }
+    return true;
+  };
+
+  const getChapterProgress = (chapter: ChapterData): { completed: number; total: number } => {
+    let completed = 0;
+    const total = chapter.daysRange.end - chapter.daysRange.start + 1;
+    for (let day = chapter.daysRange.start; day <= chapter.daysRange.end; day++) {
+      if (completedLessons.includes(`lesson_day_${day}`)) completed++;
+    }
+    return { completed, total };
+  };
+
+  // Find current phase (first phase with incomplete chapters)
+  let currentPhaseIndex = 0;
+  for (let i = 0; i < phases.length; i++) {
+    const lastChapter = phases[i].chapters[phases[i].chapters.length - 1];
+    if (!areAllLessonsComplete(lastChapter)) {
+      currentPhaseIndex = i;
+      break;
+    }
+    if (i === phases.length - 1) currentPhaseIndex = i; // all complete
+  }
+
+  const totalCompleted = completedLessons.length;
+  const totalLessons = 180;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -146,24 +104,26 @@ export default function JourneyScreen() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>Your Journey</Text>
-          <Text style={styles.subtitle}>Phase 1: Foundation</Text>
+          <Text style={styles.subtitle}>
+            Phase {phases[currentPhaseIndex].number}: {phases[currentPhaseIndex].title}
+          </Text>
         </View>
 
         {/* Overall Progress */}
         <Card variant="elevated" style={styles.progressCard}>
           <View style={styles.progressContent}>
             <ProgressRing
-              progress={(completedChapters / totalChapters) * 100}
+              progress={(totalCompleted / totalLessons) * 100}
               size={80}
               color={Colors.primary.tiffanyBlue}
             />
             <View style={styles.progressInfo}>
-              <Text style={styles.progressLabel}>Phase 1 Progress</Text>
+              <Text style={styles.progressLabel}>Overall Progress</Text>
               <Text style={styles.progressValue}>
-                {completedChapters} of {totalChapters} chapters
+                {totalCompleted} of {totalLessons} lessons
               </Text>
               <Badge
-                label="Foundation Phase"
+                label={`Phase ${phases[currentPhaseIndex].number}: ${phases[currentPhaseIndex].title}`}
                 variant="secondary"
                 size="sm"
               />
@@ -171,67 +131,88 @@ export default function JourneyScreen() {
           </View>
         </Card>
 
-        {/* Chapters */}
-        <View style={styles.chaptersSection}>
-          <Text style={styles.sectionTitle}>Chapters</Text>
-          {currentPhase.chapters.map((chapter, index) => (
-            <ChapterCard
-              key={chapter.id}
-              chapter={chapter}
-              isFirst={index === 0}
-              isLast={index === currentPhase.chapters.length - 1}
-              onPress={() => {
-                if (!chapter.isLocked) {
-                  router.push(`/chapter/${chapter.id}`);
-                }
-              }}
-            />
-          ))}
-        </View>
+        {/* All Phases & Chapters */}
+        {phases.map((phase, phaseIndex) => {
+          const phaseUnlocked = phaseIndex === 0 || (() => {
+            const prevPhase = phases[phaseIndex - 1];
+            const lastCh = prevPhase.chapters[prevPhase.chapters.length - 1];
+            return areAllLessonsComplete(lastCh);
+          })();
 
-        {/* Locked Phases */}
-        <View style={styles.lockedPhasesSection}>
-          <Text style={styles.sectionTitle}>Coming Up</Text>
-          {PHASES.slice(1).map((phase) => (
-            <Card
-              key={phase.id}
-              variant="outlined"
-              style={styles.lockedPhaseCard}
-            >
-              <View style={styles.lockedPhaseContent}>
-                <View style={styles.lockedIcon}>
-                  <Ionicons
-                    name="lock-closed"
-                    size={20}
-                    color={Colors.text.muted}
-                  />
+          return (
+            <View key={phase.id} style={styles.phaseSection}>
+              {/* Phase Header */}
+              <View style={styles.phaseHeader}>
+                <View style={[
+                  styles.phaseIcon,
+                  !phaseUnlocked && styles.phaseIconLocked,
+                ]}>
+                  {phaseUnlocked ? (
+                    <Text style={styles.phaseNumber}>{phase.number}</Text>
+                  ) : (
+                    <Ionicons name="lock-closed" size={16} color={Colors.text.muted} />
+                  )}
                 </View>
-                <View style={styles.lockedPhaseInfo}>
-                  <Text style={styles.lockedPhaseTitle}>
+                <View style={styles.phaseInfo}>
+                  <Text style={[
+                    styles.phaseTitle,
+                    !phaseUnlocked && styles.phaseTitleLocked,
+                  ]}>
                     Phase {phase.number}: {phase.title}
                   </Text>
-                  <Text style={styles.lockedPhaseSubtitle}>
+                  <Text style={[
+                    styles.phaseSubtitle,
+                    !phaseUnlocked && styles.phaseSubtitleLocked,
+                  ]}>
                     {phase.subtitle}
                   </Text>
                 </View>
               </View>
-            </Card>
-          ))}
-        </View>
+
+              {/* Chapters (show if phase is unlocked) */}
+              {phaseUnlocked && phase.chapters.map((chapter, chapterIndex) => {
+                const unlocked = isChapterUnlocked(chapter, phaseIndex, chapterIndex);
+                const isComplete = areAllLessonsComplete(chapter);
+                const progress = getChapterProgress(chapter);
+                const isLast = chapterIndex === phase.chapters.length - 1;
+
+                return (
+                  <ChapterCard
+                    key={chapter.id}
+                    chapter={chapter}
+                    isUnlocked={unlocked}
+                    isComplete={isComplete}
+                    progress={progress}
+                    isFirst={chapterIndex === 0}
+                    isLast={isLast}
+                    onPress={() => {
+                      if (unlocked) {
+                        router.push(`/chapter/${chapter.id}`);
+                      }
+                    }}
+                  />
+                );
+              })}
+            </View>
+          );
+        })}
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 interface ChapterCardProps {
-  chapter: Chapter;
+  chapter: ChapterData;
+  isUnlocked: boolean;
+  isComplete: boolean;
+  progress: { completed: number; total: number };
   isFirst: boolean;
   isLast: boolean;
   onPress: () => void;
 }
 
-function ChapterCard({ chapter, isFirst, isLast, onPress }: ChapterCardProps) {
-  const chapterColor = getChapterColor(chapter.number);
+function ChapterCard({ chapter, isUnlocked, isComplete, progress, isFirst, isLast, onPress }: ChapterCardProps) {
+  const chapterColor = chapter.color || getChapterColor(chapter.number);
 
   return (
     <View style={styles.chapterContainer}>
@@ -242,24 +223,24 @@ function ChapterCard({ chapter, isFirst, isLast, onPress }: ChapterCardProps) {
             style={[
               styles.timelineConnector,
               styles.timelineTop,
-              chapter.isCompleted && { backgroundColor: chapterColor },
+              isComplete && { backgroundColor: chapterColor },
             ]}
           />
         )}
         <View
           style={[
             styles.timelineDot,
-            chapter.isCompleted && { backgroundColor: chapterColor },
-            chapter.isLocked && styles.timelineDotLocked,
+            isComplete && { backgroundColor: chapterColor },
+            !isUnlocked && styles.timelineDotLocked,
           ]}
         >
-          {chapter.isCompleted && (
+          {isComplete && (
             <Ionicons name="checkmark" size={14} color={Colors.text.inverse} />
           )}
-          {chapter.isLocked && (
+          {!isUnlocked && (
             <Ionicons name="lock-closed" size={12} color={Colors.text.muted} />
           )}
-          {!chapter.isCompleted && !chapter.isLocked && (
+          {!isComplete && isUnlocked && (
             <Text style={styles.timelineDotText}>{chapter.number}</Text>
           )}
         </View>
@@ -268,7 +249,7 @@ function ChapterCard({ chapter, isFirst, isLast, onPress }: ChapterCardProps) {
             style={[
               styles.timelineConnector,
               styles.timelineBottom,
-              chapter.isCompleted && { backgroundColor: chapterColor },
+              isComplete && { backgroundColor: chapterColor },
             ]}
           />
         )}
@@ -277,22 +258,22 @@ function ChapterCard({ chapter, isFirst, isLast, onPress }: ChapterCardProps) {
       {/* Chapter content */}
       <Pressable
         onPress={onPress}
-        disabled={chapter.isLocked}
+        disabled={!isUnlocked}
         style={({ pressed }) => [
           styles.chapterCard,
-          chapter.isLocked && styles.chapterCardLocked,
-          pressed && !chapter.isLocked && styles.chapterCardPressed,
+          !isUnlocked && styles.chapterCardLocked,
+          pressed && isUnlocked && styles.chapterCardPressed,
         ]}
       >
         <View style={styles.chapterHeader}>
           <Badge
             label={`Days ${chapter.daysRange.start}-${chapter.daysRange.end}`}
-            variant={chapter.isCompleted ? 'success' : 'info'}
+            variant={isComplete ? 'success' : 'info'}
             size="sm"
           />
-          {chapter.quizPassed && (
+          {isComplete && (
             <Badge
-              label="Quiz Passed"
+              label="Complete"
               variant="success"
               size="sm"
             />
@@ -301,7 +282,7 @@ function ChapterCard({ chapter, isFirst, isLast, onPress }: ChapterCardProps) {
         <Text
           style={[
             styles.chapterTitle,
-            chapter.isLocked && styles.chapterTitleLocked,
+            !isUnlocked && styles.chapterTitleLocked,
           ]}
         >
           {chapter.title}
@@ -309,21 +290,28 @@ function ChapterCard({ chapter, isFirst, isLast, onPress }: ChapterCardProps) {
         <Text
           style={[
             styles.chapterTheme,
-            chapter.isLocked && styles.chapterThemeLocked,
+            !isUnlocked && styles.chapterThemeLocked,
           ]}
         >
-          {chapter.theme}
+          {chapter.subtitle}
         </Text>
-        {!chapter.isLocked && (
+        {isUnlocked && (
           <View style={styles.chapterAction}>
-            <Text style={[styles.chapterActionText, { color: chapterColor }]}>
-              {chapter.isCompleted ? 'Review' : 'Continue'}
-            </Text>
-            <Ionicons
-              name="chevron-forward"
-              size={16}
-              color={chapterColor}
-            />
+            {!isComplete && (
+              <Text style={styles.chapterProgress}>
+                {progress.completed}/{progress.total} lessons
+              </Text>
+            )}
+            <View style={styles.chapterActionRight}>
+              <Text style={[styles.chapterActionText, { color: chapterColor }]}>
+                {isComplete ? 'Review' : 'Continue'}
+              </Text>
+              <Ionicons
+                name="chevron-forward"
+                size={16}
+                color={chapterColor}
+              />
+            </View>
           </View>
         )}
       </Pressable>
@@ -392,14 +380,48 @@ const styles = StyleSheet.create({
     color: Colors.text.primary,
   },
 
-  // Chapters section
-  chaptersSection: {
+  // Phase section
+  phaseSection: {
     marginBottom: Spacing.xl,
   },
-  sectionTitle: {
+  phaseHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  phaseIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: Colors.primary.tiffanyBlue,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  phaseIconLocked: {
+    backgroundColor: Colors.background.tertiary,
+  },
+  phaseNumber: {
+    ...Typography.body,
+    fontWeight: '700',
+    color: Colors.text.inverse,
+  },
+  phaseInfo: {
+    flex: 1,
+  },
+  phaseTitle: {
     ...Typography.h5,
     color: Colors.text.primary,
-    marginBottom: Spacing.md,
+  },
+  phaseTitleLocked: {
+    color: Colors.text.muted,
+  },
+  phaseSubtitle: {
+    ...Typography.bodySmall,
+    color: Colors.text.secondary,
+  },
+  phaseSubtitleLocked: {
+    color: Colors.text.muted,
   },
 
   // Chapter card
@@ -478,44 +500,20 @@ const styles = StyleSheet.create({
   chapterAction: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginTop: Spacing.md,
+  },
+  chapterActionRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: Spacing.xs,
+  },
+  chapterProgress: {
+    ...Typography.caption,
+    color: Colors.text.muted,
   },
   chapterActionText: {
     ...Typography.bodySmall,
     fontWeight: '600',
-  },
-
-  // Locked phases
-  lockedPhasesSection: {
-    marginTop: Spacing.xl,
-  },
-  lockedPhaseCard: {
-    marginBottom: Spacing.md,
-  },
-  lockedPhaseContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.md,
-  },
-  lockedIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: Colors.background.tertiary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  lockedPhaseInfo: {
-    flex: 1,
-  },
-  lockedPhaseTitle: {
-    ...Typography.body,
-    fontWeight: '600',
-    color: Colors.text.secondary,
-  },
-  lockedPhaseSubtitle: {
-    ...Typography.bodySmall,
-    color: Colors.text.muted,
   },
 });
