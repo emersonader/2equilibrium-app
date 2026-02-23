@@ -224,13 +224,26 @@ export default function ChapterScreen() {
             )}
 
             {progress.quizPassed && (
-              <View style={styles.quizPassedBadge}>
-                <Ionicons
-                  name="checkmark-circle"
-                  size={20}
-                  color={Colors.status.success}
+              <View style={styles.quizPassedRow}>
+                <View style={styles.quizPassedBadge}>
+                  <Ionicons
+                    name="checkmark-circle"
+                    size={20}
+                    color={Colors.status.success}
+                  />
+                  <Text style={styles.quizPassedText}>Completed</Text>
+                </View>
+                <Button
+                  title="Retake Quiz"
+                  variant="ghost"
+                  onPress={() =>
+                    router.push({
+                      pathname: '/quiz/[chapterId]',
+                      params: { chapterId: id },
+                    })
+                  }
+                  style={styles.retakeButton}
                 />
-                <Text style={styles.quizPassedText}>Completed</Text>
               </View>
             )}
           </Card>
@@ -419,11 +432,19 @@ const styles = StyleSheet.create({
   quizButton: {
     marginTop: Spacing.sm,
   },
+  quizPassedRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: Spacing.sm,
+  },
   quizPassedBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Spacing.sm,
+  },
+  retakeButton: {
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: Spacing.xs,
   },
   quizPassedText: {
     ...Typography.textStyles.body,
