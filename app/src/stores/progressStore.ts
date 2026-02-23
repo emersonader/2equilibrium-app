@@ -1,5 +1,7 @@
 import { create } from 'zustand';
+import { Alert } from 'react-native';
 import * as progressService from '@/services/progressService';
+import * as subscriptionService from '@/services/subscriptionService';
 import { useBadgeStore } from './badgeStore';
 import type { QuizAttempt, Milestone } from '@/services/database.types';
 
@@ -63,6 +65,21 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
         currentStreak: progress.current_streak,
         completionTime: new Date(),
       });
+
+      // Auto-cancel subscription when all 180 lessons are complete
+      if (progress.completed_lessons.length >= 180) {
+        try {
+          await subscriptionService.completeProgram();
+          Alert.alert(
+            '🎉 Congratulations!',
+            'You\'ve completed all 180 lessons! Your subscription has been cancelled and you now have lifetime access to review all content.\n\nThank you for completing the 2Equilibrium journey!',
+            [{ text: 'Thank You! 🙏' }]
+          );
+        } catch (cancelError) {
+          console.error('Failed to auto-cancel subscription:', cancelError);
+          // Don't throw — lesson completion succeeded, subscription cancel is secondary
+        }
+      }
     } catch (error) {
       console.error('Failed to mark lesson complete:', error);
       throw error;

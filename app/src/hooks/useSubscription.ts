@@ -14,7 +14,7 @@ export function useSubscription() {
   const tier: SubscriptionTier = subscription?.plan || 'foundation';
 
   // Check if user has active subscription
-  const isActive = subscription?.status === 'active' || subscription?.status === 'trial';
+  const isActive = subscription?.status === 'active' || subscription?.status === 'trial' || subscription?.status === 'completed';
 
   // Check if user is in trial
   const isInTrial = subscription?.status === 'trial';

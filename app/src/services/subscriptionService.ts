@@ -244,6 +244,26 @@ export async function cancelSubscription(): Promise<void> {
 }
 
 /**
+ * Complete program — cancel billing but grant lifetime access
+ * Called automatically when user completes all 180 lessons
+ */
+export async function completeProgram(): Promise<void> {
+  const { data: { user } } = await getSupabase().auth.getUser();
+
+  if (!user) throw new Error('Not authenticated');
+
+  const { error } = await getSupabase()
+    .from('subscriptions')
+    .update({
+      status: 'completed',
+      plan: 'lifetime',
+    })
+    .eq('user_id', user.id);
+
+  if (error) throw error;
+}
+
+/**
  * Subscription comparison for upgrade/downgrade
  */
 export function comparePlans(current: SubscriptionPlan, target: SubscriptionPlan): 'upgrade' | 'downgrade' | 'same' {
