@@ -20,6 +20,15 @@ async function loadLocalAuthModule(): Promise<typeof import('expo-local-authenti
   }
 
   try {
+    // Check if the native module exists before requiring
+    const { NativeModules } = require('react-native');
+    if (!NativeModules.ExpoLocalAuthentication) {
+      console.log('Biometric: native module not available (Expo Go)');
+      LocalAuthModule = null;
+      moduleAvailable = false;
+      moduleChecked = true;
+      return null;
+    }
     const mod = require('expo-local-authentication');
     // Test if it actually works by calling a simple function
     await mod.hasHardwareAsync();
