@@ -56,5 +56,6 @@
     "android",
     "ios"
   ],
-  "_extends_disabled": "expo/tsconfig.base"
+  "_extends_disabled": "expo/tsconfig.base",
+  "extends": "expo/tsconfig.base"
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View,
   Text,
@@ -98,6 +98,45 @@ export default function ProfileScreen() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [isEnablingBiometric, setIsEnablingBiometric] = useState(false);
+
+  // Dev mode: tap version 5 times to unlock all lessons
+  const versionTapCount = useRef(0);
+  const versionTapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleVersionTap = useCallback(() => {
+    versionTapCount.current += 1;
+    if (versionTapTimer.current) clearTimeout(versionTapTimer.current);
+    versionTapTimer.current = setTimeout(() => { versionTapCount.current = 0; }, 2000);
+
+    if (versionTapCount.current >= 5) {
+      versionTapCount.current = 0;
+      Alert.alert(
+        'Developer Mode',
+        'Unlock all 180 lessons? This will mark every lesson as complete.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          {
+            text: 'Unlock All',
+            style: 'destructive',
+            onPress: async () => {
+              try {
+                const allLessonIds = Array.from({ length: 180 }, (_, i) => `lesson_day_${i + 1}`);
+                const { useProgressStore } = require('@/stores');
+                useProgressStore.setState({
+                  completedLessons: allLessonIds,
+                  currentDay: 180,
+                });
+                Alert.alert('Done', 'All 180 lessons unlocked!');
+              } catch (error) {
+                console.error('Failed to unlock lessons:', error);
+                Alert.alert('Error', 'Failed to unlock lessons.');
+              }
+            },
+          },
+        ]
+      );
+    }
+  }, []);
 
   // Get earned badges for showcase
   const earnedBadges = badges.filter(b => b.earned).slice(0, 6);
@@ -631,7 +670,9 @@ export default function ProfileScreen() {
         />
 
         {/* Version */}
-        <Text style={styles.version}>Version 1.0.0</Text>
+        <Pressable onPress={handleVersionTap}>
+          <Text style={styles.version}>Version 1.0.0</Text>
+        </Pressable>
       </ScrollView>
 
       {/* Time Picker Modal */}
