@@ -244,7 +244,7 @@ export async function cancelSubscription(): Promise<void> {
 }
 
 /**
- * Complete program — cancel billing but grant lifetime access
+ * Complete program — cancel billing, grant 2 months of recap access
  * Called automatically when user completes all 180 lessons
  */
 export async function completeProgram(): Promise<void> {
@@ -252,15 +252,49 @@ export async function completeProgram(): Promise<void> {
 
   if (!user) throw new Error('Not authenticated');
 
+  // Grant 2 months of recap access from today
+  const recapExpiry = new Date();
+  recapExpiry.setMonth(recapExpiry.getMonth() + 2);
+
   const { error } = await getSupabase()
     .from('subscriptions')
     .update({
       status: 'completed',
-      plan: 'lifetime',
+      completed_at: new Date().toISOString(),
+      recap_expires_at: recapExpiry.toISOString(),
     })
     .eq('user_id', user.id);
 
   if (error) throw error;
+}
+
+/**
+ * Check if user is in recap period (2 months after completing 180 lessons)
+ */
+export async function isInRecapPeriod(): Promise<{ inRecap: boolean; daysRemaining: number; expiresAt: string | null }> {
+  const { data: { user } } = await getSupabase().auth.getUser();
+  if (!user) return { inRecap: false, daysRemaining: 0, expiresAt: null };
+
+  const { data, error } = await getSupabase()
+    .from('subscriptions')
+    .select('status, recap_expires_at')
+    .eq('user_id', user.id)
+    .single();
+
+  if (error || !data || data.status !== 'completed' || !data.recap_expires_at) {
+    return { inRecap: false, daysRemaining: 0, expiresAt: null };
+  }
+
+  const expiresAt = new Date(data.recap_expires_at);
+  const now = new Date();
+  const diffMs = expiresAt.getTime() - now.getTime();
+  const daysRemaining = Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+
+  return {
+    inRecap: daysRemaining > 0,
+    daysRemaining,
+    expiresAt: data.recap_expires_at,
+  };
 }
 
 /**

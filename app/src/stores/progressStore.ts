@@ -72,8 +72,8 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
           await subscriptionService.completeProgram();
           Alert.alert(
             '🎉 Congratulations!',
-            'You\'ve completed all 180 lessons! Your subscription has been cancelled and you now have lifetime access to review all content.\n\nThank you for completing the 2Equilibrium journey!',
-            [{ text: 'Thank You! 🙏' }]
+            'You\'ve completed all 180 lessons of the 2Equilibrium journey!\n\nYour subscription has been cancelled. You have 2 months of free access to recap any lesson.\n\nA PDF summary of your journey will be available in your Profile — download it to keep forever!',
+            [{ text: 'Amazing! 🙏' }]
           );
         } catch (cancelError) {
           console.error('Failed to auto-cancel subscription:', cancelError);

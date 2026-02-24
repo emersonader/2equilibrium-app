@@ -24,6 +24,7 @@ import { BadgeList } from '@/components/badges';
 import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore } from '@/stores';
 import * as journalService from '@/services/journalService';
 import * as biometricService from '@/services/biometricService';
+import * as journeySummaryService from '@/services/journeySummaryService';
 
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
 
@@ -98,10 +99,23 @@ export default function ProfileScreen() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [isEnablingBiometric, setIsEnablingBiometric] = useState(false);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
   // Dev mode: tap version 5 times to unlock all lessons
   const versionTapCount = useRef(0);
   const versionTapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleDownloadSummary = useCallback(async () => {
+    setIsGeneratingPdf(true);
+    try {
+      await journeySummaryService.generateAndShareSummary();
+    } catch (error) {
+      console.error('Failed to generate journey summary:', error);
+      Alert.alert('Error', 'Failed to generate your journey summary. Please try again.');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  }, []);
 
   const handleVersionTap = useCallback(() => {
     versionTapCount.current += 1;
@@ -623,6 +637,32 @@ export default function ProfileScreen() {
           </Card>
         </View>
 
+        {/* Journey Summary — show when all 180 lessons complete */}
+        {completedLessons.length >= 180 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>🎉 Journey Complete</Text>
+            <Card variant="elevated" style={styles.journeySummaryCard}>
+              <View style={styles.journeySummaryContent}>
+                <Ionicons name="document-text" size={32} color={Colors.primary.orange} />
+                <View style={styles.journeySummaryInfo}>
+                  <Text style={styles.journeySummaryTitle}>Your Journey Summary</Text>
+                  <Text style={styles.journeySummarySubtitle}>
+                    Download a beautifully formatted PDF of your entire 180-day wellness journey, including all journal entries.
+                  </Text>
+                </View>
+              </View>
+              <Button
+                title={isGeneratingPdf ? 'Generating...' : 'Download PDF'}
+                variant="primary"
+                onPress={handleDownloadSummary}
+                loading={isGeneratingPdf}
+                disabled={isGeneratingPdf}
+                style={styles.journeySummaryButton}
+              />
+            </Card>
+          </View>
+        )}
+
         {/* Support */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Support</Text>
@@ -961,6 +1001,30 @@ const styles = StyleSheet.create({
   },
 
   // Sign out
+  journeySummaryCard: {
+    padding: Spacing.base,
+  },
+  journeySummaryContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.md,
+    marginBottom: Spacing.md,
+  },
+  journeySummaryInfo: {
+    flex: 1,
+  },
+  journeySummaryTitle: {
+    ...Typography.h5,
+    color: Colors.text.primary,
+    marginBottom: Spacing.xs,
+  },
+  journeySummarySubtitle: {
+    ...Typography.bodySmall,
+    color: Colors.text.secondary,
+  },
+  journeySummaryButton: {
+    marginTop: Spacing.sm,
+  },
   signOutButton: {
     marginTop: Spacing.xl,
   },

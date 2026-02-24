@@ -14,7 +14,12 @@ export function useSubscription() {
   const tier: SubscriptionTier = subscription?.plan || 'foundation';
 
   // Check if user has active subscription
-  const isActive = subscription?.status === 'active' || subscription?.status === 'trial' || subscription?.status === 'completed';
+  // Active if paying, trial, or in recap period (2 months after completing 180 lessons)
+  const isCompleted = subscription?.status === 'completed';
+  const recapExpired = isCompleted && subscription?.recap_expires_at
+    ? new Date(subscription.recap_expires_at).getTime() < Date.now()
+    : false;
+  const isActive = subscription?.status === 'active' || subscription?.status === 'trial' || (isCompleted && !recapExpired);
 
   // Check if user is in trial
   const isInTrial = subscription?.status === 'trial';
