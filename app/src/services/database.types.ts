@@ -12,7 +12,7 @@ export type Json =
   | Json[];
 
 export type SubscriptionPlan = 'foundation' | 'transformation' | 'lifetime';
-export type SubscriptionStatus = 'trial' | 'active' | 'lapsed' | 'cancelled';
+export type SubscriptionStatus = 'trial' | 'active' | 'lapsed' | 'cancelled' | 'completed';
 export type JournalEntryType = 'daily' | 'weekly_review' | 'freeform';
 export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
 export type Gender = 'male' | 'female' | 'other' | 'prefer_not_to_say';
@@ -88,6 +88,8 @@ export interface Database {
           current_period_start: string;
           current_period_end: string;
           revenuecat_customer_id: string | null;
+          completed_at: string | null;
+          recap_expires_at: string | null;
           created_at: string;
         };
         Insert: {
@@ -99,6 +101,8 @@ export interface Database {
           current_period_start: string;
           current_period_end: string;
           revenuecat_customer_id?: string | null;
+          completed_at?: string | null;
+          recap_expires_at?: string | null;
           created_at?: string;
         };
         Update: {
@@ -108,6 +112,8 @@ export interface Database {
           current_period_start?: string;
           current_period_end?: string;
           revenuecat_customer_id?: string | null;
+          completed_at?: string | null;
+          recap_expires_at?: string | null;
         };
         Relationships: [
           {
