@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import * as Updates from 'expo-updates';
 import { BadgeUnlockModal } from '@/components/badges';
 import { useBadgeStore, useNotificationStore } from '@/stores';
 
@@ -12,6 +13,28 @@ export default function RootLayout() {
   useEffect(() => {
     initializeNotifications().catch(console.error);
   }, [initializeNotifications]);
+
+  // Check for OTA updates on app start
+  useEffect(() => {
+    async function checkForUpdates() {
+      try {
+        if (!__DEV__) {
+          const update = await Updates.checkForUpdateAsync();
+          
+          if (update.isAvailable) {
+            console.log('📦 New update available, downloading...');
+            await Updates.fetchUpdateAsync();
+            console.log('✅ Update downloaded, reloading app...');
+            await Updates.reloadAsync();
+          }
+        }
+      } catch (error) {
+        console.error('Error checking for updates:', error);
+      }
+    }
+
+    checkForUpdates();
+  }, []);
 
   return (
     <>
