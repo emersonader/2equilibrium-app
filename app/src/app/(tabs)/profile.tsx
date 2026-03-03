@@ -130,23 +130,18 @@ export default function ProfileScreen() {
         [
           { text: 'Cancel', style: 'cancel' },
           {
-            text: 'Unlock All',
+            text: 'Unlock Lessons Only',
             style: 'destructive',
             onPress: async () => {
               try {
                 const allLessonIds = Array.from({ length: 180 }, (_, i) => `lesson_day_${i + 1}`);
-                // Build quiz scores for all 36 chapters (score 100 each)
-                const allQuizScores: Record<string, number> = {};
-                for (let i = 1; i <= 36; i++) {
-                  allQuizScores[`chapter_${i}`] = 100;
-                }
                 const { useProgressStore } = require('@/stores');
                 useProgressStore.setState({
                   completedLessons: allLessonIds,
                   currentDay: 180,
-                  quizScores: allQuizScores,
+                  quizScores: {},
                 });
-                Alert.alert('Done', 'All 180 lessons and 36 quizzes unlocked!');
+                Alert.alert('Done', 'All 180 lessons unlocked! Quizzes are ready to take fresh.');
               } catch (error) {
                 console.error('Failed to unlock lessons:', error);
                 Alert.alert('Error', 'Failed to unlock lessons.');
