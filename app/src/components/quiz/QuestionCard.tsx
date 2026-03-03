@@ -152,7 +152,7 @@ export function QuestionCard({
       {question.type === 'true_false' && renderTrueFalse()}
       {question.type === 'reflection' && renderReflection()}
 
-      {showCorrect && question.explanation && (
+      {showCorrect && question.explanation && selectedAnswer === question.correctAnswer && (
         <View style={styles.explanationContainer}>
           <Ionicons name="information-circle" size={20} color={Colors.primary.tiffanyBlue} />
           <Text style={styles.explanationText}>{question.explanation}</Text>
