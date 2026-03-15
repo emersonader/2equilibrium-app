@@ -124,7 +124,7 @@ export async function ensureProfileExists(): Promise<Profile> {
         // Website compatibility fields
         email: user.email!,
         name: fullName || user.email!,
-        tier: 'foundation',
+        tier: 'premium',
         is_admin: false,
 
         // Mobile app fields

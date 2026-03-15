@@ -1,6 +1,5 @@
 import { getSupabase, isSupabaseConfigured } from './supabase';
-import type { Subscription, SubscriptionPlan, SubscriptionStatus } from './database.types';
-import { TIER_FEATURES, SUBSCRIPTION_PRICING, type TierFeatures } from '@/constants/featureFlags';
+import type { Subscription, SubscriptionStatus } from './database.types';
 
 /**
  * Get current user's subscription
@@ -24,167 +23,25 @@ export async function getSubscription(): Promise<Subscription | null> {
 }
 
 /**
- * Check if user has an active subscription
+ * Check if user has an active subscription (active, trial, or in recap period)
  */
 export async function hasActiveSubscription(): Promise<boolean> {
   const subscription = await getSubscription();
 
   if (!subscription) return false;
 
-  return subscription.status === 'active' || subscription.status === 'trial';
-}
+  if (subscription.status === 'active' || subscription.status === 'trial') return true;
 
-/**
- * Get subscription tier/plan
- */
-export async function getSubscriptionTier(): Promise<SubscriptionPlan | 'none'> {
-  const subscription = await getSubscription();
-
-  if (!subscription) return 'none';
-
-  if (subscription.status === 'active' || subscription.status === 'trial') {
-    return subscription.plan;
+  // Check if in 60-day recap window after program completion
+  if (subscription.status === 'completed' && subscription.recap_expires_at) {
+    return new Date(subscription.recap_expires_at) > new Date();
   }
 
-  return 'none';
+  return false;
 }
 
 /**
- * Check if user is in trial period
- */
-export async function isInTrial(): Promise<boolean> {
-  const subscription = await getSubscription();
-
-  if (!subscription) return false;
-
-  return subscription.status === 'trial';
-}
-
-/**
- * Get trial days remaining
- */
-export async function getTrialDaysRemaining(): Promise<number> {
-  const subscription = await getSubscription();
-
-  if (!subscription || subscription.status !== 'trial' || !subscription.trial_end_date) {
-    return 0;
-  }
-
-  const trialEnd = new Date(subscription.trial_end_date);
-  const now = new Date();
-  const diffTime = trialEnd.getTime() - now.getTime();
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  return Math.max(0, diffDays);
-}
-
-/**
- * Get features available for current subscription
- */
-export async function getAvailableFeatures(): Promise<TierFeatures> {
-  const tier = await getSubscriptionTier();
-  return TIER_FEATURES[tier];
-}
-
-/**
- * Check if a specific feature is available
- */
-export async function hasFeature(feature: keyof TierFeatures): Promise<boolean> {
-  const features = await getAvailableFeatures();
-  const value = features[feature];
-
-  // Feature is available if it's not false, 'limited', or 'basic'
-  return value !== false && value !== 'limited' && value !== 'basic';
-}
-
-/**
- * Get pricing info for a plan
- */
-export function getPlanPricing(plan: SubscriptionPlan) {
-  return SUBSCRIPTION_PRICING[plan];
-}
-
-/**
- * Format price for display
- */
-export function formatPrice(plan: SubscriptionPlan): string {
-  const pricing = getPlanPricing(plan);
-  return `$${pricing.price}`;
-}
-
-/**
- * Format period for display
- */
-export function formatPeriod(plan: SubscriptionPlan): string {
-  const pricing = getPlanPricing(plan);
-  switch (pricing.period) {
-    case 'monthly':
-      return 'per month';
-    case '6_months':
-      return 'for 6 months';
-    case 'yearly':
-      return 'per year';
-    default:
-      return '';
-  }
-}
-
-/**
- * Calculate per-month cost for display
- */
-export function getPerMonthCost(plan: SubscriptionPlan): string {
-  const pricing = getPlanPricing(plan);
-  return `$${pricing.perMonth.toFixed(2)}`;
-}
-
-/**
- * Create a subscription record (called after RevenueCat purchase)
- * This would typically be called from a webhook, but can also be client-side
- */
-export async function createSubscription(
-  plan: SubscriptionPlan,
-  revenueCatCustomerId: string,
-  periodStart: Date,
-  periodEnd: Date,
-  isTrialPeriod: boolean = false
-): Promise<Subscription> {
-  const { data: { user } } = await getSupabase().auth.getUser();
-
-  if (!user) throw new Error('Not authenticated');
-
-  const trialEndDate = isTrialPeriod
-    ? new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
-    : null;
-
-  const { data, error } = await getSupabase()
-    .from('subscriptions')
-    .upsert({
-      user_id: user.id,
-      plan,
-      status: isTrialPeriod ? 'trial' : 'active',
-      trial_end_date: trialEndDate,
-      current_period_start: periodStart.toISOString(),
-      current_period_end: periodEnd.toISOString(),
-      revenuecat_customer_id: revenueCatCustomerId,
-    }, {
-      onConflict: 'user_id',
-    })
-    .select()
-    .single();
-
-  if (error) throw error;
-
-  // Also update user progress with subscription start date
-  await getSupabase()
-    .from('user_progress')
-    .update({ subscription_start_date: periodStart.toISOString() })
-    .eq('user_id', user.id);
-
-  return data;
-}
-
-/**
- * Update subscription status (for webhook handling)
+ * Update subscription status (called from webhook handler or admin)
  */
 export async function updateSubscriptionStatus(
   userId: string,
@@ -206,7 +63,7 @@ export async function updateSubscriptionStatus(
 }
 
 /**
- * Handle trial conversion (called when trial ends and user pays)
+ * Convert trial to active
  */
 export async function convertTrialToActive(): Promise<Subscription> {
   const { data: { user } } = await getSupabase().auth.getUser();
@@ -244,17 +101,17 @@ export async function cancelSubscription(): Promise<void> {
 }
 
 /**
- * Complete program — cancel billing, grant 2 months of recap access
- * Called automatically when user completes all 180 lessons
+ * Complete program — mark complete and grant 60-day recap access.
+ * Called automatically when user completes all 180 lessons.
+ * Stripe billing is cancelled separately via webhook.
  */
 export async function completeProgram(): Promise<void> {
   const { data: { user } } = await getSupabase().auth.getUser();
 
   if (!user) throw new Error('Not authenticated');
 
-  // Grant 2 months of recap access from today
   const recapExpiry = new Date();
-  recapExpiry.setMonth(recapExpiry.getMonth() + 2);
+  recapExpiry.setDate(recapExpiry.getDate() + 60);
 
   const { error } = await getSupabase()
     .from('subscriptions')
@@ -269,9 +126,13 @@ export async function completeProgram(): Promise<void> {
 }
 
 /**
- * Check if user is in recap period (2 months after completing 180 lessons)
+ * Check if user is in recap period (60 days after completing all 180 lessons)
  */
-export async function isInRecapPeriod(): Promise<{ inRecap: boolean; daysRemaining: number; expiresAt: string | null }> {
+export async function isInRecapPeriod(): Promise<{
+  inRecap: boolean;
+  daysRemaining: number;
+  expiresAt: string | null;
+}> {
   const { data: { user } } = await getSupabase().auth.getUser();
   if (!user) return { inRecap: false, daysRemaining: 0, expiresAt: null };
 
@@ -286,8 +147,7 @@ export async function isInRecapPeriod(): Promise<{ inRecap: boolean; daysRemaini
   }
 
   const expiresAt = new Date(data.recap_expires_at);
-  const now = new Date();
-  const diffMs = expiresAt.getTime() - now.getTime();
+  const diffMs = expiresAt.getTime() - Date.now();
   const daysRemaining = Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
 
   return {
@@ -295,17 +155,4 @@ export async function isInRecapPeriod(): Promise<{ inRecap: boolean; daysRemaini
     daysRemaining,
     expiresAt: data.recap_expires_at,
   };
-}
-
-/**
- * Subscription comparison for upgrade/downgrade
- */
-export function comparePlans(current: SubscriptionPlan, target: SubscriptionPlan): 'upgrade' | 'downgrade' | 'same' {
-  const planOrder: SubscriptionPlan[] = ['foundation', 'transformation', 'lifetime'];
-  const currentIndex = planOrder.indexOf(current);
-  const targetIndex = planOrder.indexOf(target);
-
-  if (currentIndex < targetIndex) return 'upgrade';
-  if (currentIndex > targetIndex) return 'downgrade';
-  return 'same';
 }

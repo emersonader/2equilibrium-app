@@ -17,11 +17,11 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors, Typography, Spacing, Layout, BorderRadius, SUBSCRIPTION_PRICING } from '@/constants';
+import { Colors, Typography, Spacing, Layout, BorderRadius } from '@/constants';
 import { Card, Button, Badge, ProgressRing } from '@/components/ui';
 import { HealthMetricsSection, HealthConnectSection } from '@/components/health';
 import { BadgeList } from '@/components/badges';
-import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore } from '@/stores';
+import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore, useSubscriptionStore } from '@/stores';
 import * as journalService from '@/services/journalService';
 import * as biometricService from '@/services/biometricService';
 import * as journeySummaryService from '@/services/journeySummaryService';
@@ -84,6 +84,7 @@ export default function ProfileScreen() {
     refreshPermissionStatus,
     requestPermissions,
   } = useNotificationStore();
+  const { subscriptionStatus, recapDaysRemaining } = useSubscriptionStore();
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [journalEntriesCount, setJournalEntriesCount] = useState(0);
 
@@ -309,11 +310,31 @@ export default function ProfileScreen() {
   // Calculate chapters completed (a chapter is complete if all 5 lessons are done)
   const chaptersCompleted = Math.floor(completedLessons.length / 5);
 
+  // Get subscription badge info
+  const getSubscriptionBadge = () => {
+    switch (subscriptionStatus) {
+      case 'active':
+        return { label: 'Active', variant: 'success' as const };
+      case 'completed':
+        return { 
+          label: recapDaysRemaining > 0 ? `Recap Period (${recapDaysRemaining}d left)` : 'Recap Period', 
+          variant: 'info' as const 
+        };
+      case 'expired':
+        return { label: 'Expired', variant: 'error' as const };
+      case 'none':
+      default:
+        return { label: 'Free', variant: 'secondary' as const };
+    }
+  };
+
+  const subscriptionBadge = getSubscriptionBadge();
+
   // Use profile data if available, otherwise use defaults
   const user = {
     name: profile?.full_name || 'Wellness Seeker',
     email: profile?.id ? 'Your Account' : 'user@example.com',
-    subscriptionTier: 'transformation' as const,
+    subscriptionTier: 'Premium' as const,
     memberSince: new Date('2024-01-01'),
     stats: {
       currentStreak: currentStreak,
@@ -325,57 +346,10 @@ export default function ProfileScreen() {
   };
 
   const handleManageSubscription = () => {
-    Alert.alert(
-      'Manage Subscription',
-      'You can manage your subscription through your device settings.',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Open Settings',
-          onPress: () => {
-            if (Platform.OS === 'ios') {
-              Linking.openURL('https://apps.apple.com/account/subscriptions');
-            } else {
-              Linking.openURL('https://play.google.com/store/account/subscriptions');
-            }
-          },
-        },
-      ]
-    );
+    Linking.openURL('https://www.2equilibrium.com/account');
   };
 
-  const handleAppearance = () => {
-    Alert.alert(
-      'Appearance',
-      'Dark mode coming soon! Currently using light mode.',
-      [{ text: 'OK' }]
-    );
-  };
 
-  const handleOfflineContent = () => {
-    Alert.alert(
-      'Offline Content',
-      'Offline content downloading coming soon! Your lessons will be available offline in a future update.',
-      [{ text: 'OK' }]
-    );
-  };
-
-  const handleExportJournal = async () => {
-    try {
-      const csvData = await journalService.exportJournalAsCsv();
-      if (csvData.split('\n').length <= 1) {
-        Alert.alert('No Entries', 'You have no journal entries to export yet.');
-        return;
-      }
-      Alert.alert(
-        'Export Journal',
-        'Journal export feature coming soon! Your entries will be exportable as CSV in a future update.',
-        [{ text: 'OK' }]
-      );
-    } catch (error) {
-      Alert.alert('Error', 'Failed to export journal. Please try again.');
-    }
-  };
 
   const handleHelp = () => {
     Linking.openURL('https://www.2equilibrium.com/help');
@@ -385,13 +359,7 @@ export default function ProfileScreen() {
     Linking.openURL('mailto:support@2equilibrium.com?subject=App Support');
   };
 
-  const handleRateApp = () => {
-    if (Platform.OS === 'ios') {
-      Linking.openURL('https://apps.apple.com/app/id0000000000'); // Replace with actual App Store ID
-    } else {
-      Linking.openURL('https://play.google.com/store/apps/details?id=com.2equilibrium.app'); // Replace with actual package name
-    }
-  };
+
 
   const handleTerms = () => {
     Linking.openURL('https://www.2equilibrium.com/terms');
@@ -399,6 +367,62 @@ export default function ProfileScreen() {
 
   const handlePrivacy = () => {
     Linking.openURL('https://www.2equilibrium.com/privacy');
+  };
+
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      'Delete Account',
+      'This will permanently delete your account and all your data, including progress, journal entries, and subscription. This action cannot be undone.\n\nAre you absolutely sure?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete Account',
+          style: 'destructive',
+          onPress: () => {
+            Alert.alert(
+              'Final Confirmation',
+              'This is your last chance. Deleting your account will remove all your data permanently.',
+              [
+                { text: 'Cancel', style: 'cancel' },
+                {
+                  text: 'Yes, Delete Everything',
+                  style: 'destructive',
+                  onPress: async () => {
+                    setIsSigningOut(true); // Reuse the loading state
+                    try {
+                      // Call the delete account API
+                      const response = await fetch('https://www.2equilibrium.com/api/delete-account', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                          email: profile?.id,
+                        }),
+                      });
+
+                      if (response.ok) {
+                        // Sign out and redirect to login
+                        await signOut();
+                        router.replace('/(auth)/login');
+                        Alert.alert('Account Deleted', 'Your account and all data have been permanently deleted.');
+                      } else {
+                        throw new Error('Failed to delete account');
+                      }
+                    } catch (error) {
+                      console.error('Delete account failed:', error);
+                      Alert.alert('Error', 'Failed to delete account. Please contact support for assistance.');
+                    } finally {
+                      setIsSigningOut(false);
+                    }
+                  },
+                },
+              ]
+            );
+          },
+        },
+      ]
+    );
   };
 
   const handleSignOut = () => {
@@ -450,8 +474,8 @@ export default function ProfileScreen() {
               <Text style={styles.userName}>{user.name}</Text>
               <Text style={styles.userEmail}>{user.email}</Text>
               <Badge
-                label={user.subscriptionTier.charAt(0).toUpperCase() + user.subscriptionTier.slice(1)}
-                variant="secondary"
+                label={subscriptionBadge.label}
+                variant={subscriptionBadge.variant}
                 size="sm"
               />
             </View>
@@ -527,14 +551,10 @@ export default function ProfileScreen() {
           <Card variant="outlined" style={styles.subscriptionCard}>
             <View style={styles.subscriptionHeader}>
               <View>
-                <Text style={styles.subscriptionPlan}>
-                  {user.subscriptionTier.charAt(0).toUpperCase() + user.subscriptionTier.slice(1)} Plan
-                </Text>
-                <Text style={styles.subscriptionPrice}>
-                  ${SUBSCRIPTION_PRICING[user.subscriptionTier].price} / {SUBSCRIPTION_PRICING[user.subscriptionTier].period.replace('_', ' ')}
-                </Text>
+                <Text style={styles.subscriptionPlan}>Premium Plan</Text>
+                <Text style={styles.subscriptionPrice}>$19.99 / month</Text>
               </View>
-              <Badge label="Active" variant="success" />
+              <Badge label={subscriptionBadge.label} variant={subscriptionBadge.variant} />
             </View>
             <Button
               title="Manage Subscription"
@@ -588,7 +608,6 @@ export default function ProfileScreen() {
 
           {/* Other Settings */}
           <Card variant="default" padding="none" style={styles.settingsCard}>
-            <View style={styles.settingsDivider} />
             {biometricSupported && (
               <>
                 <SettingsItem
@@ -609,26 +628,7 @@ export default function ProfileScreen() {
                 <View style={styles.settingsDivider} />
               </>
             )}
-            <SettingsItem
-              icon="moon-outline"
-              title="Appearance"
-              subtitle="Light mode"
-              onPress={handleAppearance}
-            />
-            <View style={styles.settingsDivider} />
-            <SettingsItem
-              icon="download-outline"
-              title="Offline Content"
-              subtitle="Download lessons for offline use"
-              onPress={handleOfflineContent}
-            />
-            <View style={styles.settingsDivider} />
-            <SettingsItem
-              icon="document-text-outline"
-              title="Export Journal"
-              subtitle="Download your journal entries"
-              onPress={handleExportJournal}
-            />
+
           </Card>
         </View>
 
@@ -673,12 +673,7 @@ export default function ProfileScreen() {
               title="Contact Support"
               onPress={handleContactSupport}
             />
-            <View style={styles.settingsDivider} />
-            <SettingsItem
-              icon="star-outline"
-              title="Rate the App"
-              onPress={handleRateApp}
-            />
+
           </Card>
         </View>
 
@@ -695,6 +690,19 @@ export default function ProfileScreen() {
               icon="shield-outline"
               title="Privacy Policy"
               onPress={handlePrivacy}
+            />
+          </Card>
+        </View>
+
+        {/* Danger Zone */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Danger Zone</Text>
+          <Card variant="default" padding="none" style={styles.settingsCard}>
+            <SettingsItem
+              icon="trash-outline"
+              title="Delete Account"
+              subtitle="Permanently delete your account and all data"
+              onPress={handleDeleteAccount}
             />
           </Card>
         </View>

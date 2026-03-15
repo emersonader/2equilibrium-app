@@ -5,7 +5,9 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  ActivityIndicator,
+  Alert,
+  Platform,
+  Linking,
 } from 'react-native';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -14,82 +16,94 @@ import { Colors } from '@/constants/colors';
 import { Typography } from '@/constants/typography';
 import { Spacing } from '@/constants/spacing';
 import { Button } from '@/components/ui/Button';
-import { TierCard } from '@/components/subscription/TierCard';
 import { useSubscriptionStore } from '@/stores/subscriptionStore';
 import { useUserStore } from '@/stores/userStore';
-import type { SubscriptionPlan } from '@/services/database.types';
+
+const PLAN_FEATURES = [
+  'All 180 days of wellness lessons',
+  'Daily affirmations & nourishment tips',
+  'Personalized movement suggestions',
+  'Chapter quizzes with instant retakes',
+  'Community circle access',
+  'Journal export (PDF)',
+  'Offline content access',
+  'Milestone celebrations',
+  '60-day recap access after completion',
+];
 
 export default function OnboardingSubscription() {
-  const [selectedPlan, setSelectedPlan] = useState<SubscriptionPlan>('transformation');
-  const { packages, isLoading, purchase, loadPackages } = useSubscriptionStore();
+  const { 
+    refreshStatus, 
+    restore, 
+    purchaseViaIAP, 
+    iapAvailable, 
+    iapProduct, 
+    isPurchasing 
+  } = useSubscriptionStore();
   const { updateOnboardingComplete } = useUserStore();
-  const [isPurchasing, setIsPurchasing] = useState(false);
+  const [isRestoring, setIsRestoring] = useState(false);
 
-  useEffect(() => {
-    loadPackages();
-  }, []);
+  // Use product price from StoreKit or fallback
+  const displayPrice = iapProduct?.displayPrice || '$19.99';
 
   const handleSubscribe = async () => {
-    setIsPurchasing(true);
-    try {
-      // Find the package for the selected plan
-      const pkg = packages.find((p) => {
-        if (selectedPlan === 'foundation') return p.packageType === 'MONTHLY';
-        if (selectedPlan === 'transformation') return p.packageType === 'SIX_MONTH';
-        if (selectedPlan === 'lifetime') return p.packageType === 'ANNUAL';
-        return false;
-      });
+    if (!iapAvailable) {
+      Alert.alert(
+        'Not Available', 
+        'In-app purchases are not available on this device. Please check your Apple ID settings and try again.'
+      );
+      return;
+    }
 
-      if (pkg) {
-        const success = await purchase(pkg);
-        if (success) {
-          await updateOnboardingComplete();
-          router.replace('/(tabs)');
-        }
-      } else {
-        // If no packages (development mode), just complete onboarding
+    if (!iapProduct) {
+      Alert.alert(
+        'Not Available', 
+        'The subscription product could not be loaded. Please restart the app and try again.'
+      );
+      return;
+    }
+
+    try {
+      const success = await purchaseViaIAP();
+      if (success) {
+        // Purchase initiated - callback will handle completion
         await updateOnboardingComplete();
         router.replace('/(tabs)');
       }
-    } catch (error) {
-      console.error('Purchase failed:', error);
-    } finally {
-      setIsPurchasing(false);
+    } catch (error: any) {
+      if (error?.code !== 'E_USER_CANCELLED') {
+        Alert.alert('Purchase Failed', 'Unable to complete the purchase. Please try again.');
+      }
     }
   };
 
   const handleRestore = async () => {
-    setIsPurchasing(true);
+    setIsRestoring(true);
     try {
-      const { restore } = useSubscriptionStore.getState();
       const hasSubscription = await restore();
       if (hasSubscription) {
         await updateOnboardingComplete();
         router.replace('/(tabs)');
+        Alert.alert('Success', 'Your subscription has been restored!');
+      } else {
+        Alert.alert('No Subscription Found', 'No active subscription was found. If you just completed a purchase, please try again in a few moments.');
       }
     } catch (error) {
       console.error('Restore failed:', error);
+      Alert.alert('Error', 'Failed to restore subscription. Please try again.');
     } finally {
-      setIsPurchasing(false);
+      setIsRestoring(false);
     }
-  };
-
-  const getButtonText = () => {
-    if (selectedPlan === 'transformation') {
-      return 'Start Free Trial';
-    }
-    return 'Subscribe Now';
   };
 
   const handleSkip = async () => {
-    // Allow skipping subscription during development/testing
     await updateOnboardingComplete();
     router.replace('/(tabs)');
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header with Back Button */}
+      {/* Header */}
       <View style={styles.topBar}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <Ionicons name="chevron-back" size={24} color={Colors.text.primary} />
@@ -108,62 +122,92 @@ export default function OnboardingSubscription() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.step}>Step 4 of 4</Text>
-          <Text style={styles.title}>Choose Your Path</Text>
+          <Text style={styles.title}>Start Your Journey</Text>
           <Text style={styles.subtitle}>
-            Select the plan that fits your wellness journey. You can change anytime.
+            One simple plan. Everything included. Cancel anytime — or finish all 180 lessons and billing stops automatically.
           </Text>
         </View>
 
-        {/* Plans */}
-        <View style={styles.plans}>
-          <TierCard
-            plan="foundation"
-            isSelected={selectedPlan === 'foundation'}
-            onSelect={() => setSelectedPlan('foundation')}
-          />
-          <TierCard
-            plan="transformation"
-            isSelected={selectedPlan === 'transformation'}
-            isRecommended
-            onSelect={() => setSelectedPlan('transformation')}
-          />
-          <TierCard
-            plan="lifetime"
-            isSelected={selectedPlan === 'lifetime'}
-            onSelect={() => setSelectedPlan('lifetime')}
-          />
+        {/* Plan Card */}
+        <View style={styles.planCard}>
+          {/* Price */}
+          <View style={styles.priceRow}>
+            <Text style={styles.price}>{displayPrice}</Text>
+            <Text style={styles.pricePeriod}>/month</Text>
+          </View>
+          <Text style={styles.planName}>Full Access · Cancel anytime</Text>
+
+          <View style={styles.divider} />
+
+          {/* Features */}
+          <View style={styles.features}>
+            {PLAN_FEATURES.map((feature, index) => (
+              <View key={index} style={styles.featureItem}>
+                <Ionicons name="checkmark-circle" size={18} color={Colors.primary.tiffanyBlue} />
+                <Text style={styles.featureText}>{feature}</Text>
+              </View>
+            ))}
+          </View>
         </View>
 
-        {/* Money-back guarantee */}
-        <View style={styles.guarantee}>
-          <Ionicons name="shield-checkmark" size={20} color={Colors.status.success} />
-          <Text style={styles.guaranteeText}>
-            30-day money-back guarantee. No questions asked.
-          </Text>
+        {/* How it works */}
+        <View style={styles.howItWorks}>
+          <Text style={styles.howItWorksTitle}>How it works</Text>
+          <View style={styles.step_item}>
+            <Text style={styles.stepNumber}>1</Text>
+            <Text style={styles.stepText}>Tap Subscribe — you'll be taken to a secure web checkout</Text>
+          </View>
+          <View style={styles.step_item}>
+            <Text style={styles.stepNumber}>2</Text>
+            <Text style={styles.stepText}>Complete payment, then return to the app and tap Restore</Text>
+          </View>
+          <View style={styles.step_item}>
+            <Text style={styles.stepNumber}>3</Text>
+            <Text style={styles.stepText}>After all 180 lessons: billing stops, you keep 60 days of access</Text>
+          </View>
         </View>
       </ScrollView>
 
       {/* Bottom Actions */}
       <View style={styles.bottomActions}>
         <Button
-          title={isPurchasing ? 'Processing...' : getButtonText()}
+          title={isPurchasing ? 'Processing...' : `Subscribe — ${displayPrice}/mo`}
           onPress={handleSubscribe}
-          disabled={isPurchasing}
+          disabled={isPurchasing || isRestoring || !iapAvailable}
           style={styles.subscribeButton}
         />
 
         <TouchableOpacity
           onPress={handleRestore}
-          disabled={isPurchasing}
+          disabled={isRestoring || isPurchasing}
           style={styles.restoreButton}
         >
-          <Text style={styles.restoreText}>Restore Purchases</Text>
+          <Text style={styles.restoreText}>
+            {isRestoring ? 'Checking...' : 'Already subscribed? Restore'}
+          </Text>
         </TouchableOpacity>
 
+        {Platform.OS === 'ios' && (
+          <Text style={styles.appleDisclaimer}>
+            Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel subscriptions in your Apple ID account settings.
+          </Text>
+        )}
+        
         <Text style={styles.terms}>
           By subscribing, you agree to our{' '}
-          <Text style={styles.termsLink}>Terms of Service</Text> and{' '}
-          <Text style={styles.termsLink}>Privacy Policy</Text>
+          <Text
+            style={styles.termsLink}
+            onPress={() => Linking.openURL('https://www.2equilibrium.com/terms')}
+          >
+            Terms of Service
+          </Text>
+          {' '}and{' '}
+          <Text
+            style={styles.termsLink}
+            onPress={() => Linking.openURL('https://www.2equilibrium.com/privacy')}
+          >
+            Privacy Policy
+          </Text>
         </Text>
       </View>
     </SafeAreaView>
@@ -228,22 +272,87 @@ const styles = StyleSheet.create({
     ...Typography.textStyles.body,
     color: Colors.text.secondary,
     marginTop: Spacing.xs,
+    lineHeight: 22,
   },
-  plans: {
-    marginBottom: Spacing.lg,
+  planCard: {
+    backgroundColor: Colors.background.secondary,
+    borderRadius: Spacing.borderRadius.lg,
+    padding: Spacing.xl,
+    marginBottom: Spacing.xl,
+    borderWidth: 2,
+    borderColor: Colors.primary.orange,
   },
-  guarantee: {
+  priceRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginBottom: Spacing.xs,
+  },
+  price: {
+    ...Typography.textStyles.h1,
+    color: Colors.text.primary,
+    fontSize: 42,
+  },
+  pricePeriod: {
+    ...Typography.textStyles.h4,
+    color: Colors.text.secondary,
+    marginLeft: Spacing.xs,
+  },
+  planName: {
+    ...Typography.textStyles.bodySmall,
+    color: Colors.text.secondary,
+    marginBottom: Spacing.md,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: Colors.ui?.border || Colors.background.tertiary,
+    marginBottom: Spacing.md,
+  },
+  features: {
+    gap: Spacing.sm,
+  },
+  featureItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.status.successLight,
-    padding: Spacing.md,
-    borderRadius: Spacing.borderRadius.md,
+    gap: Spacing.sm,
   },
-  guaranteeText: {
-    ...Typography.textStyles.bodySmall,
+  featureText: {
+    ...Typography.textStyles.body,
     color: Colors.text.primary,
-    marginLeft: Spacing.xs,
+    flex: 1,
+  },
+  howItWorks: {
+    backgroundColor: Colors.background.secondary,
+    borderRadius: Spacing.borderRadius.md,
+    padding: Spacing.lg,
+    marginBottom: Spacing.lg,
+  },
+  howItWorksTitle: {
+    ...Typography.textStyles.h5,
+    color: Colors.text.primary,
+    marginBottom: Spacing.md,
+  },
+  step_item: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: Spacing.md,
+    marginBottom: Spacing.sm,
+  },
+  stepNumber: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: Colors.primary.orange,
+    color: Colors.neutral.white,
+    textAlign: 'center',
+    lineHeight: 24,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  stepText: {
+    ...Typography.textStyles.bodySmall,
+    color: Colors.text.secondary,
+    flex: 1,
+    lineHeight: 20,
   },
   bottomActions: {
     padding: Spacing.layout.screenPadding,
@@ -261,6 +370,13 @@ const styles = StyleSheet.create({
   restoreText: {
     ...Typography.textStyles.body,
     color: Colors.primary.orange,
+  },
+  appleDisclaimer: {
+    ...Typography.textStyles.caption,
+    color: Colors.text.muted,
+    textAlign: 'center',
+    marginBottom: Spacing.sm,
+    lineHeight: 16,
   },
   terms: {
     ...Typography.textStyles.caption,

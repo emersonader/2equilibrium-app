@@ -40,7 +40,7 @@ export default function CommunityScreen() {
   const [newPostContent, setNewPostContent] = useState('');
   const [isPosting, setIsPosting] = useState(false);
 
-  // Check if user has community access
+  // Check if user has community access (any active subscription)
   const hasCommunityAccess = hasFeature(tier, 'communityCircle');
 
   useFocusEffect(
@@ -152,7 +152,7 @@ export default function CommunityScreen() {
           <Ionicons name="lock-closed" size={64} color={Colors.text.muted} />
           <Text style={styles.lockedTitle}>Unlock Community</Text>
           <Text style={styles.lockedText}>
-            Upgrade to Transformation or Lifetime to connect with fellow wellness seekers, share your journey, and encourage others.
+            Subscribe to connect with fellow wellness seekers, share your journey, and encourage others on their path.
           </Text>
           <Button
             title="View Plans"

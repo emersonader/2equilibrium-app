@@ -62,7 +62,7 @@ export async function searchFoods(query: string, page: number = 1): Promise<Food
   // Try USDA API first for generic foods
   try {
     const response = await fetch(
-      `${USDA_API_URL}?query=${encodeURIComponent(query)}&dataType=Foundation,SR%20Legacy&pageSize=25&pageNumber=${page}&api_key=${USDA_API_KEY}`,
+      `${USDA_API_URL}?query=${encodeURIComponent(query)}&dataType=Foundation,SR%20Legacy,Survey%20(FNDDS)&pageSize=25&pageNumber=${page}&api_key=${USDA_API_KEY}`,
       {
         headers: {
           'Accept': 'application/json',

@@ -16,7 +16,8 @@
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to scan food barcodes for nutrition tracking.",
         "NSHealthShareUsageDescription": "This app reads your health data to track steps, sleep, and other wellness metrics to provide personalized insights.",
-        "NSHealthUpdateUsageDescription": "This app saves your weight and health metrics to Apple Health for easy tracking."
+        "NSHealthUpdateUsageDescription": "This app saves your weight and health metrics to Apple Health for easy tracking.",
+        "ITSAppUsesNonExemptEncryption": false
       },
       "entitlements": {
         "com.apple.developer.healthkit": true,
@@ -37,8 +38,7 @@
         "android.permission.health.READ_TOTAL_CALORIES_BURNED",
         "android.permission.health.READ_DISTANCE",
         "android.permission.health.WRITE_WEIGHT",
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
+        "android.permission.CAMERA"
       ]
     },
     "web": {

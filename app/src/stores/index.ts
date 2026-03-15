@@ -7,7 +7,7 @@ export { useProgressStore, default as progressStore } from './progressStore';
 // Journal store - journal entries and tracking
 export { useJournalStore, default as journalStore } from './journalStore';
 
-// Subscription store - RevenueCat integration
+// Subscription store - Stripe web subscription via Supabase
 export { useSubscriptionStore, default as subscriptionStore } from './subscriptionStore';
 
 // Health store - BMI and weight tracking

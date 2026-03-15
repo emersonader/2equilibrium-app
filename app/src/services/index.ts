@@ -55,35 +55,12 @@ export {
 export {
   getSubscription,
   hasActiveSubscription,
-  getSubscriptionTier,
-  isInTrial,
-  getTrialDaysRemaining,
-  getAvailableFeatures,
-  hasFeature,
-  getPlanPricing,
-  formatPrice,
-  formatPeriod,
-  getPerMonthCost,
-  createSubscription,
   updateSubscriptionStatus,
   convertTrialToActive,
   cancelSubscription,
-  comparePlans,
+  completeProgram,
+  isInRecapPeriod,
 } from './subscriptionService';
-
-// RevenueCat service
-export {
-  initializeRevenueCat,
-  identifyUser,
-  getOfferings,
-  getPackages,
-  getCustomerInfo,
-  purchasePackage,
-  purchaseProduct,
-  restorePurchases,
-  PRODUCT_IDS,
-  ENTITLEMENTS,
-} from './revenueCatService';
 
 // Badge service
 export {

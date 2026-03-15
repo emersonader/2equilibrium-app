@@ -1,78 +1,60 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { useUserStore } from '@/stores/userStore';
-import * as subscriptionService from '@/services/subscriptionService';
-import { TIER_FEATURES, Feature, SubscriptionTier } from '@/constants/featureFlags';
+import { useSubscriptionStore } from '@/stores/subscriptionStore';
+import { TIER_FEATURES, type Feature, type SubscriptionTier } from '@/constants/featureFlags';
 
 /**
  * Hook for subscription-related functionality
  */
 export function useSubscription() {
-  const { subscription, refreshSubscription } = useUserStore();
-  const [isLoading, setIsLoading] = useState(false);
+  const { subscription } = useUserStore();
+  const { subscriptionStatus, currentTier: tier, recapDaysRemaining, refreshStatus } = useSubscriptionStore();
 
-  // Get current tier
-  const tier: SubscriptionTier = subscription?.plan || 'foundation';
+  // Active if paying or in 60-day recap window after completing 180 lessons
+  const isActive = subscriptionStatus === 'active' || subscriptionStatus === 'completed';
 
-  // Check if user has active subscription
-  // Active if paying, trial, or in recap period (2 months after completing 180 lessons)
-  const isCompleted = subscription?.status === 'completed';
-  const recapExpired = isCompleted && subscription?.recap_expires_at
-    ? new Date(subscription.recap_expires_at).getTime() < Date.now()
-    : false;
-  const isActive = subscription?.status === 'active' || subscription?.status === 'trial' || (isCompleted && !recapExpired);
+  // True only while paying (not in recap window)
+  const isPaying = subscriptionStatus === 'active';
 
-  // Check if user is in trial
-  const isInTrial = subscription?.status === 'trial';
-
-  // Get trial days remaining
-  const trialDaysRemaining = useCallback(() => {
-    if (!subscription?.trial_end_date) return 0;
-    const endDate = new Date(subscription.trial_end_date);
-    const now = new Date();
-    const diffTime = endDate.getTime() - now.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return Math.max(0, diffDays);
-  }, [subscription?.trial_end_date]);
+  // In the 60-day recap window after program completion
+  const isInRecapPeriod = subscriptionStatus === 'completed';
 
   // Check if user has a specific feature
   const hasFeature = useCallback(
     (feature: Feature): boolean => {
-      const features = TIER_FEATURES[tier];
-      const value = features[feature as keyof typeof features];
-      return value === true || value === 'full';
+      const value = TIER_FEATURES[tier][feature];
+      return value === true || value === 'immediate';
     },
     [tier]
   );
 
-  // Get feature value (for features with levels like 'limited', 'full')
+  // Get feature value
   const getFeatureValue = useCallback(
-    (feature: Feature): boolean | string | number => {
-      const features = TIER_FEATURES[tier];
-      return features[feature as keyof typeof features];
+    (feature: Feature) => {
+      return TIER_FEATURES[tier][feature];
     },
     [tier]
   );
 
-  // Check if user can retry quiz immediately (Lifetime only)
+  // All subscribed users can retry quizzes immediately
   const canRetryQuizImmediately = useCallback(() => {
-    return tier === 'lifetime';
+    return tier === 'subscribed';
   }, [tier]);
 
-  // Get available features for current tier
   const availableFeatures = TIER_FEATURES[tier];
 
   return {
     subscription,
     tier,
     isActive,
-    isInTrial,
-    trialDaysRemaining: trialDaysRemaining(),
+    isPaying,
+    isInRecapPeriod,
+    recapDaysRemaining,
     hasFeature,
     getFeatureValue,
     canRetryQuizImmediately,
     availableFeatures,
-    refreshSubscription,
-    isLoading,
+    refreshSubscription: refreshStatus,
   };
 }
 
@@ -80,92 +62,8 @@ export function useSubscription() {
  * Hook for subscription management actions
  */
 export function useSubscriptionActions() {
-  const { refreshSubscription } = useUserStore();
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  // Create a new subscription
-  const createSubscription = useCallback(
-    async (plan: 'foundation' | 'transformation' | 'lifetime', revenueCatId?: string) => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const now = new Date();
-        let periodEnd: Date;
-        let isTrialPeriod = false;
-
-        // Calculate period based on plan
-        switch (plan) {
-          case 'foundation':
-            periodEnd = new Date(now);
-            periodEnd.setMonth(periodEnd.getMonth() + 1);
-            break;
-          case 'transformation':
-            periodEnd = new Date(now);
-            periodEnd.setMonth(periodEnd.getMonth() + 6);
-            isTrialPeriod = true; // 7-day trial
-            break;
-          case 'lifetime':
-            periodEnd = new Date(now);
-            periodEnd.setFullYear(periodEnd.getFullYear() + 1);
-            break;
-        }
-
-        await subscriptionService.createSubscription(
-          plan,
-          revenueCatId || '',
-          now,
-          periodEnd,
-          isTrialPeriod
-        );
-        await refreshSubscription();
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to create subscription');
-        throw err;
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    [refreshSubscription]
-  );
-
-  // Convert trial to active
-  const convertTrial = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      await subscriptionService.convertTrialToActive();
-      await refreshSubscription();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to convert trial');
-      throw err;
-    } finally {
-      setIsLoading(false);
-    }
-  }, [refreshSubscription]);
-
-  // Cancel subscription
-  const cancelSubscription = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      await subscriptionService.cancelSubscription();
-      await refreshSubscription();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to cancel subscription');
-      throw err;
-    } finally {
-      setIsLoading(false);
-    }
-  }, [refreshSubscription]);
-
-  return {
-    createSubscription,
-    convertTrial,
-    cancelSubscription,
-    isLoading,
-    error,
-  };
+  const { refreshStatus } = useSubscriptionStore();
+  return { refreshSubscription: refreshStatus };
 }
 
 export default useSubscription;

@@ -83,7 +83,7 @@ export interface TopicReview {
 
 // ============ USER TYPES ============
 
-export type SubscriptionTier = 'none' | 'foundation' | 'transformation' | 'lifetime';
+export type SubscriptionTier = 'none' | 'subscribed';
 export type SubscriptionStatus = 'trial' | 'active' | 'lapsed' | 'cancelled';
 
 export interface UserProfile {
@@ -115,7 +115,7 @@ export interface Subscription {
   trialEndDate: Date | null;
   currentPeriodStart: Date;
   currentPeriodEnd: Date;
-  revenueCatCustomerId: string | null;
+  stripeCustomerId: string | null;
   createdAt: Date;
 }
 

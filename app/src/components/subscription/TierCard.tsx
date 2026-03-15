@@ -1,135 +1,65 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/colors';
 import { Typography } from '@/constants/typography';
 import { Spacing } from '@/constants/spacing';
 import { Card } from '@/components/ui/Card';
-import { SUBSCRIPTION_PRICING } from '@/constants/featureFlags';
-import type { SubscriptionPlan } from '@/services/database.types';
+import { STRIPE_CHECKOUT_URL } from '@/constants/featureFlags';
 
-interface TierCardProps {
-  plan: SubscriptionPlan;
-  isSelected?: boolean;
-  isRecommended?: boolean;
-  onSelect: () => void;
-  actualPrice?: string; // From RevenueCat
+const PLAN_FEATURES = [
+  'All 180 days of wellness lessons',
+  'Daily affirmations & nourishment tips',
+  'Personalized movement suggestions',
+  'Chapter quizzes with instant retakes',
+  'Community circle access',
+  'Journal export (PDF)',
+  'Offline content access',
+  '60-day recap access after completion',
+];
+
+interface PlanCardProps {
+  onPress?: () => void;
 }
 
-const PLAN_DETAILS: Record<
-  SubscriptionPlan,
-  {
-    title: string;
-    duration: string;
-    features: string[];
-    trialText?: string;
-  }
-> = {
-  foundation: {
-    title: 'Foundation',
-    duration: 'Monthly',
-    features: [
-      'Daily lesson unlocks',
-      'Daily reflection prompts',
-      'Basic movement suggestions',
-      'Current lesson offline',
-    ],
-  },
-  transformation: {
-    title: 'Transformation',
-    duration: '6 Months',
-    trialText: '1 Week Free Trial',
-    features: [
-      'Everything in Foundation',
-      'Daily affirmations',
-      'Personalized movement',
-      'Full chapter offline',
-      'Weekly mood insights',
-      'Journal export (PDF)',
-    ],
-  },
-  lifetime: {
-    title: 'Lifetime Wellness',
-    duration: '12 Months',
-    features: [
-      'Everything in Transformation',
-      'Unlimited quiz retakes',
-      'Full phase offline',
-      'Priority community access',
-      'Video movement library',
-      'Advanced analytics',
-    ],
-  },
-};
-
-export function TierCard({
-  plan,
-  isSelected = false,
-  isRecommended = false,
-  onSelect,
-  actualPrice,
-}: TierCardProps) {
-  const details = PLAN_DETAILS[plan];
-  const pricing = SUBSCRIPTION_PRICING[plan];
+/**
+ * PlanCard — displays the single 2Equilibrium Premium plan.
+ * Subscription is purchased on the web via Stripe.
+ */
+export function TierCard({ onPress }: PlanCardProps) {
+  const handlePress = () => {
+    if (onPress) {
+      onPress();
+    } else {
+      Linking.openURL(STRIPE_CHECKOUT_URL);
+    }
+  };
 
   return (
-    <TouchableOpacity onPress={onSelect} activeOpacity={0.8}>
-      <Card
-        style={[
-          styles.container,
-          isSelected ? styles.containerSelected : undefined,
-          isRecommended ? styles.containerRecommended : undefined,
-        ]}
-      >
-        {/* Recommended Badge */}
-        {isRecommended && (
-          <View style={styles.recommendedBadge}>
-            <Text style={styles.recommendedText}>RECOMMENDED</Text>
-          </View>
-        )}
-
-        {/* Trial Badge */}
-        {details.trialText && (
-          <View style={styles.trialBadge}>
-            <Ionicons name="gift" size={12} color={Colors.primary.tiffanyBlue} />
-            <Text style={styles.trialText}>{details.trialText}</Text>
-          </View>
-        )}
-
+    <TouchableOpacity onPress={handlePress} activeOpacity={0.8}>
+      <Card style={styles.container}>
         {/* Header */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.title}>{details.title}</Text>
-            <Text style={styles.duration}>{details.duration}</Text>
+            <Text style={styles.title}>Premium</Text>
+            <Text style={styles.duration}>Monthly · Cancel anytime</Text>
           </View>
-
-          {/* Selection Indicator */}
-          <View style={[styles.radio, isSelected && styles.radioSelected]}>
-            {isSelected && (
-              <Ionicons name="checkmark" size={16} color={Colors.neutral.white} />
-            )}
+          <View style={styles.badge}>
+            <Text style={styles.badgeText}>FULL ACCESS</Text>
           </View>
         </View>
 
         {/* Pricing */}
         <View style={styles.pricing}>
-          <Text style={styles.price}>{actualPrice || pricing.price}</Text>
-          {pricing.perMonth && (
-            <Text style={styles.perMonth}>
-              {pricing.perMonth}/mo
-            </Text>
-          )}
+          <Text style={styles.price}>$19.99</Text>
+          <Text style={styles.perMonth}>/month</Text>
         </View>
 
         {/* Features */}
         <View style={styles.features}>
-          {details.features.map((feature, index) => (
+          {PLAN_FEATURES.map((feature, index) => (
             <View key={index} style={styles.featureItem}>
-              <Ionicons
-                name="checkmark-circle"
-                size={16}
-                color={isSelected ? Colors.primary.orange : Colors.status.success}
-              />
+              <Ionicons name="checkmark-circle" size={16} color={Colors.primary.tiffanyBlue} />
               <Text style={styles.featureText}>{feature}</Text>
             </View>
           ))}
@@ -144,46 +74,7 @@ const styles = StyleSheet.create({
     padding: Spacing.lg,
     marginBottom: Spacing.md,
     borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  containerSelected: {
     borderColor: Colors.primary.orange,
-    backgroundColor: Colors.primary.orangeLight,
-  },
-  containerRecommended: {
-    borderColor: Colors.primary.tiffanyBlue,
-  },
-  recommendedBadge: {
-    position: 'absolute',
-    top: -10,
-    right: Spacing.md,
-    backgroundColor: Colors.primary.tiffanyBlue,
-    paddingHorizontal: Spacing.sm,
-    paddingVertical: Spacing.xxs,
-    borderRadius: Spacing.borderRadius.full,
-  },
-  recommendedText: {
-    ...Typography.textStyles.caption,
-    color: Colors.neutral.white,
-    fontWeight: '700',
-    fontSize: 10,
-    letterSpacing: 0.5,
-  },
-  trialBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    backgroundColor: Colors.primary.tiffanyBlueLight,
-    paddingHorizontal: Spacing.sm,
-    paddingVertical: Spacing.xxs,
-    borderRadius: Spacing.borderRadius.full,
-    marginBottom: Spacing.sm,
-  },
-  trialText: {
-    ...Typography.textStyles.caption,
-    color: Colors.primary.tiffanyBlue,
-    fontWeight: '600',
-    marginLeft: Spacing.xxs,
   },
   header: {
     flexDirection: 'row',
@@ -199,18 +90,18 @@ const styles = StyleSheet.create({
     ...Typography.textStyles.caption,
     color: Colors.text.secondary,
   },
-  radio: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: Colors.text.muted,
-    justifyContent: 'center',
-    alignItems: 'center',
+  badge: {
+    backgroundColor: Colors.primary.orangeLight,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: Spacing.xxs,
+    borderRadius: Spacing.borderRadius.full,
   },
-  radioSelected: {
-    borderColor: Colors.primary.orange,
-    backgroundColor: Colors.primary.orange,
+  badgeText: {
+    ...Typography.textStyles.caption,
+    color: Colors.primary.orange,
+    fontWeight: '700',
+    fontSize: 10,
+    letterSpacing: 0.5,
   },
   pricing: {
     flexDirection: 'row',
@@ -237,6 +128,7 @@ const styles = StyleSheet.create({
     ...Typography.textStyles.bodySmall,
     color: Colors.text.secondary,
     marginLeft: Spacing.xs,
+    flex: 1,
   },
 });
 

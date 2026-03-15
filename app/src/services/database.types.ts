@@ -11,7 +11,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[];
 
-export type SubscriptionPlan = 'foundation' | 'transformation' | 'lifetime';
+export type SubscriptionPlan = 'premium';
 export type SubscriptionStatus = 'trial' | 'active' | 'lapsed' | 'cancelled' | 'completed';
 export type JournalEntryType = 'daily' | 'weekly_review' | 'freeform';
 export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';

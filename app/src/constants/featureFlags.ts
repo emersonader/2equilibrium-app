@@ -1,12 +1,11 @@
 /**
- * Holistic Wellness Journey - Feature Flags by Subscription Tier
+ * Holistic Wellness Journey - Feature Flags
  *
- * Foundation: $29/month - Basic features
- * Transformation: $129/6 months - Full access + trial
- * Lifetime: $249/year - Full access + premium extras
+ * Two states: 'none' (no subscription) and 'subscribed' (active Stripe subscription).
+ * All features unlock with any active subscription.
  */
 
-export type SubscriptionTier = 'foundation' | 'transformation' | 'lifetime' | 'none';
+export type SubscriptionTier = 'subscribed' | 'none';
 
 // Feature type for easy usage
 export type Feature = keyof TierFeatures;
@@ -15,31 +14,30 @@ export interface TierFeatures {
   // Daily content
   dailyLessonUnlock: boolean;
   dailyReflectionPrompt: boolean;
-  dailyMovementSuggestion: 'basic' | 'personalized' | 'personalized_with_video';
+  dailyMovementSuggestion: boolean;
   dailyAffirmation: boolean;
   dailyNourishmentTip: boolean;
-  dailyCheckInRewards: boolean | 'with_bonus';
+  dailyCheckInRewards: boolean;
 
   // Quiz features
   quizRetakeWait: 'immediate' | '24_hours';
 
   // Content access
   voiceNotes: boolean;
-  communityCircle: boolean | 'priority';
-  recipeLibrary: 'limited' | 'full' | 'full_exclusive';
-  movementVideoLibrary: boolean | 'with_live';
+  communityCircle: boolean;
+  recipeLibrary: boolean;
+  movementVideoLibrary: boolean;
 
   // Community features
   communityFeed: boolean;
   communityPosting: boolean;
-  communityFollowingLimit: number; // 0 = no access, -1 = unlimited
 
   // Offline & Export
-  offlineMode: 'current_lesson' | 'current_chapter' | 'full_phase';
-  journalExport: boolean | 'pdf' | 'pdf_csv';
+  offlineMode: boolean;
+  journalExport: boolean;
 
   // Extra features
-  milestoneCelebrations: 'basic' | 'full' | 'full_personal';
+  milestoneCelebrations: boolean;
   startFreshFeature: boolean;
 }
 
@@ -47,110 +45,56 @@ export const TIER_FEATURES: Record<SubscriptionTier, TierFeatures> = {
   none: {
     dailyLessonUnlock: false,
     dailyReflectionPrompt: false,
-    dailyMovementSuggestion: 'basic',
+    dailyMovementSuggestion: false,
     dailyAffirmation: false,
     dailyNourishmentTip: false,
     dailyCheckInRewards: false,
     quizRetakeWait: '24_hours',
     voiceNotes: false,
     communityCircle: false,
-    recipeLibrary: 'limited',
+    recipeLibrary: false,
     movementVideoLibrary: false,
     communityFeed: false,
     communityPosting: false,
-    communityFollowingLimit: 0,
-    offlineMode: 'current_lesson',
+    offlineMode: false,
     journalExport: false,
-    milestoneCelebrations: 'basic',
+    milestoneCelebrations: false,
     startFreshFeature: false,
   },
-  foundation: {
+  subscribed: {
     dailyLessonUnlock: true,
     dailyReflectionPrompt: true,
-    dailyMovementSuggestion: 'basic',
-    dailyAffirmation: false,
-    dailyNourishmentTip: false,
-    dailyCheckInRewards: false,
-    quizRetakeWait: '24_hours',
-    voiceNotes: false,
-    communityCircle: false,
-    recipeLibrary: 'limited',
-    movementVideoLibrary: false,
-    communityFeed: false,
-    communityPosting: false,
-    communityFollowingLimit: 0,
-    offlineMode: 'current_lesson',
-    journalExport: false,
-    milestoneCelebrations: 'basic',
-    startFreshFeature: false,
-  },
-  transformation: {
-    dailyLessonUnlock: true,
-    dailyReflectionPrompt: true,
-    dailyMovementSuggestion: 'personalized',
+    dailyMovementSuggestion: true,
     dailyAffirmation: true,
     dailyNourishmentTip: true,
     dailyCheckInRewards: true,
-    quizRetakeWait: '24_hours',
+    quizRetakeWait: 'immediate',
     voiceNotes: true,
     communityCircle: true,
-    recipeLibrary: 'full',
+    recipeLibrary: true,
     movementVideoLibrary: true,
     communityFeed: true,
     communityPosting: true,
-    communityFollowingLimit: 50,
-    offlineMode: 'current_chapter',
-    journalExport: 'pdf',
-    milestoneCelebrations: 'full',
-    startFreshFeature: true,
-  },
-  lifetime: {
-    dailyLessonUnlock: true,
-    dailyReflectionPrompt: true,
-    dailyMovementSuggestion: 'personalized_with_video',
-    dailyAffirmation: true,
-    dailyNourishmentTip: true,
-    dailyCheckInRewards: 'with_bonus',
-    quizRetakeWait: 'immediate',
-    voiceNotes: true,
-    communityCircle: 'priority',
-    recipeLibrary: 'full_exclusive',
-    movementVideoLibrary: 'with_live',
-    communityFeed: true,
-    communityPosting: true,
-    communityFollowingLimit: -1, // Unlimited
-    offlineMode: 'full_phase',
-    journalExport: 'pdf_csv',
-    milestoneCelebrations: 'full_personal',
+    offlineMode: true,
+    journalExport: true,
+    milestoneCelebrations: true,
     startFreshFeature: true,
   },
 };
 
-// Pricing information
+// Pricing information (single plan)
 export const SUBSCRIPTION_PRICING = {
-  foundation: {
-    price: 29,
+  premium: {
+    price: 19.99,
     currency: 'USD',
     period: 'monthly',
-    perMonth: 29,
-    hasTrial: false,
-  },
-  transformation: {
-    price: 129,
-    currency: 'USD',
-    period: '6_months',
-    perMonth: 21.5,
-    hasTrial: true,
-    trialDays: 7,
-  },
-  lifetime: {
-    price: 249,
-    currency: 'USD',
-    period: 'yearly',
-    perMonth: 20.75,
+    perMonth: 19.99,
     hasTrial: false,
   },
 };
+
+// Stripe checkout URL — subscription is purchased on the web
+export const STRIPE_CHECKOUT_URL = 'https://www.2equilibrium.com/subscribe';
 
 // Helper function to check feature access
 export function hasFeature(
@@ -158,9 +102,8 @@ export function hasFeature(
   feature: keyof TierFeatures
 ): boolean {
   const safeTier = tier || 'none';
-  const features = TIER_FEATURES[safeTier];
-  const value = features[feature];
-  return value !== false && value !== 'limited' && value !== 'basic';
+  const value = TIER_FEATURES[safeTier][feature];
+  return value === true || value === 'immediate';
 }
 
 // Helper to get feature value
