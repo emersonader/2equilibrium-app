@@ -315,23 +315,26 @@ export async function getActivityFeed(limit: number = 20, offset: number = 0): P
   // Get posts from self and followed users
   const { data: posts, error } = await client
     .from('activity_posts')
-    .select(`
-      *,
-      public_profile:public_profiles!activity_posts_user_id_fkey(
-        display_name,
-        avatar_url,
-        is_public
-      )
-    `)
+    .select('*')
     .in('user_id', userIds)
     .or(`visibility.eq.public,user_id.eq.${user.id}`)
     .order('created_at', { ascending: false })
     .range(offset, offset + limit - 1);
 
   if (error) throw error;
+  if (!posts || posts.length === 0) return [];
+
+  // Fetch public profiles for post authors
+  const uniqueUserIds = [...new Set(posts.map(p => p.user_id))];
+  const { data: profiles } = await client
+    .from('public_profiles')
+    .select('user_id, display_name, avatar_url, is_public')
+    .in('user_id', uniqueUserIds);
+
+  const profileMap = new Map((profiles || []).map(p => [p.user_id, p]));
 
   // Get encouragement counts and check if user has encouraged
-  const postIds = (posts || []).map(p => p.id);
+  const postIds = posts.map(p => p.id);
 
   const [encouragementCounts, userEncouragements] = await Promise.all([
     client
@@ -354,14 +357,17 @@ export async function getActivityFeed(limit: number = 20, offset: number = 0): P
   // Check which posts user has encouraged
   const encouragedSet = new Set((userEncouragements.data || []).map(e => e.post_id));
 
-  return (posts || []).map(post => ({
-    ...post,
-    display_name: (post.public_profile as any)?.display_name || 'Unknown',
-    avatar_url: (post.public_profile as any)?.avatar_url || null,
-    is_public: (post.public_profile as any)?.is_public ?? true,
-    encouragement_count: countMap.get(post.id) || 0,
-    has_encouraged: encouragedSet.has(post.id),
-  }));
+  return posts.map(post => {
+    const profile = profileMap.get(post.user_id);
+    return {
+      ...post,
+      display_name: profile?.display_name || 'Wellness Seeker',
+      avatar_url: profile?.avatar_url || null,
+      is_public: profile?.is_public ?? true,
+      encouragement_count: countMap.get(post.id) || 0,
+      has_encouraged: encouragedSet.has(post.id),
+    };
+  });
 }
 
 /**
@@ -375,22 +381,25 @@ export async function getPublicFeed(limit: number = 20, offset: number = 0): Pro
 
   const { data: posts, error } = await client
     .from('activity_posts')
-    .select(`
-      *,
-      public_profile:public_profiles!activity_posts_user_id_fkey(
-        display_name,
-        avatar_url,
-        is_public
-      )
-    `)
+    .select('*')
     .eq('visibility', 'public')
     .order('created_at', { ascending: false })
     .range(offset, offset + limit - 1);
 
   if (error) throw error;
+  if (!posts || posts.length === 0) return [];
+
+  // Fetch profiles separately
+  const uniqueUserIds = [...new Set(posts.map(p => p.user_id))];
+  const { data: profiles } = await client
+    .from('public_profiles')
+    .select('user_id, display_name, avatar_url, is_public')
+    .in('user_id', uniqueUserIds);
+
+  const profileMap = new Map((profiles || []).map(p => [p.user_id, p]));
 
   // Get encouragement counts
-  const postIds = (posts || []).map(p => p.id);
+  const postIds = posts.map(p => p.id);
 
   const [encouragementCounts, userEncouragements] = await Promise.all([
     client
@@ -411,14 +420,17 @@ export async function getPublicFeed(limit: number = 20, offset: number = 0): Pro
 
   const encouragedSet = new Set((userEncouragements.data || []).map(e => e.post_id));
 
-  return (posts || []).map(post => ({
-    ...post,
-    display_name: (post.public_profile as any)?.display_name || 'Unknown',
-    avatar_url: (post.public_profile as any)?.avatar_url || null,
-    is_public: (post.public_profile as any)?.is_public ?? true,
-    encouragement_count: countMap.get(post.id) || 0,
-    has_encouraged: user ? encouragedSet.has(post.id) : false,
-  }));
+  return posts.map(post => {
+    const profile = profileMap.get(post.user_id);
+    return {
+      ...post,
+      display_name: profile?.display_name || 'Wellness Seeker',
+      avatar_url: profile?.avatar_url || null,
+      is_public: profile?.is_public ?? true,
+      encouragement_count: countMap.get(post.id) || 0,
+      has_encouraged: user ? encouragedSet.has(post.id) : false,
+    };
+  });
 }
 
 /**
@@ -432,21 +444,23 @@ export async function getUserPosts(userId: string, limit: number = 20): Promise<
 
   const { data: posts, error } = await client
     .from('activity_posts')
-    .select(`
-      *,
-      public_profile:public_profiles!activity_posts_user_id_fkey(
-        display_name,
-        avatar_url,
-        is_public
-      )
-    `)
+    .select('*')
     .eq('user_id', userId)
     .order('created_at', { ascending: false })
     .limit(limit);
 
   if (error) throw error;
+  if (!posts || posts.length === 0) return [];
 
-  const postIds = (posts || []).map(p => p.id);
+  // Fetch profile
+  const { data: profiles } = await client
+    .from('public_profiles')
+    .select('user_id, display_name, avatar_url, is_public')
+    .eq('user_id', userId);
+
+  const profile = profiles?.[0];
+
+  const postIds = posts.map(p => p.id);
 
   const [encouragementCounts, userEncouragements] = await Promise.all([
     client
@@ -467,11 +481,11 @@ export async function getUserPosts(userId: string, limit: number = 20): Promise<
 
   const encouragedSet = new Set((userEncouragements.data || []).map(e => e.post_id));
 
-  return (posts || []).map(post => ({
+  return posts.map(post => ({
     ...post,
-    display_name: (post.public_profile as any)?.display_name || 'Unknown',
-    avatar_url: (post.public_profile as any)?.avatar_url || null,
-    is_public: (post.public_profile as any)?.is_public ?? true,
+    display_name: profile?.display_name || 'Wellness Seeker',
+    avatar_url: profile?.avatar_url || null,
+    is_public: profile?.is_public ?? true,
     encouragement_count: countMap.get(post.id) || 0,
     has_encouraged: user ? encouragedSet.has(post.id) : false,
   }));
