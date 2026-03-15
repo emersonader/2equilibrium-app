@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/colors';
@@ -7,6 +7,7 @@ import { Spacing } from '@/constants/spacing';
 import { Card } from '@/components/ui/Card';
 import { UserAvatar } from './UserAvatar';
 import { EncourageButton } from './EncourageButton';
+import { ShareCardModal } from './ShareCardModal';
 import { shareAchievement, type AchievementType } from '@/services/shareService';
 import type { ActivityFeedItem, PostType } from '@/services/database.types';
 
@@ -61,40 +62,47 @@ export function ActivityCard({
 }: ActivityCardProps) {
   const { icon, color } = getPostTypeIcon(post.post_type);
   const timeAgo = formatTimeAgo(post.created_at);
+  const [showShareModal, setShowShareModal] = useState(false);
 
-  const handleShare = async () => {
-    try {
-      let achievementType: AchievementType;
-      let title = '';
-      let description = post.content || '';
+  // Prepare achievement data for the share modal
+  const getAchievementData = () => {
+    let achievementType: AchievementType;
+    let title = '';
+    let description = post.content || '';
 
-      switch (post.post_type) {
-        case 'badge':
-          achievementType = 'badge';
-          title = post.metadata?.badge_name || 'Achievement Badge';
-          break;
-        case 'streak':
-          achievementType = 'streak';
-          title = `${post.metadata?.streak_count || 'Multi'}-day streak`;
-          break;
-        case 'milestone':
-          achievementType = 'milestone';
-          title = 'Milestone Achievement';
-          break;
-        case 'chapter':
-          achievementType = 'phase';
-          title = 'Chapter Completion';
-          break;
-        default:
-          achievementType = 'milestone';
-          title = 'Wellness Journey Update';
-          break;
-      }
-
-      await shareAchievement(achievementType, { title, description });
-    } catch (error) {
-      console.error('Failed to share achievement:', error);
+    switch (post.post_type) {
+      case 'badge':
+        achievementType = 'badge';
+        title = post.metadata?.badge_name || 'Achievement Badge';
+        break;
+      case 'streak':
+        achievementType = 'streak';
+        title = `${post.metadata?.streak_count || 'Multi'}-day streak`;
+        break;
+      case 'milestone':
+        achievementType = 'milestone';
+        title = 'Milestone Achievement';
+        break;
+      case 'chapter':
+        achievementType = 'phase';
+        title = 'Chapter Completion';
+        break;
+      default:
+        achievementType = 'milestone';
+        title = 'Wellness Journey Update';
+        break;
     }
+
+    return {
+      type: achievementType,
+      details: { title, description },
+      badgeName: post.metadata?.badge_name,
+      streakCount: post.metadata?.streak_count,
+    };
+  };
+
+  const handleShare = () => {
+    setShowShareModal(true);
   };
 
   return (
@@ -175,6 +183,15 @@ export function ActivityCard({
           )}
         </View>
       </View>
+
+      {/* Share Card Modal */}
+      {isOwnPost && showShareModal && (
+        <ShareCardModal
+          visible={showShareModal}
+          onClose={() => setShowShareModal(false)}
+          {...getAchievementData()}
+        />
+      )}
     </Card>
   );
 }

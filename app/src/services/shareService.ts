@@ -1,4 +1,5 @@
 import { Share } from 'react-native';
+import { captureRef } from 'react-native-view-shot';
 
 export type AchievementType = 'badge' | 'milestone' | 'streak' | 'phase';
 
@@ -121,4 +122,44 @@ export function shareMilestoneAchievement(description: string) {
     title: 'Milestone Achieved',
     description,
   });
+}
+
+/**
+ * Shares an achievement with a branded image card
+ * Captures a ShareCard component and shares it as an image
+ */
+export async function shareAchievementCard(
+  cardRef: any,
+  type: AchievementType,
+  details: AchievementDetails
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    // Capture the card as an image
+    const imageUri = await captureRef(cardRef, {
+      format: 'png',
+      quality: 1.0,
+      result: 'tmpfile',
+    });
+
+    const message = generateShareMessage(type, details);
+    
+    const shareOptions = {
+      message,
+      url: imageUri, // Share the image
+    };
+
+    const result = await Share.share(shareOptions);
+    
+    if (result.action === Share.sharedAction) {
+      return { success: true };
+    } else if (result.action === Share.dismissedAction) {
+      return { success: false, error: 'Share dialog dismissed' };
+    }
+    
+    return { success: true };
+  } catch (error) {
+    console.error('Share card error:', error);
+    // Fall back to text-only sharing
+    return shareAchievement(type, details);
+  }
 }
