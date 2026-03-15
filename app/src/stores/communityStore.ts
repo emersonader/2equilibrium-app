@@ -117,7 +117,7 @@ export const useCommunityStore = create<CommunityState>((set, get) => ({
         set({ feed: [], hasMoreFeed: true });
       }
 
-      const posts = await communityService.getActivityFeed(FEED_PAGE_SIZE, 0);
+      const posts = await communityService.getPublicFeed(FEED_PAGE_SIZE, 0);
 
       set({
         feed: posts,
@@ -142,7 +142,7 @@ export const useCommunityStore = create<CommunityState>((set, get) => ({
     try {
       set({ feedLoading: true });
 
-      const posts = await communityService.getActivityFeed(FEED_PAGE_SIZE, feed.length);
+      const posts = await communityService.getPublicFeed(FEED_PAGE_SIZE, feed.length);
 
       set({
         feed: [...feed, ...posts],
