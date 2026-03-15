@@ -1,15 +1,15 @@
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { getSupabase } from './supabase';
 import lessonsData from '@/data/content/lessons.json';
 import chaptersData from '@/data/content/chapters.json';
 
 interface JournalEntry {
-  lesson_id: string;
-  reflection: string;
-  deeper_reflection: string;
-  gratitude: string;
+  lesson_id: string | null;
+  prompt_response: string | null;
+  reflection_response: string | null;
+  gratitude_response: string | null;
   created_at: string;
 }
 
@@ -58,7 +58,7 @@ export async function generateJourneySummary(): Promise<string> {
   // Build journal entries map by lesson_id
   const journalMap = new Map<string, JournalEntry>();
   (journalEntries || []).forEach((entry: JournalEntry) => {
-    journalMap.set(entry.lesson_id, entry);
+    if (entry.lesson_id) journalMap.set(entry.lesson_id, entry);
   });
 
   // Generate phase sections
@@ -76,22 +76,22 @@ export async function generateJourneySummary(): Promise<string> {
             </div>
             ${journal ? `
               <div class="journal-section">
-                ${journal.reflection ? `
+                ${journal.prompt_response ? `
                   <div class="journal-item">
                     <div class="journal-label">✨ Reflection</div>
-                    <div class="journal-text">${escapeHtml(journal.reflection)}</div>
+                    <div class="journal-text">${escapeHtml(journal.prompt_response)}</div>
                   </div>
                 ` : ''}
-                ${journal.deeper_reflection ? `
+                ${journal.reflection_response ? `
                   <div class="journal-item">
                     <div class="journal-label">🔍 Deeper Reflection</div>
-                    <div class="journal-text">${escapeHtml(journal.deeper_reflection)}</div>
+                    <div class="journal-text">${escapeHtml(journal.reflection_response)}</div>
                   </div>
                 ` : ''}
-                ${journal.gratitude ? `
+                ${journal.gratitude_response ? `
                   <div class="journal-item">
                     <div class="journal-label">🙏 Gratitude</div>
-                    <div class="journal-text">${escapeHtml(journal.gratitude)}</div>
+                    <div class="journal-text">${escapeHtml(journal.gratitude_response)}</div>
                   </div>
                 ` : ''}
               </div>
