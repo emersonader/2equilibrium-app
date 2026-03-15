@@ -8,11 +8,14 @@
 import { TextStyle } from 'react-native';
 
 export const FontFamilies = {
-  // Using system fonts for now, can be swapped with custom fonts
+  // Body text - system font (Inter-like)
   regular: 'System',
   medium: 'System',
   semibold: 'System',
   bold: 'System',
+  // Headings - elegant serif font (Playfair Display)
+  heading: 'PlayfairDisplay_700Bold',
+  headingRegular: 'PlayfairDisplay_400Regular',
 };
 
 export const FontSizes = {
@@ -63,34 +66,39 @@ interface TextStyles {
 
 // Pre-defined text styles (flat structure)
 const textStyles: TextStyles = {
-  // Headings
+  // Headings - using Playfair Display for elegant, luxury feel
   h1: {
     fontSize: FontSizes['4xl'],
+    fontFamily: FontFamilies.heading,
     fontWeight: '700',
     lineHeight: FontSizes['4xl'] * LineHeights.tight,
     letterSpacing: LetterSpacing.tight,
   },
   h2: {
     fontSize: FontSizes['3xl'],
+    fontFamily: FontFamilies.heading,
     fontWeight: '700',
     lineHeight: FontSizes['3xl'] * LineHeights.tight,
     letterSpacing: LetterSpacing.tight,
   },
   h3: {
     fontSize: FontSizes['2xl'],
-    fontWeight: '600',
+    fontFamily: FontFamilies.heading,
+    fontWeight: '700',
     lineHeight: FontSizes['2xl'] * LineHeights.normal,
     letterSpacing: LetterSpacing.normal,
   },
   h4: {
     fontSize: FontSizes.xl,
-    fontWeight: '600',
+    fontFamily: FontFamilies.heading,
+    fontWeight: '700',
     lineHeight: FontSizes.xl * LineHeights.normal,
     letterSpacing: LetterSpacing.normal,
   },
   h5: {
     fontSize: FontSizes.lg,
-    fontWeight: '600',
+    fontFamily: FontFamilies.heading,
+    fontWeight: '700',
     lineHeight: FontSizes.lg * LineHeights.normal,
     letterSpacing: LetterSpacing.normal,
   },

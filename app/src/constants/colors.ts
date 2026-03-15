@@ -35,17 +35,17 @@ export const Colors = {
 
   // Background colors
   background: {
-    primary: '#FFFFFF',
-    secondary: '#F8F9FA',
-    tertiary: '#F0F4F5',
+    primary: '#FAFFFE',      // cream (not pure white)
+    secondary: '#F5FFFE',    // slightly darker cream
+    tertiary: '#E6F9F8',     // tiffany blue light
   },
 
   // Text colors
   text: {
-    primary: '#1A1A2E',
-    secondary: '#4A4A68',
-    tertiary: '#6A6A8A',
-    muted: '#8A8AA3',
+    primary: '#1F2937',      // charcoal navy (matches website)
+    secondary: '#4B5563',    // website's text secondary
+    tertiary: '#6B7280',     // updated tertiary
+    muted: '#9CA3AF',        // website's text muted
     inverse: '#FFFFFF',
   },
 
@@ -90,9 +90,9 @@ export const Colors = {
 
   // UI elements
   ui: {
-    border: '#E5E7EB',
-    borderLight: '#F0F4F5',
-    divider: '#E5E7EB',
+    border: 'rgba(31, 41, 55, 0.05)',      // very subtle border matching website feel
+    borderLight: 'rgba(31, 41, 55, 0.03)', // even more subtle
+    divider: 'rgba(31, 41, 55, 0.05)',     // subtle dividers
     overlay: 'rgba(0, 0, 0, 0.5)',
   },
 };

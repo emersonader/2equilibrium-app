@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Colors, Typography, Spacing, BorderRadius, Layout } from '@/constants';
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'navy';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps {
@@ -67,7 +67,7 @@ export function Button({
     >
       {loading ? (
         <ActivityIndicator
-          color={variant === 'primary' ? Colors.text.inverse : Colors.primary.orange}
+          color={variant === 'primary' || variant === 'secondary' || variant === 'navy' ? Colors.text.inverse : Colors.primary.orange}
           size="small"
         />
       ) : (
@@ -103,6 +103,9 @@ const styles = StyleSheet.create({
   secondary: {
     backgroundColor: Colors.primary.tiffanyBlue,
   },
+  navy: {
+    backgroundColor: Colors.text.primary, // charcoal navy
+  },
   outline: {
     backgroundColor: 'transparent',
     borderWidth: 2,
@@ -134,6 +137,9 @@ const styles = StyleSheet.create({
     color: Colors.text.inverse,
   },
   text_secondary: {
+    color: Colors.text.inverse,
+  },
+  text_navy: {
     color: Colors.text.inverse,
   },
   text_outline: {

@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Typography, Spacing, BorderRadius, Layout } from '@/constants';
-import { Button } from '@/components/ui';
+import { Button, Logo } from '@/components/ui';
 import { useUserStore } from '@/stores/userStore';
 import { ensureProfileExists } from '@/services/authService';
 import * as biometricService from '@/services/biometricService';
@@ -137,7 +137,7 @@ export default function LoginScreen() {
         >
           {/* Header */}
           <View style={styles.header}>
-            <Text style={styles.logo}>2Equilibrium</Text>
+            <Logo size="md" style={styles.logoContainer} />
             <Text style={styles.title}>Welcome Back</Text>
             <Text style={styles.subtitle}>
               Continue your wellness journey
@@ -266,9 +266,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: Spacing['3xl'],
   },
-  logo: {
-    ...Typography.h3,
-    color: Colors.primary.orange,
+  logoContainer: {
     marginBottom: Spacing.lg,
   },
   title: {

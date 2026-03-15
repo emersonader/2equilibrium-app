@@ -2,17 +2,43 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import * as Updates from 'expo-updates';
+import * as SplashScreen from 'expo-splash-screen';
+import { useFonts, PlayfairDisplay_400Regular, PlayfairDisplay_700Bold } from '@expo-google-fonts/playfair-display';
 import { BadgeUnlockModal } from '@/components/badges';
 import { useBadgeStore, useNotificationStore } from '@/stores';
+
+// Prevent the splash screen from auto-hiding before font loading is complete
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const { newlyEarnedBadge, clearNewlyEarnedBadge } = useBadgeStore();
   const { initializeNotifications } = useNotificationStore();
 
+  // Load fonts
+  const [fontsLoaded] = useFonts({
+    PlayfairDisplay_400Regular,
+    PlayfairDisplay_700Bold,
+  });
+
+  // Hide splash screen when fonts are loaded
+  useEffect(() => {
+    async function hideSplashScreen() {
+      if (fontsLoaded) {
+        await SplashScreen.hideAsync();
+      }
+    }
+    hideSplashScreen();
+  }, [fontsLoaded]);
+
   // Initialize notifications when app starts
   useEffect(() => {
     initializeNotifications().catch(console.error);
   }, [initializeNotifications]);
+
+  // Don't render the app until fonts are loaded
+  if (!fontsLoaded) {
+    return null;
+  }
 
   // Check for OTA updates on app start
   useEffect(() => {
@@ -42,7 +68,7 @@ export default function RootLayout() {
       <Stack
         screenOptions={{
           headerShown: false,
-          contentStyle: { backgroundColor: '#FFFFFF' },
+          contentStyle: { backgroundColor: '#FAFFFE' }, // cream background
         }}
       >
         <Stack.Screen name="index" />

@@ -2,3 +2,4 @@ export { Button } from './Button';
 export { Card } from './Card';
 export { ProgressRing } from './ProgressRing';
 export { Badge, ChapterBadge } from './Badge';
+export { Logo } from './Logo';

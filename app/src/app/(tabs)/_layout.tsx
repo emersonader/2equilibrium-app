@@ -13,7 +13,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.primary.orange,
-        tabBarInactiveTintColor: Colors.text.muted,
+        tabBarInactiveTintColor: Colors.text.secondary, // navy/gray for inactive tabs
         tabBarStyle: {
           height: Layout.tabBarHeight,
           paddingTop: 8,
