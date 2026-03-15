@@ -43,12 +43,15 @@ export default function CommunityScreen() {
   // Check if user has community access (any active subscription)
   const hasCommunityAccess = true; // TODO: restore hasFeature(tier, 'communityCircle') before App Store submission
 
+  const [hasLoaded, setHasLoaded] = useState(false);
+
   useFocusEffect(
     useCallback(() => {
-      if (hasCommunityAccess) {
-        loadFeed();
+      if (hasCommunityAccess && !hasLoaded) {
+        setHasLoaded(true);
+        loadFeed().catch((e) => console.warn('Community feed unavailable:', e));
       }
-    }, [hasCommunityAccess])
+    }, [hasCommunityAccess, hasLoaded])
   );
 
   const handleRefresh = async () => {
