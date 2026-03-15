@@ -11,3 +11,4 @@ export {
   type TierFeatures,
   type Feature,
 } from './featureFlags';
+export { SOCIAL_LINKS } from './socialLinks';

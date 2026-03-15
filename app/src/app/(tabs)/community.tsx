@@ -15,7 +15,7 @@ import { useRouter, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Typography, Spacing, Layout } from '@/constants';
 import { Card, Button } from '@/components/ui';
-import { ActivityCard, UserAvatar } from '@/components/community';
+import { ActivityCard, UserAvatar, SocialLinksBar } from '@/components/community';
 import { useCommunityStore, useUserStore, useSubscriptionStore } from '@/stores';
 import { hasFeature } from '@/constants/featureFlags';
 import type { ActivityFeedItem } from '@/services/database.types';
@@ -149,17 +149,20 @@ export default function CommunityScreen() {
           <Text style={styles.title}>Community</Text>
         </View>
         <View style={styles.lockedContainer}>
-          <Ionicons name="lock-closed" size={64} color={Colors.text.muted} />
-          <Text style={styles.lockedTitle}>Unlock Community</Text>
-          <Text style={styles.lockedText}>
-            Subscribe to connect with fellow wellness seekers, share your journey, and encourage others on their path.
-          </Text>
-          <Button
-            title="View Plans"
-            variant="primary"
-            onPress={() => router.push('/onboarding/subscription')}
-            style={styles.lockedButton}
-          />
+          <SocialLinksBar title="Follow us" />
+          <View style={styles.lockedContent}>
+            <Ionicons name="lock-closed" size={64} color={Colors.text.muted} />
+            <Text style={styles.lockedTitle}>Unlock Community</Text>
+            <Text style={styles.lockedText}>
+              Subscribe to connect with fellow wellness seekers, share your journey, and encourage others on their path.
+            </Text>
+            <Button
+              title="View Plans"
+              variant="primary"
+              onPress={() => router.push('/onboarding/subscription')}
+              style={styles.lockedButton}
+            />
+          </View>
         </View>
       </SafeAreaView>
     );
@@ -226,6 +229,11 @@ export default function CommunityScreen() {
           </View>
         </Card>
       )}
+
+      {/* Social Links */}
+      <View style={styles.socialLinksContainer}>
+        <SocialLinksBar />
+      </View>
 
       {/* Feed */}
       <FlatList
@@ -323,6 +331,12 @@ const styles = StyleSheet.create({
     color: Colors.text.muted,
   },
 
+  // Social links
+  socialLinksContainer: {
+    marginHorizontal: Layout.screenPaddingHorizontal,
+    marginBottom: Spacing.md,
+  },
+
   // Feed
   feedContent: {
     paddingHorizontal: Layout.screenPaddingHorizontal,
@@ -362,9 +376,13 @@ const styles = StyleSheet.create({
   // Locked state
   lockedContainer: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
     padding: Spacing['3xl'],
+  },
+  lockedContent: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   lockedTitle: {
     ...Typography.h3,

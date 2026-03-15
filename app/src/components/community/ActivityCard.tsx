@@ -7,6 +7,7 @@ import { Spacing } from '@/constants/spacing';
 import { Card } from '@/components/ui/Card';
 import { UserAvatar } from './UserAvatar';
 import { EncourageButton } from './EncourageButton';
+import { shareAchievement, type AchievementType } from '@/services/shareService';
 import type { ActivityFeedItem, PostType } from '@/services/database.types';
 
 interface ActivityCardProps {
@@ -60,6 +61,41 @@ export function ActivityCard({
 }: ActivityCardProps) {
   const { icon, color } = getPostTypeIcon(post.post_type);
   const timeAgo = formatTimeAgo(post.created_at);
+
+  const handleShare = async () => {
+    try {
+      let achievementType: AchievementType;
+      let title = '';
+      let description = post.content || '';
+
+      switch (post.post_type) {
+        case 'badge':
+          achievementType = 'badge';
+          title = post.metadata?.badge_name || 'Achievement Badge';
+          break;
+        case 'streak':
+          achievementType = 'streak';
+          title = `${post.metadata?.streak_count || 'Multi'}-day streak`;
+          break;
+        case 'milestone':
+          achievementType = 'milestone';
+          title = 'Milestone Achievement';
+          break;
+        case 'chapter':
+          achievementType = 'phase';
+          title = 'Chapter Completion';
+          break;
+        default:
+          achievementType = 'milestone';
+          title = 'Wellness Journey Update';
+          break;
+      }
+
+      await shareAchievement(achievementType, { title, description });
+    } catch (error) {
+      console.error('Failed to share achievement:', error);
+    }
+  };
 
   return (
     <Card style={styles.card}>
@@ -117,15 +153,27 @@ export function ActivityCard({
           onPress={() => onEncourage(post.id)}
         />
 
-        {isOwnPost && onDelete && (
-          <TouchableOpacity
-            style={styles.deleteButton}
-            onPress={() => onDelete(post.id)}
-            activeOpacity={0.7}
-          >
-            <Ionicons name="trash-outline" size={18} color={Colors.text.muted} />
-          </TouchableOpacity>
-        )}
+        <View style={styles.rightActions}>
+          {isOwnPost && (
+            <TouchableOpacity
+              style={styles.shareButton}
+              onPress={handleShare}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="share-outline" size={18} color={Colors.text.muted} />
+            </TouchableOpacity>
+          )}
+
+          {isOwnPost && onDelete && (
+            <TouchableOpacity
+              style={styles.deleteButton}
+              onPress={() => onDelete(post.id)}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="trash-outline" size={18} color={Colors.text.muted} />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </Card>
   );
@@ -244,6 +292,14 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.sm,
     borderTopWidth: 1,
     borderTopColor: Colors.ui.border,
+  },
+  rightActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.xs,
+  },
+  shareButton: {
+    padding: Spacing.xs,
   },
   deleteButton: {
     padding: Spacing.xs,

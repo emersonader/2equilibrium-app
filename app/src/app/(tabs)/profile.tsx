@@ -21,6 +21,7 @@ import { Colors, Typography, Spacing, Layout, BorderRadius } from '@/constants';
 import { Card, Button, Badge, ProgressRing } from '@/components/ui';
 import { HealthMetricsSection, HealthConnectSection } from '@/components/health';
 import { BadgeList } from '@/components/badges';
+import { SocialLinksBar } from '@/components/community';
 import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore, useSubscriptionStore } from '@/stores';
 import * as journalService from '@/services/journalService';
 import * as biometricService from '@/services/biometricService';
@@ -692,6 +693,12 @@ export default function ProfileScreen() {
               onPress={handlePrivacy}
             />
           </Card>
+        </View>
+
+        {/* Follow Us */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Follow Us</Text>
+          <SocialLinksBar title="Stay connected with our community" />
         </View>
 
         {/* Danger Zone */}

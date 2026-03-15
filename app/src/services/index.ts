@@ -116,3 +116,14 @@ export {
   addNotificationReceivedListener,
   addNotificationResponseReceivedListener,
 } from './notificationService';
+
+// Share service
+export {
+  shareAchievement,
+  shareBadgeAchievement,
+  shareStreakAchievement,
+  sharePhaseAchievement,
+  shareMilestoneAchievement,
+  type AchievementType,
+  type AchievementDetails,
+} from './shareService';
