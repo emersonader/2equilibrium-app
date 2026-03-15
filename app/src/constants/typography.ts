@@ -13,9 +13,9 @@ export const FontFamilies = {
   medium: 'System',
   semibold: 'System',
   bold: 'System',
-  // Headings - elegant serif font (Playfair Display)
-  heading: 'PlayfairDisplay_700Bold',
-  headingRegular: 'PlayfairDisplay_400Regular',
+  // Headings - system font (clean, readable)
+  heading: 'System',
+  headingRegular: 'System',
 };
 
 export const FontSizes = {
