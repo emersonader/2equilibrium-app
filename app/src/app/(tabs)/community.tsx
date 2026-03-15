@@ -41,7 +41,7 @@ export default function CommunityScreen() {
   const [isPosting, setIsPosting] = useState(false);
 
   // Check if user has community access (any active subscription)
-  const hasCommunityAccess = hasFeature(tier, 'communityCircle');
+  const hasCommunityAccess = true; // TODO: restore hasFeature(tier, 'communityCircle') before App Store submission
 
   useFocusEffect(
     useCallback(() => {
