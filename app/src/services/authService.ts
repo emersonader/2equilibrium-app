@@ -120,14 +120,6 @@ export async function ensureProfileExists(): Promise<Profile> {
       .from('profiles')
       .insert({
         id: user.id,
-
-        // Website compatibility fields
-        email: user.email!,
-        name: fullName || user.email!,
-        tier: 'premium',
-        is_admin: false,
-
-        // Mobile app fields
         full_name: fullName,
         avatar_url: null,
         onboarding_completed: false,
