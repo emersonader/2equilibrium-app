@@ -9,6 +9,8 @@ import {
   Modal,
   ScrollView,
   Switch,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -268,6 +270,7 @@ interface HealthSetupModalProps {
     currentWeight?: number;
     goalWeight?: number;
     unitSystem?: UnitSystem;
+    isProfileEdit?: boolean;
   }) => Promise<void>;
   isLoading: boolean;
   existingProfile?: any;
@@ -376,6 +379,7 @@ function HealthSetupModal({
         currentWeight: weight,
         goalWeight: goal,
         unitSystem,
+        isProfileEdit: true,
       });
     } catch (error: any) {
       Alert.alert('Error', error.message || 'Failed to save profile');
@@ -389,7 +393,11 @@ function HealthSetupModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={styles.modalContainer}>
+      <KeyboardAvoidingView
+        style={styles.modalContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+      >
         <View style={styles.modalHeader}>
           <Text style={styles.modalTitle}>Health Profile</Text>
           <Pressable onPress={onClose} style={styles.modalCloseButton}>
@@ -397,7 +405,7 @@ function HealthSetupModal({
           </Pressable>
         </View>
 
-        <ScrollView style={styles.modalContent} showsVerticalScrollIndicator={false}>
+        <ScrollView style={styles.modalContent} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
           {/* Unit System Toggle */}
           <View style={styles.inputGroup}>
             <Text style={styles.inputLabel}>Unit System</Text>
@@ -604,7 +612,7 @@ function HealthSetupModal({
             />
           </View>
         </ScrollView>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
@@ -651,7 +659,10 @@ function LogWeightModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={styles.modalContainer}>
+      <KeyboardAvoidingView
+        style={styles.modalContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
         <View style={styles.modalHeader}>
           <Text style={styles.modalTitle}>Log Weight</Text>
           <Pressable onPress={onClose} style={styles.modalCloseButton}>
@@ -700,7 +711,7 @@ function LogWeightModal({
             />
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }

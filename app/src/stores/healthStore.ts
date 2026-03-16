@@ -28,6 +28,7 @@ interface HealthState {
     goalWeight?: number;
     unitSystem?: UnitSystem;
     trackingEnabled?: boolean;
+    isProfileEdit?: boolean;
   }) => Promise<void>;
   logWeight: (weight: number, notes?: string) => Promise<void>;
   deleteWeightEntry: (entryId: string) => Promise<void>;

@@ -161,6 +161,7 @@ export async function saveHealthProfile(profileData: {
   goalWeight?: number; // in user's unit system
   unitSystem?: UnitSystem;
   trackingEnabled?: boolean;
+  isProfileEdit?: boolean; // true when editing profile (not logging weight)
 }): Promise<HealthProfile> {
   const sb = getSupabase();
   const { data: { user } } = await sb.auth.getUser();
@@ -202,9 +203,29 @@ export async function saveHealthProfile(profileData: {
     currentBmi = calculateBMI(weightKg, heightCm);
   }
 
-  // Set starting weight if this is the first weight entry
-  const startingWeight = existing?.starting_weight || weightKg;
-  const startingBmi = existing?.starting_bmi || currentBmi;
+  // Set starting weight logic:
+  // - First time setup: starting_weight = current weight
+  // - Profile edit (isProfileEdit=true): if no weight has been logged separately,
+  //   update starting_weight too (user is correcting their profile, not tracking progress)
+  // - Weight log (via logWeight): keep starting_weight unchanged
+  let startingWeight = existing?.starting_weight || weightKg;
+  let startingBmi = existing?.starting_bmi || currentBmi;
+
+  if (profileData.isProfileEdit && weightKg !== null) {
+    // Check if user has any weight_history entries (actual logged weights)
+    const { count } = await sb
+      .from('weight_history')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id);
+
+    const hasLoggedWeight = (count ?? 0) > 0;
+
+    if (!hasLoggedWeight) {
+      // No weight logged yet — user is just correcting their profile setup
+      startingWeight = weightKg;
+      startingBmi = currentBmi;
+    }
+  }
 
   const profileUpdate: HealthProfileInsert = {
     user_id: user.id,
