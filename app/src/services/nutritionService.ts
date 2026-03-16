@@ -14,7 +14,7 @@ const OPEN_FOOD_FACTS_API = 'https://world.openfoodfacts.org/api/v2/product';
 
 // USDA FoodData Central API (for generic food search)
 // Free API - get your own key at https://fdc.nal.usda.gov/api-key-signup.html
-const USDA_API_KEY = process.env.EXPO_PUBLIC_USDA_API_KEY || 'DEMO_KEY';
+const USDA_API_KEY = 'OFLRVAPK4wJisHpg6YpdxvvroiwLavo859HEk4Ma';
 const USDA_API_URL = 'https://api.nal.usda.gov/fdc/v1/foods/search';
 
 /**
