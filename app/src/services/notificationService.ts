@@ -104,10 +104,10 @@ export const scheduleDailyReminder = async (hour: number, minute: number): Promi
         },
       },
       trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.DAILY,
         hour,
         minute,
-        repeats: true,
-      } as Notifications.CalendarTriggerInput,
+      },
     });
 
     console.log('Daily reminder scheduled with identifier:', identifier);

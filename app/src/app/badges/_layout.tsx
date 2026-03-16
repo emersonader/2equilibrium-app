@@ -1,7 +1,11 @@
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
+import { Pressable } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/colors';
 
 export default function BadgesLayout() {
+  const router = useRouter();
+
   return (
     <Stack
       screenOptions={{
@@ -16,7 +20,15 @@ export default function BadgesLayout() {
         name="index"
         options={{
           title: 'Badges',
-          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <Pressable
+              onPress={() => router.back()}
+              hitSlop={8}
+              style={{ marginRight: 8 }}
+            >
+              <Ionicons name="close" size={24} color={Colors.text.primary} />
+            </Pressable>
+          ),
         }}
       />
       <Stack.Screen

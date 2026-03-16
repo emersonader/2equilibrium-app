@@ -22,8 +22,8 @@ interface NotificationState {
 export const useNotificationStore = create<NotificationState>()(
   persist(
     (set, get) => ({
-      // Initial state
-      reminderEnabled: true,
+      // Initial state (false until user explicitly enables or settings loaded)
+      reminderEnabled: false,
       reminderHour: 8, // 8:00 AM default
       reminderMinute: 0,
       permissionGranted: false,
@@ -60,21 +60,25 @@ export const useNotificationStore = create<NotificationState>()(
 
       // Toggle reminder on/off
       toggleReminder: async () => {
-        const { reminderEnabled, reminderHour, reminderMinute, permissionGranted } = get();
+        const { reminderEnabled, reminderHour, reminderMinute } = get();
         const newEnabled = !reminderEnabled;
 
         try {
-          if (newEnabled && !permissionGranted) {
-            // Request permissions if enabling for the first time
-            const granted = await notificationService.initNotifications();
-            if (!granted) {
-              console.log('Notification permissions not granted');
-              return;
-            }
-            set({ permissionGranted: true });
-          }
+          if (newEnabled) {
+            // Check permissions (re-read from store to get latest)
+            let hasPermission = get().permissionGranted;
 
-          if (newEnabled && permissionGranted) {
+            if (!hasPermission) {
+              // Request permissions if enabling for the first time
+              const granted = await notificationService.initNotifications();
+              if (!granted) {
+                console.log('Notification permissions not granted');
+                return;
+              }
+              set({ permissionGranted: true });
+              hasPermission = true;
+            }
+
             // Enable - schedule the reminder
             const success = await notificationService.scheduleDailyReminder(reminderHour, reminderMinute);
             if (success) {
