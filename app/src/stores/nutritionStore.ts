@@ -1,12 +1,14 @@
 import { create } from 'zustand';
 import * as nutritionService from '@/services/nutritionService';
 import type { FoodEntry, FoodProduct, DailyNutritionSummary, MealType } from '@/services/database.types';
+import type { WeeklyNutritionSummary } from '@/services/nutritionService';
 
 interface NutritionState {
   // Today's data
   todayEntries: FoodEntry[];
   entriesByMeal: Record<MealType, FoodEntry[]>;
   dailySummary: DailyNutritionSummary | null;
+  weeklySummary: WeeklyNutritionSummary | null;
   isLoading: boolean;
 
   // Scanned/searched product
@@ -18,7 +20,8 @@ interface NutritionState {
   recentFoods: FoodEntry[];
 
   // Actions
-  loadTodayData: () => Promise<void>;
+  loadTodayData: (date?: string) => Promise<void>;
+  loadWeeklySummary: (date?: string) => Promise<void>;
   addFoodEntry: (product: FoodProduct, mealType: MealType, quantityInGrams?: number) => Promise<void>;
   addManualEntry: (
     foodName: string,
@@ -45,19 +48,20 @@ export const useNutritionStore = create<NutritionState>((set, get) => ({
     snack: [],
   },
   dailySummary: null,
+  weeklySummary: null,
   isLoading: false,
   scannedProduct: null,
   searchResults: [],
   isSearching: false,
   recentFoods: [],
 
-  // Load today's data
-  loadTodayData: async () => {
+  // Load data for the given date (defaults to today)
+  loadTodayData: async (date?: string) => {
     try {
       set({ isLoading: true });
       const [entriesByMeal, summary] = await Promise.all([
-        nutritionService.getEntriesByMeal(),
-        nutritionService.getDailySummary(),
+        nutritionService.getEntriesByMeal(date),
+        nutritionService.getDailySummary(date),
       ]);
 
       const allEntries = [
@@ -76,6 +80,16 @@ export const useNutritionStore = create<NutritionState>((set, get) => ({
       console.error('Failed to load today data:', error);
     } finally {
       set({ isLoading: false });
+    }
+  },
+
+  // Load weekly summary for the week containing the given date
+  loadWeeklySummary: async (date?: string) => {
+    try {
+      const weeklySummary = await nutritionService.getWeeklySummary(date);
+      set({ weeklySummary });
+    } catch (error) {
+      console.error('Failed to load weekly summary:', error);
     }
   },
 

@@ -426,6 +426,99 @@ export async function updateFoodEntry(
 }
 
 /**
+ * Weekly nutrition summary data
+ */
+export interface WeeklyNutritionSummary {
+  startDate: string;
+  endDate: string;
+  daysTracked: number;
+  avgCalories: number;
+  avgProtein: number;
+  avgCarbs: number;
+  avgFat: number;
+}
+
+/**
+ * Get weekly nutrition summary for the week containing the given date.
+ * Week runs Monday–Sunday.
+ */
+export async function getWeeklySummary(date?: string): Promise<WeeklyNutritionSummary> {
+  const sb = getSupabase();
+  const { data: { user } } = await sb.auth.getUser();
+
+  const empty: WeeklyNutritionSummary = {
+    startDate: '',
+    endDate: '',
+    daysTracked: 0,
+    avgCalories: 0,
+    avgProtein: 0,
+    avgCarbs: 0,
+    avgFat: 0,
+  };
+
+  if (!user) return empty;
+
+  // Build a Date at noon local time to avoid DST edge cases
+  const target = date ? new Date(date + 'T12:00:00') : new Date();
+  const dayOfWeek = target.getDay(); // 0 = Sun
+  const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+
+  const monday = new Date(target);
+  monday.setDate(target.getDate() + mondayOffset);
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+
+  const startDate = getLocalDateString(monday);
+  const endDate = getLocalDateString(sunday);
+
+  const { data, error } = await sb
+    .from('food_entries')
+    .select('entry_date, calories, protein, carbs, fat')
+    .eq('user_id', user.id)
+    .gte('entry_date', startDate)
+    .lte('entry_date', endDate);
+
+  if (error) throw error;
+
+  const entries = data || [];
+
+  // Group by date
+  const byDate = new Map<string, typeof entries>();
+  entries.forEach(entry => {
+    const key = entry.entry_date as string;
+    if (!byDate.has(key)) byDate.set(key, []);
+    byDate.get(key)!.push(entry);
+  });
+
+  const daysTracked = byDate.size;
+  if (daysTracked === 0) return { ...empty, startDate, endDate };
+
+  let totalCalories = 0;
+  let totalProtein = 0;
+  let totalCarbs = 0;
+  let totalFat = 0;
+
+  byDate.forEach(dayEntries => {
+    dayEntries.forEach(entry => {
+      totalCalories += (entry.calories as number | null) || 0;
+      totalProtein += (entry.protein as number | null) || 0;
+      totalCarbs += (entry.carbs as number | null) || 0;
+      totalFat += (entry.fat as number | null) || 0;
+    });
+  });
+
+  return {
+    startDate,
+    endDate,
+    daysTracked,
+    avgCalories: Math.round(totalCalories / daysTracked),
+    avgProtein: Math.round((totalProtein / daysTracked) * 10) / 10,
+    avgCarbs: Math.round((totalCarbs / daysTracked) * 10) / 10,
+    avgFat: Math.round((totalFat / daysTracked) * 10) / 10,
+  };
+}
+
+/**
  * Get recent entries for quick-add feature
  */
 export async function getRecentFoods(limit: number = 10): Promise<FoodEntry[]> {

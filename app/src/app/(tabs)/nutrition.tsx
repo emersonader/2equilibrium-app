@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -23,23 +23,94 @@ const MEAL_CONFIG: Record<MealType, { icon: string; label: string; emoji: string
   snack: { icon: 'nutrition-outline', label: 'Snacks', emoji: '🍎' },
 };
 
-const CALORIE_GOAL = 2000; // Default daily calorie goal
+const CALORIE_GOAL = 2000;
+
+// ─── Date helpers ────────────────────────────────────────────────────────────
+
+function toDateString(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function formatDateLabel(date: Date): string {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  const diff = Math.round((today.getTime() - d.getTime()) / 86_400_000);
+  if (diff === 0) return 'Today';
+  if (diff === 1) return 'Yesterday';
+  return date.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function isToday(date: Date): boolean {
+  const today = new Date();
+  return (
+    date.getFullYear() === today.getFullYear() &&
+    date.getMonth() === today.getMonth() &&
+    date.getDate() === today.getDate()
+  );
+}
+
+// ─── Screen ──────────────────────────────────────────────────────────────────
 
 export default function NutritionScreen() {
   const router = useRouter();
   const {
     entriesByMeal,
     dailySummary,
+    weeklySummary,
     isLoading,
     loadTodayData,
+    loadWeeklySummary,
     deleteFoodEntry,
   } = useNutritionStore();
 
+  const [selectedDate, setSelectedDate] = useState<Date>(() => {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
+  });
+
+  const dateString = toDateString(selectedDate);
+
+  const loadData = useCallback(
+    (date: Date) => {
+      const ds = toDateString(date);
+      loadTodayData(ds);
+      loadWeeklySummary(ds);
+    },
+    [loadTodayData, loadWeeklySummary]
+  );
+
   useFocusEffect(
     useCallback(() => {
-      loadTodayData();
-    }, [])
+      loadData(selectedDate);
+    }, [selectedDate, loadData])
   );
+
+  const goToPrevDay = () => {
+    setSelectedDate(prev => {
+      const d = new Date(prev);
+      d.setDate(prev.getDate() - 1);
+      return d;
+    });
+  };
+
+  const goToNextDay = () => {
+    if (isToday(selectedDate)) return;
+    setSelectedDate(prev => {
+      const d = new Date(prev);
+      d.setDate(prev.getDate() + 1);
+      return d;
+    });
+  };
 
   const handleDeleteEntry = (entry: FoodEntry) => {
     Alert.alert(
@@ -67,24 +138,44 @@ export default function NutritionScreen() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
         refreshControl={
-          <RefreshControl refreshing={isLoading} onRefresh={loadTodayData} />
+          <RefreshControl
+            refreshing={isLoading}
+            onRefresh={() => loadData(selectedDate)}
+          />
         }
       >
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>Nutrition</Text>
-          <Text style={styles.date}>
-            {new Date().toLocaleDateString('en-US', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </Text>
+
+          {/* Date Navigation */}
+          <View style={styles.dateNav}>
+            <Pressable style={styles.dateArrow} onPress={goToPrevDay} hitSlop={8}>
+              <Ionicons name="chevron-back" size={22} color={Colors.primary.orange} />
+            </Pressable>
+
+            <Text style={styles.dateLabel}>{formatDateLabel(selectedDate)}</Text>
+
+            <Pressable
+              style={[styles.dateArrow, isToday(selectedDate) && styles.dateArrowDisabled]}
+              onPress={goToNextDay}
+              hitSlop={8}
+              disabled={isToday(selectedDate)}
+            >
+              <Ionicons
+                name="chevron-forward"
+                size={22}
+                color={isToday(selectedDate) ? Colors.text.muted : Colors.primary.orange}
+              />
+            </Pressable>
+          </View>
         </View>
 
         {/* Daily Summary Card */}
         <Card variant="elevated" style={styles.summaryCard}>
-          <Text style={styles.summaryTitle}>Today's Nutrition</Text>
+          <Text style={styles.summaryTitle}>
+            {isToday(selectedDate) ? "Today's Nutrition" : formatDateLabel(selectedDate)}
+          </Text>
 
           {/* Calorie Progress */}
           <View style={styles.calorieSection}>
@@ -130,6 +221,11 @@ export default function NutritionScreen() {
           </View>
         </Card>
 
+        {/* Weekly Summary */}
+        {weeklySummary && weeklySummary.daysTracked > 0 && (
+          <WeeklySummaryCard summary={weeklySummary} />
+        )}
+
         {/* Action Buttons */}
         <View style={styles.actionButtons}>
           <Pressable
@@ -168,7 +264,75 @@ export default function NutritionScreen() {
   );
 }
 
-// Meal Section Component
+// ─── Weekly Summary Card ─────────────────────────────────────────────────────
+
+import type { WeeklyNutritionSummary } from '@/services/nutritionService';
+
+interface WeeklySummaryCardProps {
+  summary: WeeklyNutritionSummary;
+}
+
+function WeeklySummaryCard({ summary }: WeeklySummaryCardProps) {
+  const maxCalories = CALORIE_GOAL;
+
+  return (
+    <Card variant="outlined" style={styles.weeklyCard}>
+      <View style={styles.weeklyHeader}>
+        <Text style={styles.weeklyTitle}>Weekly Summary</Text>
+        <Text style={styles.weeklyDays}>{summary.daysTracked} day{summary.daysTracked !== 1 ? 's' : ''} tracked</Text>
+      </View>
+
+      {/* Avg Calories with bar */}
+      <View style={styles.weeklyCalRow}>
+        <View style={styles.weeklyCalLabels}>
+          <Text style={styles.weeklyCalLabel}>Avg. Calories</Text>
+          <Text style={styles.weeklyCalValue}>{summary.avgCalories} / {maxCalories}</Text>
+        </View>
+        <View style={styles.weeklyBar}>
+          <View
+            style={[
+              styles.weeklyBarFill,
+              {
+                width: `${Math.min((summary.avgCalories / maxCalories) * 100, 100)}%`,
+              },
+            ]}
+          />
+        </View>
+      </View>
+
+      {/* Macro bars */}
+      <View style={styles.weeklyMacros}>
+        <MacroBar label="Protein" value={summary.avgProtein} unit="g" color="#3498DB" max={150} />
+        <MacroBar label="Carbs" value={summary.avgCarbs} unit="g" color={Colors.primary.tiffanyBlue} max={300} />
+        <MacroBar label="Fat" value={summary.avgFat} unit="g" color={Colors.primary.orange} max={80} />
+      </View>
+    </Card>
+  );
+}
+
+interface MacroBarProps {
+  label: string;
+  value: number;
+  unit: string;
+  color: string;
+  max: number;
+}
+
+function MacroBar({ label, value, unit, color, max }: MacroBarProps) {
+  const pct = Math.min((value / max) * 100, 100);
+  return (
+    <View style={styles.macroBarRow}>
+      <Text style={styles.macroBarLabel}>{label}</Text>
+      <View style={styles.macroBarTrack}>
+        <View style={[styles.macroBarFill, { width: `${pct}%`, backgroundColor: color }]} />
+      </View>
+      <Text style={styles.macroBarValue}>{value}{unit}</Text>
+    </View>
+  );
+}
+
+// ─── Meal Section ─────────────────────────────────────────────────────────────
+
 interface MealSectionProps {
   mealType: MealType;
   entries: FoodEntry[];
@@ -231,6 +395,8 @@ function MealSection({ mealType, entries, onDeleteEntry, onAddFood }: MealSectio
   );
 }
 
+// ─── Styles ───────────────────────────────────────────────────────────────────
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -250,10 +416,26 @@ const styles = StyleSheet.create({
   title: {
     ...Typography.h1,
     color: Colors.text.primary,
+    marginBottom: Spacing.sm,
   },
-  date: {
+
+  // Date navigation
+  dateNav: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  dateArrow: {
+    padding: Spacing.xs,
+  },
+  dateArrowDisabled: {
+    opacity: 0.3,
+  },
+  dateLabel: {
     ...Typography.bodyLarge,
     color: Colors.text.secondary,
+    flex: 1,
+    textAlign: 'center',
   },
 
   // Summary Card
@@ -318,6 +500,85 @@ const styles = StyleSheet.create({
     width: 1,
     height: 30,
     backgroundColor: Colors.ui.border,
+  },
+
+  // Weekly Summary Card
+  weeklyCard: {
+    marginBottom: Spacing.lg,
+  },
+  weeklyHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: Spacing.md,
+  },
+  weeklyTitle: {
+    ...Typography.h5,
+    color: Colors.text.primary,
+  },
+  weeklyDays: {
+    ...Typography.caption,
+    color: Colors.primary.tiffanyBlue,
+    fontWeight: '600',
+  },
+  weeklyCalRow: {
+    marginBottom: Spacing.md,
+  },
+  weeklyCalLabels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: Spacing.xs,
+  },
+  weeklyCalLabel: {
+    ...Typography.bodySmall,
+    color: Colors.text.secondary,
+  },
+  weeklyCalValue: {
+    ...Typography.bodySmall,
+    color: Colors.primary.orange,
+    fontWeight: '600',
+  },
+  weeklyBar: {
+    height: 6,
+    backgroundColor: Colors.background.tertiary,
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  weeklyBarFill: {
+    height: '100%',
+    backgroundColor: Colors.primary.orange,
+    borderRadius: 3,
+  },
+  weeklyMacros: {
+    gap: Spacing.sm,
+  },
+  macroBarRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  macroBarLabel: {
+    ...Typography.caption,
+    color: Colors.text.secondary,
+    width: 50,
+  },
+  macroBarTrack: {
+    flex: 1,
+    height: 5,
+    backgroundColor: Colors.background.tertiary,
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  macroBarFill: {
+    height: '100%',
+    borderRadius: 3,
+  },
+  macroBarValue: {
+    ...Typography.caption,
+    color: Colors.text.primary,
+    fontWeight: '600',
+    width: 40,
+    textAlign: 'right',
   },
 
   // Action Buttons

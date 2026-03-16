@@ -23,6 +23,7 @@ import { HealthMetricsSection, HealthConnectSection } from '@/components/health'
 import { BadgeList } from '@/components/badges';
 import { SocialLinksBar } from '@/components/community';
 import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore, useSubscriptionStore } from '@/stores';
+import { PhaseAvatar, calcPhase } from '@/components/avatar/PhaseAvatar';
 import * as journalService from '@/services/journalService';
 import * as biometricService from '@/services/biometricService';
 import * as journeySummaryService from '@/services/journeySummaryService';
@@ -466,11 +467,11 @@ export default function ProfileScreen() {
         {/* User Card */}
         <Card variant="elevated" style={styles.userCard}>
           <View style={styles.userInfo}>
-            <View style={styles.avatar}>
-              <Text style={styles.avatarText}>
-                {user.name.charAt(0).toUpperCase()}
-              </Text>
-            </View>
+            <PhaseAvatar
+              name={user.name}
+              phase={calcPhase(completedLessons.length)}
+              size={64}
+            />
             <View style={styles.userDetails}>
               <Text style={styles.userName}>{user.name}</Text>
               <Text style={styles.userEmail}>{user.email}</Text>
@@ -869,18 +870,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.base,
-  },
-  avatar: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: Colors.primary.orangeLight,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatarText: {
-    ...Typography.h2,
-    color: Colors.primary.orange,
   },
   userDetails: {
     flex: 1,
