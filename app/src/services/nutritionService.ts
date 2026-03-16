@@ -72,28 +72,26 @@ export async function searchFoods(query: string, page: number = 1): Promise<Food
 
     // Check if response is OK
     if (!response.ok) {
-      console.warn('USDA API error:', response.status, '- falling back to Open Food Facts');
-      return searchFoodsOpenFoodFacts(query, page);
+      console.warn('USDA API error:', response.status);
+      return [];
     }
 
     // Check content type
     const contentType = response.headers.get('content-type');
     if (!contentType || !contentType.includes('application/json')) {
-      console.warn('USDA API returned non-JSON response, falling back to Open Food Facts');
-      return searchFoodsOpenFoodFacts(query, page);
+      console.warn('USDA API returned non-JSON response');
+      return [];
     }
 
     const data = await response.json();
 
-    // If rate limited or error, fall back to Open Food Facts
     if (data.error || !data.foods) {
-      console.log('USDA API unavailable, falling back to Open Food Facts');
-      return searchFoodsOpenFoodFacts(query, page);
+      console.log('USDA API unavailable');
+      return [];
     }
 
     if (data.foods.length === 0) {
-      // Try Open Food Facts as backup
-      return searchFoodsOpenFoodFacts(query, page);
+      return [];
     }
 
     return data.foods.map((food: any) => {
@@ -124,8 +122,8 @@ export async function searchFoods(query: string, page: number = 1): Promise<Food
       };
     }).filter((p: FoodProduct) => p.name !== 'Unknown Food' && p.nutrition.calories !== null);
   } catch (error) {
-    console.warn('USDA search unavailable, trying Open Food Facts:', error);
-    return searchFoodsOpenFoodFacts(query, page);
+    console.warn('USDA search unavailable:', error);
+    return [];
   }
 }
 

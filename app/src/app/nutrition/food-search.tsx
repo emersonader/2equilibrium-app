@@ -59,7 +59,7 @@ export default function FoodSearchScreen() {
       } else {
         clearSearchResults();
       }
-    }, 300);
+    }, 800);
 
     return () => clearTimeout(delaySearch);
   }, [searchQuery]);
