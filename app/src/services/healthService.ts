@@ -203,28 +203,19 @@ export async function saveHealthProfile(profileData: {
     currentBmi = calculateBMI(weightKg, heightCm);
   }
 
-  // Set starting weight logic:
+  // Starting weight logic:
   // - First time setup: starting_weight = current weight
-  // - Profile edit (isProfileEdit=true): if no weight has been logged separately,
-  //   update starting_weight too (user is correcting their profile, not tracking progress)
-  // - Weight log (via logWeight): keep starting_weight unchanged
+  // - Profile edit (isProfileEdit=true): also update starting_weight to match
+  //   (user is correcting their profile, not tracking progress — weight logs are separate)
+  // - Weight log (via logWeight → calls saveHealthProfile without isProfileEdit):
+  //   keep starting_weight unchanged
   let startingWeight = existing?.starting_weight || weightKg;
   let startingBmi = existing?.starting_bmi || currentBmi;
 
   if (profileData.isProfileEdit && weightKg !== null) {
-    // Check if user has any weight_history entries (actual logged weights)
-    const { count } = await sb
-      .from('weight_history')
-      .select('*', { count: 'exact', head: true })
-      .eq('user_id', user.id);
-
-    const hasLoggedWeight = (count ?? 0) > 0;
-
-    if (!hasLoggedWeight) {
-      // No weight logged yet — user is just correcting their profile setup
-      startingWeight = weightKg;
-      startingBmi = currentBmi;
-    }
+    // Profile edit = user correcting their info, update starting weight too
+    startingWeight = weightKg;
+    startingBmi = currentBmi;
   }
 
   const profileUpdate: HealthProfileInsert = {

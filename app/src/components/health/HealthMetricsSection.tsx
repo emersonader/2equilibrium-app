@@ -9,8 +9,6 @@ import {
   Modal,
   ScrollView,
   Switch,
-  KeyboardAvoidingView,
-  Platform,
 } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -393,11 +391,7 @@ function HealthSetupModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <KeyboardAvoidingView
-        style={styles.modalContainer}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
-      >
+      <View style={styles.modalContainer}>
         <View style={styles.modalHeader}>
           <Text style={styles.modalTitle}>Health Profile</Text>
           <Pressable onPress={onClose} style={styles.modalCloseButton}>
@@ -405,7 +399,13 @@ function HealthSetupModal({
           </Pressable>
         </View>
 
-        <ScrollView style={styles.modalContent} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+        <ScrollView
+          style={styles.modalContent}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+          keyboardDismissMode="interactive"
+          automaticallyAdjustKeyboardInsets
+        >
           {/* Unit System Toggle */}
           <View style={styles.inputGroup}>
             <Text style={styles.inputLabel}>Unit System</Text>
@@ -612,7 +612,7 @@ function HealthSetupModal({
             />
           </View>
         </ScrollView>
-      </KeyboardAvoidingView>
+      </View>
     </Modal>
   );
 }
@@ -659,10 +659,7 @@ function LogWeightModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <KeyboardAvoidingView
-        style={styles.modalContainer}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
+      <View style={styles.modalContainer}>
         <View style={styles.modalHeader}>
           <Text style={styles.modalTitle}>Log Weight</Text>
           <Pressable onPress={onClose} style={styles.modalCloseButton}>
@@ -711,7 +708,7 @@ function LogWeightModal({
             />
           </View>
         </View>
-      </KeyboardAvoidingView>
+      </View>
     </Modal>
   );
 }
