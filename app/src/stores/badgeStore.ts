@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 import * as badgeService from '@/services/badgeService';
+import * as communityService from '@/services/communityService';
+import { sendBadgeEarnedNotification } from '@/services/notificationService';
 import type { Badge, BadgeWithEarnedStatus, UserBadge } from '@/services/database.types';
 
 interface BadgeState {
@@ -102,6 +104,12 @@ export const useBadgeStore = create<BadgeState>((set, get) => ({
       if (newBadges.length > 0) {
         // Set the first newly earned badge for the modal
         set({ newlyEarnedBadge: newBadges[0] });
+
+        // Send notification and auto-post for each new badge
+        for (const badge of newBadges) {
+          sendBadgeEarnedNotification(badge.name).catch(console.error);
+          communityService.autoShareBadge(badge.id, badge.name).catch(console.error);
+        }
 
         // Refresh badges and stats
         await get().loadBadges();

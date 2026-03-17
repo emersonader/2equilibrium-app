@@ -1,10 +1,11 @@
-import { Stack } from 'expo-router';
+import { Stack, router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import * as Updates from 'expo-updates';
 import * as SplashScreen from 'expo-splash-screen';
 import { BadgeUnlockModal } from '@/components/badges';
 import { useBadgeStore, useNotificationStore } from '@/stores';
+import { addNotificationResponseReceivedListener } from '@/services/notificationService';
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -22,6 +23,18 @@ export default function RootLayout() {
   useEffect(() => {
     initializeNotifications().catch(console.error);
   }, [initializeNotifications]);
+
+  // Handle notification deep linking
+  useEffect(() => {
+    const subscription = addNotificationResponseReceivedListener((response) => {
+      const data = response.notification.request.content.data;
+      if (data?.type === 'daily_reminder') {
+        router.replace('/(tabs)' as any);
+      }
+    });
+
+    return () => subscription.remove();
+  }, []);
 
   // Check for OTA updates on app start
   useEffect(() => {

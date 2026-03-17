@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -13,12 +13,16 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Colors, Typography, Spacing, Layout } from '@/constants';
 import { Card, Button } from '@/components/ui';
 import { ActivityCard, UserAvatar, SocialLinksBar } from '@/components/community';
 import { useCommunityStore, useUserStore, useSubscriptionStore } from '@/stores';
 import { hasFeature } from '@/constants/featureFlags';
+import * as communityService from '@/services/communityService';
 import type { ActivityFeedItem } from '@/services/database.types';
+
+const ENCOURAGEMENT_COUNT_KEY = 'lastSeenEncouragementCount';
 
 export default function CommunityScreen() {
   const router = useRouter();
@@ -39,19 +43,56 @@ export default function CommunityScreen() {
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [newPostContent, setNewPostContent] = useState('');
   const [isPosting, setIsPosting] = useState(false);
+  const [newEncouragements, setNewEncouragements] = useState(0);
+  const [previewFeed, setPreviewFeed] = useState<ActivityFeedItem[]>([]);
+  const [previewLoading, setPreviewLoading] = useState(false);
+
+  // Check feature flags separately for viewing vs posting
+  const canViewFeed = hasFeature(tier, 'communityFeed');
+  const canPost = hasFeature(tier, 'communityPosting');
+  const isFreeUser = tier === 'none';
 
   // Check if user has community access (any active subscription)
   const hasCommunityAccess = true; // TODO: restore hasFeature(tier, 'communityCircle') before App Store submission
 
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  // Check for new encouragements on focus
+  const checkEncouragements = useCallback(async () => {
+    try {
+      const stored = await AsyncStorage.getItem(ENCOURAGEMENT_COUNT_KEY);
+      const lastSeen = stored ? parseInt(stored, 10) : 0;
+      const { totalCount, newCount } = await communityService.checkNewEncouragements(lastSeen);
+      setNewEncouragements(newCount);
+      // Update last seen count
+      await AsyncStorage.setItem(ENCOURAGEMENT_COUNT_KEY, totalCount.toString());
+    } catch (e) {
+      console.warn('Failed to check encouragements:', e);
+    }
+  }, []);
+
   useFocusEffect(
     useCallback(() => {
+      if (isFreeUser) {
+        // Load preview feed for free users
+        if (!previewLoading && previewFeed.length === 0) {
+          setPreviewLoading(true);
+          communityService.getPublicFeed(3, 0)
+            .then(setPreviewFeed)
+            .catch((e) => console.warn('Preview feed unavailable:', e))
+            .finally(() => setPreviewLoading(false));
+        }
+        return;
+      }
+
       if (hasCommunityAccess && !hasLoaded) {
         setHasLoaded(true);
         loadFeed().catch((e) => console.warn('Community feed unavailable:', e));
       }
-    }, [hasCommunityAccess, hasLoaded])
+
+      // Check for new encouragements
+      checkEncouragements();
+    }, [hasCommunityAccess, hasLoaded, isFreeUser])
   );
 
   const handleRefresh = async () => {
@@ -144,6 +185,57 @@ export default function CommunityScreen() {
     );
   };
 
+  // Free user preview — read-only view of first 3 posts with CTA
+  if (isFreeUser) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Community</Text>
+        </View>
+        <SocialLinksBar title="Follow us" />
+        <View style={styles.previewContainer}>
+          {previewLoading ? (
+            <ActivityIndicator size="large" color={Colors.primary.orange} style={{ marginTop: Spacing.xl }} />
+          ) : previewFeed.length > 0 ? (
+            <>
+              {previewFeed.map((post) => (
+                <View key={post.id} style={styles.previewPost}>
+                  <ActivityCard
+                    post={post}
+                    onUserPress={() => {}}
+                    onEncourage={async () => {}}
+                    isOwnPost={false}
+                    onDelete={() => {}}
+                  />
+                </View>
+              ))}
+            </>
+          ) : (
+            <View style={styles.emptyContainer}>
+              <Ionicons name="people-outline" size={48} color={Colors.text.muted} />
+              <Text style={styles.emptyText}>Community posts will appear here.</Text>
+            </View>
+          )}
+
+          {/* CTA Card */}
+          <Card style={styles.ctaCard}>
+            <Ionicons name="people-circle-outline" size={48} color={Colors.primary.orange} />
+            <Text style={styles.ctaTitle}>Join the Community</Text>
+            <Text style={styles.ctaText}>
+              Subscribe to share your journey and connect with others on the path to wellness.
+            </Text>
+            <Button
+              title="Subscribe Now"
+              variant="primary"
+              onPress={() => router.push('/onboarding/subscription')}
+              style={styles.ctaButton}
+            />
+          </Card>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   // Locked state for users without community access
   if (!hasCommunityAccess) {
     return (
@@ -177,6 +269,12 @@ export default function CommunityScreen() {
       <View style={styles.header}>
         <Text style={styles.title}>Community</Text>
         <View style={styles.headerActions}>
+          {newEncouragements > 0 && (
+            <View style={styles.encouragementBadge}>
+              <Ionicons name="heart" size={16} color="#fff" />
+              <Text style={styles.encouragementBadgeText}>{newEncouragements}</Text>
+            </View>
+          )}
           <TouchableOpacity
             style={styles.headerButton}
             onPress={() => router.push('/community/settings')}
@@ -403,5 +501,54 @@ const styles = StyleSheet.create({
   },
   lockedButton: {
     minWidth: 150,
+  },
+
+  // Free user preview
+  previewContainer: {
+    flex: 1,
+    paddingHorizontal: Layout.screenPaddingHorizontal,
+    paddingTop: Spacing.md,
+  },
+  previewPost: {
+    marginBottom: Spacing.md,
+    opacity: 0.85,
+  },
+  ctaCard: {
+    alignItems: 'center' as const,
+    padding: Spacing.xl,
+    marginTop: Spacing.lg,
+    marginBottom: Spacing.xl,
+  },
+  ctaTitle: {
+    ...Typography.h4,
+    color: Colors.text.primary,
+    marginTop: Spacing.md,
+  },
+  ctaText: {
+    ...Typography.body,
+    color: Colors.text.secondary,
+    textAlign: 'center' as const,
+    marginTop: Spacing.sm,
+    marginBottom: Spacing.lg,
+    maxWidth: 280,
+  },
+  ctaButton: {
+    minWidth: 180,
+  },
+
+  // Encouragement badge
+  encouragementBadge: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    backgroundColor: Colors.primary.orange,
+    borderRadius: 12,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 2,
+    gap: 4,
+  },
+  encouragementBadgeText: {
+    ...Typography.caption,
+    color: '#fff',
+    fontWeight: '600' as const,
   },
 });

@@ -2,7 +2,9 @@ import { create } from 'zustand';
 import { Alert } from 'react-native';
 import * as progressService from '@/services/progressService';
 import * as subscriptionService from '@/services/subscriptionService';
+import * as communityService from '@/services/communityService';
 import { useBadgeStore } from './badgeStore';
+import { isStreakMilestone, sendStreakMilestoneNotification } from '@/services/notificationService';
 import type { QuizAttempt, Milestone } from '@/services/database.types';
 
 interface ProgressState {
@@ -65,6 +67,12 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
         currentStreak: progress.current_streak,
         completionTime: new Date(),
       });
+
+      // Send streak milestone notification and auto-post to community
+      if (isStreakMilestone(progress.current_streak)) {
+        sendStreakMilestoneNotification(progress.current_streak).catch(console.error);
+        communityService.autoShareStreak(progress.current_streak).catch(console.error);
+      }
 
       // Auto-cancel subscription when all 180 lessons are complete
       if (progress.completed_lessons.length >= 180) {

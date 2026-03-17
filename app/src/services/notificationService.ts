@@ -211,6 +211,87 @@ export const getScheduledNotifications = async () => {
   }
 };
 
+// ============================================
+// ACHIEVEMENT NOTIFICATIONS
+// ============================================
+
+const STREAK_MILESTONES = [7, 14, 30, 60, 90, 180];
+
+/**
+ * Send an immediate local notification for achievements
+ */
+export const sendAchievementNotification = async (
+  title: string,
+  body: string,
+  data?: Record<string, any>
+): Promise<void> => {
+  try {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title,
+        body,
+        data: { type: 'achievement', ...data },
+        sound: 'default',
+      },
+      trigger: null, // immediate
+    });
+  } catch (error) {
+    console.error('Failed to send achievement notification:', error);
+  }
+};
+
+/**
+ * Send badge earned notification
+ */
+export const sendBadgeEarnedNotification = async (badgeName: string): Promise<void> => {
+  await sendAchievementNotification(
+    '🏆 New Badge!',
+    `You earned ${badgeName}!`,
+    { notificationType: 'badge_earned', badgeName }
+  );
+};
+
+/**
+ * Send streak milestone notification
+ */
+export const sendStreakMilestoneNotification = async (streakDays: number): Promise<void> => {
+  if (!STREAK_MILESTONES.includes(streakDays)) return;
+  await sendAchievementNotification(
+    `🔥 ${streakDays} Day Streak!`,
+    'Keep the momentum going!',
+    { notificationType: 'streak_milestone', streakDays }
+  );
+};
+
+/**
+ * Send chapter complete notification
+ */
+export const sendChapterCompleteNotification = async (chapterName: string): Promise<void> => {
+  await sendAchievementNotification(
+    '📖 Chapter Complete!',
+    `You finished ${chapterName}!`,
+    { notificationType: 'chapter_complete', chapterName }
+  );
+};
+
+/**
+ * Send new lesson unlocked notification
+ */
+export const sendNewLessonNotification = async (): Promise<void> => {
+  await sendAchievementNotification(
+    '🌱 New Lesson Available!',
+    "Today's lesson is ready.",
+    { notificationType: 'new_lesson' }
+  );
+};
+
+/**
+ * Check if a streak count is a milestone
+ */
+export const isStreakMilestone = (streak: number): boolean => {
+  return STREAK_MILESTONES.includes(streak);
+};
+
 // Listen for notification responses
 export const addNotificationReceivedListener = (
   listener: (notification: Notifications.Notification) => void

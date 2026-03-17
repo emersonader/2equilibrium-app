@@ -611,6 +611,44 @@ export async function getPostEncouragements(postId: string): Promise<PostEncoura
 }
 
 // ============================================
+// ENCOURAGEMENT CHECK FUNCTIONS
+// ============================================
+
+/**
+ * Check for new encouragements on user's posts since last check.
+ * Returns the count of new encouragements.
+ */
+export async function checkNewEncouragements(lastSeenCount: number): Promise<{ totalCount: number; newCount: number }> {
+  if (!isSupabaseConfigured) return { totalCount: 0, newCount: 0 };
+
+  const client = getSupabase();
+  const { data: { user } } = await client.auth.getUser();
+
+  if (!user) return { totalCount: 0, newCount: 0 };
+
+  // Get all posts by this user
+  const { data: posts } = await client
+    .from('activity_posts')
+    .select('id')
+    .eq('user_id', user.id);
+
+  if (!posts || posts.length === 0) return { totalCount: 0, newCount: 0 };
+
+  const postIds = posts.map(p => p.id);
+
+  // Count total encouragements on user's posts
+  const { count } = await client
+    .from('post_encouragements')
+    .select('id', { count: 'exact', head: true })
+    .in('post_id', postIds);
+
+  const totalCount = count || 0;
+  const newCount = Math.max(0, totalCount - lastSeenCount);
+
+  return { totalCount, newCount };
+}
+
+// ============================================
 // AUTO-SHARE FUNCTIONS
 // ============================================
 
