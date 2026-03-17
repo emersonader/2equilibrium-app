@@ -326,12 +326,19 @@ export async function getActivityFeed(limit: number = 20, offset: number = 0): P
 
   // Fetch public profiles for post authors
   const uniqueUserIds = [...new Set(posts.map(p => p.user_id))];
-  const { data: profiles } = await client
-    .from('public_profiles')
-    .select('user_id, display_name, avatar_url, is_public')
-    .in('user_id', uniqueUserIds);
+  const [{ data: profiles }, { data: privateProfiles }] = await Promise.all([
+    client
+      .from('public_profiles')
+      .select('user_id, display_name, avatar_url, is_public')
+      .in('user_id', uniqueUserIds),
+    client
+      .from('profiles')
+      .select('id, avatar_id')
+      .in('id', uniqueUserIds),
+  ]);
 
   const profileMap = new Map((profiles || []).map(p => [p.user_id, p]));
+  const avatarMap = new Map((privateProfiles || []).map(p => [p.id, p.avatar_id]));
 
   // Get encouragement counts and check if user has encouraged
   const postIds = posts.map(p => p.id);
@@ -363,6 +370,7 @@ export async function getActivityFeed(limit: number = 20, offset: number = 0): P
       ...post,
       display_name: profile?.display_name || 'Wellness Seeker',
       avatar_url: profile?.avatar_url || null,
+      avatar_id: avatarMap.get(post.user_id) ?? null,
       is_public: profile?.is_public ?? true,
       encouragement_count: countMap.get(post.id) || 0,
       has_encouraged: encouragedSet.has(post.id),
@@ -391,12 +399,19 @@ export async function getPublicFeed(limit: number = 20, offset: number = 0): Pro
 
   // Fetch profiles separately
   const uniqueUserIds = [...new Set(posts.map(p => p.user_id))];
-  const { data: profiles } = await client
-    .from('public_profiles')
-    .select('user_id, display_name, avatar_url, is_public')
-    .in('user_id', uniqueUserIds);
+  const [{ data: profiles }, { data: privateProfiles }] = await Promise.all([
+    client
+      .from('public_profiles')
+      .select('user_id, display_name, avatar_url, is_public')
+      .in('user_id', uniqueUserIds),
+    client
+      .from('profiles')
+      .select('id, avatar_id')
+      .in('id', uniqueUserIds),
+  ]);
 
   const profileMap = new Map((profiles || []).map(p => [p.user_id, p]));
+  const avatarMap = new Map((privateProfiles || []).map(p => [p.id, p.avatar_id]));
 
   // Get encouragement counts
   const postIds = posts.map(p => p.id);
@@ -426,6 +441,7 @@ export async function getPublicFeed(limit: number = 20, offset: number = 0): Pro
       ...post,
       display_name: profile?.display_name || 'Wellness Seeker',
       avatar_url: profile?.avatar_url || null,
+      avatar_id: avatarMap.get(post.user_id) ?? null,
       is_public: profile?.is_public ?? true,
       encouragement_count: countMap.get(post.id) || 0,
       has_encouraged: user ? encouragedSet.has(post.id) : false,
@@ -453,12 +469,20 @@ export async function getUserPosts(userId: string, limit: number = 20): Promise<
   if (!posts || posts.length === 0) return [];
 
   // Fetch profile
-  const { data: profiles } = await client
-    .from('public_profiles')
-    .select('user_id, display_name, avatar_url, is_public')
-    .eq('user_id', userId);
+  const [{ data: profiles }, { data: privData }] = await Promise.all([
+    client
+      .from('public_profiles')
+      .select('user_id, display_name, avatar_url, is_public')
+      .eq('user_id', userId),
+    client
+      .from('profiles')
+      .select('id, avatar_id')
+      .eq('id', userId)
+      .maybeSingle(),
+  ]);
 
   const profile = profiles?.[0];
+  const userAvatarId = privData?.avatar_id ?? null;
 
   const postIds = posts.map(p => p.id);
 
@@ -485,6 +509,7 @@ export async function getUserPosts(userId: string, limit: number = 20): Promise<
     ...post,
     display_name: profile?.display_name || 'Wellness Seeker',
     avatar_url: profile?.avatar_url || null,
+    avatar_id: userAvatarId,
     is_public: profile?.is_public ?? true,
     encouragement_count: countMap.get(post.id) || 0,
     has_encouraged: user ? encouragedSet.has(post.id) : false,

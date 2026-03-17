@@ -124,6 +124,7 @@ export default function CommunitySettingsScreen() {
         <View style={styles.previewSection}>
           <UserAvatar
             name={displayName || 'You'}
+            avatarId={currentUser?.avatar_id}
             avatarUrl={myProfile?.avatar_url}
             size="xlarge"
           />

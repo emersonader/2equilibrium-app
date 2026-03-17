@@ -2,9 +2,11 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '@/constants/colors';
 import { Typography } from '@/constants/typography';
+import { getAvatarById, DEFAULT_AVATAR_ID } from '@/constants/avatars';
 
 interface UserAvatarProps {
   name: string;
+  avatarId?: number | null;
   avatarUrl?: string | null;
   size?: 'small' | 'medium' | 'large' | 'xlarge';
   onPress?: () => void;
@@ -44,26 +46,43 @@ function getInitials(name: string): string {
   return name.substring(0, 2).toUpperCase();
 }
 
-export function UserAvatar({ name, avatarUrl, size = 'medium', onPress }: UserAvatarProps) {
+export function UserAvatar({ name, avatarId, avatarUrl, size = 'medium', onPress }: UserAvatarProps) {
   const dimension = getAvatarSize(size);
-  const fontSize = getFontSize(size);
-  const initials = getInitials(name);
 
-  const content = avatarUrl ? (
-    <Image
-      source={{ uri: avatarUrl }}
-      style={[styles.image, { width: dimension, height: dimension, borderRadius: dimension / 2 }]}
-    />
-  ) : (
-    <View
-      style={[
-        styles.initialsContainer,
-        { width: dimension, height: dimension, borderRadius: dimension / 2 },
-      ]}
-    >
-      <Text style={[styles.initials, { fontSize }]}>{initials}</Text>
-    </View>
-  );
+  // Prefer character avatar if avatarId is set
+  const hasCharacterAvatar = avatarId != null && avatarId > 0;
+
+  let content: React.ReactNode;
+
+  if (hasCharacterAvatar) {
+    const avatar = getAvatarById(avatarId);
+    content = (
+      <Image
+        source={avatar.source}
+        style={[styles.image, { width: dimension, height: dimension, borderRadius: dimension / 2 }]}
+      />
+    );
+  } else if (avatarUrl) {
+    content = (
+      <Image
+        source={{ uri: avatarUrl }}
+        style={[styles.image, { width: dimension, height: dimension, borderRadius: dimension / 2 }]}
+      />
+    );
+  } else {
+    const fontSize = getFontSize(size);
+    const initials = getInitials(name);
+    content = (
+      <View
+        style={[
+          styles.initialsContainer,
+          { width: dimension, height: dimension, borderRadius: dimension / 2 },
+        ]}
+      >
+        <Text style={[styles.initials, { fontSize }]}>{initials}</Text>
+      </View>
+    );
+  }
 
   if (onPress) {
     return (
@@ -73,7 +92,7 @@ export function UserAvatar({ name, avatarUrl, size = 'medium', onPress }: UserAv
     );
   }
 
-  return content;
+  return <>{content}</>;
 }
 
 const styles = StyleSheet.create({

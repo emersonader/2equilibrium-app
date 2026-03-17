@@ -719,6 +719,7 @@ export type PostEncouragementInsert = Database['public']['Tables']['post_encoura
 export interface ActivityFeedItem extends ActivityPost {
   display_name: string;
   avatar_url: string | null;
+  avatar_id: number | null;
   is_public: boolean;
   encouragement_count: number;
   has_encouraged: boolean;

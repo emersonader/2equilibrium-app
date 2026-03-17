@@ -116,6 +116,7 @@ export function ActivityCard({
         >
           <UserAvatar
             name={post.display_name}
+            avatarId={post.avatar_id}
             avatarUrl={post.avatar_url}
             size="medium"
           />
@@ -217,6 +218,7 @@ export function ActivityCardCompact({
       >
         <UserAvatar
           name={post.display_name}
+          avatarId={post.avatar_id}
           avatarUrl={post.avatar_url}
           size="small"
         />

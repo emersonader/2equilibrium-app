@@ -16,6 +16,7 @@ import { Card, Button, Badge } from '@/components/ui';
 import { UserAvatar, FollowButton, ActivityCardCompact } from '@/components/community';
 import { useCommunityStore, useUserStore } from '@/stores';
 import * as communityService from '@/services/communityService';
+import { getSupabase } from '@/services/supabase';
 import type { PublicProfile, ActivityFeedItem } from '@/services/database.types';
 
 export default function UserProfileScreen() {
@@ -25,6 +26,7 @@ export default function UserProfileScreen() {
   const { followUser, unfollowUser } = useCommunityStore();
 
   const [profileData, setProfileData] = useState<PublicProfile | null>(null);
+  const [userAvatarId, setUserAvatarId] = useState<number | null>(null);
   const [userPosts, setUserPosts] = useState<ActivityFeedItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isFollowing, setIsFollowing] = useState(false);
@@ -41,6 +43,16 @@ export default function UserProfileScreen() {
     try {
       const profile = await communityService.getPublicProfile(id);
       setProfileData(profile);
+
+      // Fetch avatar_id from profiles table
+      try {
+        const { data: pData } = await getSupabase()
+          .from('profiles')
+          .select('avatar_id')
+          .eq('id', id)
+          .maybeSingle();
+        setUserAvatarId(pData?.avatar_id ?? null);
+      } catch { /* ignore */ }
 
       if (profile) {
         // Load follow status
@@ -176,6 +188,7 @@ export default function UserProfileScreen() {
         <View style={styles.profileHeader}>
           <UserAvatar
             name={profileData.display_name}
+            avatarId={isOwnProfile ? currentUser?.avatar_id : userAvatarId}
             avatarUrl={profileData.avatar_url}
             size="xlarge"
           />

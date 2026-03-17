@@ -194,6 +194,7 @@ export default function CommunityScreen() {
       >
         <UserAvatar
           name={profile?.full_name || 'You'}
+          avatarId={profile?.avatar_id}
           size="small"
         />
         <Text style={styles.createPostPlaceholder}>Share your wellness moment...</Text>
