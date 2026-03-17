@@ -6,6 +6,7 @@ import type { Profile, Subscription, UserProgress } from '@/services/database.ty
 import * as authService from '@/services/authService';
 import * as subscriptionService from '@/services/subscriptionService';
 import * as progressService from '@/services/progressService';
+import i18n from '@/i18n';
 
 interface UserState {
   // Auth state
@@ -18,6 +19,9 @@ interface UserState {
   subscription: Subscription | null;
   progress: UserProgress | null;
 
+  // Language preference
+  language: string;
+
   // Actions
   initialize: () => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
@@ -29,6 +33,7 @@ interface UserState {
   refreshAll: () => Promise<void>;
   updateOnboardingComplete: () => Promise<void>;
   updateAvatarId: (avatarId: number) => Promise<void>;
+  setLanguage: (lang: string) => void;
 }
 
 export const useUserStore = create<UserState>()(
@@ -41,11 +46,18 @@ export const useUserStore = create<UserState>()(
       profile: null,
       subscription: null,
       progress: null,
+      language: 'en',
 
       // Initialize - check for existing session
       initialize: async () => {
         try {
           set({ isLoading: true });
+
+          // Restore saved language
+          const savedLang = get().language;
+          if (savedLang && savedLang !== i18n.language) {
+            i18n.changeLanguage(savedLang);
+          }
 
           if (!supabase) {
             console.log('Supabase not configured, skipping auth check');
@@ -191,6 +203,12 @@ export const useUserStore = create<UserState>()(
           throw error;
         }
       },
+
+      // Set language
+      setLanguage: (lang: string) => {
+        i18n.changeLanguage(lang);
+        set({ language: lang });
+      },
     }),
     {
       name: 'user-storage',
@@ -199,6 +217,7 @@ export const useUserStore = create<UserState>()(
         // Only persist these fields
         isAuthenticated: state.isAuthenticated,
         userId: state.userId,
+        language: state.language,
       }),
     }
   )

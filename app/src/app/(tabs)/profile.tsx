@@ -24,6 +24,7 @@ import { BadgeList } from '@/components/badges';
 import { SocialLinksBar } from '@/components/community';
 import { useUserStore, useProgressStore, useBadgeStore, useNotificationStore, useSubscriptionStore } from '@/stores';
 import { PhaseAvatar, calcPhase } from '@/components/avatar/PhaseAvatar';
+import { LanguagePicker } from '@/components/settings';
 import * as journalService from '@/services/journalService';
 import * as biometricService from '@/services/biometricService';
 import * as journeySummaryService from '@/services/journeySummaryService';
@@ -631,7 +632,7 @@ export default function ProfileScreen() {
                 <View style={styles.settingsDivider} />
               </>
             )}
-
+            <LanguagePicker />
           </Card>
         </View>
 

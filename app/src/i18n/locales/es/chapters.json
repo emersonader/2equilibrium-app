@@ -1,0 +1,496 @@
+{
+  "phases": [
+    {
+      "id": "phase_1",
+      "number": 1,
+      "title": "Fundamento",
+      "subtitle": "Construyendo Tu Base de Bienestar",
+      "description": "En esta fase, establecerás los hábitos fundamentales y la mentalidad para tu camino de bienestar.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_1",
+          "phaseId": "phase_1",
+          "number": 1,
+          "title": "Despertando Tu Camino de Bienestar",
+          "subtitle": "Estableciendo intenciones y ritmos diarios",
+          "description": "Descubre tu 'por qué' y crea una base para un cambio duradero.",
+          "daysRange": { "start": 1, "end": 5 },
+          "color": "#0ABAB5",
+          "icon": "sunny",
+          "quizId": "quiz_chapter_1"
+        },
+        {
+          "id": "chapter_2",
+          "phaseId": "phase_1",
+          "number": 2,
+          "title": "Fundamentos de Nutrición",
+          "subtitle": "Entendiendo la comida como combustible y sanación",
+          "description": "Aprende los principios básicos de la nutrición y cómo nutrir tu cuerpo adecuadamente.",
+          "daysRange": { "start": 6, "end": 10 },
+          "color": "#2ECC71",
+          "icon": "leaf",
+          "quizId": "quiz_chapter_2"
+        },
+        {
+          "id": "chapter_3",
+          "phaseId": "phase_1",
+          "number": 3,
+          "title": "Rituales de Alimentación Consciente",
+          "subtitle": "Cómo comemos importa tanto como qué comemos",
+          "description": "Transforma tu relación con la comida a través de prácticas de alimentación consciente.",
+          "daysRange": { "start": 11, "end": 15 },
+          "color": "#3498DB",
+          "icon": "restaurant",
+          "quizId": "quiz_chapter_3"
+        },
+        {
+          "id": "chapter_4",
+          "phaseId": "phase_1",
+          "number": 4,
+          "title": "Arquitectura de Comidas",
+          "subtitle": "Construyendo comidas equilibradas a lo largo del día",
+          "description": "Crea una estructura de comidas sostenible que apoye tus metas de bienestar.",
+          "daysRange": { "start": 16, "end": 20 },
+          "color": "#9B59B6",
+          "icon": "grid",
+          "quizId": "quiz_chapter_4"
+        },
+        {
+          "id": "chapter_5",
+          "phaseId": "phase_1",
+          "number": 5,
+          "title": "Bases del Movimiento Suave",
+          "subtitle": "El movimiento como autocuidado, no como castigo",
+          "description": "Abraza el movimiento alegre que nutre tu cuerpo y espíritu.",
+          "daysRange": { "start": 21, "end": 25 },
+          "color": "#E67E22",
+          "icon": "walk",
+          "quizId": "quiz_chapter_5"
+        },
+        {
+          "id": "chapter_6",
+          "phaseId": "phase_1",
+          "number": 6,
+          "title": "Mentalidad y Autocompasión",
+          "subtitle": "El trabajo interior que sustenta los cambios exteriores",
+          "description": "Cultiva una mentalidad que apoye tu bienestar de por vida.",
+          "daysRange": { "start": 26, "end": 30 },
+          "color": "#E74C3C",
+          "icon": "heart",
+          "quizId": "quiz_chapter_6"
+        }
+      ]
+    },
+    {
+      "id": "phase_2",
+      "number": 2,
+      "title": "Impulso",
+      "subtitle": "Profundizando Tu Práctica",
+      "description": "Construye sobre tu base con estrategias avanzadas y conocimientos más profundos sobre nutrición y estilo de vida.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_7",
+          "phaseId": "phase_2",
+          "number": 7,
+          "title": "Estrategias Avanzadas de Nutrición",
+          "subtitle": "Preparación de comidas, porciones y sabiduría alimentaria",
+          "description": "Domina la preparación de comidas, el control de porciones y conceptos avanzados de nutrición para una energía sostenida.",
+          "daysRange": { "start": 31, "end": 35 },
+          "color": "#0ABAB5",
+          "icon": "nutrition",
+          "quizId": "quiz_chapter_7"
+        },
+        {
+          "id": "chapter_8",
+          "phaseId": "phase_2",
+          "number": 8,
+          "title": "Dominio del Sueño y el Estrés",
+          "subtitle": "El poder del descanso y el manejo del estrés",
+          "description": "Comprende cómo el sueño y el estrés afectan tu bienestar y aprende técnicas poderosas de manejo.",
+          "daysRange": { "start": 36, "end": 40 },
+          "color": "#2ECC71",
+          "icon": "moon",
+          "quizId": "quiz_chapter_8"
+        },
+        {
+          "id": "chapter_9",
+          "phaseId": "phase_2",
+          "number": 9,
+          "title": "Conciencia Plena y Hábitos",
+          "subtitle": "Construyendo prácticas diarias sostenibles",
+          "description": "Desarrolla una conciencia corporal más profunda, habilidades de alimentación consciente y comprende la psicología de formación de hábitos.",
+          "daysRange": { "start": 41, "end": 45 },
+          "color": "#3498DB",
+          "icon": "eye",
+          "quizId": "quiz_chapter_9"
+        },
+        {
+          "id": "chapter_10",
+          "phaseId": "phase_2",
+          "number": 10,
+          "title": "Relaciones con la Comida",
+          "subtitle": "Cocina saludable y decisiones inteligentes",
+          "description": "Aprende métodos de cocina saludable, haz intercambios inteligentes y comprende el papel de la comida en tu vida.",
+          "daysRange": { "start": 46, "end": 50 },
+          "color": "#9B59B6",
+          "icon": "cafe",
+          "quizId": "quiz_chapter_10"
+        },
+        {
+          "id": "chapter_11",
+          "phaseId": "phase_2",
+          "number": 11,
+          "title": "Rompiendo Patrones",
+          "subtitle": "Superando obstáculos y alimentación emocional",
+          "description": "Aborda la alimentación emocional, supera los estancamientos y desarrolla resiliencia en tu camino de bienestar.",
+          "daysRange": { "start": 51, "end": 55 },
+          "color": "#E67E22",
+          "icon": "shield",
+          "quizId": "quiz_chapter_11"
+        },
+        {
+          "id": "chapter_12",
+          "phaseId": "phase_2",
+          "number": 12,
+          "title": "Movimiento y Energía",
+          "subtitle": "Bases del ejercicio y optimización de energía",
+          "description": "Construye una rutina de ejercicios sostenible, comprende la recuperación y optimiza tus patrones de energía diarios.",
+          "daysRange": { "start": 56, "end": 60 },
+          "color": "#1ABC9C",
+          "icon": "fitness",
+          "quizId": "quiz_chapter_12"
+        }
+      ]
+    },
+    {
+      "id": "phase_3",
+      "number": 3,
+      "title": "Integración",
+      "subtitle": "Haciendo del Bienestar Tu Estilo de Vida",
+      "description": "Integra las prácticas de bienestar profundamente en tu vida diaria con estrategias avanzadas y personalización.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_13",
+          "phaseId": "phase_3",
+          "number": 13,
+          "title": "Diseño de Estilo de Vida",
+          "subtitle": "Optimización del entorno y las rutinas",
+          "description": "Diseña tu entorno y rutinas para apoyar naturalmente las decisiones saludables sin fuerza de voluntad.",
+          "daysRange": { "start": 61, "end": 65 },
+          "color": "#E74C3C",
+          "icon": "compass",
+          "quizId": "quiz_chapter_13"
+        },
+        {
+          "id": "chapter_14",
+          "phaseId": "phase_3",
+          "number": 14,
+          "title": "Estrategias Avanzadas de Alimentación",
+          "subtitle": "Horarios, alimentación social y flexibilidad",
+          "description": "Navega la alimentación social, comer fuera y desarrolla enfoques flexibles que se adapten a tu vida real.",
+          "daysRange": { "start": 66, "end": 70 },
+          "color": "#F39C12",
+          "icon": "time",
+          "quizId": "quiz_chapter_14"
+        },
+        {
+          "id": "chapter_15",
+          "phaseId": "phase_3",
+          "number": 15,
+          "title": "Sabiduría Metabólica",
+          "subtitle": "Hormonas, nutrientes y optimización",
+          "description": "Comprende tu metabolismo, optimiza los horarios de nutrientes y trabaja con los ritmos naturales de tu cuerpo.",
+          "daysRange": { "start": 71, "end": 75 },
+          "color": "#16A085",
+          "icon": "pulse",
+          "quizId": "quiz_chapter_15"
+        },
+        {
+          "id": "chapter_16",
+          "phaseId": "phase_3",
+          "number": 16,
+          "title": "Maestría Mental",
+          "subtitle": "Mentalidad, motivación y pensamiento transformador",
+          "description": "Desarrolla una motivación inquebrantable, supera las barreras mentales y crea cambios de mentalidad duraderos.",
+          "daysRange": { "start": 76, "end": 80 },
+          "color": "#8E44AD",
+          "icon": "bulb",
+          "quizId": "quiz_chapter_16"
+        },
+        {
+          "id": "chapter_17",
+          "phaseId": "phase_3",
+          "number": 17,
+          "title": "Fuerza y Movimiento",
+          "subtitle": "Construyendo tu base física",
+          "description": "Desarrolla fuerza, mejora la calidad del movimiento y crea un estilo de vida activo que te sirva.",
+          "daysRange": { "start": 81, "end": 85 },
+          "color": "#2980B9",
+          "icon": "barbell",
+          "quizId": "quiz_chapter_17"
+        },
+        {
+          "id": "chapter_18",
+          "phaseId": "phase_3",
+          "number": 18,
+          "title": "Sabiduría Corporal",
+          "subtitle": "Comprendiendo tus necesidades únicas",
+          "description": "Escucha a tu cuerpo, comprende la bioindividualidad y personaliza tu enfoque para resultados óptimos.",
+          "daysRange": { "start": 86, "end": 90 },
+          "color": "#27AE60",
+          "icon": "medical",
+          "quizId": "quiz_chapter_18"
+        }
+      ]
+    },
+    {
+      "id": "phase_4",
+      "number": 4,
+      "title": "Maestría",
+      "subtitle": "Conviértete en Tu Propio Experto en Bienestar",
+      "description": "Desarrolla la maestría sobre tu camino de bienestar con conocimientos avanzados y habilidades de autocoaching.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_19",
+          "phaseId": "phase_4",
+          "number": 19,
+          "title": "Resiliencia y Recuperación",
+          "subtitle": "Rebotando más fuerte ante los desafíos",
+          "description": "Construye resiliencia emocional, domina estrategias de recuperación y convierte los retrocesos en avances.",
+          "daysRange": { "start": 91, "end": 95 },
+          "color": "#D35400",
+          "icon": "refresh",
+          "quizId": "quiz_chapter_19"
+        },
+        {
+          "id": "chapter_20",
+          "phaseId": "phase_4",
+          "number": 20,
+          "title": "Inteligencia Nutricional",
+          "subtitle": "Ciencia alimentaria avanzada y aplicación",
+          "description": "Profundiza tus conocimientos nutricionales con superalimentos, suplementos y estrategias avanzadas de alimentación.",
+          "daysRange": { "start": 96, "end": 100 },
+          "color": "#C0392B",
+          "icon": "analytics",
+          "quizId": "quiz_chapter_20"
+        },
+        {
+          "id": "chapter_21",
+          "phaseId": "phase_4",
+          "number": 21,
+          "title": "Maestría en Movimiento",
+          "subtitle": "Fitness avanzado y movimiento funcional",
+          "description": "Domina diferentes modalidades de movimiento, comprende los principios de entrenamiento y optimiza el rendimiento.",
+          "daysRange": { "start": 101, "end": 105 },
+          "color": "#F1C40F",
+          "icon": "flame",
+          "quizId": "quiz_chapter_21"
+        },
+        {
+          "id": "chapter_22",
+          "phaseId": "phase_4",
+          "number": 22,
+          "title": "Energía y Vitalidad",
+          "subtitle": "Optimizando la energía a lo largo de tu vida",
+          "description": "Maximiza tu energía, comprende la fatiga y crea prácticas de vitalidad sostenibles.",
+          "daysRange": { "start": 106, "end": 110 },
+          "color": "#0ABAB5",
+          "icon": "battery-half",
+          "quizId": "quiz_chapter_22"
+        },
+        {
+          "id": "chapter_23",
+          "phaseId": "phase_4",
+          "number": 23,
+          "title": "Armonía Hormonal",
+          "subtitle": "Comprendiendo y apoyando tus hormonas",
+          "description": "Domina la salud hormonal, comprende la leptina y grelina, y apoya los ritmos naturales de tu cuerpo.",
+          "daysRange": { "start": 111, "end": 115 },
+          "color": "#2ECC71",
+          "icon": "sparkles",
+          "quizId": "quiz_chapter_23"
+        },
+        {
+          "id": "chapter_24",
+          "phaseId": "phase_4",
+          "number": 24,
+          "title": "Sistemas Sostenibles",
+          "subtitle": "Construyendo prácticas que duren toda la vida",
+          "description": "Crea sistemas para el éxito a largo plazo, desarrolla habilidades de resolución de problemas y planifica el mantenimiento.",
+          "daysRange": { "start": 116, "end": 120 },
+          "color": "#3498DB",
+          "icon": "checkmark-circle",
+          "quizId": "quiz_chapter_24"
+        }
+      ]
+    },
+    {
+      "id": "phase_5",
+      "number": 5,
+      "title": "Excelencia",
+      "subtitle": "Optimizando Tu Camino Único",
+      "description": "Afina tu enfoque con estrategias de optimización avanzadas y protocolos personalizados.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_25",
+          "phaseId": "phase_5",
+          "number": 25,
+          "title": "Optimización Metabólica",
+          "subtitle": "Metabolismo avanzado y composición corporal",
+          "description": "Optimiza tu metabolismo, comprende la composición corporal y afina tu enfoque nutricional.",
+          "daysRange": { "start": 121, "end": 125 },
+          "color": "#9B59B6",
+          "icon": "rocket",
+          "quizId": "quiz_chapter_25"
+        },
+        {
+          "id": "chapter_26",
+          "phaseId": "phase_5",
+          "number": 26,
+          "title": "Rendimiento y Recuperación",
+          "subtitle": "Rendimiento máximo y recuperación avanzada",
+          "description": "Alcanza el máximo rendimiento físico y mental mientras dominas técnicas avanzadas de recuperación.",
+          "daysRange": { "start": 126, "end": 130 },
+          "color": "#E67E22",
+          "icon": "trophy",
+          "quizId": "quiz_chapter_26"
+        },
+        {
+          "id": "chapter_27",
+          "phaseId": "phase_5",
+          "number": 27,
+          "title": "Medicina de Estilo de Vida",
+          "subtitle": "Prácticas avanzadas de bienestar y longevidad",
+          "description": "Integra principios de medicina de estilo de vida, comprende la longevidad y optimiza para una salud de por vida.",
+          "daysRange": { "start": 131, "end": 135 },
+          "color": "#1ABC9C",
+          "icon": "medical",
+          "quizId": "quiz_chapter_27"
+        },
+        {
+          "id": "chapter_28",
+          "phaseId": "phase_5",
+          "number": 28,
+          "title": "Maestría Ambiental",
+          "subtitle": "Creando tu entorno óptimo de bienestar",
+          "description": "Domina tu entorno físico y social para apoyar tu bienestar óptimo sin esfuerzo.",
+          "daysRange": { "start": 136, "end": 140 },
+          "color": "#E74C3C",
+          "icon": "library",
+          "quizId": "quiz_chapter_28"
+        },
+        {
+          "id": "chapter_29",
+          "phaseId": "phase_5",
+          "number": 29,
+          "title": "Psicología Avanzada",
+          "subtitle": "Dominando el juego mental del bienestar",
+          "description": "Domina estrategias psicológicas avanzadas, supera las barreras restantes y desarrolla una confianza inquebrantable.",
+          "daysRange": { "start": 141, "end": 145 },
+          "color": "#F39C12",
+          "icon": "prism",
+          "quizId": "quiz_chapter_29"
+        },
+        {
+          "id": "chapter_30",
+          "phaseId": "phase_5",
+          "number": 30,
+          "title": "Maestría Personal",
+          "subtitle": "Convirtiéndote en tu propio experto en bienestar",
+          "description": "Alcanza la maestría personal, desarrolla tu protocolo único y prepárate para el éxito a largo plazo.",
+          "daysRange": { "start": 146, "end": 150 },
+          "color": "#16A085",
+          "icon": "star",
+          "quizId": "quiz_chapter_30"
+        }
+      ]
+    },
+    {
+      "id": "phase_6",
+      "number": 6,
+      "title": "Legado",
+      "subtitle": "Viviendo Tu Legado de Bienestar",
+      "description": "Integra el bienestar como un estilo de vida permanente e inspira a otros mientras continúas evolucionando.",
+      "durationDays": 30,
+      "chapters": [
+        {
+          "id": "chapter_31",
+          "phaseId": "phase_6",
+          "number": 31,
+          "title": "Integración al Estilo de Vida",
+          "subtitle": "El bienestar como tu forma natural de vivir",
+          "description": "Integra completamente el bienestar como tu estilo de vida natural, pasando del esfuerzo consciente a la competencia inconsciente.",
+          "daysRange": { "start": 151, "end": 155 },
+          "color": "#8E44AD",
+          "icon": "checkmark-circle",
+          "quizId": "quiz_chapter_31"
+        },
+        {
+          "id": "chapter_32",
+          "phaseId": "phase_6",
+          "number": 32,
+          "title": "Influencia Social",
+          "subtitle": "Manejando presiones e influencias sociales",
+          "description": "Navega los desafíos sociales, establece límites y mantén tu bienestar mientras influyes positivamente en otros.",
+          "daysRange": { "start": 156, "end": 160 },
+          "color": "#2980B9",
+          "icon": "happy",
+          "quizId": "quiz_chapter_32"
+        },
+        {
+          "id": "chapter_33",
+          "phaseId": "phase_6",
+          "number": 33,
+          "title": "Evolución Continua",
+          "subtitle": "Adaptándote y creciendo a lo largo de la vida",
+          "description": "Desarrolla habilidades para la adaptación de por vida, aprendizaje continuo y evolución de tu práctica de bienestar.",
+          "daysRange": { "start": 161, "end": 165 },
+          "color": "#27AE60",
+          "icon": "refresh",
+          "quizId": "quiz_chapter_33"
+        },
+        {
+          "id": "chapter_34",
+          "phaseId": "phase_6",
+          "number": 34,
+          "title": "Liderazgo y Servicio",
+          "subtitle": "Inspirando bienestar en otros",
+          "description": "Usa tu transformación para inspirar y apoyar a otros en sus caminos de bienestar.",
+          "daysRange": { "start": 166, "end": 170 },
+          "color": "#D35400",
+          "icon": "sunny",
+          "quizId": "quiz_chapter_34"
+        },
+        {
+          "id": "chapter_35",
+          "phaseId": "phase_6",
+          "number": 35,
+          "title": "Sabiduría y Reflexión",
+          "subtitle": "Integrando todo lo aprendido",
+          "description": "Reflexiona sobre tu camino, integra todo tu aprendizaje y prepárate para un crecimiento continuo.",
+          "daysRange": { "start": 171, "end": 175 },
+          "color": "#C0392B",
+          "icon": "telescope",
+          "quizId": "quiz_chapter_35"
+        },
+        {
+          "id": "chapter_36",
+          "phaseId": "phase_6",
+          "number": 36,
+          "title": "Tu Legado de Bienestar",
+          "subtitle": "Celebrando tu transformación",
+          "description": "Celebra tu transformación completa y comprométete con tu legado de bienestar de por vida.",
+          "daysRange": { "start": 176, "end": 180 },
+          "color": "#F1C40F",
+          "icon": "diamond",
+          "quizId": "quiz_chapter_36"
+        }
+      ]
+    }
+  ]
+}

@@ -7,6 +7,9 @@ import { BadgeUnlockModal } from '@/components/badges';
 import { useBadgeStore, useNotificationStore } from '@/stores';
 import { addNotificationResponseReceivedListener } from '@/services/notificationService';
 
+// Initialize i18n
+import '@/i18n';
+
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
