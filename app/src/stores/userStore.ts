@@ -28,6 +28,7 @@ interface UserState {
   refreshProgress: () => Promise<void>;
   refreshAll: () => Promise<void>;
   updateOnboardingComplete: () => Promise<void>;
+  updateAvatarId: (avatarId: number) => Promise<void>;
 }
 
 export const useUserStore = create<UserState>()(
@@ -177,6 +178,17 @@ export const useUserStore = create<UserState>()(
           await get().refreshProfile();
         } catch (error) {
           console.error('Failed to update onboarding:', error);
+        }
+      },
+
+      // Update avatar
+      updateAvatarId: async (avatarId: number) => {
+        try {
+          await authService.updateProfile({ avatarId });
+          await get().refreshProfile();
+        } catch (error) {
+          console.error('Failed to update avatar:', error);
+          throw error;
         }
       },
     }),

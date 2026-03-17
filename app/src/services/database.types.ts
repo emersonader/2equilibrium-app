@@ -30,6 +30,7 @@ export interface Database {
           id: string;
           full_name: string | null;
           avatar_url: string | null;
+          avatar_id: number | null;
           onboarding_completed: boolean;
           notification_preferences: Json | null;
           created_at: string;
@@ -39,6 +40,7 @@ export interface Database {
           id: string;
           full_name?: string | null;
           avatar_url?: string | null;
+          avatar_id?: number | null;
           onboarding_completed?: boolean;
           notification_preferences?: Json | null;
           created_at?: string;
@@ -48,6 +50,7 @@ export interface Database {
           id?: string;
           full_name?: string | null;
           avatar_url?: string | null;
+          avatar_id?: number | null;
           onboarding_completed?: boolean;
           notification_preferences?: Json | null;
           updated_at?: string;

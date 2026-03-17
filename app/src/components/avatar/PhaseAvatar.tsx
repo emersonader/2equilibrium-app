@@ -2,11 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import {
   View,
   Image,
+  Pressable,
   StyleSheet,
   Animated,
   Easing,
 } from 'react-native';
 import { Colors } from '@/constants/colors';
+import { getAvatarById, DEFAULT_AVATAR_ID } from '@/constants/avatars';
 
 // ─── Phase config ─────────────────────────────────────────────────────────────
 
@@ -71,27 +73,26 @@ function getPhaseConfig(phase: number): PhaseConfig {
 // ─── Props ────────────────────────────────────────────────────────────────────
 
 export interface PhaseAvatarProps {
-  /** Display name — used as DiceBear seed */
-  name: string;
+  /** Avatar character ID (1-56) */
+  avatarId?: number;
   /** Phase 1–6 (derived from completedLessons / 30) */
   phase: number;
   /** Avatar diameter in pixels (default 64) */
   size?: number;
-  /** Optional DiceBear style slug — defaults to 'adventurer' */
-  avatarStyle?: string;
+  /** Optional onPress handler */
+  onPress?: () => void;
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function PhaseAvatar({
-  name,
+  avatarId,
   phase,
   size = 64,
-  avatarStyle = 'adventurer',
+  onPress,
 }: PhaseAvatarProps) {
   const config = getPhaseConfig(phase);
-  const seed = encodeURIComponent(name || 'user');
-  const avatarUrl = `https://api.dicebear.com/9.x/${avatarStyle}/png?seed=${seed}&size=200`;
+  const avatar = getAvatarById(avatarId ?? DEFAULT_AVATAR_ID);
 
   // Pulse animation
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -153,7 +154,7 @@ export function PhaseAvatar({
     return () => loop.stop();
   }, [config.pulse, config.glowOpacity, glowOpacityAnim]);
 
-  return (
+  const content = (
     <Animated.View
       style={[
         styles.outerRing,
@@ -209,13 +210,23 @@ export function PhaseAvatar({
         }}
       >
         <Image
-          source={{ uri: avatarUrl }}
+          source={avatar.source}
           style={{ width: size, height: size }}
           resizeMode="cover"
         />
       </View>
     </Animated.View>
   );
+
+  if (onPress) {
+    return (
+      <Pressable onPress={onPress} hitSlop={8}>
+        {content}
+      </Pressable>
+    );
+  }
+
+  return content;
 }
 
 /**

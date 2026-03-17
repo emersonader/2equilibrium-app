@@ -170,6 +170,7 @@ export async function getProfile(): Promise<Profile | null> {
 export async function updateProfile(updates: {
   fullName?: string;
   avatarUrl?: string;
+  avatarId?: number;
   onboardingCompleted?: boolean;
   notificationPreferences?: Record<string, unknown>;
 }) {
@@ -178,15 +179,19 @@ export async function updateProfile(updates: {
 
   if (!user) throw new Error('Not authenticated');
 
+  const updateData: Record<string, unknown> = {};
+  if (updates.fullName !== undefined) {
+    updateData.full_name = updates.fullName;
+    updateData.name = updates.fullName;
+  }
+  if (updates.avatarUrl !== undefined) updateData.avatar_url = updates.avatarUrl;
+  if (updates.avatarId !== undefined) updateData.avatar_id = updates.avatarId;
+  if (updates.onboardingCompleted !== undefined) updateData.onboarding_completed = updates.onboardingCompleted;
+  if (updates.notificationPreferences !== undefined) updateData.notification_preferences = updates.notificationPreferences;
+
   const { data, error } = await client
     .from('profiles')
-    .update({
-      full_name: updates.fullName,
-      name: updates.fullName, // Sync with website field
-      avatar_url: updates.avatarUrl,
-      onboarding_completed: updates.onboardingCompleted,
-      notification_preferences: updates.notificationPreferences as Json | undefined,
-    })
+    .update(updateData)
     .eq('id', user.id)
     .select()
     .single();

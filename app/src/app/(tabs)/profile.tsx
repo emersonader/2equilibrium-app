@@ -468,9 +468,10 @@ export default function ProfileScreen() {
         <Card variant="elevated" style={styles.userCard}>
           <View style={styles.userInfo}>
             <PhaseAvatar
-              name={user.name}
+              avatarId={profile?.avatar_id ?? 1}
               phase={calcPhase(completedLessons.length)}
               size={64}
+              onPress={() => router.push('/avatar-picker' as any)}
             />
             <View style={styles.userDetails}>
               <Text style={styles.userName}>{user.name}</Text>

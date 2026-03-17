@@ -61,6 +61,7 @@ export default function RootLayout() {
         <Stack.Screen name="chapter/[id]" />
         <Stack.Screen name="journal-entry/[lessonId]" />
         <Stack.Screen name="badges" options={{ headerShown: false, presentation: 'modal' }} />
+        <Stack.Screen name="avatar-picker" options={{ headerShown: false, presentation: 'modal' }} />
       </Stack>
 
       {/* Global Badge Unlock Modal */}
